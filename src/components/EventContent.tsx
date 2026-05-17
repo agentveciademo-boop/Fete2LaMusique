@@ -17,9 +17,10 @@ const PRICE_LABELS: Record<string, { label: string; className: string }> = {
 interface Props {
   event: Event
   sliderTime: Date
+  onSubgenreClick?: (subgenre: string) => void
 }
 
-export function EventContent({ event, sliderTime }: Props) {
+export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
   const status = getEventStatus(event, sliderTime)
   const priceEntry = PRICE_LABELS[event.price_type]
   const priceLabel = event.price_type === 'paid'
@@ -51,6 +52,26 @@ export function EventContent({ event, sliderTime }: Props) {
           </Badge>
         ))}
       </div>
+
+      {/* Subgenres hashtags */}
+      {event.subgenres.length > 0 && (
+        <div className="flex flex-wrap gap-x-2 gap-y-0.5 -mt-2">
+          {event.subgenres.slice(0, 6).map(sg => (
+            <button
+              key={sg}
+              type="button"
+              onClick={() => onSubgenreClick?.(sg)}
+              disabled={!onSubgenreClick}
+              className="text-xs text-muted-foreground enabled:hover:text-foreground enabled:hover:underline disabled:cursor-default"
+            >
+              #{sg.replace(/\s+/g, '')}
+            </button>
+          ))}
+          {event.subgenres.length > 6 && (
+            <span className="text-xs text-muted-foreground">+{event.subgenres.length - 6}</span>
+          )}
+        </div>
+      )}
 
       {/* Title */}
       <h2 className="text-2xl font-bold leading-tight">{event.title}</h2>
@@ -85,6 +106,26 @@ export function EventContent({ event, sliderTime }: Props) {
         {event.is_outdoor === true  && <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-800 font-medium">🌳 Plein air</span>}
         {event.is_outdoor === false && <span className="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">🏠 En salle</span>}
       </div>
+
+      {/* Source attribution (ODbL obligation for QFAP data) */}
+      {(event.source === 'qfap' || event.source === 'both') && (
+        <p className="text-[10px] text-muted-foreground">
+          Source :{' '}
+          {event.source_url ? (
+            <a href={event.source_url} target="_blank" rel="noopener noreferrer"
+               className="underline underline-offset-2 hover:text-foreground transition-colors">
+              Paris.fr
+            </a>
+          ) : (
+            'Paris.fr'
+          )}{' '}
+          — données sous licence{' '}
+          <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener noreferrer"
+             className="underline underline-offset-2 hover:text-foreground transition-colors">
+            ODbL
+          </a>
+        </p>
+      )}
 
       {/* Description */}
       <p className="text-sm text-muted-foreground leading-relaxed">{event.description}</p>

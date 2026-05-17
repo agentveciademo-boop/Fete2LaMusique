@@ -13,6 +13,7 @@ const sample: Event = {
   start_time: '2026-06-21T20:00:00+02:00',
   end_time:   '2026-06-21T22:00:00+02:00',
   genres: ['jazz', 'rock'],
+  subgenres: [],
   is_outdoor: true,
   price_type: 'free',
   price_detail: null,
@@ -30,15 +31,21 @@ describe('eventsToGeoJSON', () => {
     const geo = eventsToGeoJSON([sample])
     expect(geo.features[0].geometry.coordinates).toEqual([2.37, 48.86])
   })
-  it('start_ts and end_ts are millisecond timestamps for MapLibre filter expressions', () => {
+  it('start_axis and end_axis are session-axis values for MapLibre filter expressions', () => {
     const geo = eventsToGeoJSON([sample])
     const p = geo.features[0].properties as any
-    expect(p.start_ts).toBe(new Date('2026-06-21T20:00:00+02:00').getTime())
-    expect(p.end_ts).toBe(new Date('2026-06-21T22:00:00+02:00').getTime())
+    // 20h on dim 21 session → axis 20; 22h → axis 22
+    expect(p.start_axis).toBe(20)
+    expect(p.end_axis).toBe(22)
   })
   it('genre_primary is the first genre', () => {
     const geo = eventsToGeoJSON([sample])
     expect((geo.features[0].properties as any).genre_primary).toBe('jazz')
+  })
+  it('subgenres array is passed through to feature properties', () => {
+    const withSubs: Event = { ...sample, subgenres: ['salsa', 'bachata'] }
+    const geo = eventsToGeoJSON([withSubs])
+    expect((geo.features[0].properties as any).subgenres).toEqual(['salsa', 'bachata'])
   })
   it('is_outdoor: true → 1, false → 0, null → -1 (numeric for MapLibre filter)', () => {
     const outdoor = eventsToGeoJSON([{ ...sample, is_outdoor: true }])

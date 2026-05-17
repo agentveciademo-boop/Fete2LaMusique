@@ -8,9 +8,10 @@ interface Props {
   event: Event | null
   sliderTime: Date
   onClose: () => void
+  onSubgenreClick?: (subgenre: string) => void
 }
 
-export function EventSheet({ event, sliderTime, onClose }: Props) {
+export function EventSheet({ event, sliderTime, onClose, onSubgenreClick }: Props) {
   return (
     <Drawer.Root
       open={!!event}
@@ -26,7 +27,7 @@ export function EventSheet({ event, sliderTime, onClose }: Props) {
             {event ? `${event.venue_name} — ${event.address}` : ''}
           </Drawer.Description>
           <div className="overflow-y-auto px-4 pb-8 flex-1">
-            {event && <EventContent event={event} sliderTime={sliderTime} />}
+            {event && <EventContent event={event} sliderTime={sliderTime} onSubgenreClick={onSubgenreClick} />}
           </div>
         </Drawer.Content>
       </Drawer.Portal>

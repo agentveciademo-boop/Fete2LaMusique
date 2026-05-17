@@ -14,6 +14,7 @@ const baseEvent: Event = {
   start_time: '2026-06-21T20:00:00+02:00',
   end_time:   '2026-06-21T22:00:00+02:00',
   genres: ['rock'],
+  subgenres: [],
   is_outdoor: true,
   price_type: 'free',
   price_detail: null,

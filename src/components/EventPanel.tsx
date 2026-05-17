@@ -10,9 +10,10 @@ interface Props {
   event: Event | null
   sliderTime: Date
   onClose: () => void
+  onSubgenreClick?: (subgenre: string) => void
 }
 
-export function EventPanel({ event, sliderTime, onClose }: Props) {
+export function EventPanel({ event, sliderTime, onClose, onSubgenreClick }: Props) {
   return (
     <AnimatePresence>
       {event && (
@@ -30,7 +31,7 @@ export function EventPanel({ event, sliderTime, onClose }: Props) {
             </Button>
           </div>
           <div className="p-4 flex-1 overflow-y-auto">
-            <EventContent event={event} sliderTime={sliderTime} />
+            <EventContent event={event} sliderTime={sliderTime} onSubgenreClick={onSubgenreClick} />
           </div>
         </motion.div>
       )}

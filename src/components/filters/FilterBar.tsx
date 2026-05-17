@@ -1,43 +1,67 @@
-import { TimeFilter }   from './TimeFilter'
-import { GenreFilter }  from './GenreFilter'
-import { OutdoorFilter } from './OutdoorFilter'
-import { PriceFilter }  from './PriceFilter'
-import { ResultCount }  from './ResultCount'
+'use client'
+
+import { useState } from 'react'
+import { SlidersHorizontal } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { FilterSheet } from './FilterSheet'
+import { ResultCount } from './ResultCount'
 import type { Filters, OutdoorFilter as OT, PriceFilter as PT } from '@/hooks/useFilters'
-import type { Genre } from '@/types/event'
+import type { Event, Genre } from '@/types/event'
 
 interface Props {
-  sliderMinutes: number
-  sliderTime: Date
   filters: Filters
+  filteredEvents: Event[]
   filteredCount: number
-  onSliderChange: (m: number) => void
-  onSliderReset: () => void
-  onGenres:  (g: Genre[]) => void
-  onOutdoor: (v: OT) => void
-  onPrice:   (v: PT) => void
+  onGenres:    (g: Genre[]) => void
+  onSubgenres: (s: string[]) => void
+  onOutdoor:   (v: OT) => void
+  onPrice:     (v: PT) => void
 }
 
 export function FilterBar(props: Props) {
-  const { sliderMinutes, sliderTime, filters, filteredCount,
-          onSliderChange, onSliderReset, onGenres, onOutdoor, onPrice } = props
+  const { filters, filteredEvents, filteredCount, onGenres, onSubgenres, onOutdoor, onPrice } = props
+  const [open, setOpen] = useState(false)
+
+  const activeCount =
+    filters.genres.length +
+    filters.subgenres.length +
+    (filters.outdoor !== 'all' ? 1 : 0) +
+    (filters.price   !== 'all' ? 1 : 0)
+
   return (
-    <div className="hidden md:flex items-center gap-4 px-4 h-14 bg-white/70 dark:bg-black/70 backdrop-blur border-b border-white/20 overflow-x-auto">
-      <TimeFilter
-        sliderMinutes={sliderMinutes}
-        sliderTime={sliderTime}
-        onChange={onSliderChange}
-        onReset={onSliderReset}
-      />
-      <div className="w-px h-8 bg-border shrink-0" />
-      <GenreFilter   selected={filters.genres}  onChange={onGenres} />
-      <div className="w-px h-8 bg-border shrink-0" />
-      <OutdoorFilter value={filters.outdoor}    onChange={onOutdoor} />
-      <div className="w-px h-8 bg-border shrink-0" />
-      <PriceFilter   value={filters.price}      onChange={onPrice} />
-      <div className="ml-auto shrink-0">
-        <ResultCount count={filteredCount} />
+    <>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/90 border shadow-md text-sm">
+          <ResultCount count={filteredCount} />
+          <span className="w-px h-4 bg-border" />
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => setOpen(true)}
+            className="h-6 px-2 gap-1.5 text-xs"
+          >
+            <SlidersHorizontal className="w-3.5 h-3.5" />
+            Filtres
+            {activeCount > 0 && (
+              <span className="ml-0.5 px-1.5 rounded-full bg-foreground text-background text-[10px] font-semibold">
+                {activeCount}
+              </span>
+            )}
+          </Button>
+        </div>
       </div>
-    </div>
+
+      <FilterSheet
+        open={open}
+        onOpenChange={setOpen}
+        filters={filters}
+        filteredEvents={filteredEvents}
+        filteredCount={filteredCount}
+        onGenres={onGenres}
+        onSubgenres={onSubgenres}
+        onOutdoor={onOutdoor}
+        onPrice={onPrice}
+      />
+    </>
   )
 }
