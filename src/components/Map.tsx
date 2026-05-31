@@ -3,7 +3,7 @@
 import { useRef, useEffect, useCallback, useState } from 'react'
 import MapGL, { Source, Layer, NavigationControl, type MapRef } from 'react-map-gl/maplibre'
 import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
-import type { CircleLayerSpecification, SymbolLayerSpecification } from 'maplibre-gl'
+import type { CircleLayerSpecification, SymbolLayerSpecification, LineLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
 import { GENRE_CONFIG } from '@/data/genres'
@@ -58,6 +58,31 @@ const unclusteredLayer: CircleLayerSpecification = {
   },
 }
 
+// Transit (métro/RER) — casing blanc + ligne couleur officielle. Sous les concerts.
+const transitCasingLayer: LineLayerSpecification = {
+  id: 'transit-casing',
+  type: 'line',
+  source: 'transit',
+  layout: { 'line-join': 'round', 'line-cap': 'round' },
+  paint: {
+    'line-color': '#ffffff',
+    'line-width': ['interpolate', ['linear'], ['zoom'], 10, 3, 16, 7],
+    'line-opacity': 0.5,
+  },
+}
+
+const transitLineLayer: LineLayerSpecification = {
+  id: 'transit-line',
+  type: 'line',
+  source: 'transit',
+  layout: { 'line-join': 'round', 'line-cap': 'round' },
+  paint: {
+    'line-color': ['get', 'color'] as any,
+    'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.5, 16, 4.5],
+    'line-opacity': 0.85,
+  },
+}
+
 const pulseLayer: CircleLayerSpecification = {
   id: 'events-pulse',
   type: 'circle',
@@ -83,7 +108,18 @@ interface Props {
 export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }: Props) {
   const [mapStyle, setMapStyle] = useState(PRIMARY_STYLE)
   const [cursor,   setCursor]   = useState('default')
+  const [showTransit,  setShowTransit]  = useState(false)
+  const [transitData,  setTransitData]  = useState<GeoJSON.FeatureCollection | null>(null)
   const geojson = eventsToGeoJSON(events)
+
+  // Chargement lazy des tracés métro/RER : seulement au 1er affichage du calque.
+  useEffect(() => {
+    if (!showTransit || transitData) return
+    fetch('/data/transit.json', { cache: 'force-cache' })
+      .then(r => r.ok ? r.json() as Promise<GeoJSON.FeatureCollection> : null)
+      .then(d => { if (d) setTransitData(d) })
+      .catch(() => {})
+  }, [showTransit, transitData])
   const rafRef  = useRef<number>(0)
   const sliderTsRef = useRef(sliderTime.getTime())
 
@@ -182,6 +218,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
   const handleMouseLeave = useCallback(() => setCursor('default'), [])
 
   return (
+    <>
     <MapGL
       ref={mapRef as React.RefObject<MapRef>}
       initialViewState={{ longitude: 2.3488, latitude: 48.8534, zoom: 12 }}
@@ -201,6 +238,22 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
       style={{ width: '100%', height: '100%' }}
       attributionControl={false}
     >
+      {/* Tracés métro/RER — sous les concerts (beforeId), masqués tant que le calque est off */}
+      {transitData && (
+        <Source id="transit" type="geojson" data={transitData}>
+          <Layer
+            {...transitCasingLayer}
+            beforeId="events-clusters"
+            layout={{ ...transitCasingLayer.layout, visibility: showTransit ? 'visible' : 'none' }}
+          />
+          <Layer
+            {...transitLineLayer}
+            beforeId="events-clusters"
+            layout={{ ...transitLineLayer.layout, visibility: showTransit ? 'visible' : 'none' }}
+          />
+        </Source>
+      )}
+
       <Source
         id="events"
         type="geojson"
@@ -218,5 +271,20 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
       {/* User location source (injected by UserLocation component via mapRef) */}
       <NavigationControl position="bottom-right" />
     </MapGL>
+
+    {/* Toggle calque métro/RER */}
+    <button
+      type="button"
+      onClick={() => setShowTransit(v => !v)}
+      aria-pressed={showTransit}
+      className={`absolute top-3 left-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
+        showTransit
+          ? 'border-[#FF6B6B] bg-[#FF6B6B] text-white'
+          : 'border-border bg-background/95 text-foreground hover:bg-background'
+      }`}
+    >
+      🚇 Métro / RER
+    </button>
+    </>
   )
 }
