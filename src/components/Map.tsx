@@ -6,17 +6,14 @@ import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
 import type { CircleLayerSpecification, SymbolLayerSpecification, LineLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
-import { GENRE_CONFIG } from '@/data/genres'
-import type { Event, Genre } from '@/types/event'
+import type { Event } from '@/types/event'
 
 const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/liberty'
 const FALLBACK_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_FALLBACK || 'https://tiles.openfreemap.org/styles/liberty'
 
-const GENRE_COLOR_EXPR = [
-  'match', ['get', 'genre_primary'],
-  ...Object.entries(GENRE_CONFIG).flatMap(([genre, cfg]) => [genre, cfg.color]),
-  '#6B7280',
-] as any
+// Couleur unique des concerts. La couleur n'encode pas le genre (souvent multiple) :
+// le filtrage par genre se fait via les pastilles. Évite une couleur trompeuse.
+const CONCERT_COLOR = '#FF6B6B'
 
 const clustersLayer: CircleLayerSpecification = {
   id: 'events-clusters',
@@ -51,7 +48,7 @@ const unclusteredLayer: CircleLayerSpecification = {
   filter: ['!', ['has', 'point_count']],
   paint: {
     'circle-radius': 9,
-    'circle-color': GENRE_COLOR_EXPR,
+    'circle-color': CONCERT_COLOR,
     'circle-stroke-width': 2,
     'circle-stroke-color': '#fff',
     'circle-opacity': 0.95,
@@ -104,7 +101,7 @@ const pulseLayer: CircleLayerSpecification = {
   filter: ['==', 'id', ''],
   paint: {
     'circle-radius': 9,
-    'circle-color': GENRE_COLOR_EXPR,
+    'circle-color': CONCERT_COLOR,
     'circle-stroke-width': 2,
     'circle-stroke-color': '#fff',
     'circle-opacity': 0.95,
