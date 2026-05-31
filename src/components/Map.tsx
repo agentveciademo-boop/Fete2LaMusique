@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useCallback, useState } from 'react'
-import MapGL, { Source, Layer, NavigationControl, type MapRef } from 'react-map-gl/maplibre'
+import MapGL, { Source, Layer, NavigationControl, Popup, type MapRef } from 'react-map-gl/maplibre'
 import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
 import type { CircleLayerSpecification, SymbolLayerSpecification, LineLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
@@ -83,6 +83,20 @@ const transitLineLayer: LineLayerSpecification = {
   },
 }
 
+// Stations métro/RER — petits points, cliquables pour afficher le nom.
+const stationLayer: CircleLayerSpecification = {
+  id: 'transit-stations',
+  type: 'circle',
+  source: 'stations',
+  minzoom: 11,
+  paint: {
+    'circle-radius': ['interpolate', ['linear'], ['zoom'], 11, 2.5, 16, 5],
+    'circle-color': '#ffffff',
+    'circle-stroke-width': 1.5,
+    'circle-stroke-color': '#333333',
+  },
+}
+
 const pulseLayer: CircleLayerSpecification = {
   id: 'events-pulse',
   type: 'circle',
@@ -110,16 +124,29 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
   const [cursor,   setCursor]   = useState('default')
   const [showTransit,  setShowTransit]  = useState(false)
   const [transitData,  setTransitData]  = useState<GeoJSON.FeatureCollection | null>(null)
+  const [stationsData, setStationsData] = useState<GeoJSON.FeatureCollection | null>(null)
+  const [stationPopup, setStationPopup] = useState<{ longitude: number; latitude: number; name: string; lines: string } | null>(null)
   const geojson = eventsToGeoJSON(events)
 
-  // Chargement lazy des tracés métro/RER : seulement au 1er affichage du calque.
+  // Chargement lazy des tracés + stations métro/RER : seulement au 1er affichage du calque.
   useEffect(() => {
-    if (!showTransit || transitData) return
-    fetch('/data/transit.json', { cache: 'force-cache' })
-      .then(r => r.ok ? r.json() as Promise<GeoJSON.FeatureCollection> : null)
-      .then(d => { if (d) setTransitData(d) })
-      .catch(() => {})
-  }, [showTransit, transitData])
+    if (!showTransit) return
+    if (!transitData) {
+      fetch('/data/transit.json', { cache: 'force-cache' })
+        .then(r => r.ok ? r.json() as Promise<GeoJSON.FeatureCollection> : null)
+        .then(d => { if (d) setTransitData(d) })
+        .catch(() => {})
+    }
+    if (!stationsData) {
+      fetch('/data/stations.json', { cache: 'force-cache' })
+        .then(r => r.ok ? r.json() as Promise<GeoJSON.FeatureCollection> : null)
+        .then(d => { if (d) setStationsData(d) })
+        .catch(() => {})
+    }
+  }, [showTransit, transitData, stationsData])
+
+  // Masquer le calque cache aussi le popup de station.
+  useEffect(() => { if (!showTransit) setStationPopup(null) }, [showTransit])
   const rafRef  = useRef<number>(0)
   const sliderTsRef = useRef(sliderTime.getTime())
 
@@ -188,11 +215,21 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
     const map = mapRef.current?.getMap()
     if (!map) return
     const features = map.queryRenderedFeatures(e.point, {
-      layers: ['events-unclustered', 'events-clusters'],
+      layers: ['events-unclustered', 'events-clusters', 'transit-stations'],
     })
     if (!features.length) return
 
     const f = features[0]
+    if (f.layer.id === 'transit-stations') {
+      const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
+      setStationPopup({
+        longitude: coords[0],
+        latitude: coords[1],
+        name: (f.properties?.name as string) ?? 'Station',
+        lines: (f.properties?.lines as string) ?? '',
+      })
+      return
+    }
     if (f.layer.id === 'events-clusters') {
       const clusterId = f.properties?.cluster_id as number
       const source = map.getSource('events') as any
@@ -226,7 +263,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
       maxZoom={18}
       mapStyle={mapStyle}
       cursor={cursor}
-      interactiveLayerIds={['events-unclustered', 'events-clusters']}
+      interactiveLayerIds={['events-unclustered', 'events-clusters', 'transit-stations']}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -252,6 +289,37 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
             layout={{ ...transitLineLayer.layout, visibility: showTransit ? 'visible' : 'none' }}
           />
         </Source>
+      )}
+
+      {/* Stations métro/RER — points cliquables, au-dessus des lignes mais sous les concerts */}
+      {stationsData && (
+        <Source id="stations" type="geojson" data={stationsData}>
+          <Layer
+            {...stationLayer}
+            beforeId="events-clusters"
+            layout={{ visibility: showTransit ? 'visible' : 'none' }}
+          />
+        </Source>
+      )}
+
+      {stationPopup && (
+        <Popup
+          longitude={stationPopup.longitude}
+          latitude={stationPopup.latitude}
+          anchor="bottom"
+          offset={10}
+          closeButton={false}
+          onClose={() => setStationPopup(null)}
+        >
+          <div className="px-1 py-0.5">
+            <div className="text-sm font-semibold text-gray-900">{stationPopup.name}</div>
+            {stationPopup.lines && (
+              <div className="mt-0.5 text-[11px] uppercase tracking-wide text-gray-500">
+                Lignes {stationPopup.lines}
+              </div>
+            )}
+          </div>
+        </Popup>
       )}
 
       <Source
