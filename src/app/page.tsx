@@ -8,6 +8,18 @@ const LINKS = [
     title: 'App',
     description: 'La carte interactive des concerts du 21 juin à Paris.',
   },
+  {
+    href: '/strategie',
+    emoji: '🎯',
+    title: 'Stratégie',
+    description: 'La vision, le positionnement et la ligne du projet.',
+  },
+  {
+    href: '/planning',
+    emoji: '📅',
+    title: 'Planning',
+    description: 'Le planning de la semaine et la route vers le 21 juin.',
+  },
 ]
 
 export default function Home() {
