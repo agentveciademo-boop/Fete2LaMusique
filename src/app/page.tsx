@@ -12,13 +12,13 @@ const LINKS = [
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center bg-gradient-to-b from-[#FFF1F0] via-background to-[#FFF6EE] px-6 py-16 text-center">
+    <main className="flex flex-1 flex-col items-center justify-center bg-[#0d0d0f] bg-linear-to-b from-[#0d0d0f] via-[#0d0d0f] to-[#160e10] px-6 py-16 text-center">
       <span className="mb-6 text-5xl" aria-hidden>🎶</span>
 
-      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+      <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
         Fête de la Musique
       </h1>
-      <p className="mt-3 text-lg text-muted-foreground">
+      <p className="mt-3 text-lg text-neutral-400">
         Paris · 21 juin 2026
       </p>
 
@@ -27,18 +27,18 @@ export default function Home() {
           <Link
             key={href}
             href={href}
-            className="group w-full rounded-2xl border bg-card p-7 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-[#FF6B6B] hover:shadow-md sm:w-72"
+            className="group w-full rounded-2xl border border-[#26262e] bg-[#16161b] p-7 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-[#FF6B6B] hover:bg-[#1d1d24] hover:shadow-lg sm:w-72"
           >
             <span className="text-3xl" aria-hidden>{emoji}</span>
             <h2 className="mt-4 text-xl font-semibold text-[#FF6B6B]">{title}</h2>
-            <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-1.5 text-sm leading-relaxed text-neutral-400">
               {description}
             </p>
           </Link>
         ))}
       </div>
 
-      <footer className="mt-16 text-xs text-muted-foreground">
+      <footer className="mt-16 text-xs text-neutral-600">
         fete2lamusique.paname.ai
       </footer>
     </main>
