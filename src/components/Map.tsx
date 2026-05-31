@@ -214,9 +214,12 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
   const handleClick = useCallback((e: MapLayerMouseEvent) => {
     const map = mapRef.current?.getMap()
     if (!map) return
-    const features = map.queryRenderedFeatures(e.point, {
-      layers: ['events-unclustered', 'events-clusters', 'transit-stations'],
-    })
+    // N'interroger que les layers réellement présents : queryRenderedFeatures
+    // renvoie [] si UN layer listé n'existe pas (ex. 'transit-stations' tant que
+    // le calque métro n'a pas été activé) → sinon tout clic est avalé.
+    const queryLayers = ['events-unclustered', 'events-clusters', 'transit-stations']
+      .filter(id => map.getLayer(id))
+    const features = map.queryRenderedFeatures(e.point, { layers: queryLayers })
     if (!features.length) return
 
     const f = features[0]
@@ -263,7 +266,9 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
       maxZoom={18}
       mapStyle={mapStyle}
       cursor={cursor}
-      interactiveLayerIds={['events-unclustered', 'events-clusters', 'transit-stations']}
+      interactiveLayerIds={stationsData
+        ? ['events-unclustered', 'events-clusters', 'transit-stations']
+        : ['events-unclustered', 'events-clusters']}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
