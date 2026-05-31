@@ -194,18 +194,6 @@ function inferOutdoor(loc: RawEvent['location']): boolean | null {
   return null
 }
 
-const FREE_RE = /\b(gratuit|gratuite|entrée libre|entree libre|libre accès|libre acces|free entry)\b/i
-const PRIX_LIBRE_RE = /\b(prix libre|au chapeau|chapeau|participation libre|donations?)\b/i
-const PAID_RE = /(\b\d{1,3}[\s,.]?\d{0,2}\s*€|\beuros?\b|payant|tarif|billett?erie)/i
-
-function parsePrice(text: string): PriceType {
-  if (!text || !text.trim()) return 'unknown'
-  if (PRIX_LIBRE_RE.test(text)) return 'prix_libre'
-  if (FREE_RE.test(text) && !PAID_RE.test(text)) return 'free'
-  if (PAID_RE.test(text)) return 'paid'
-  return 'unknown'
-}
-
 function stripHtml(s: string): string {
   return s.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ').replace(/\s+/g, ' ').trim()
 }
@@ -348,8 +336,8 @@ async function main(): Promise<void> {
     const genres = normalizeGenres(e.styles ?? e['styles-musicaux'] ?? [], styleLabels, unmapped)
     const subgenres = parseSubgenres(e['autre-styles'] ?? e['autres-styles-musicaux'])
     const isOutdoor = inferOutdoor(e.location)
-    const priceText = `${stripHtml(pickFr(e.longDescription) ?? '')} ${pickFr(e.description) ?? ''} ${pickFr(e.conditions) ?? ''}`
-    const priceType = parsePrice(priceText)
+    // La Fête de la Musique est gratuite par essence : pas d'inférence de prix
+    // (le regex produisait des faux « payant », ex. « Baile da Euro »).
     const title = (pickFr(e.title) ?? '').trim()
     const description = (pickFr(e.description) ?? stripHtml(pickFr(e.longDescription) ?? '')).trim()
     const imageUrl = e.image?.base && e.image.filename ? `${e.image.base}${e.image.filename}` : null
@@ -373,7 +361,7 @@ async function main(): Promise<void> {
         genres,
         subgenres,
         is_outdoor: isOutdoor,
-        price_type: priceType,
+        price_type: 'free',
         price_detail: null,
         description,
         image_url: imageUrl,

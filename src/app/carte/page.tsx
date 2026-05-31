@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import type { MapRef } from 'react-map-gl/maplibre'
 import { Toaster } from '@/components/ui/sonner'
-import { FilterBar }       from '@/components/filters/FilterBar'
+import { GenreBar }        from '@/components/filters/GenreBar'
+import { ResultCount }     from '@/components/filters/ResultCount'
 import { TimeRangeSlider } from '@/components/filters/TimeRangeSlider'
 import { EventPanel }      from '@/components/EventPanel'
 import { EventSheet }      from '@/components/EventSheet'
@@ -29,26 +30,12 @@ export default function Page() {
   }, [])
 
   const {
-    filters, setTimeRange, setGenres, setSubgenres, setOutdoor, setPrice,
+    filters, setTimeRange, setGenres,
     mapFilter, filteredEvents, filteredCount, referenceTime,
   } = useFilters(events)
 
   const userLocation = useUserLocation()
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
-
-  const onSubgenreClick = (sg: string) => {
-    if (!filters.subgenres.includes(sg)) setSubgenres([...filters.subgenres, sg])
-  }
-
-  const filterProps = {
-    filters,
-    filteredEvents,
-    filteredCount,
-    onGenres:    setGenres,
-    onSubgenres: setSubgenres,
-    onOutdoor:   setOutdoor,
-    onPrice:     setPrice,
-  }
 
   return (
     <>
@@ -63,24 +50,26 @@ export default function Page() {
             mapRef={mapRef}
           />
 
+          {/* Genre chips directement sur la carte */}
+          <GenreBar selected={filters.genres} onChange={setGenres} />
+
           {/* Empty state when filters return nothing */}
-          {filteredCount === 0 && (
-            filters.genres.length > 0 || filters.subgenres.length > 0 ||
-            filters.outdoor !== 'all' || filters.price !== 'all'
-          ) && (
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 max-w-[90vw] px-4 py-2 rounded-full bg-background/95 border shadow-lg text-sm text-center">
-              Aucun concert ne correspond à tes filtres.{' '}
+          {filteredCount === 0 && filters.genres.length > 0 && (
+            <div className="absolute top-16 left-1/2 -translate-x-1/2 z-10 max-w-[90vw] px-4 py-2 rounded-full bg-background/95 border shadow-lg text-sm text-center">
+              Aucun concert ne correspond.{' '}
               <button
-                onClick={() => { setGenres([]); setSubgenres([]) }}
+                onClick={() => setGenres([])}
                 className="font-medium underline underline-offset-2 hover:no-underline"
               >
-                Effacer les filtres
+                Effacer
               </button>
             </div>
           )}
 
-          {/* Floating count + Filtres button */}
-          <FilterBar {...filterProps} />
+          {/* Compteur de concerts (flottant, en bas) */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-3 py-1.5 rounded-full bg-background/90 border shadow-md text-sm">
+            <ResultCount count={filteredCount} />
+          </div>
 
           {/* Geolocation button */}
           <UserLocation
@@ -96,7 +85,6 @@ export default function Page() {
             event={selectedEvent}
             sliderTime={referenceTime}
             onClose={() => setSelectedEvent(null)}
-            onSubgenreClick={onSubgenreClick}
           />
         </div>
       </div>
@@ -112,7 +100,6 @@ export default function Page() {
         event={selectedEvent}
         sliderTime={referenceTime}
         onClose={() => setSelectedEvent(null)}
-        onSubgenreClick={onSubgenreClick}
       />
 
       <Toaster />
