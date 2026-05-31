@@ -160,10 +160,16 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
     if (f.layer.id === 'events-clusters') {
       const clusterId = f.properties?.cluster_id as number
       const source = map.getSource('events') as any
-      source?.getClusterExpansionZoom(clusterId, (_err: unknown, zoom: number) => {
-        const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
-        map.flyTo({ center: coords, zoom: zoom ?? map.getZoom() + 2 })
-      })
+      const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
+      // maplibre-gl v5 : getClusterExpansionZoom renvoie une Promise (plus de callback).
+      // Promise.resolve(...) reste robuste quelle que soit la forme retournée.
+      Promise.resolve(source?.getClusterExpansionZoom(clusterId))
+        .then((zoom: number) => {
+          map.easeTo({ center: coords, zoom: (zoom ?? map.getZoom() + 2) + 0.25, duration: 500 })
+        })
+        .catch(() => {
+          map.easeTo({ center: coords, zoom: map.getZoom() + 2, duration: 500 })
+        })
       return
     }
 
