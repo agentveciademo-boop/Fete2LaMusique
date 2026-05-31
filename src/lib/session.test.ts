@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { getSessionDate, toSessionAxis, axisToDate, formatAxisHour } from './session'
+import { getSessionDate, toWeekendAxis, weekendAxisToDate, formatAxisHour } from './session'
 
 describe('getSessionDate — soirée semantics', () => {
   // Sat 23h30 → still belongs to Saturday's evening.
@@ -14,50 +14,48 @@ describe('getSessionDate — soirée semantics', () => {
   it('returns same day for morning (08h Paris)', () => {
     expect(getSessionDate('2026-06-22T08:00:00+02:00')).toBe('2026-06-22')
   })
-  // Sun 15h → same day.
-  it('returns same day for afternoon (15h Paris)', () => {
-    expect(getSessionDate('2026-06-21T15:00:00+02:00')).toBe('2026-06-21')
+})
+
+describe('toWeekendAxis — axe continu 0–48 (origine Sam 00h)', () => {
+  it('Sam 00h → 0', () => {
+    expect(toWeekendAxis('2026-06-20T00:00:00+02:00')).toBeCloseTo(0)
   })
-  // 06h boundary — rule says [06h, 14h] = ce jour.
-  it('treats 06h00 as same-day session', () => {
-    expect(getSessionDate('2026-06-22T06:00:00+02:00')).toBe('2026-06-22')
+  it('Sam 14h → 14', () => {
+    expect(toWeekendAxis('2026-06-20T14:00:00+02:00')).toBeCloseTo(14)
   })
-  // 05h59 just before the rollover → previous day.
-  it('treats 05h59 as previous-day session', () => {
-    expect(getSessionDate('2026-06-22T05:59:00+02:00')).toBe('2026-06-21')
+  it('Dim 00h → 24', () => {
+    expect(toWeekendAxis('2026-06-21T00:00:00+02:00')).toBeCloseTo(24)
+  })
+  it('Dim 15h → 39', () => {
+    expect(toWeekendAxis('2026-06-21T15:00:00+02:00')).toBeCloseTo(39)
+  })
+  it('Dim 20h30 → 44.5', () => {
+    expect(toWeekendAxis('2026-06-21T20:30:00+02:00')).toBeCloseTo(44.5)
+  })
+  it('clamps lundi 02h to TIME_AXIS_MAX (48)', () => {
+    expect(toWeekendAxis('2026-06-22T02:00:00+02:00')).toBe(48)
+  })
+  it('clamps a value before the window to 0', () => {
+    expect(toWeekendAxis('2026-06-19T20:00:00+02:00')).toBe(0)
   })
 })
 
-describe('toSessionAxis — axis 14–30', () => {
-  it('places 15h on session day at 15', () => {
-    expect(toSessionAxis('2026-06-21T15:00:00+02:00', '2026-06-21')).toBeCloseTo(15)
+describe('weekendAxisToDate — inverse anchoring', () => {
+  it('axis 14 → 2026-06-20 14h Paris', () => {
+    expect(weekendAxisToDate(14).toISOString()).toBe('2026-06-20T12:00:00.000Z')
   })
-  it('places 23h on session day at 23', () => {
-    expect(toSessionAxis('2026-06-21T23:00:00+02:00', '2026-06-21')).toBeCloseTo(23)
+  it('axis 39 → 2026-06-21 15h Paris', () => {
+    expect(weekendAxisToDate(39).toISOString()).toBe('2026-06-21T13:00:00.000Z')
   })
-  it('places 02h next day at 26 (anchored on previous evening)', () => {
-    expect(toSessionAxis('2026-06-22T02:00:00+02:00', '2026-06-21')).toBeCloseTo(26)
-  })
-  it('clamps an out-of-window value to TIME_AXIS_MAX', () => {
-    expect(toSessionAxis('2026-06-22T10:00:00+02:00', '2026-06-21')).toBe(30)
+  it('axis 24 → 2026-06-21 00h Paris', () => {
+    expect(weekendAxisToDate(24).toISOString()).toBe('2026-06-20T22:00:00.000Z')
   })
 })
 
-describe('axisToDate — inverse anchoring', () => {
-  it('axis 19 on 2026-06-21 → 2026-06-21 19h Paris', () => {
-    const d = axisToDate('2026-06-21', 19)
-    expect(d.toISOString()).toBe('2026-06-21T17:00:00.000Z')
-  })
-  it('axis 26 on 2026-06-21 → 2026-06-22 02h Paris', () => {
-    const d = axisToDate('2026-06-21', 26)
-    expect(d.toISOString()).toBe('2026-06-22T00:00:00.000Z')
-  })
-})
-
-describe('formatAxisHour', () => {
-  it('formats 14 → "14h"', () => expect(formatAxisHour(14)).toBe('14h'))
-  it('formats 23 → "23h"', () => expect(formatAxisHour(23)).toBe('23h'))
-  it('formats 24 → "00h" (rollover)', () => expect(formatAxisHour(24)).toBe('00h'))
-  it('formats 26 → "02h"', () => expect(formatAxisHour(26)).toBe('02h'))
-  it('formats 30 → "06h"', () => expect(formatAxisHour(30)).toBe('06h'))
+describe('formatAxisHour — day-aware', () => {
+  it('formats 0 → "Sam 00h"', () => expect(formatAxisHour(0)).toBe('Sam 00h'))
+  it('formats 14 → "Sam 14h"', () => expect(formatAxisHour(14)).toBe('Sam 14h'))
+  it('formats 24 → "Dim 00h"', () => expect(formatAxisHour(24)).toBe('Dim 00h'))
+  it('formats 39 → "Dim 15h"', () => expect(formatAxisHour(39)).toBe('Dim 15h'))
+  it('formats 48 → "Dim 24h" (fin de dimanche)', () => expect(formatAxisHour(48)).toBe('Dim 24h'))
 })

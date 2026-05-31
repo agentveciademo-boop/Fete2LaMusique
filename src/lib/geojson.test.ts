@@ -31,12 +31,12 @@ describe('eventsToGeoJSON', () => {
     const geo = eventsToGeoJSON([sample])
     expect(geo.features[0].geometry.coordinates).toEqual([2.37, 48.86])
   })
-  it('start_axis and end_axis are session-axis values for MapLibre filter expressions', () => {
+  it('start_axis and end_axis are absolute weekend-axis values for MapLibre filter expressions', () => {
     const geo = eventsToGeoJSON([sample])
     const p = geo.features[0].properties as any
-    // 20h on dim 21 session → axis 20; 22h → axis 22
-    expect(p.start_axis).toBe(20)
-    expect(p.end_axis).toBe(22)
+    // Dim 21 20h → 24+20 = 44 ; 22h → 46 (axe continu depuis Sam 00h)
+    expect(p.start_axis).toBe(44)
+    expect(p.end_axis).toBe(46)
   })
   it('genre_primary is the first genre', () => {
     const geo = eventsToGeoJSON([sample])

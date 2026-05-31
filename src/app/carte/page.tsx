@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import type { MapRef } from 'react-map-gl/maplibre'
 import { Toaster } from '@/components/ui/sonner'
-import { DateTabs }        from '@/components/DateTabs'
 import { FilterBar }       from '@/components/filters/FilterBar'
 import { TimeRangeSlider } from '@/components/filters/TimeRangeSlider'
 import { EventPanel }      from '@/components/EventPanel'
@@ -14,7 +13,6 @@ import { useFilters }      from '@/hooks/useFilters'
 import { useUserLocation } from '@/hooks/useUserLocation'
 import MOCK_EVENTS from '@/data/mock-events'
 import type { Event } from '@/types/event'
-import type { SessionDate } from '@/lib/festival'
 
 const MapView = dynamic(() => import('@/components/Map').then(m => m.MapView), { ssr: false })
 
@@ -31,7 +29,7 @@ export default function Page() {
   }, [])
 
   const {
-    filters, setSessionDate, setTimeRange, setGenres, setSubgenres, setOutdoor, setPrice,
+    filters, setTimeRange, setGenres, setSubgenres, setOutdoor, setPrice,
     mapFilter, filteredEvents, filteredCount, referenceTime,
   } = useFilters(events)
 
@@ -54,14 +52,8 @@ export default function Page() {
 
   return (
     <>
-      {/* ── Header sticky top (50px) ── */}
-      <DateTabs
-        value={filters.sessionDate as SessionDate | null}
-        onChange={setSessionDate}
-      />
-
-      {/* ── Map area fills space between header and slider ── */}
-      <div className="fixed inset-x-0" style={{ top: 50, bottom: 72 }}>
+      {/* ── Map area fills space between top and slider (une seule carte, sans onglet Sam/Dim) ── */}
+      <div className="fixed inset-x-0" style={{ top: 0, bottom: 72 }}>
         <div className="relative w-full h-full">
           <MapView
             events={filteredEvents}

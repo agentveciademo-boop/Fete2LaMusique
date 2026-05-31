@@ -12,11 +12,11 @@ interface Props {
 }
 
 const TICKS = [
-  { axis: 14, label: '14h' },
-  { axis: 18, label: '18h' },
-  { axis: 22, label: '22h' },
-  { axis: 26, label: '02h' },
-  { axis: 30, label: '06h' },
+  { axis: 0,  label: 'Sam 0h' },
+  { axis: 12, label: 'Sam 12h' },
+  { axis: 24, label: 'Dim 0h' },
+  { axis: 36, label: 'Dim 12h' },
+  { axis: 48, label: 'Dim 24h' },
 ]
 
 const tickLeftPct = (axis: number) =>
@@ -54,8 +54,8 @@ export function TimeRangeSlider({ value, onChange }: Props) {
       style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' }}
     >
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-1.5 shrink-0 text-sm font-semibold tabular-nums w-[3.5rem]">
-          <Clock className="w-4 h-4 text-muted-foreground" aria-hidden />
+        <div className="flex items-center gap-1.5 shrink-0 text-sm font-semibold tabular-nums w-[5rem]">
+          <Clock className="w-4 h-4 shrink-0 text-muted-foreground" aria-hidden />
           {formatAxisHour(local[0])}
         </div>
 
@@ -98,12 +98,12 @@ export function TimeRangeSlider({ value, onChange }: Props) {
           </SliderPrimitive.Control>
         </SliderPrimitive.Root>
 
-        <div className="shrink-0 text-sm font-semibold tabular-nums w-[3rem] text-right">
+        <div className="shrink-0 text-sm font-semibold tabular-nums w-[4.5rem] text-right">
           {formatAxisHour(local[1])}
         </div>
       </div>
 
-      <div className="relative h-3 mt-1 mx-[3rem] sm:mx-[3.5rem]">
+      <div className="relative h-3 mt-1 mx-[5rem]">
         {TICKS.map(t => (
           <span
             key={t.label}
