@@ -7,6 +7,12 @@ import { formatEventTime } from '@/lib/time'
 import { getEventStatus, getSoonLabel, STATUS_LABELS } from '@/lib/status'
 import type { Event } from '@/types/event'
 
+const SOURCE_LABELS: Record<NonNullable<Event['source']>, string> = {
+  openagenda: 'OpenAgenda',
+  qfap: 'Paris.fr',
+  both: 'OpenAgenda + Paris.fr',
+}
+
 const PRICE_LABELS: Record<string, { label: string; className: string }> = {
   free:       { label: 'Gratuit',       className: 'bg-green-100 text-green-800' },
   prix_libre: { label: 'Prix libre',    className: 'bg-yellow-100 text-yellow-800' },
@@ -107,23 +113,27 @@ export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
         {event.is_outdoor === false && <span className="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">🏠 En salle</span>}
       </div>
 
-      {/* Source attribution (ODbL obligation for QFAP data) */}
-      {(event.source === 'qfap' || event.source === 'both') && (
+      {/* Source attribution — affichée pour tous les concerts. ODbL = obligation légale pour les données Paris.fr. */}
+      {event.source && (
         <p className="text-[10px] text-muted-foreground">
           Source :{' '}
           {event.source_url ? (
             <a href={event.source_url} target="_blank" rel="noopener noreferrer"
                className="underline underline-offset-2 hover:text-foreground transition-colors">
-              Paris.fr
+              {SOURCE_LABELS[event.source]}
             </a>
           ) : (
-            'Paris.fr'
-          )}{' '}
-          — données sous licence{' '}
-          <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener noreferrer"
-             className="underline underline-offset-2 hover:text-foreground transition-colors">
-            ODbL
-          </a>
+            SOURCE_LABELS[event.source]
+          )}
+          {(event.source === 'qfap' || event.source === 'both') && (
+            <>
+              {' '}— données sous licence{' '}
+              <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener noreferrer"
+                 className="underline underline-offset-2 hover:text-foreground transition-colors">
+                ODbL
+              </a>
+            </>
+          )}
         </p>
       )}
 
