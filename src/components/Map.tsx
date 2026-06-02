@@ -312,8 +312,14 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       onMouseLeave={handleMouseLeave}
       onStyleData={() => {
         const map = mapRef.current?.getMap()
-        if (!map || !map.getLayer('events-unclustered')) return
-        map.setFilter('events-unclustered', mapFilter as any)
+        if (!map) return
+        // Masquer les POI de transport du fond de carte (arrêts bus / gares / stations) : bruit visuel.
+        if (map.getLayer('poi_transit')) {
+          try { map.setLayoutProperty('poi_transit', 'visibility', 'none') } catch {/* style not ready */}
+        }
+        if (map.getLayer('events-unclustered')) {
+          map.setFilter('events-unclustered', mapFilter as any)
+        }
       }}
       style={{ width: '100%', height: '100%' }}
       attributionControl={false}
