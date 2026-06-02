@@ -347,7 +347,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
       type="button"
       onClick={() => setShowTransit(v => !v)}
       aria-pressed={showTransit}
-      className={`absolute top-3 left-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
+      className={`absolute top-3 right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
         showTransit
           ? 'border-[#FF6B6B] bg-[#FF6B6B] text-white'
           : 'border-border bg-background/95 text-foreground hover:bg-background'
