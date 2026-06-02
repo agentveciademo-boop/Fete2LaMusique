@@ -64,7 +64,7 @@ const transitCasingLayer: LineLayerSpecification = {
   paint: {
     'line-color': '#ffffff',
     'line-width': ['interpolate', ['linear'], ['zoom'], 10, 3, 16, 7],
-    'line-opacity': 0.5,
+    'line-opacity': 0.25,
   },
 }
 
@@ -76,7 +76,7 @@ const transitLineLayer: LineLayerSpecification = {
   paint: {
     'line-color': ['get', 'color'] as any,
     'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.5, 16, 4.5],
-    'line-opacity': 0.85,
+    'line-opacity': 0.43,
   },
 }
 
