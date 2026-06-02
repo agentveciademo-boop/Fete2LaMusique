@@ -30,7 +30,7 @@ export default function Page() {
   }, [])
 
   const {
-    filters, setTimeRange, setGenres,
+    filters, setTimeRange, setGenres, setArrondissements,
     mapFilter, filteredEvents, filteredCount, referenceTime,
   } = useFilters(events)
 
@@ -50,15 +50,20 @@ export default function Page() {
             mapRef={mapRef}
           />
 
-          {/* Genre chips directement sur la carte */}
-          <GenreBar selected={filters.genres} onChange={setGenres} />
+          {/* Filtres (styles + arrondissements) directement sur la carte */}
+          <GenreBar
+            selected={filters.genres}
+            onChange={setGenres}
+            arrondissements={filters.arrondissements}
+            onChangeArr={setArrondissements}
+          />
 
           {/* Empty state when filters return nothing */}
-          {filteredCount === 0 && filters.genres.length > 0 && (
+          {filteredCount === 0 && (filters.genres.length > 0 || filters.arrondissements.length > 0) && (
             <div className="absolute top-16 left-1/2 -translate-x-1/2 z-10 max-w-[90vw] px-4 py-2 rounded-full bg-background/95 border shadow-lg text-sm text-center">
               Aucun concert ne correspond.{' '}
               <button
-                onClick={() => setGenres([])}
+                onClick={() => { setGenres([]); setArrondissements([]) }}
                 className="font-medium underline underline-offset-2 hover:no-underline"
               >
                 Effacer

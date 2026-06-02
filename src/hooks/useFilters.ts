@@ -8,13 +8,14 @@ export type TimeRange = readonly [number, number]
 export interface Filters {
   timeRange: TimeRange    // axe continu 0–48 (Sam 00h → Dim 24h)
   genres:    Genre[]
+  arrondissements: number[]   // 1–20 ; 0 = hors Paris ("Autre"). Vide = tous.
 }
 
 // Par défaut : tout le week-end visible (Sam 00h → Dim 24h), aucun genre filtré.
 const DEFAULT_TIME_RANGE: TimeRange = [TIME_AXIS_MIN, TIME_AXIS_MAX]
 
 function pickInitialFilters(): Filters {
-  return { timeRange: DEFAULT_TIME_RANGE, genres: [] }
+  return { timeRange: DEFAULT_TIME_RANGE, genres: [], arrondissements: [] }
 }
 
 interface MapFilterExpr extends Array<unknown> { 0: string }
@@ -22,8 +23,9 @@ interface MapFilterExpr extends Array<unknown> { 0: string }
 export function useFilters(events: Event[]) {
   const [filters, setFilters] = useState<Filters>(() => pickInitialFilters())
 
-  const setTimeRange = useCallback((v: TimeRange) => setFilters(f => ({ ...f, timeRange: v })), [])
-  const setGenres    = useCallback((v: Genre[])   => setFilters(f => ({ ...f, genres: v })),    [])
+  const setTimeRange       = useCallback((v: TimeRange) => setFilters(f => ({ ...f, timeRange: v })),       [])
+  const setGenres          = useCallback((v: Genre[])   => setFilters(f => ({ ...f, genres: v })),          [])
+  const setArrondissements = useCallback((v: number[])  => setFilters(f => ({ ...f, arrondissements: v })), [])
 
   // Annotate each event with its absolute weekend axis bounds (memoised on events identity).
   const annotated = useMemo(() => events.map(e => ({
@@ -38,6 +40,7 @@ export function useFilters(events: Event[]) {
       // Axis overlap: [start_axis, end_axis] intersects [lo, hi]
       if (end_axis < lo || start_axis > hi) return false
       if (filters.genres.length > 0 && !filters.genres.some(g => e.genres.includes(g))) return false
+      if (filters.arrondissements.length > 0 && !filters.arrondissements.includes(e.arrondissement ?? 0)) return false
       return true
     }).map(a => a.event)
   }, [annotated, filters])
@@ -50,6 +53,9 @@ export function useFilters(events: Event[]) {
     if (filters.genres.length > 0) {
       conditions.push(['any', ...filters.genres.map(g => ['in', g, ['get', 'genres']])])
     }
+    if (filters.arrondissements.length > 0) {
+      conditions.push(['any', ...filters.arrondissements.map(a => ['==', ['get', 'arrondissement'], a])])
+    }
     return conditions as MapFilterExpr
   }, [filters])
 
@@ -58,7 +64,7 @@ export function useFilters(events: Event[]) {
 
   return {
     filters,
-    setTimeRange, setGenres,
+    setTimeRange, setGenres, setArrondissements,
     mapFilter,
     filteredEvents,
     filteredCount: filteredEvents.length,
