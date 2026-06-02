@@ -22,7 +22,7 @@ export function GenreBar({ selected, onChange }: Props) {
   const count = selected.length
 
   return (
-    <div className="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-background/80 to-transparent pt-2 pb-4">
+    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-background/80 to-transparent pt-2 pb-4">
       <div className="px-3">
         {/* Bouton "Filtre" — déplie/replie la liste des styles */}
         <button
@@ -31,7 +31,7 @@ export function GenreBar({ selected, onChange }: Props) {
           aria-expanded={open}
           aria-label="Filtrer par style de musique"
           className={
-            CHIP_BASE +
+            'pointer-events-auto ' + CHIP_BASE +
             (count > 0
               ? ' bg-foreground text-background border-foreground'
               : ' bg-background/95 text-foreground border-border')
@@ -62,7 +62,7 @@ export function GenreBar({ selected, onChange }: Props) {
 
       {/* Liste des styles — visible seulement quand déplié */}
       {open && (
-        <div className="mt-2 flex gap-1.5 overflow-x-auto px-3 scrollbar-none">
+        <div className="pointer-events-auto mt-2 flex gap-1.5 overflow-x-auto px-3 scrollbar-none">
           {/* "Tous" = efface la sélection */}
           <button
             type="button"
