@@ -3,7 +3,7 @@
 import { useRef, useEffect, useCallback, useState } from 'react'
 import MapGL, { Source, Layer, NavigationControl, Popup, type MapRef } from 'react-map-gl/maplibre'
 import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
-import type { CircleLayerSpecification, SymbolLayerSpecification, LineLayerSpecification } from 'maplibre-gl'
+import type { CircleLayerSpecification, SymbolLayerSpecification, LineLayerSpecification, FillLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
 import type { Event } from '@/types/event'
@@ -94,6 +94,22 @@ const stationLayer: CircleLayerSpecification = {
   },
 }
 
+// Contour des arrondissements sélectionnés — léger fill + bordure nette. Sous les concerts.
+const arrFillLayer: FillLayerSpecification = {
+  id: 'arr-fill',
+  type: 'fill',
+  source: 'arrondissements',
+  paint: { 'fill-color': '#FF6B6B', 'fill-opacity': 0.08 },
+}
+
+const arrOutlineLayer: LineLayerSpecification = {
+  id: 'arr-outline',
+  type: 'line',
+  source: 'arrondissements',
+  layout: { 'line-join': 'round', 'line-cap': 'round' },
+  paint: { 'line-color': '#FF6B6B', 'line-width': 2.5, 'line-opacity': 0.9 },
+}
+
 const pulseLayer: CircleLayerSpecification = {
   id: 'events-pulse',
   type: 'circle',
@@ -114,16 +130,21 @@ interface Props {
   sliderTime: Date
   onEventClick: (event: Event) => void
   mapRef: React.RefObject<MapRef | null>
+  selectedArr: number[]
 }
 
-export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }: Props) {
+export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, selectedArr }: Props) {
   const [mapStyle, setMapStyle] = useState(PRIMARY_STYLE)
   const [cursor,   setCursor]   = useState('default')
   const [showTransit,  setShowTransit]  = useState(false)
   const [transitData,  setTransitData]  = useState<GeoJSON.FeatureCollection | null>(null)
   const [stationsData, setStationsData] = useState<GeoJSON.FeatureCollection | null>(null)
+  const [arrData,      setArrData]      = useState<GeoJSON.FeatureCollection | null>(null)
   const [stationPopup, setStationPopup] = useState<{ longitude: number; latitude: number; name: string; lines: string } | null>(null)
   const geojson = eventsToGeoJSON(events)
+
+  // Filtre des contours : uniquement les arrondissements parisiens sélectionnés (0 = "Autre", pas de polygone).
+  const arrFilter: any[] = ['in', ['get', 'c_ar'], ['literal', selectedArr.filter(a => a > 0)]]
 
   // Chargement lazy des tracés + stations métro/RER : seulement au 1er affichage du calque.
   useEffect(() => {
@@ -144,6 +165,26 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
 
   // Masquer le calque cache aussi le popup de station.
   useEffect(() => { if (!showTransit) setStationPopup(null) }, [showTransit])
+
+  // Chargement lazy des contours d'arrondissements : au 1er arrondissement sélectionné.
+  useEffect(() => {
+    if (arrData || selectedArr.length === 0) return
+    fetch('/data/arrondissements.json', { cache: 'force-cache' })
+      .then(r => r.ok ? r.json() as Promise<GeoJSON.FeatureCollection> : null)
+      .then(d => { if (d) setArrData(d) })
+      .catch(() => {})
+  }, [selectedArr, arrData])
+
+  // Mise à jour impérative du filtre des contours (le filtre déclaratif ne se ré-applique
+  // pas toujours sans remount sur maplibre-gl — même contrainte que events-unclustered).
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map || !map.getLayer('arr-outline')) return
+    try {
+      map.setFilter('arr-outline', arrFilter as any)
+      map.setFilter('arr-fill', arrFilter as any)
+    } catch {/* style not ready yet */}
+  }, [selectedArr, arrData, mapRef]) // eslint-disable-line react-hooks/exhaustive-deps
   const rafRef  = useRef<number>(0)
   const sliderTsRef = useRef(sliderTime.getTime())
 
@@ -277,6 +318,14 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef }:
       style={{ width: '100%', height: '100%' }}
       attributionControl={false}
     >
+      {/* Contours des arrondissements sélectionnés — sous les concerts */}
+      {arrData && (
+        <Source id="arrondissements" type="geojson" data={arrData}>
+          <Layer {...arrFillLayer}    beforeId="events-clusters" filter={arrFilter as any} />
+          <Layer {...arrOutlineLayer} beforeId="events-clusters" filter={arrFilter as any} />
+        </Source>
+      )}
+
       {/* Tracés métro/RER — sous les concerts (beforeId), masqués tant que le calque est off */}
       {transitData && (
         <Source id="transit" type="geojson" data={transitData}>

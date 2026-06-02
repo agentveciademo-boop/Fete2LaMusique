@@ -48,6 +48,7 @@ export default function Page() {
             sliderTime={referenceTime}
             onEventClick={setSelectedEvent}
             mapRef={mapRef}
+            selectedArr={filters.arrondissements}
           />
 
           {/* Filtres (styles + arrondissements) directement sur la carte */}
