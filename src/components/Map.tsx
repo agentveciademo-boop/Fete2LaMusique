@@ -15,6 +15,11 @@ const FALLBACK_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_FALLBACK || 'https://ti
 // le filtrage par genre se fait via les pastilles. Évite une couleur trompeuse.
 const CONCERT_COLOR = '#FF6B6B'
 
+// Layers du fond de carte (OpenFreeMap Liberty) qu'on masque pour une carte épurée :
+// - poi_* : icônes/labels des commerces, lieux, et arrêts de transport (bruit visuel)
+// - building-3d : extrusion 3D des bâtiments au zoom — on garde la carte en 2D à plat
+const HIDDEN_BASEMAP_LAYERS = ['poi_r1', 'poi_r7', 'poi_r20', 'poi_transit', 'building-3d']
+
 const clustersLayer: CircleLayerSpecification = {
   id: 'events-clusters',
   type: 'circle',
@@ -313,9 +318,11 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       onStyleData={() => {
         const map = mapRef.current?.getMap()
         if (!map) return
-        // Masquer les POI de transport du fond de carte (arrêts bus / gares / stations) : bruit visuel.
-        if (map.getLayer('poi_transit')) {
-          try { map.setLayoutProperty('poi_transit', 'visibility', 'none') } catch {/* style not ready */}
+        // Carte épurée : masquer les POI (commerces, lieux, arrêts) et les bâtiments 3D du fond de carte.
+        for (const id of HIDDEN_BASEMAP_LAYERS) {
+          if (map.getLayer(id)) {
+            try { map.setLayoutProperty(id, 'visibility', 'none') } catch {/* style not ready */}
+          }
         }
         if (map.getLayer('events-unclustered')) {
           map.setFilter('events-unclustered', mapFilter as any)
