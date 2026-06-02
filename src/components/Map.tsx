@@ -3,7 +3,7 @@
 import { useRef, useEffect, useCallback, useState } from 'react'
 import MapGL, { Source, Layer, NavigationControl, Popup, type MapRef } from 'react-map-gl/maplibre'
 import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
-import type { CircleLayerSpecification, SymbolLayerSpecification, LineLayerSpecification, FillLayerSpecification } from 'maplibre-gl'
+import type { CircleLayerSpecification, LineLayerSpecification, FillLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
 import type { Event } from '@/types/event'
@@ -20,37 +20,10 @@ const CONCERT_COLOR = '#FF6B6B'
 // - building-3d : extrusion 3D des bâtiments au zoom — on garde la carte en 2D à plat
 const HIDDEN_BASEMAP_LAYERS = ['poi_r1', 'poi_r7', 'poi_r20', 'poi_transit', 'building-3d']
 
-const clustersLayer: CircleLayerSpecification = {
-  id: 'events-clusters',
-  type: 'circle',
-  source: 'events',
-  filter: ['has', 'point_count'],
-  paint: {
-    'circle-color': 'rgba(255,255,255,0.85)',
-    'circle-radius': ['step', ['get', 'point_count'], 18, 5, 24, 20, 32],
-    'circle-stroke-width': 2,
-    'circle-stroke-color': '#FF6B6B',
-  },
-}
-
-const clusterCountLayer: SymbolLayerSpecification = {
-  id: 'events-cluster-count',
-  type: 'symbol',
-  source: 'events',
-  filter: ['has', 'point_count'],
-  layout: {
-    'text-field': '{point_count_abbreviated}',
-    'text-size': 13,
-    'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-  },
-  paint: { 'text-color': '#111' },
-}
-
 const unclusteredLayer: CircleLayerSpecification = {
   id: 'events-unclustered',
   type: 'circle',
   source: 'events',
-  filter: ['!', ['has', 'point_count']],
   paint: {
     'circle-radius': 9,
     'circle-color': CONCERT_COLOR,
@@ -260,7 +233,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
     // N'interroger que les layers réellement présents : queryRenderedFeatures
     // renvoie [] si UN layer listé n'existe pas (ex. 'transit-stations' tant que
     // le calque métro n'a pas été activé) → sinon tout clic est avalé.
-    const queryLayers = ['events-unclustered', 'events-clusters', 'transit-stations']
+    const queryLayers = ['events-unclustered', 'transit-stations']
       .filter(id => map.getLayer(id))
     const features = map.queryRenderedFeatures(e.point, { layers: queryLayers })
     if (!features.length) return
@@ -276,22 +249,6 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       })
       return
     }
-    if (f.layer.id === 'events-clusters') {
-      const clusterId = f.properties?.cluster_id as number
-      const source = map.getSource('events') as any
-      const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
-      // maplibre-gl v5 : getClusterExpansionZoom renvoie une Promise (plus de callback).
-      // Promise.resolve(...) reste robuste quelle que soit la forme retournée.
-      Promise.resolve(source?.getClusterExpansionZoom(clusterId))
-        .then((zoom: number) => {
-          map.easeTo({ center: coords, zoom: (zoom ?? map.getZoom() + 2) + 0.25, duration: 500 })
-        })
-        .catch(() => {
-          map.easeTo({ center: coords, zoom: map.getZoom() + 2, duration: 500 })
-        })
-      return
-    }
-
     const eventId = f.properties?.id as string
     const event   = events.find(ev => ev.id === eventId)
     if (event) onEventClick(event)
@@ -310,8 +267,8 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       mapStyle={mapStyle}
       cursor={cursor}
       interactiveLayerIds={stationsData
-        ? ['events-unclustered', 'events-clusters', 'transit-stations']
-        : ['events-unclustered', 'events-clusters']}
+        ? ['events-unclustered', 'transit-stations']
+        : ['events-unclustered']}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -334,8 +291,8 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       {/* Contours des arrondissements sélectionnés — sous les concerts */}
       {arrData && (
         <Source id="arrondissements" type="geojson" data={arrData}>
-          <Layer {...arrFillLayer}    beforeId="events-clusters" filter={arrFilter as any} />
-          <Layer {...arrOutlineLayer} beforeId="events-clusters" filter={arrFilter as any} />
+          <Layer {...arrFillLayer}    beforeId="events-unclustered" filter={arrFilter as any} />
+          <Layer {...arrOutlineLayer} beforeId="events-unclustered" filter={arrFilter as any} />
         </Source>
       )}
 
@@ -344,12 +301,12 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         <Source id="transit" type="geojson" data={transitData}>
           <Layer
             {...transitCasingLayer}
-            beforeId="events-clusters"
+            beforeId="events-unclustered"
             layout={{ ...transitCasingLayer.layout, visibility: showTransit ? 'visible' : 'none' }}
           />
           <Layer
             {...transitLineLayer}
-            beforeId="events-clusters"
+            beforeId="events-unclustered"
             layout={{ ...transitLineLayer.layout, visibility: showTransit ? 'visible' : 'none' }}
           />
         </Source>
@@ -360,7 +317,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         <Source id="stations" type="geojson" data={stationsData}>
           <Layer
             {...stationLayer}
-            beforeId="events-clusters"
+            beforeId="events-unclustered"
             layout={{ visibility: showTransit ? 'visible' : 'none' }}
           />
         </Source>
@@ -390,12 +347,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         id="events"
         type="geojson"
         data={geojson}
-        cluster={true}
-        clusterMaxZoom={14}
-        clusterRadius={50}
       >
-        <Layer {...clustersLayer} />
-        <Layer {...clusterCountLayer} />
         <Layer {...unclusteredLayer} filter={mapFilter as any} />
         <Layer {...pulseLayer} />
       </Source>
