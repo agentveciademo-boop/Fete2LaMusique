@@ -107,5 +107,40 @@ Utilisé pour inférer `is_outdoor` en combinaison avec des heuristiques sur le 
 ## Sources écartées
 
 - **data.culture.gouv.fr** : pas de dataset Fête de la Musique récent
-- **Scraping sortiraparis.com / timeout.fr** : HTML non-structuré, fragile
-- **Île-de-France open data** : mirror partiel d'OpenAgenda, latence supplémentaire
+- **Île-de-France open data** (dataset `evenements-publics-cibul`) : mesuré le 2026-06-03,
+  c'est OpenAgenda ré-agrégé (contient déjà nos events) + du bruit non-musical
+  (Cité des sciences, expos). ~0 concert net-new. Abandonné.
+
+### Scraping sites éditoriaux (sortiraparis, jds.fr, agendaculturel) — mesuré le 2026-06-03
+
+Évaluation « mesure d'abord » avant tout scraper pérenne, base de référence =
+250 events de `public/data/events.json` (OpenAgenda + Que faire à Paris).
+
+| Site | Events FdM trouvés | Net-new réel (vérifié) | Accès |
+|---|---|---|---|
+| **jds.fr** | 17 (fenêtre 20-21 juin) | **1** | OK (JSON-LD `MusicEvent` propre) |
+| **sortiraparis.com** (guide par arrondissement) | 69 | **7** | OK (curl 200, prose à parser) |
+| **agendaculturel.fr** | — | non mesuré | bloqué Cloudflare (403, nécessiterait Playwright) |
+
+**Net-new total mesuré : ~8 concerts** (dont 5 in-scope FdM de rue, et 3 grands
+plateaux institutionnels *sur réservation/invitation* — Orchestre de Paris au Louvre,
+Viva l'Orchestra à Radio France, France Inter à l'Olympia — au scope discutable).
+
+Net-new in-scope confirmés absents de la base :
+- Grand Concert Gospel @ Église Saint-Philippe du Roule (8e) — *jds.fr*
+- Chœur de Pierre (comédies musicales) @ Grand Rex (2e) — *sortiraparis*
+- Jeunes Talents classique @ Archives Nationales (3e) — *sortiraparis*
+- Concerts & DJ set @ Rosa Bonheur sur Seine (7e) — *sortiraparis*
+- Open air Daddy Trance (M. Hoffstadt) @ Hasard Ludique (18e) — *sortiraparis*
+
+**Constat décisif** : même la sélection éditoriale « best-of » de Sortiraparis est
+redondante à ~90 % avec notre base. Et ces sites ne listent que ~70 têtes d'affiche,
+jamais la longue traîne des centaines de petits concerts de rue — précisément ce
+qu'OpenAgenda (soumis par les organisateurs) capture déjà et qu'un scraper éditorial
+ne peut pas ramener.
+
+**Décision (Florian, 2026-06-03)** : net-new ~8 < seuil 15-20 → **ne PAS pérenniser
+de scraper**. Coût/fragilité (HTML cassant, Cloudflare, CGU de sites commerciaux,
+maintenance) disproportionnés à J-16 pour ~8 events dont 3 hors-esprit. On ne touche
+pas aux données (250 events conservés). À ré-évaluer seulement si OpenAgenda + Paris.fr
+se révélaient nettement incomplets à l'approche du jour J.
