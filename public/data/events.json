@@ -1,10 +1,37 @@
 {
-  "generated_at": "2026-05-31T14:42:21.156Z",
-  "source_agenda_uid": 4641572,
-  "event_count": 182,
+  "generated_at": "2026-06-03T10:16:57.211Z",
+  "sources": {
+    "openagenda": 215,
+    "qfap": 41
+  },
+  "event_count": 250,
   "events": [
     {
-      "id": "65803402-0",
+      "id": "qfap-83842-0",
+      "title": "Le Pavillon en fête - 3e édition",
+      "venue_name": "Place Jacques Demy",
+      "address": "Place Jacques Demy 75014 Paris",
+      "arrondissement": 14,
+      "commune": "Paris",
+      "lat": 48.8318024,
+      "lng": 2.327082,
+      "start_time": "2026-06-20T11:00:00+02:00",
+      "end_time": "2026-06-20T20:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/le-pavillon-en-fete-3e-edition-110242",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Le Pavillon en fête revient pour une 3ème édition le samedi 20 juin 2026 ! Pour l'occasion 9 de nos ensembles amateurs résidents, ainsi que 3 groupes partenaires se produiront sur la place Jacques Demy dans le 14ème arrondissement. Chœurs, orchestre d'harmonie et symphonique, Brass Band… Une programmation variée vous attend ! Rendez-vous dès 11h, jusqu'à 20h, deux espaces scéniques se relaient afin de garantir une ambiance musicale continue. Tous les évènements seront gratuits et sans réservation. Programmation · Nos orchestres : L’Harmonie et le Brass Band de La Sirène de Paris · Nos ensembles amateurs en résidence : l’orchestre Ars Fidelis, le Studi Orchestra, l’orchestre Coalescence, le chœur Europa Voce, l’orchestre Tangram, l’orchestre Désinence. · Le Théâtre Silvia Montfort avec leur fanfare La Fanfort · La fanfare et l’orchestre de l’école Larousse du 14 ème · Les élèves du conservatoire du 14 ème des classes de Pierre David On vous attend nombreuses et nombreux !",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/04/17/huge-7d8ed8a4db71becc31b835fa0e185e4b.jpeg"
+    },
+    {
+      "id": "oa-65803402-0",
       "title": "Open Air House",
       "venue_name": "52 rue de lancry",
       "address": "52 rue Lancry 75010 Paris",
@@ -28,7 +55,391 @@
       "image_url": "https://cdn.openagenda.com/main/a2f80990c671466288a93dd3cfb73b2b.base.image.jpg"
     },
     {
-      "id": "65803402-1",
+      "id": "qfap-85568-0",
+      "title": "Festival Soleil Commun 2026 - Mille histoires sous un même ciel",
+      "venue_name": "La Roche",
+      "address": "15 Avenue du Général Leclerc 75014 Paris",
+      "arrondissement": 14,
+      "commune": "Paris",
+      "lat": 48.8323680073174,
+      "lng": 2.33106502440342,
+      "start_time": "2026-06-20T12:00:00+02:00",
+      "end_time": "2026-06-20T22:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/festival-soleil-commun-2026-mille-histoires-sous-un-meme-ciel-112054",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>L'événement est en prix libre : chacun et chacune peut entrer dans le festival avec ou sans don à l'association, en donnant (ou non) le montant de son choix ! Les dons via HelloAsso sont défiscalisés à hauteur de 66% avec reçu fiscal automatique via la plateforme sécurisée.</p>",
+      "description": "☀️ Le festival Soleil Commun - Mille histoires sous un même ciel ☀️ Pour la 6ème édition du festival, anciennement appelé le Reillefugiés Festival et qui prenait place dans son berceau mythique qu'est le Village Reille, l'événement fait peau neuve : nouveau nom, nouveau lieu, nouvelle DA… mais toujours les mêmes valeurs ! Rejoignez-nous pour célébrer le travail extraordinaire des associations qui œuvrent à l'accueil et à l'intégration des personnes primo-arrivantes en France et partout dans le monde. Nous voulons montrer au grand public que cet accueil peut être chaleureux, convivial, festif et créateur de liens 🐜 Le tout, dans un tout nouveau lieu : le tiers-lieu culturel La Roche, dans l'ancien hôpital de La Rochefoucauld (14ème) ! 💛 Au programme, une journée riche en émotions et avec de nombreuses activités : Un village associatif, pour découvrir le 15 associations présentes et leurs actions (plus d'infos à venir par ici) 🎪 Une guinguette associative, avec différentes offres sucrées, salées, avec et sans alcool, tenue par Le Recho 🥪🍻 Des activités sportives, comme du yoga, du fitness et de la boxe, organisées par Yoga Sport With Refugees ⚽ Un atelier Fresque de la Migration, encadré par Kabubu 💛🗺️ Des expositions engagées, par Thanks for Nothing , La Cimade et Qui Conte 🎨 Des concerts de clôture de différents groupes (plus d'infos à venir par ici) 🎷🥳 Et pleins d'autres surprises qui arrivent très vite ! Vous ne voudrez manquer ça pour rien au monde ☀️💛 Pour réserver ta place à un ou plusieurs ateliers (tous sont sur inscription avant le jour J), c'est par ici que ça se passe 👉 inscriptions ateliers 👈 Pour retrouver plus de détails sur les asso présentes au Village Associatif, en apprendre plus sur les artistes ou encore les infos pratiques des activités, ça se passe par ici : clic clic ! 📅 Informations pratiques : Date et heure : Samedi 20 juin 2026, de 12h à 22h Lieu : La Roche, 15 Avenue du Général Leclerc, 75014 Paris Prix : Libre et ouvert à toutes et tous ! Le petit plus ? Si tu passes par HelloAsso pour réserver ta place et en faisant un don, c'est défiscalisé à hauteur de 66% 😉 Tout est expliqué à l'étape suivante ! Pour ne rien rater des actualités du festival, ça se passe par là : clic ici ! On vous attend avec impatience ! ☀️ L'équipe de La Fourmilière 🐜",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/21/huge-eda4fd7817ac7f6d3a1a190e7b42ca6f.jpg"
+    },
+    {
+      "id": "qfap-84832-8",
+      "title": "Concerts des élèves de l'Académie Inter Musicale de Paris",
+      "venue_name": "Square Parc Brassens",
+      "address": "2 place Jacques Marette 75015 Paris",
+      "arrondissement": 15,
+      "commune": "Paris",
+      "lat": 48.832693015613,
+      "lng": 2.30044098678064,
+      "start_time": "2026-06-20T14:00:00+02:00",
+      "end_time": "2026-06-20T16:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concerts-des-eleves-de-l-academie-inter-musicale-de-paris-111267",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Samedi 6 juin 2026 de 14h à 18h Sur terre-plein central face au n° 5 du boulevard Blanqui 75013 Paris Batteries, ensemble musiques actuelles et Atelier Jazz Dimanche 7 juin 2026 de 14h à 18h Square Maurice Gardette 2 Rue du Général Blaise 75011 Paris Ensemble musiques actuelles et Atelier Jazz Samedi 20 juin 2026 de 14h à 16h Square Parc Brassens 2 place Jacques Marette 75015 Paris Ensemble de saxophones, atelier jazz Dimanche 21 juin 2026 de 14h à 16h Square Adolphe Chérioux 260 rue de Vaugirard 75015 Paris Ensemble de clarinettes, chant, chorale, ensemble flutes traversière",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/07/huge-8ce9ef6f0b113ec5ecb4e286d9fdb3fa.png"
+    },
+    {
+      "id": "qfap-84832-9",
+      "title": "Concerts des élèves de l'Académie Inter Musicale de Paris",
+      "venue_name": "Square Parc Brassens",
+      "address": "2 place Jacques Marette 75015 Paris",
+      "arrondissement": 15,
+      "commune": "Paris",
+      "lat": 48.832693015613,
+      "lng": 2.30044098678064,
+      "start_time": "2026-06-20T14:00:00+02:00",
+      "end_time": "2026-06-20T18:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concerts-des-eleves-de-l-academie-inter-musicale-de-paris-111267",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Samedi 6 juin 2026 de 14h à 18h Sur terre-plein central face au n° 5 du boulevard Blanqui 75013 Paris Batteries, ensemble musiques actuelles et Atelier Jazz Dimanche 7 juin 2026 de 14h à 18h Square Maurice Gardette 2 Rue du Général Blaise 75011 Paris Ensemble musiques actuelles et Atelier Jazz Samedi 20 juin 2026 de 14h à 16h Square Parc Brassens 2 place Jacques Marette 75015 Paris Ensemble de saxophones, atelier jazz Dimanche 21 juin 2026 de 14h à 16h Square Adolphe Chérioux 260 rue de Vaugirard 75015 Paris Ensemble de clarinettes, chant, chorale, ensemble flutes traversière",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/07/huge-8ce9ef6f0b113ec5ecb4e286d9fdb3fa.png"
+    },
+    {
+      "id": "qfap-84599-0",
+      "title": "Fête de la musique : scène ouverte",
+      "venue_name": "Bibliothèque Hergé",
+      "address": "2 rue du Département 75019 Paris",
+      "arrondissement": 19,
+      "commune": "Paris",
+      "lat": 48.885013986791,
+      "lng": 2.36723503208125,
+      "start_time": "2026-06-20T14:30:00+02:00",
+      "end_time": "2026-06-20T17:30:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/scene-ouverte-musicale-111028",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Si nécessaire, la bibliothèque met à disposition son piano numérique. En cas d'affluence, chaque passage sera limité à 20 minutes.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/02/huge-f833853dccce0f9610958e86279ae91d.jpg"
+    },
+    {
+      "id": "qfap-71302-11",
+      "title": "Auditions 25-26",
+      "venue_name": "Conservatoire à rayonnement régional de Paris - Ida Rubinstein",
+      "address": "14, rue de Madrid 75008 Paris",
+      "arrondissement": 8,
+      "commune": "Paris",
+      "lat": 48.8785160001733,
+      "lng": 2.32069904092731,
+      "start_time": "2026-06-20T15:00:00+02:00",
+      "end_time": "2026-06-20T16:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/auditions-25-26-92345",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p></p>",
+      "description": "Classe de musique de chambre de Philippe Ferro Mercredi 3 juin, 18h Salle Gabriel Fauré Programme Récital des classes de lied et mélodie et des classes d’accompagnement vocal d’Anne-Marie Podevin Jeudi 4 juin, 19h30 Atelier de recherche et de création pour l’art lyrique (ARCAL) 87 rue des Pyrénées, 75020 Paris Programme Classe de musique de chambre de Paloma Kouider Vendredi 5 juin, 18h30 Salle Gabriel Fauré Programme Audition de la Maîtrise de Paris Atelier de comédie musicale de Morgane Kypriotti Samedi 6 juin, 16h Salle Gabriel Fauré Classe de musique de chambre de Pascal Proust Lundi 8 juin, 17h Salle Gabriel Fauré Programme Classe de musique de chambre de Sébastien Surel Lundi 8 juin, 18h30 Salle Mstislav Rostropovich (107) Classe de musique de chambre de Sébastien Sure l - ANNULÉ Mercredi 10 juin, 19h Salle Gabriel Fauré Classe de violoncelle de Juliette Salmona Mercredi 10 juin, 18h Salle Georges Prêtre (201) Répétition Générale Examens Alto, classe de Vinciane Béranger Jeudi 11 juin, 18h30 Auditorium Marcel Landowski Audition des classes et ateliers de composition musicale de Maël Bailly et Karl Naegelen Samedi 13 juin, 15h30 Salle Olivier Alain Classe de piano de Laurence Oldak Samedi 13 juin, 15h30 Salle Gabriel Fauré Classe de musique de chambre de David Violi Lundi 15 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de violoncelle de Marie-Paule Milone Lundi 15 juin, 17h30 Salle Georges Prêtre (201) Classe de saxophone, Quatuor Isaar Jeudi 18 juin, 12h Salle Mstislav Rostropovitch - 107 Classe de musique de chambre d’Aurélie Bouchard (Bastien Dollinger et Paloma Kouider, remplaçants) Jeudi 18 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de violon de Stéphanie Moraly Jeudi 18 juin, 18h30 Salle Georges Prêtre (201) Classe de trompette de Clément Saunier Jeudi 18 juin, 19h Salle Gabriel Fauré Basses en concert Audition des instruments de basse du département de musiques anciennes et pratiques historiques Vendredi 19 juin, 19h Salle Robert et Gaby Casadesus (301) Atelier Fabriq’ création de Maël Bailly et Karl Naegelen Vendredi 19 juin, 19h Salle Mstislav Rostropovitch - 107 Classe de musique de chambre de Philippe Castaigns Vendredi 19 juin, 19h Salle Gabriel Fauré Samedi 20 juin, 15h Salle Olivier Alain Audition de la Maîtrise de Paris Carte blanche aux élèves de piano maîtrisien Lundi 22 et mardi 23 juin, 17h30 Salle Robert et Gaby Casadesus - 301 Classe de contrebasse de Yann Dubost Mardi 23 juin, 18h Salle Georges Prêtre (201) Classe de violoncelle de Thomas Duran Jeudi 25 juin, 19h Salle Olivier Alain Audition de la Maîtrise de Paris Atelier un par voix d’Olivier Lacoste Jeudi 25 juin, 17h Salle Olivier Alain Examens DSJC Jeudi 25 et vendredi 26 juin, 10h-19h Auditorium Marcel Landowski Classe de piano de Romain Descharmes Vendredi 26 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de harpe de Delphine Benhamou Lundi 29 juin, 17h30 Salle Georges Prêtre (201) Classe de piano de Jérôme Granjon Mardi 30 juin, 19h Salle Gabriel Fauré",
+      "image_url": "https://cdn.paris.fr/qfapv4/2025/09/10/huge-ca46794bcd60f69a830999c685ddad41.jpg"
+    },
+    {
+      "id": "qfap-69084-1",
+      "title": "Samedi, si ça vous dit !",
+      "venue_name": "Conservatoire Municipal Nadia et Lili Boulanger",
+      "address": "17 Rue de Rochechouart 75009 Paris",
+      "arrondissement": 9,
+      "commune": "Paris",
+      "lat": 48.8774719476021,
+      "lng": 2.34458210799778,
+      "start_time": "2026-06-20T15:15:00+02:00",
+      "end_time": "2026-06-20T17:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/samedi-si-ca-vous-dit-89695",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Le Conservatoire Nadia et Lili Boulanger propose une nouvelle édition de « Samedi, si ça vous dit ! » , un rendez-vous musical dédié à l’expression personnelle des élèves. Cette scène ouverte permet à chacun de présenter ses propres compositions ou d’interpréter des œuvres de son choix, dans un cadre bienveillant et stimulant. Les participants seront accompagnés au piano par Gaspard Martin , accompagnateur au conservatoire, qui assure également la coordination de cet événement. Une belle opportunité de découvrir la diversité des talents et des univers musicaux qui animent les élèves. Ces concerts ont lieu à l' Auditorium et en Salle 43 du Conservatoire.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/01/09/huge-2077215725a2a9a795ede93c4a09ebdc.png"
+    },
+    {
+      "id": "qfap-81592-0",
+      "title": "Musique de l'Inde et Improvisation",
+      "venue_name": "Conservatoire à rayonnement régional de Paris - Ida Rubinstein",
+      "address": "14 rue de Madrid 75008 Paris",
+      "arrondissement": 8,
+      "commune": "Paris",
+      "lat": 48.8785160001733,
+      "lng": 2.32069904092731,
+      "start_time": "2026-06-20T15:30:00+02:00",
+      "end_time": "2026-06-20T17:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/musique-de-l-inde-et-improvisation-107941",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>Entrée libre et gratuite dans la limite des places disponibles</p>",
+      "description": "Auditorium Marcel Landowski Musique de l'Inde et Improvisation Restitution des masters classes de musique indienne Ateliers de musique du monde Henri Tournier, flûte bansuri Balakumar Paramalingam, percussions indiennes Caroline Sellier, direction",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/03/18/huge-5b2aaa8fe85c7e86bbd11ab905d96007.jpg"
+    },
+    {
+      "id": "qfap-80787-0",
+      "title": "Concert du quintette de cuivres Q5",
+      "venue_name": "Médiathèque Jean-Pierre Melville",
+      "address": "79 rue Nationale 75013 Paris",
+      "arrondissement": 13,
+      "commune": "Paris",
+      "lat": 48.826787000907,
+      "lng": 2.36644000856506,
+      "start_time": "2026-06-20T16:00:00+02:00",
+      "end_time": "2026-06-20T17:30:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concert-du-quintette-de-cuivres-q5-107121",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>Entrée libre<br></p>",
+      "description": "Assez méconnu du grand public, généralement plus habitué aux harmonies ou aux fanfares, le quintette de cuivre est pourtant une formation reine en musique de chambre classique. Au même titre que son cousin lointain le quatuor à cordes, cette formation est réputée pour être « parfaite » tant par sa tessiture, son timbre et son équilibre. Le quintette de cuivre est généralement constitué de deux trompettes, un cor d’harmonie, un trombone et un tuba. Q5 souhaite rendre accessible la musique classique au plus grand nombre. Ainsi, leur répertoire permet à leur public d’aborder la musique classique occidentale dite savante (Mozart, Bach, Lully, …). Néanmoins, l’inclusion de morceaux “grands publics” dans son répertoire - musique traditionnelle, musique de film, reprises, etc. - permet d’élargir l’audience et de sensibiliser plus de personnes, y compris celles non habituées à la musique dite classique. Ce jeune ensemble international, né en 2019 à Floresti en Roumanie, est composé de : Lucas Brizzi : trompette Walter Mena : trompette Aurélie Verdon : cor Yves Laborde : trombone Jorge Herrera : tuba",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/03/04/huge-a65d5df2a00ff2ff92bab4c7086eb874.jpg"
+    },
+    {
+      "id": "qfap-84089-0",
+      "title": "Concert La Répé(té)thèque : scène ouverte animée par Sylvio Brito",
+      "venue_name": "Médiathèque Hélène Berr",
+      "address": "70 rue de Picpus 75012 Paris",
+      "arrondissement": 12,
+      "commune": "Paris",
+      "lat": 48.8425409974728,
+      "lng": 2.39747702255727,
+      "start_time": "2026-06-20T16:00:00+02:00",
+      "end_time": "2026-06-20T18:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concert-la-repe-te-theque-scene-ouverte-animee-par-sylvio-brito-110504",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Accompagné de sa guitare, le chanteur ouvrira cette session estivale par un set de ses compositions à la croisée d'influences multiples : pop britannique et rock californien pour le côté musique, variété française pour la partie texte, le tout porté par une guitare acoustique aux accents reggae-funk. Sylvio Brito invitera ensuite les artistes amateurs ou confirmés qui le souhaitent à se produire sur la scène.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/04/24/huge-78e82b6502a31f6a7dabe517a99dc8b4.jpg"
+    },
+    {
+      "id": "qfap-85402-1",
+      "title": "Concerts dans les cours d'écoles",
+      "venue_name": "Ecole élémentaire Quatre-Fils",
+      "address": "10, bis rue des Quatre fils 75003 Paris",
+      "arrondissement": 3,
+      "commune": "Paris",
+      "lat": 48.86034,
+      "lng": 2.359989,
+      "start_time": "2026-06-20T16:00:00+02:00",
+      "end_time": "2026-06-20T17:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concerts-dans-les-cours-d-ecoles-111871",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": "<p></p>",
+      "description": "Les samedis 13 et 20 juin 2026, des trios issus de l’Orchestre de chambre de Paris vous donnent rendez-vous dans des cours d'écoles du 3 e , 14 e et 20 e arrondissements, à l'occasion de concerts de musique de chambre. Au programme, des après-midis de partage autour de pièces diverses du répertoire et d'échanges avec les instrumentistes. Samedi 30 mai - 16h - Cour de l’école élémentaire 38, rue de Tourtille, Paris 20 e avec Franck Della Valle (violon), Claire Parruitte (alto) et Sarah Veilhan (violoncelle) REPORTÉ AU 13 JUIN POUR CAUSE : CANICULE (même lieu, même horaire) Samedi 13 juin - 16h - Cour de l’é cole élémentaire 46 , rue Boulard, Paris 14 e avec Jeroen Dupont (violon), Stephie Souppaya (alto) et Livia Stanese (violoncelle). Samedi 20 juin - 16h - Cour de l’école élémentaire 10 bis, rue des Quatre Fils, Paris 3 e avec Tania Passendji (violon), Jossalyn Jensen (alto) et Livia Stanese (violoncelle). Avec le soutien de la Ville de Paris.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/19/huge-147fdcd7989406767d1002546b8b3e7a.jpg"
+    },
+    {
+      "id": "qfap-85213-0",
+      "title": "Concert Geek singers",
+      "venue_name": "Bibliothèque Colette Vivier",
+      "address": "6 rue Fourneyron 75017 Paris",
+      "arrondissement": 17,
+      "commune": "Paris",
+      "lat": 48.8897829963312,
+      "lng": 2.31964300494624,
+      "start_time": "2026-06-20T16:30:00+02:00",
+      "end_time": "2026-06-20T17:30:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concert-geek-singers-111676",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "La bibliothèque Colette Vivier organise un concert qui va réveiller vos souvenirs avec les Geek singers. Cette association parisienne d’une vingtaine d'amatrices et amateurs de chant a été fondée en 2016, reprenant a cappella des musiques de jeux vidéo, de films et d’animés. Super Mario , The Legend of Zelda , Chrono Trigger , Final Fantasy , Donkey Kong , Castlevania , Metroid , Porco Rosso ou Pokémon … Voyagez à travers des arrangements vocaux originaux et la relecture de thèmes iconiques.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/13/huge-28d9137b71d8922c0e4730ea6d361e6f.jpg"
+    },
+    {
+      "id": "qfap-82067-0",
+      "title": "Concert de Racine Diabaté",
+      "venue_name": "Médiathèque Françoise Sagan",
+      "address": "8 rue Léon Schwartzenberg 75010 Paris",
+      "arrondissement": 10,
+      "commune": "Paris",
+      "lat": 48.8754299929717,
+      "lng": 2.35366699395405,
+      "start_time": "2026-06-20T17:00:00+02:00",
+      "end_time": "2026-06-20T18:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concert-de-racine-diabate-108419",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "L'idée du projet était de capter un son venant d'un autre pays et d'une autre culture, celui de la Kora. Et de le transposer dans un environnement hyper-urbain comme celui de Paris. Ici, tout le monde marche, parle à son propre rythme et certains sont effacés par ce mouvement. Beaucoup s'en accommodent, d'autres préfèrent jouer une mélodie qui accompagne la danse du monde, et c'est ce que Racine fait. Dans le métro, sur les terrasses, en marchant. Retrouvez Unfinished Business sur Instagram : @ub75000 Concert gratuit.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/03/20/huge-d7a98a559f7f906d4609e9705ccfc23d.jpeg"
+    },
+    {
+      "id": "qfap-86040-2",
+      "title": "Twingo live show, concerts gratuits par Renault",
+      "venue_name": "Défilé renault®",
+      "address": "53, Champs-Élysées 75008 Paris",
+      "arrondissement": 8,
+      "commune": "Paris",
+      "lat": 48.8701350190072,
+      "lng": 2.30535999047819,
+      "start_time": "2026-06-20T18:00:00+02:00",
+      "end_time": "2026-06-20T22:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/twingo-live-show-concerts-gratuits-par-renault-112580",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Quatre nuits, une icône réinventée et les Champs-Élysées qui vibrent comme jamais. Renault transforme son flagship parisien en scène à ciel ouvert pour célébrer le retour de la Twingo E-Tech électrique : bienvenue au Twingo Live Show, un événement musical et spectaculaire, gratuit et ouvert à tous. Un line-up XXL pour faire groover les Champs. Pop, hip-hop, électro : la crème de la scène française se donne rendez-vous. Disiz et MC Solaar en légendes, Superbus et Miki pour l'énergie pop, Sam Sauvage pour la sensation, Santa pour le flow. Aux platines, des pointures de l'électro tricolore : Kungs, Irène Drésel, Busy P, The Avener, Bon Entendeur, Breakbot… Chaque soirée promet d'être mythique. Un vrai spectacle, pensé comme du music-hall. La direction artistique est signée Manon Savary et Marc Zaffuto, à l'origine des résidences de Kylie Minogue et Christina Aguilera à Las Vegas et du spectacle Fantasma aux Folies Bergère. Leur promesse : un manifeste anti-morosité, construit par tableaux, apparitions et séquences chorégraphiques. Dans la foule défileront les Twingo Showgirls aux costumes inspirés de la carrosserie iconique, les Mascottes Emotion expressives et colorées, la communauté Twingo Feel Good en color block pastel, les Robots Pop tout en chrome et, clou du spectacle, une tribu de grenouilles grandeur nature, acrobates et bondissantes. À vivre et à tester. Entre les shows, trois Twingo Pop Corners plongent les visiteurs dans l'univers de la grenouille préférée des Français, à travers trois générations de la voiture. Des sessions d'essai de la Twingo E-Tech électrique sont également disponibles sur inscription pour les curieux qui veulent prendre le volant de l'icône réinventée. Renseignements Défilé renault®, 53 Champs-Élysées, 75008 Paris Billetterie : https://shotgun.live/fr/venues/renault Ouverture billetterie grand public : 11 mai, 18 mai et 9 juin Dates et horaires : Du jeudi 18 juin au dimanche 21 juin 2026 Tarifs : Gratuit, sur inscription dans la limite des places disponibles",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/28/huge-e803357ae17c0d4c78b4f6d58fd5bdbc.png"
+    },
+    {
+      "id": "qfap-84336-0",
+      "title": "Les petites gueules : Fanfare et RAP",
+      "venue_name": "Mairie du 11e arrondissement",
+      "address": "12 Place Léon Blum 75011 Paris",
+      "arrondissement": 11,
+      "commune": "Paris",
+      "lat": 48.8585009793092,
+      "lng": 2.37952097429871,
+      "start_time": "2026-06-20T18:30:00+02:00",
+      "end_time": "2026-06-20T19:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/les-petites-gueules-fanfare-et-rap-110763",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": "<p>Entrée libre dans la limite des places disponibles</p>",
+      "description": "La classe de fanfare du conservatoire Charles Munch dirigée par Philippe Georges, présente le travail de l'année avec Petite Gueule : Manon Gilbert. Une performance qui allie rap et cuivres. \"Autrice, Compositrice, interprète, Petite Gueule rap’ comme elle parle pour viser en plein cœur. La rappeuse comédienne et musicienne, à la fougue et l’authenticité communicatives, a travaillé toute l’année avec les élèves de la fanfare du conservatoire du 11ème pour préparer un live inédit où pour cette fois Petites Gueules se conjugue au pluriel ! Ça va être grand !\" La date et l'horaire du concert prévu 20/06 sera confirmée ultérieurement",
+      "image_url": "https://cdn.paris.fr/qfapv4/2025/12/08/huge-60f77e43a5e7324b69b39be04801708c.jpg"
+    },
+    {
+      "id": "qfap-85566-0",
+      "title": "Tenir Fête",
+      "venue_name": "Cours du 7e Art",
+      "address": "Cours du 7e Aart 75019 Paris",
+      "arrondissement": 19,
+      "commune": "Paris",
+      "lat": 48.8781711201474,
+      "lng": 2.3868485477929,
+      "start_time": "2026-06-20T18:30:00+02:00",
+      "end_time": "2026-06-20T22:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/tenir-fete-112052",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Pensée comme un dispositif immersif, la pièce déploie les musicien·nes dans la rue pour travailler la réverbération, le délai et les effets de floutage sonore. Elle s’appuie notamment sur des instruments originaux, les Utïs — cloches métalliques ou en bois — dont les résonances évoquent autant certaines écritures répétitives à la Steve Reich que le tintement simple d’un carillon. La forme reste profondément acoustique : les timbres naturels des vents, des percussions et des cordes s’y mêlent sans artifice, faisant dialoguer l’orchestre et les qualités sonores du lieu. Une expérience d’écoute collective où la musique circule, se transforme et enveloppe. Spectacle en extérieur. avec : Antoine Berjeaut, Hector Léna-Schroll, trompettes, Utïs, Hélène Duret, Nicolas Naudet, clarinettes, Utïs, Nicolas Stephan, Camille Maussion, saxophones ténor, Utïs, Selma Namata Doyen, Maxime Rouayroux, batterie, percussion, Utïs, Théo Girard, contrebasse, Utïs, compositions ; et Le Grand Marcel, grand orchestre amateur dirigé par Théo Girard.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/21/huge-3843330475322cfe38d668297fa155f5.jpg"
+    },
+    {
+      "id": "qfap-86057-0",
+      "title": "Lézard • Lova and The Eight Million Dollars • Kairos Bloom",
+      "venue_name": "SUPERSONIC",
+      "address": "9 Rue Biscornet 75012 Paris",
+      "arrondissement": 12,
+      "commune": "Paris",
+      "lat": 48.8502469839762,
+      "lng": 2.36970702296574,
+      "start_time": "2026-06-20T19:00:00+02:00",
+      "end_time": "2026-06-20T23:01:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/lezard-lova-and-the-eight-million-dollars-kairos-bloom-112597",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "LÉZARD (22h30) (Indie disco rock - Ghent, BEL) L’effondrement actuel de la civilisation est toutefois beaucoup plus supportable avec un groove relevé, comme s’en est rapidement aperçu le collectif belge Lézard. Sous la géométrie fonctionnelle de ce quintette bouillonne une frénétique hystérie : un Boogie Wonderland pour les excentriques, les marginaux et les âmes perdues dont on ne peut s’empêcher de faire partie. Grâce à un son élaboré dans l’esprit de Devo, The Contortions, LCD Soundsystem et l’ancêtre belge Telex, Lézard a déjà fait tourner de nombreuses têtes avec ses frasques d’art punk à la mode disco. Le groupe affiche son intelligence pop et criarde comme un costume trois-pièces trop étroit au plus chaud de l’été.Avec l’exercice de voltige Nothing At All et le morceau Coltrane XTC aussi sordide que charmant en guise de salves d’intro, Lézard s’est révélé être une créature qui évolue rapidement. Cette année, le groupe infiltrera de nombreux lieux de prédilection avec ses torrides performances live, tout en s’attelant à l’écriture de nouveaux titres cet automne. https://lezardmusic.bandcamp.com/album/que-se-passe-t-il https://youtu.be/amY6T_QOxWk?si=LcIm3bqCRftsxzsh LOVA AND THE EIGHT MILLION DOLLARS (21h30) (Pop experimental - Nantes, FR) Lova and the eight million dollars est un groupe de pop expérimental mêlant des influences trip hop, psychédéliques et électroniques. Sur fond de boîte à rythme, farfisa, samples et choeurs d’insectes des paroles anglosuédoises causent de bestioles bizarres, de cafetières de renom, de protocoles industriels… Ces sujets sont abordés à travers des images et sensations froides comme une usine abandonnée remplie de métaux conducteurs ou solaires comme la rencontre avec un ver percussionniste qui vous fait visiter sa ville natale. En live, le groupe se compose de Lova Karlsson (chant, synthé, guitare, sampleur), Vassily Mitrecey (boîte à rythme), Jonathan Poulet (basse) et Théo Vincent (guitare, synthé, chant). Les 3 influences : Broadcast, stereolab, le trip hop des 90s https://lova8kxk.bandcamp.com/ https://www.youtube.com/watch?v=mieCKFttmyk KAIROS BLOOM (20H30) (Indie rock - Paris, FR) Naviguant entre indie rock introspectif, post-punk habité et spoken-word fiévreux, Kairos Bloom a sorti à l'été 2025 son dernier EP « Gallica ». Il revient avec une série de singles, dont le dernier en date « Before the Knock », et déploie un nouveau genre de rock, quelque part entre The Strokes, Fontaines D.C., Radiohead et Cosmic Crooner. Les 3 influences : The Strokes, Radiohead Temples https://push.fm/fl/5ojgupvu https://www.youtube.com/@kairosbloom ——————————— Samedi 20 Juin 2026 Entrée gratuite • Ouverture des portes à 19h00 • Happy Hour de 19h à 20h • Si vous êtes témoin ou victime d’une agression, vous pouvez alerter le personnel du bar ou si vous préférez, vous pouvez nous écrire à cette adresse: communication@supersonic-paris.fr",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/28/huge-c536644ee9e43618530bd7bb905084f5.jpeg"
+    },
+    {
+      "id": "oa-65803402-1",
       "title": "Open Air House",
       "venue_name": "52 rue de lancry",
       "address": "52 rue Lancry 75010 Paris",
@@ -52,7 +463,79 @@
       "image_url": "https://cdn.openagenda.com/main/a2f80990c671466288a93dd3cfb73b2b.base.image.jpg"
     },
     {
-      "id": "65803402-2",
+      "id": "qfap-85992-0",
+      "title": "Café-Concert : Wambo",
+      "venue_name": "La Bellevilloise",
+      "address": "19-21 rue Boyer 75020 Paris",
+      "arrondissement": 20,
+      "commune": "Paris",
+      "lat": 48.8684150105661,
+      "lng": 2.39216096810631,
+      "start_time": "2026-06-20T20:00:00+02:00",
+      "end_time": "2026-06-20T22:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/cafe-concert-wambo-112531",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Wambo, chanson française métissée WAMBO (de son vrai nom Manuel Wandji) est un artiste d’origine franco- camerounaise aux multiples facettes : chanteur, compositeur, musicien et producteur.Après une carrière de plus de 15 ans essentiellement tourné vers l’Afrique francophone, il revient avec un album qui met en avant son talent d’auteur en langue française… métissée ! Sortie prévue en 2026.Ses chansons croquent les personnages de notre époque, les sujets de société, l’avenir de notre planète… Sa voix et son timbre particuliers font danser les mots et les sons. Sa musique puise dans ses racines africaines mais aussi dans la pop internationale et le reggae. Entrée libre, réservation conseillée. Un supplément de 2€ par couvert sera demandé en soutien aux artistes.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/27/huge-66b2cb0114cf16ce76a5dea09571fd16.jpeg"
+    },
+    {
+      "id": "qfap-84757-0",
+      "title": "Le Marais Chante… la nature ! Flânerie bucolique à travers chants…",
+      "venue_name": "Église Saint-Germain de Charonne",
+      "address": "4 Place Saint-Blaise 75020 Paris",
+      "arrondissement": 20,
+      "commune": "Paris",
+      "lat": 48.8603009930161,
+      "lng": 2.40372799448843,
+      "start_time": "2026-06-20T21:00:00+02:00",
+      "end_time": "2026-06-20T22:30:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/le-marais-chante-la-nature-flanerie-bucolique-a-travers-chant-111192",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>Participation libre</p>",
+      "description": "Face à une planète fragilisée, alors que la transition climatique et les enjeux écologiques occupent une place centrale dans notre société, Le Marais Chante a choisi cette année de mettre la nature à l’honneur. Depuis toujours, la nature inspire les compositeurs du monde entier. De la musique ancienne aux traditions populaires, du grand répertoire classique aux musiques du monde, elle traverse les siècles et les cultures comme une source inépuisable de création. Théâtre des passions humaines, miroir de nos vanités, espace de contemplation, reflet du divin ou métaphore des élans amoureux et de la jeunesse fugace, la nature occupe une place privilégiée dans le répertoire vocal. Le public sera convié à une véritable promenade bucolique, musicale et littéraire, illustrée par la lecture d’extraits de poésies et de proses faisant écho, eux aussi, à la beauté et aux mystères du monde naturel. Le Marais Chante : un choeur au choeur de Paris ! Fondé en 2000 dans le quartier du Marais à Paris, Le Marais Chante est un chœur qui compte une quarantaine de choristes, de tout âge et tout horizon, dirigé par Xavier Béraud, chanteur et chef de choeur professionnel. Ensemble, ils explorent un vaste répertoire choral principalement a cappella qui franchit les siècles et les frontières. Solidement ancré dans le paysage culturel du 3ᵉ arrondissement, le chœur s’investit régulièrement dans la vie locale. Des \"Journées Nomades\" à \"La Musique avant toute chose\", des \"Fêtes des Jardins\" à \"Côté cour, côté chœur\", il contribue à faire vibrer le quartier au rythme du chant choral.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/05/huge-08aa5418cb90f237f49ff208ac71e548.jpg"
+    },
+    {
+      "id": "qfap-83017-0",
+      "title": "L'OPEN MIC / JAM VOCALE DE RAPHAEL & VALENTIN",
+      "venue_name": "Le Baiser Salé",
+      "address": "58 Rue des Lombards 75001 Paris",
+      "arrondissement": 1,
+      "commune": "Paris",
+      "lat": 48.8598354,
+      "lng": 2.3478728,
+      "start_time": "2026-06-20T23:30:00+02:00",
+      "end_time": "2026-06-20T01:00:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/l-open-mic-jam-vocale-de-raphael-valentin-109401",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Le Club ouvre ses portes à une jam vocale d’enfer animée par deux musiciens d’exception : Raphaël Berrien à la guitare et Valentin Caillon au piano et à la voix. Le rendez-vous à ne pas manquer tous les samedis à partir de minuit !",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/04/07/huge-0d4e9d69d6d3d355e82ec1d36edd17e6.jpeg"
+    },
+    {
+      "id": "oa-65803402-2",
       "title": "Open Air House",
       "venue_name": "52 rue de lancry",
       "address": "52 rue Lancry 75010 Paris",
@@ -76,7 +559,7 @@
       "image_url": "https://cdn.openagenda.com/main/a2f80990c671466288a93dd3cfb73b2b.base.image.jpg"
     },
     {
-      "id": "65803402-3",
+      "id": "oa-65803402-3",
       "title": "Open Air House",
       "venue_name": "52 rue de lancry",
       "address": "52 rue Lancry 75010 Paris",
@@ -100,7 +583,31 @@
       "image_url": "https://cdn.openagenda.com/main/a2f80990c671466288a93dd3cfb73b2b.base.image.jpg"
     },
     {
-      "id": "83963688-0",
+      "id": "qfap-86380-0",
+      "title": "Fête de la musique 2026 : toute la programmation",
+      "venue_name": "",
+      "address": "",
+      "arrondissement": null,
+      "commune": "",
+      "lat": 48.856578,
+      "lng": 2.351828,
+      "start_time": "2026-06-21T08:00:00+02:00",
+      "end_time": "2026-06-21T01:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-2026-toute-la-programmation-112921",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "En cas de fortes chaleurs Pensez à vous équiper : chapeau, tenue légère, crème solaire et surtout, munissez-vous d’eau pour rester bien hydraté tout au long de la journée. Adoptez les bons gestes ! Organisée dans tout l'Hexagone depuis 1982, la Fête de la musique est l'une des plus belles fêtes populaires mêlant tous les styles de musique, du jazz au rap, en passant par le rock, l'électro ou encore le classique. Les rues de Paris s'animent lors de cette soirée magique, placée sous le signe de la découverte et de la déambulation mélomaniaque ! Découvrez le programme ci-dessous !",
+      "image_url": "https://cdn.paris.fr/qfapv4/2024/04/12/huge-771c6d9d27668c3e03c2c80790620204.jpg"
+    },
+    {
+      "id": "oa-83963688-0",
       "title": "Dovblef4ce",
       "venue_name": "Le144 quai de Jemmapes",
       "address": "144 Quai de Jemmapes",
@@ -130,7 +637,33 @@
       "image_url": "https://cdn.openagenda.com/main/c4a3ba97d90542e1ad88b5268129fe02.base.image.jpg"
     },
     {
-      "id": "47618319-0",
+      "id": "oa-29119835-0",
+      "title": "Les Sons de l’Été Brésilien",
+      "venue_name": "Farm Rio - Marais",
+      "address": "56 Rue Vieille du Temple, 75003 Paris",
+      "arrondissement": 3,
+      "commune": "Paris",
+      "lat": 48.858861,
+      "lng": 2.35916,
+      "start_time": "2026-06-21T09:00:00+02:00",
+      "end_time": "2026-06-21T11:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29119835",
+      "genres": [
+        "soul-funk",
+        "classique",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Venez célébrer l’esprit du Brésil avec une performance live d’une violoniste brésilienne, inspirée des rythmes et de l’énergie de l’été à Rio.",
+      "image_url": "https://cdn.openagenda.com/main/1ff694899e724bb39aed132814ae475e.base.image.jpg"
+    },
+    {
+      "id": "oa-47618319-0",
       "title": "Food & Musique au Le Bistro De Longchamp",
       "venue_name": "Le Bistro De Longchamp Paris",
       "address": "40 Rue de longchamp 75116 Paris",
@@ -156,7 +689,33 @@
       "image_url": "https://cdn.openagenda.com/main/d392bf5104c544f8b2a37bb773d096ec.base.image.jpg"
     },
     {
-      "id": "65803402-4",
+      "id": "oa-58743067-0",
+      "title": "Portes ouvertes en musique à l'Assemblée nationale",
+      "venue_name": "Assemblée nationale",
+      "address": "33 quai d'Orsay 75007 Paris",
+      "arrondissement": 7,
+      "commune": "Paris",
+      "lat": 48.862565,
+      "lng": 2.318293,
+      "start_time": "2026-06-21T09:30:00+02:00",
+      "end_time": "2026-06-21T17:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/58743067",
+      "genres": [
+        "chorale",
+        "fanfare",
+        "classique"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "L’ Assemblée nationale vous ouvre grand ses portes les samedi 20 et dimanche 21 juin !",
+      "image_url": "https://cdn.openagenda.com/main/e57d1eab6c914d02aaa36c96c3f71130.base.image.jpg"
+    },
+    {
+      "id": "oa-65803402-4",
       "title": "Open Air House",
       "venue_name": "52 rue de lancry",
       "address": "52 rue Lancry 75010 Paris",
@@ -180,7 +739,31 @@
       "image_url": "https://cdn.openagenda.com/main/a2f80990c671466288a93dd3cfb73b2b.base.image.jpg"
     },
     {
-      "id": "4617095-0",
+      "id": "qfap-85592-0",
+      "title": "Foliephonies fête la musique Square Gardette Paris 11",
+      "venue_name": "Square Maurice Gardette",
+      "address": "2 rue du Général-Blaise 75011 Paris",
+      "arrondissement": 11,
+      "commune": "Paris",
+      "lat": 48.8610849943296,
+      "lng": 2.379072961574,
+      "start_time": "2026-06-21T09:45:00+02:00",
+      "end_time": "2026-06-21T13:45:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/foliephonies-fete-la-musique-square-gardette-paris-11-112078",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "le choeur Foliephonies propose un concert de chants à cappella dans le cadre de kiosque en fête le dimanche 21 juin 2026 de 9:30 à 13:45 . Des moments conviviaux de partage avec le public seront proposés ( chants partagés, goûter ) entrée gratuite L",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/21/huge-e3ffdd86a71e1aea1a2080fefab693b5.jpg"
+    },
+    {
+      "id": "oa-4617095-0",
       "title": "Inauguration de la Place des Beaux-Sons d’Aubervilliers par la Compagnie Décor Sonore",
       "venue_name": "Rues Emma Chenu et Julie-Victoire Daubié d'Aubervilliers",
       "address": "rue Emma Chenu",
@@ -205,7 +788,7 @@
       "image_url": "https://cdn.openagenda.com/main/c2e9785f1405494b8ba2dbca7c411976.base.image.jpg"
     },
     {
-      "id": "32266265-0",
+      "id": "oa-32266265-0",
       "title": "Wine, Food and Music",
       "venue_name": "Les caves de Reuilly",
       "address": "11 boulevard de Reuilly Paris",
@@ -230,7 +813,7 @@
       "image_url": "https://cdn.openagenda.com/main/71496acdea5142e3b86dffcd6e29febb.base.image.jpg"
     },
     {
-      "id": "43530795-0",
+      "id": "oa-43530795-0",
       "title": "Plateau Culture Rapide",
       "venue_name": "Place Fréhel 75020",
       "address": "103 rue julien lacroix 75020",
@@ -262,7 +845,36 @@
       "image_url": "https://cdn.openagenda.com/main/ca6e22a4f48b49edad3a011add945dcf.base.image.jpg"
     },
     {
-      "id": "23756996-0",
+      "id": "oa-67465503-0",
+      "title": "Sabiá fête la musique, le street art et le Brésil",
+      "venue_name": "26 Rue des jardins Saint-Paul - Paris",
+      "address": "26 Rue des Jardins Saint-Paul Paris",
+      "arrondissement": 4,
+      "commune": "Paris",
+      "lat": 48.853839,
+      "lng": 2.361031,
+      "start_time": "2026-06-21T11:30:00+02:00",
+      "end_time": "2026-06-21T12:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67465503",
+      "genres": [
+        "soul-funk",
+        "rap",
+        "world",
+        "autres"
+      ],
+      "subgenres": [
+        "Bresil"
+      ],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "DJ set Brésil sur la terrasse de Sabiá Arte & Cultura, nouveau lieu culturel brésilien de la place parisienne.",
+      "image_url": "https://cdn.openagenda.com/main/2ce38c08bfab4a7c82fdd727078839d7.base.image.jpg"
+    },
+    {
+      "id": "oa-23756996-0",
       "title": "Pentagon x Roasted Agency",
       "venue_name": "Square Jules Ferry",
       "address": "1 boulevard Jules Ferry 75011 Paris",
@@ -286,7 +898,33 @@
       "image_url": "https://cdn.openagenda.com/main/35416010cd6849a2a8209042d356e9d8.base.image.jpg"
     },
     {
-      "id": "5071653-0",
+      "id": "oa-29119835-1",
+      "title": "Les Sons de l’Été Brésilien",
+      "venue_name": "Farm Rio - Marais",
+      "address": "56 Rue Vieille du Temple, 75003 Paris",
+      "arrondissement": 3,
+      "commune": "Paris",
+      "lat": 48.858861,
+      "lng": 2.35916,
+      "start_time": "2026-06-21T12:00:00+02:00",
+      "end_time": "2026-06-21T15:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29119835",
+      "genres": [
+        "soul-funk",
+        "classique",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Venez célébrer l’esprit du Brésil avec une performance live d’une violoniste brésilienne, inspirée des rythmes et de l’énergie de l’été à Rio.",
+      "image_url": "https://cdn.openagenda.com/main/1ff694899e724bb39aed132814ae475e.base.image.jpg"
+    },
+    {
+      "id": "oa-5071653-0",
       "title": "PAAFclash2.0",
       "venue_name": "5 rue Jean Poulmarch, 75010 Paris",
       "address": "5 rue Jean Poulmarch, 75010 Paris",
@@ -310,7 +948,60 @@
       "image_url": "https://cdn.openagenda.com/main/e868566acf004c4f8996a06fb0e64e3b.base.image.jpg"
     },
     {
-      "id": "21929520-0",
+      "id": "qfap-84139-0",
+      "title": "COOKIE RECORDS fête la musique dans la parc des Buttes-Chaumont",
+      "venue_name": "PAVILLON PUEBLA",
+      "address": "Parc Des Buttes-Chaumont l Avenue Darcel 75019 Paris",
+      "arrondissement": 19,
+      "commune": "Paris",
+      "lat": 48.8772968299931,
+      "lng": 2.3794955736947,
+      "start_time": "2026-06-21T12:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/cookie-records-fete-la-musique-dans-le-parc-des-buttes-chaumont-110557",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "ENTRÉE GRATUITE Comme chaque année, on célèbre la musique, l'arrivée de l'été et le jour le plus long dans le parc le plus cool de Paris ! 2 scènes seront montées sur les 2 terrasses arborées du Pavillon Puebla, logé au coeur des Buttes Chaumont. Jauge limitée, le billet ne garantit pas l'entrée (venez tôt) Line up SCÈNE 1 (15h - 00h) : soon SCÈNE 2 (13h - 23h) : soon RAMÈNE DE L'AMOUR On vous encourage à venir avec un (petit) cadeau que vous pourrez donner à : - un·e inconnu·e du dancefloor - un·e artiste - un·e membre du staff (sécurité, bar, cuisine, régie lumière, régie son) INFOS PRATIQUES Dans le parc des Buttes Chaumont, au niveau de l'Avenue Darcel, 75019 Paris Quand le parc est fermé, l’accès au pavillon se fait par la grille face au 39 av. Simon Bolivar Jauge limitée : le billet shotgun ne garantit pas l'accès au lieu",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/04/23/huge-74f80c58b13c9652d7b77aaa43b38412.jpg"
+    },
+    {
+      "id": "oa-67465503-1",
+      "title": "Sabiá fête la musique, le street art et le Brésil",
+      "venue_name": "26 Rue des jardins Saint-Paul - Paris",
+      "address": "26 Rue des Jardins Saint-Paul Paris",
+      "arrondissement": 4,
+      "commune": "Paris",
+      "lat": 48.853839,
+      "lng": 2.361031,
+      "start_time": "2026-06-21T12:30:00+02:00",
+      "end_time": "2026-06-21T16:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67465503",
+      "genres": [
+        "soul-funk",
+        "rap",
+        "world",
+        "autres"
+      ],
+      "subgenres": [
+        "Bresil"
+      ],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "DJ set Brésil sur la terrasse de Sabiá Arte & Cultura, nouveau lieu culturel brésilien de la place parisienne.",
+      "image_url": "https://cdn.openagenda.com/main/2ce38c08bfab4a7c82fdd727078839d7.base.image.jpg"
+    },
+    {
+      "id": "oa-21929520-0",
       "title": "Musique au Jardin d'hiver",
       "venue_name": "Musée national Jean Jacques Henner",
       "address": "43 Avenue de Villiers, 75017 Paris",
@@ -334,7 +1025,7 @@
       "image_url": "https://cdn.openagenda.com/main/0198d659d9ca45cfa8c8f9239a6b5f3b.base.image.jpg"
     },
     {
-      "id": "65803402-5",
+      "id": "oa-65803402-5",
       "title": "Open Air House",
       "venue_name": "52 rue de lancry",
       "address": "52 rue Lancry 75010 Paris",
@@ -358,7 +1049,7 @@
       "image_url": "https://cdn.openagenda.com/main/a2f80990c671466288a93dd3cfb73b2b.base.image.jpg"
     },
     {
-      "id": "69642003-0",
+      "id": "oa-69642003-0",
       "title": "Les Punks Parisiens prennent l'air - 4",
       "venue_name": "Spot 13",
       "address": "Rue Jean-Baptiste Berlier - 75013 Paris",
@@ -385,7 +1076,7 @@
       "image_url": "https://cdn.openagenda.com/main/f63d62acedd64675ad9a985f4750a71a.base.image.jpg"
     },
     {
-      "id": "21929520-1",
+      "id": "oa-21929520-1",
       "title": "Musique au Jardin d'hiver",
       "venue_name": "Musée national Jean Jacques Henner",
       "address": "43 Avenue de Villiers, 75017 Paris",
@@ -409,8 +1100,63 @@
       "image_url": "https://cdn.openagenda.com/main/0198d659d9ca45cfa8c8f9239a6b5f3b.base.image.jpg"
     },
     {
-      "id": "37010351-0",
-      "title": "Bachathlon : Orgue à Saint-Louis en l'Ile",
+      "id": "oa-21935340-0",
+      "title": "K-Music : une Fête de la musique K-arrément Corée",
+      "venue_name": "Musée Guimet",
+      "address": "6 Place d'Iéna, 75016 Paris, France",
+      "arrondissement": 16,
+      "commune": "Paris",
+      "lat": 48.865056,
+      "lng": 2.293699,
+      "start_time": "2026-06-21T14:00:00+02:00",
+      "end_time": "2026-06-21T22:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21935340",
+      "genres": [
+        "autres",
+        "pop",
+        "electro",
+        "world"
+      ],
+      "subgenres": [
+        "K-Pop",
+        "expérimentale",
+        "musique industrielle"
+      ],
+      "is_outdoor": null,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Le musée Guimet vous invite à explorer la scène musicale coréenne contemporaine dans toute sa diversité. De la K-Pop aux sonorités alternatives, découvrez les rythmes qui font vibrer la Corée le au  …",
+      "image_url": "https://cdn.openagenda.com/main/e8c24499fd9944a1b0c150849fbe4edc.base.image.jpg"
+    },
+    {
+      "id": "oa-22778160-0",
+      "title": "Passerelle Électronique",
+      "venue_name": "Passerelle Simone de Beauvoir",
+      "address": "30 quai de bercy",
+      "arrondissement": 12,
+      "commune": "Paris",
+      "lat": 48.835608,
+      "lng": 2.378882,
+      "start_time": "2026-06-21T14:00:00+02:00",
+      "end_time": "2026-06-21T23:59:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/22778160",
+      "genres": [
+        "electro"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Open air électro sous la Passerelle Simone-de-Beauvoir ! Préparez-vous à une soirée intense où Trance, Groove et Bounce résonneront au bord de l'eau. Un line-up de DJs locaux vous invite à venir dans…",
+      "image_url": "https://cdn.openagenda.com/main/72b7cdebbb754e6aa79c8bbfb54746e7.base.image.jpg"
+    },
+    {
+      "id": "oa-37010351-0",
+      "title": "XIIIème \"Bachathlon\" : Orgue à Saint-Louis en l'Ile",
       "venue_name": "Église Saint-Louis",
       "address": "19 Rue Saint-Louis en l'Ile, 75004 Paris, France",
       "arrondissement": 4,
@@ -433,7 +1179,7 @@
       "image_url": "https://cdn.openagenda.com/main/c96250416b134a1c9c90c9b832783fc4.base.image.jpg"
     },
     {
-      "id": "43756418-0",
+      "id": "oa-43756418-0",
       "title": "Montmartre on Wax",
       "venue_name": "Rue Gabrielle - Paris",
       "address": "2 rue Gabrielle 75018",
@@ -459,7 +1205,7 @@
       "image_url": "https://cdn.openagenda.com/main/4b7c8a07608448908eb0d1eb0d8fa560.base.image.jpg"
     },
     {
-      "id": "46062726-0",
+      "id": "oa-46062726-0",
       "title": "Open Street Mic",
       "venue_name": "Cité de l'architecture et du patrimoine",
       "address": "1 Pl. du Trocadéro et du 11 Novembre, 75116 Paris",
@@ -485,7 +1231,7 @@
       "image_url": "https://cdn.openagenda.com/main/8096c9102c1d40e2bd89f0b6745cde3e.base.image.jpg"
     },
     {
-      "id": "59514529-0",
+      "id": "oa-59514529-0",
       "title": "Musique En Scène Bois-Colombes",
       "venue_name": "Maison des Jeunes de Bois-Colombes",
       "address": "50 rue Raspail, 92270 Bois-Colombes",
@@ -515,7 +1261,7 @@
       "image_url": "https://cdn.openagenda.com/main/2a0b7e7ceb6442bea085b9823b1a1249.base.image.jpg"
     },
     {
-      "id": "66965146-0",
+      "id": "oa-66965146-0",
       "title": "Michel Bojar (Ex. Dropman) - DJ set Pop, House, Electro & Techno (Warm up set by David Ghetto)",
       "venue_name": "63 Rue Montorgueil, 75002 Paris",
       "address": "63 Rue Montorgueil, 75002 Paris",
@@ -540,7 +1286,7 @@
       "image_url": "https://cdn.openagenda.com/main/f021c5d8003d4a7fae26fd5d10c41fe9.base.image.jpg"
     },
     {
-      "id": "6896265-0",
+      "id": "oa-6896265-0",
       "title": "Polyphonic Harmonies",
       "venue_name": "1 place de l'Estrapade à Paris",
       "address": "1 place de l'Estrapade - Paris",
@@ -564,7 +1310,7 @@
       "image_url": "https://cdn.openagenda.com/main/07d1a683a96e420e8e004d0dcdd0c90a.base.image.jpg"
     },
     {
-      "id": "72244399-0",
+      "id": "oa-72244399-0",
       "title": "Rythme Brisé & Baile Bom",
       "venue_name": "Boom Boom Villette",
       "address": "30 avenue Corentin Cariou",
@@ -592,7 +1338,34 @@
       "image_url": "https://cdn.openagenda.com/main/a422d47467cf47188c79ecd1fb7e5a1c.base.image.jpg"
     },
     {
-      "id": "75406372-0",
+      "id": "oa-72272523-0",
+      "title": "Marilou Fête la Musique",
+      "venue_name": "Marilou",
+      "address": "46 rue de la victoire paris",
+      "arrondissement": 9,
+      "commune": "Paris",
+      "lat": 48.875223,
+      "lng": 2.336052,
+      "start_time": "2026-06-21T14:00:00+02:00",
+      "end_time": "2026-06-21T19:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/72272523",
+      "genres": [
+        "soul-funk",
+        "rap",
+        "jazz",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "CONCERT X JAM SESSION AU MARILOU - FÊTE DE LA MUSIQUE",
+      "image_url": "https://cdn.openagenda.com/main/451986dbdac5488e93befd6e0a0b19cc.base.image.jpg"
+    },
+    {
+      "id": "oa-75406372-0",
       "title": "Concert des élèves et ensembles de l'école de musiques Polynotes",
       "venue_name": "Polynotes",
       "address": "83, rue Léon Frot 75011 Paris",
@@ -617,7 +1390,36 @@
       "image_url": "https://cdn.openagenda.com/main/21c2d1e3c0324a7b9e2beb80ff056d21.base.image.jpg"
     },
     {
-      "id": "90494850-0",
+      "id": "oa-82885886-0",
+      "title": "Dimanche musical aux batignolles",
+      "venue_name": "Feuille blanche café noir",
+      "address": "102 rue truffaut",
+      "arrondissement": 17,
+      "commune": "Paris",
+      "lat": 48.888232,
+      "lng": 2.317706,
+      "start_time": "2026-06-21T14:00:00+02:00",
+      "end_time": "2026-06-21T21:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/82885886",
+      "genres": [
+        "jazz",
+        "variete",
+        "folk",
+        "autres"
+      ],
+      "subgenres": [
+        "Accoustique"
+      ],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Une journée entière en musique :",
+      "image_url": "https://cdn.openagenda.com/main/ec8416ad3d5d4e3b9c321adee52e7daf.base.image.jpg"
+    },
+    {
+      "id": "oa-90494850-0",
       "title": "MF Room",
       "venue_name": "Place de la Bastille",
       "address": "48.852541189508145, 2.3688256661378357",
@@ -641,7 +1443,103 @@
       "image_url": "https://cdn.openagenda.com/main/5c41333decd8495881c2fda9720eead1.base.image.jpg"
     },
     {
-      "id": "27593642-0",
+      "id": "qfap-84261-0",
+      "title": "Fête de la Musique - Big Band de Jazz",
+      "venue_name": "Ministère de la Culture - Parvis du Palais Royal",
+      "address": "Place Colette 75001 Paris",
+      "arrondissement": 1,
+      "commune": "Paris",
+      "lat": 48.8632106126387,
+      "lng": 2.33607673252262,
+      "start_time": "2026-06-21T14:00:00+02:00",
+      "end_time": "2026-06-21T16:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-big-band-de-jazz-110684",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p><br></p>",
+      "description": "Reprise du programme de la saison Big Band de Jazz Pierre Bertrand, direction",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/03/18/huge-e307af6593dd09f3ede4592f3ca6648c.jpg"
+    },
+    {
+      "id": "qfap-84832-10",
+      "title": "Concerts des élèves de l'Académie Inter Musicale de Paris",
+      "venue_name": "Square Parc Brassens",
+      "address": "2 place Jacques Marette 75015 Paris",
+      "arrondissement": 15,
+      "commune": "Paris",
+      "lat": 48.832693015613,
+      "lng": 2.30044098678064,
+      "start_time": "2026-06-21T14:00:00+02:00",
+      "end_time": "2026-06-21T16:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concerts-des-eleves-de-l-academie-inter-musicale-de-paris-111267",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Samedi 6 juin 2026 de 14h à 18h Sur terre-plein central face au n° 5 du boulevard Blanqui 75013 Paris Batteries, ensemble musiques actuelles et Atelier Jazz Dimanche 7 juin 2026 de 14h à 18h Square Maurice Gardette 2 Rue du Général Blaise 75011 Paris Ensemble musiques actuelles et Atelier Jazz Samedi 20 juin 2026 de 14h à 16h Square Parc Brassens 2 place Jacques Marette 75015 Paris Ensemble de saxophones, atelier jazz Dimanche 21 juin 2026 de 14h à 16h Square Adolphe Chérioux 260 rue de Vaugirard 75015 Paris Ensemble de clarinettes, chant, chorale, ensemble flutes traversière",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/07/huge-8ce9ef6f0b113ec5ecb4e286d9fdb3fa.png"
+    },
+    {
+      "id": "qfap-84832-11",
+      "title": "Concerts des élèves de l'Académie Inter Musicale de Paris",
+      "venue_name": "Square Parc Brassens",
+      "address": "2 place Jacques Marette 75015 Paris",
+      "arrondissement": 15,
+      "commune": "Paris",
+      "lat": 48.832693015613,
+      "lng": 2.30044098678064,
+      "start_time": "2026-06-21T14:00:00+02:00",
+      "end_time": "2026-06-21T18:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concerts-des-eleves-de-l-academie-inter-musicale-de-paris-111267",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Samedi 6 juin 2026 de 14h à 18h Sur terre-plein central face au n° 5 du boulevard Blanqui 75013 Paris Batteries, ensemble musiques actuelles et Atelier Jazz Dimanche 7 juin 2026 de 14h à 18h Square Maurice Gardette 2 Rue du Général Blaise 75011 Paris Ensemble musiques actuelles et Atelier Jazz Samedi 20 juin 2026 de 14h à 16h Square Parc Brassens 2 place Jacques Marette 75015 Paris Ensemble de saxophones, atelier jazz Dimanche 21 juin 2026 de 14h à 16h Square Adolphe Chérioux 260 rue de Vaugirard 75015 Paris Ensemble de clarinettes, chant, chorale, ensemble flutes traversière",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/07/huge-8ce9ef6f0b113ec5ecb4e286d9fdb3fa.png"
+    },
+    {
+      "id": "oa-21408367-0",
+      "title": "Visite musicale « Destination Dumas ! »",
+      "venue_name": "Musée des Plans-Reliefs",
+      "address": "129 rue de Grenelle",
+      "arrondissement": 7,
+      "commune": "Paris",
+      "lat": 48.856421,
+      "lng": 2.31333,
+      "start_time": "2026-06-21T14:30:00+02:00",
+      "end_time": "2026-06-21T15:15:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "both",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21408367",
+      "genres": [
+        "classique"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>Gratuit sur présentation d'un billet d'entrée (achat en ligne ou sur place à la billetterie du musée de l'Armée - billet gratuit pour les moins de 18 ans).</p><p>Réservation via formulaire d'inscription.</p>",
+      "description": "Dimanche 21 juin 2026 à 14h30 et à 16h00 Des Trois mousquetaires au Comte de Monte Cristo , venez revivre les aventures des héros d’Alexandre Dumas au musée des Plans-Reliefs : une balade ponctuée d’extraits de romans et accompagnée en musique au violoncelle grâce à la compagnie Les Allumettes associées . Le tout devant les plans-reliefs des villes et sites qu’Alexandre Dumas choisit comme décor pour les aventures de ses célèbres personnages. De d’Artagnan à Belle-Ile-en-Mer au masque de Fer enfermé aux îles de Lérins en passant par Edmond Dantès prisonnier au Château d’If, une visite haute en couleurs et en musique vous attend au musée ! Gratuit sur présentation d'un billet d'entrée . À partir de 7 ans. Sur inscription : https://museedesplansreliefs.fr/destination-dumas-0 Une visite proposée par Les Allumettes associées : Nina Guérif (conteuse) et Laura Meilland (violoncelliste).",
+      "image_url": "https://cdn.openagenda.com/main/e5995d6efa614d3c99f6ac4d205af335.base.image.jpg"
+    },
+    {
+      "id": "oa-27593642-0",
       "title": "Faites de la musique",
       "venue_name": "Rue Julien Lacroix",
       "address": "7 rue julien lacroix",
@@ -665,7 +1563,7 @@
       "image_url": "https://cdn.openagenda.com/main/ac92bf1c0cd04543b23b52aa0ca82955.base.image.jpg"
     },
     {
-      "id": "36957336-0",
+      "id": "oa-36957336-0",
       "title": "Roots Reggae Dub célébration",
       "venue_name": "Place Mazas - Plein air",
       "address": "Place Mazas 75012",
@@ -690,7 +1588,7 @@
       "image_url": "https://cdn.openagenda.com/main/60bfae04b689428a973a3bd3be98d34a.base.image.jpg"
     },
     {
-      "id": "43530795-1",
+      "id": "oa-43530795-1",
       "title": "Plateau Culture Rapide",
       "venue_name": "Place Fréhel 75020",
       "address": "103 rue julien lacroix 75020",
@@ -722,7 +1620,31 @@
       "image_url": "https://cdn.openagenda.com/main/ca6e22a4f48b49edad3a011add945dcf.base.image.jpg"
     },
     {
-      "id": "21747590-0",
+      "id": "qfap-85732-0",
+      "title": "Concert | Fête de la musique",
+      "venue_name": "Centre Paris Anim’ Mado Robin",
+      "address": "84 rue Mstislav Rostropovitch 75017 Paris",
+      "arrondissement": 17,
+      "commune": "Paris",
+      "lat": 48.8919280091729,
+      "lng": 2.31029198612566,
+      "start_time": "2026-06-21T14:30:00+02:00",
+      "end_time": "2026-06-21T15:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concert-fete-de-la-musique-112248",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Pour cette Fête de la musique, venez célébrer dans une ambiance conviviale avec le groupe Sauce Meringue en concert devant le centre Paris Anim’ Mado Robin. Le groupe s’empare des rythmes de salsa et de merengue pour une après-midi festive et dansante ! Gratuit, en accès libre devant le centre",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/06/02/huge-f50df8c511f8f89ed939291b5f0f77e1.png"
+    },
+    {
+      "id": "oa-21747590-0",
       "title": "Numa Champs-Élysées : musique, rencontres & convivialité",
       "venue_name": "Numa Champs-Élysées",
       "address": "37 Rue Marbeuf",
@@ -748,7 +1670,7 @@
       "image_url": "https://cdn.openagenda.com/main/e958f73e92234f5a9ea8f6b20a2541ba.base.image.jpg"
     },
     {
-      "id": "21929520-2",
+      "id": "oa-21929520-2",
       "title": "Musique au Jardin d'hiver",
       "venue_name": "Musée national Jean Jacques Henner",
       "address": "43 Avenue de Villiers, 75017 Paris",
@@ -772,7 +1694,31 @@
       "image_url": "https://cdn.openagenda.com/main/0198d659d9ca45cfa8c8f9239a6b5f3b.base.image.jpg"
     },
     {
-      "id": "26899697-0",
+      "id": "oa-26693576-0",
+      "title": "Fuga Furiosa de Prokoviev à Chostakovitch",
+      "venue_name": "Eglise sainte Claire d'Assise",
+      "address": "179 Bd Sérurier",
+      "arrondissement": 19,
+      "commune": "Paris",
+      "lat": 48.888649,
+      "lng": 2.395302,
+      "start_time": "2026-06-21T15:00:00+02:00",
+      "end_time": "2026-06-21T15:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/26693576",
+      "genres": [
+        "classique"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Le 21 juin à 15h, l’Orchestre Fuga Furiosa se retrouve à l’église Sainte-Claire d’Assise pour un programme autour de Prokofiev, Chostakovitch et Khatchatourian.",
+      "image_url": "https://cdn.openagenda.com/main/76f413108a2c444993cae8218c5d74a4.base.image.jpg"
+    },
+    {
+      "id": "oa-26899697-0",
       "title": "VOYAGE le concert interactif",
       "venue_name": "164 Sauvage",
       "address": "164 Rue du Faubourg Saint-Antoine, 75012 Paris",
@@ -797,7 +1743,7 @@
       "image_url": "https://cdn.openagenda.com/main/9247edfa7f9f40bc906495d43383d476.base.image.jpg"
     },
     {
-      "id": "30438227-0",
+      "id": "oa-30438227-0",
       "title": "Elephanfare du 20ème",
       "venue_name": "Le Cinq",
       "address": "5 rue du docteur Paquelin Paris",
@@ -825,7 +1771,7 @@
       "image_url": "https://cdn.openagenda.com/main/f8ceecf48e7c4d68b9f3d087eec2c293.base.image.jpg"
     },
     {
-      "id": "31849828-0",
+      "id": "oa-31849828-0",
       "title": "Maria & Alexis : Je chante !",
       "venue_name": "Kiosque du Jardin de Marianne",
       "address": "Place de la Nation, Paris 12e",
@@ -849,7 +1795,7 @@
       "image_url": "https://cdn.openagenda.com/main/77ae380c46fc450fa1af3c13378237d0.base.image.jpg"
     },
     {
-      "id": "38995849-0",
+      "id": "oa-38995849-0",
       "title": "Plateau de l'Ecole des musiques actuelles",
       "venue_name": "Jardin de la ménagerie à Sceaux",
       "address": "Jardin de la ménagerie sceaux",
@@ -879,7 +1825,7 @@
       "image_url": "https://cdn.openagenda.com/main/4578065eac1740f0b3aee144b174b0de.base.image.jpg"
     },
     {
-      "id": "41093292-0",
+      "id": "oa-41093292-0",
       "title": "Concert de tambour japonais, Tsunagari Taiko",
       "venue_name": "14 bd richard Lenoir, 75011 Paris",
       "address": "14 bd richard lenoir, 75011 Paris",
@@ -906,7 +1852,7 @@
       "image_url": "https://cdn.openagenda.com/main/7bc369f660d044e89358a18c9e48dfaa.base.image.jpg"
     },
     {
-      "id": "44680713-0",
+      "id": "oa-44680713-0",
       "title": "Belve Sauvage",
       "venue_name": "Belvédère de Belleville",
       "address": "27 Rue Piat, 75020 Paris",
@@ -936,7 +1882,7 @@
       "image_url": "https://cdn.openagenda.com/main/413c1a57216e4caf9cc85eb0a4f9d6c1.base.image.jpg"
     },
     {
-      "id": "49993950-0",
+      "id": "oa-49993950-0",
       "title": "Maggie Music",
       "venue_name": "Hôtel Rochechouart",
       "address": "55 boulevard Marguerite de Rochechouart",
@@ -967,7 +1913,7 @@
       "image_url": "https://cdn.openagenda.com/main/e8069463c9dc4fac84afa29045ab0fd6.base.image.jpg"
     },
     {
-      "id": "53045379-0",
+      "id": "oa-53045379-0",
       "title": "Le Grand Moulin à Paroles",
       "venue_name": "Le Hall de la chanson",
       "address": "211 avenue jean jaures",
@@ -991,7 +1937,7 @@
       "image_url": "https://cdn.openagenda.com/main/214b9a5252dd48a8a069f3289e562f2c.base.image.jpg"
     },
     {
-      "id": "54231892-0",
+      "id": "oa-54231892-0",
       "title": "Échos de Belleville - by Elysium",
       "venue_name": "Belvédère de Belleville",
       "address": "27 Rue Piat, 75020 Paris",
@@ -1016,7 +1962,7 @@
       "image_url": "https://cdn.openagenda.com/main/148cf084d0c3431ba9695428f0749557.base.image.jpg"
     },
     {
-      "id": "65819195-0",
+      "id": "oa-65819195-0",
       "title": "FESTA DE SÃO JOÃO",
       "venue_name": "La Finca - Montreuil",
       "address": "10 rue bara 93100",
@@ -1040,7 +1986,7 @@
       "image_url": "https://cdn.openagenda.com/main/c67ee92db05b4c44a7e88e90dfecd197.base.image.jpg"
     },
     {
-      "id": "69898034-0",
+      "id": "oa-69898034-0",
       "title": "Atlas Soundsystem",
       "venue_name": "1 rue de l'Atlas, 75019 Paris",
       "address": "1 rue de l'Atlas, 75019 Paris",
@@ -1067,7 +2013,7 @@
       "image_url": "https://cdn.openagenda.com/main/0b63bc821c0f4898a9843acf2cc84bca.base.image.jpg"
     },
     {
-      "id": "72331155-0",
+      "id": "oa-72331155-0",
       "title": "DUE ouvre la nuit",
       "venue_name": "18 rue du Mont Cenis",
       "address": "18 rue du Mont cenis 75018 Paris",
@@ -1091,7 +2037,7 @@
       "image_url": "https://cdn.openagenda.com/main/88fc0f9ae5b84438b19db60be647171b.base.image.jpg"
     },
     {
-      "id": "7757698-0",
+      "id": "oa-7757698-0",
       "title": "Sacré véhémence .. the night in the day - open air",
       "venue_name": "Square Federico Garcia-Lorca",
       "address": "Port de l’Hôtel-de-Ville, Paris 4e",
@@ -1117,7 +2063,7 @@
       "image_url": "https://cdn.openagenda.com/main/69feae3b66484489b43e8a946c9768c1.base.image.jpg"
     },
     {
-      "id": "18896234-0",
+      "id": "oa-18896234-0",
       "title": "Une soirée avec AN'JO",
       "venue_name": "Parvis du Théâtre de l'Odéon",
       "address": "1 Rue de l'odéon - Paris",
@@ -1143,7 +2089,31 @@
       "image_url": "https://cdn.openagenda.com/main/c19ab7f667b742a2bf8b87f608a4e973.base.image.jpg"
     },
     {
-      "id": "33736219-0",
+      "id": "oa-26693576-1",
+      "title": "Fuga Furiosa de Prokoviev à Chostakovitch",
+      "venue_name": "Eglise sainte Claire d'Assise",
+      "address": "179 Bd Sérurier",
+      "arrondissement": 19,
+      "commune": "Paris",
+      "lat": 48.888649,
+      "lng": 2.395302,
+      "start_time": "2026-06-21T15:30:00+02:00",
+      "end_time": "2026-06-21T16:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/26693576",
+      "genres": [
+        "classique"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Le 21 juin à 15h, l’Orchestre Fuga Furiosa se retrouve à l’église Sainte-Claire d’Assise pour un programme autour de Prokofiev, Chostakovitch et Khatchatourian.",
+      "image_url": "https://cdn.openagenda.com/main/76f413108a2c444993cae8218c5d74a4.base.image.jpg"
+    },
+    {
+      "id": "oa-33736219-0",
       "title": "VOYAGE le concert interactif",
       "venue_name": "Place de la Bastille",
       "address": "48.852541189508145, 2.3688256661378357",
@@ -1168,7 +2138,7 @@
       "image_url": "https://cdn.openagenda.com/main/9e20e0d7fabd42299e39fa15bc843305.base.image.jpg"
     },
     {
-      "id": "38522210-0",
+      "id": "oa-38522210-0",
       "title": "CB Festival by VL. & Guettapen : Fête de la Musique (officiel)",
       "venue_name": "Parvis de la Mairie du XVe",
       "address": "31 rue Péclet 75015 Paris",
@@ -1193,7 +2163,33 @@
       "image_url": "https://cdn.openagenda.com/main/6cdce71449954f3b9e4d59de0cba3f6b.base.image.jpg"
     },
     {
-      "id": "52380395-0",
+      "id": "oa-42153391-0",
+      "title": "Les trois frères",
+      "venue_name": "le Bar Basque - Montmartre",
+      "address": "26 rue des trois frères 75018 Paris",
+      "arrondissement": 18,
+      "commune": "Paris",
+      "lat": 48.884869,
+      "lng": 2.340963,
+      "start_time": "2026-06-21T15:30:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/42153391",
+      "genres": [
+        "variete",
+        "folk",
+        "world"
+      ],
+      "subgenres": [],
+      "is_outdoor": null,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "LES TROIS FRÈRES – FÊTE DE LA MUSIQUE AU BAR BASQUE",
+      "image_url": "https://cdn.openagenda.com/main/b5df000c6da9473697ae88a0032b7215.base.image.jpg"
+    },
+    {
+      "id": "oa-52380395-0",
       "title": "À l’écoute du Grand Siècle, concert des élèves du conservatoire de Bourg-la-Reine / Sceaux",
       "venue_name": "Pavillon de préfiguration du musée du Grand Siècle (Petit Château de Sceaux)",
       "address": "9 rue du docteur Berger, 92330, Sceaux",
@@ -1217,7 +2213,7 @@
       "image_url": "https://cdn.openagenda.com/main/38df3b3bb3c243ab919014048b81dbcc.base.image.jpg"
     },
     {
-      "id": "1073528-0",
+      "id": "oa-1073528-0",
       "title": "Live Bed Show - Copy 'n' Riot",
       "venue_name": "Incognito",
       "address": "16 Rue Guenegaud, Paris",
@@ -1228,7 +2224,7 @@
       "start_time": "2026-06-21T16:00:00+02:00",
       "end_time": "2026-06-21T19:00:00+02:00",
       "session_date": "2026-06-21",
-      "source": "openagenda",
+      "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/1073528",
       "genres": [
         "electro",
@@ -1246,11 +2242,11 @@
       "is_outdoor": true,
       "price_type": "free",
       "price_detail": null,
-      "description": "Copy 'n' Riot à la galerie Incognito débarque avec un concert, orchestre de coquillages, bedroom punk, enfermées dans un 5m2. Une scénographie pop et bestiale, préparez vos lunettes et vos bouchons à…",
+      "description": "Copy 'n' Riot à la galerie Incognito débarque avec un concert, orchestre de coquillages, bedroom punk, enfermées dans un 5m2. Une scénographie pop et bestiale, préparez vos lunettes et vos bouchons d'oreilles !!! Rendez-vous à 16h pour le début du concert à la B52's, à la Devo, à la Chicks on Speed, alla vongole, voyage en eaux colorées.",
       "image_url": "https://cdn.openagenda.com/main/fcf6368d5ff041349203ed491a0acddc.base.image.jpg"
     },
     {
-      "id": "10966207-0",
+      "id": "oa-10966207-0",
       "title": "5ème édition rue du Groupe Manouchian Paris 20ème",
       "venue_name": "rue du groupe Manouchian 75020",
       "address": "rue du Groupe Manouchian 75020 Paris",
@@ -1278,7 +2274,7 @@
       "image_url": "https://cdn.openagenda.com/main/9a8072f0bffe4fa88ca49ec70847bf8b.base.image.jpg"
     },
     {
-      "id": "11537794-0",
+      "id": "oa-11537794-0",
       "title": "Gospel en Chœur à Paris Sud",
       "venue_name": "Église adventiste Paris-Sud",
       "address": "130 boulevard de l'hôpital 75013 Paris",
@@ -1305,7 +2301,7 @@
       "image_url": "https://cdn.openagenda.com/main/027d00803aff48c3aa6fed39c7bb6b03.base.image.jpg"
     },
     {
-      "id": "13803266-0",
+      "id": "oa-13803266-0",
       "title": "Chorale tout le monde peut chanter à l'Hôtel de la Marine",
       "venue_name": "Hôtel de la Marine",
       "address": "2 place de la Concorde",
@@ -1331,7 +2327,7 @@
       "image_url": "https://cdn.openagenda.com/main/3c8790c1ef0a469f81728b8a3b15614f.base.image.jpg"
     },
     {
-      "id": "18596667-0",
+      "id": "oa-18596667-0",
       "title": "Rebels at Sunset",
       "venue_name": "51 rue duhesme - Paris 18e",
       "address": "51 rue duhesme",
@@ -1357,7 +2353,31 @@
       "image_url": "https://cdn.openagenda.com/main/8b0d1c3e3dae4e7a9c1dda40f705b9aa.base.image.jpg"
     },
     {
-      "id": "21929520-3",
+      "id": "oa-21408367-1",
+      "title": "Visite musicale « Destination Dumas ! »",
+      "venue_name": "Musée des Plans-Reliefs",
+      "address": "129 rue de Grenelle",
+      "arrondissement": 7,
+      "commune": "Paris",
+      "lat": 48.856421,
+      "lng": 2.31333,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-21T16:45:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21408367",
+      "genres": [
+        "classique"
+      ],
+      "subgenres": [],
+      "is_outdoor": null,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Des Trois mousquetaires au Comte de Monte Cristo, venez revivre les aventures des héros d’Alexandre Dumas au musée des Plans-Reliefs : **une balade ponctuée d’extraits de romans et accompagnée en au …",
+      "image_url": "https://cdn.openagenda.com/main/e5995d6efa614d3c99f6ac4d205af335.base.image.jpg"
+    },
+    {
+      "id": "oa-21929520-3",
       "title": "Musique au Jardin d'hiver",
       "venue_name": "Musée national Jean Jacques Henner",
       "address": "43 Avenue de Villiers, 75017 Paris",
@@ -1381,7 +2401,7 @@
       "image_url": "https://cdn.openagenda.com/main/0198d659d9ca45cfa8c8f9239a6b5f3b.base.image.jpg"
     },
     {
-      "id": "22160268-0",
+      "id": "oa-22160268-0",
       "title": "Mazurcade musiques traditionnelles",
       "venue_name": "Parc Montsouris 75014 Paris",
       "address": "Parc Montsouris 75014 Paris",
@@ -1406,7 +2426,34 @@
       "image_url": "https://cdn.openagenda.com/main/6acf9608868644719f7d63c7ce13fca1.base.image.jpg"
     },
     {
-      "id": "26512588-0",
+      "id": "oa-23244059-0",
+      "title": "HARISSA CLUB VOL.1: Techno, House et Fricassé",
+      "venue_name": "Lucien",
+      "address": "40, rue des boulets",
+      "arrondissement": 11,
+      "commune": "Paris",
+      "lat": 48.851887,
+      "lng": 2.389381,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-21T23:59:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/23244059",
+      "genres": [
+        "electro",
+        "autres"
+      ],
+      "subgenres": [
+        "Electro Oriental"
+      ],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Harissa Club Vol. 01: Techno, House et Fricassé",
+      "image_url": "https://cdn.openagenda.com/main/13d89c7adfc2415fbd8388e4f272a68d.base.image.jpg"
+    },
+    {
+      "id": "oa-26512588-0",
       "title": "Fiddler On The Seine",
       "venue_name": "Fontaine, rue du pot de fer, Paris 75005",
       "address": "1 rue du pot de fer, 750005",
@@ -1430,7 +2477,7 @@
       "image_url": "https://cdn.openagenda.com/main/8c5705b7b4844b86bd13b3a4ccee8082.base.image.jpg"
     },
     {
-      "id": "35942253-0",
+      "id": "oa-35942253-0",
       "title": "GDM en concert live au Carré Versigny",
       "venue_name": "Place Michel Petrucciani",
       "address": "place michel petrucciani 75018 Paris",
@@ -1456,7 +2503,7 @@
       "image_url": "https://cdn.openagenda.com/main/91df92e0b2fa47ac881ee28527f6b98c.base.image.jpg"
     },
     {
-      "id": "38788932-0",
+      "id": "oa-38788932-0",
       "title": "Kestudi fait vibrer la fête",
       "venue_name": "Place Simon et Cyla Wiesenthal 75010",
       "address": "Place Simon et Cyla Wiesenthal 75010 Paris",
@@ -1480,7 +2527,7 @@
       "image_url": "https://cdn.openagenda.com/main/abcd2af602334cbcb2e91ee18a7e3cb4.base.image.jpg"
     },
     {
-      "id": "41853881-0",
+      "id": "oa-41853881-0",
       "title": "Rock Around the Years",
       "venue_name": "Kiosque du Square Courteline",
       "address": "Square Courteline 75012 Paris",
@@ -1504,7 +2551,7 @@
       "image_url": "https://cdn.openagenda.com/main/af2b91ebbbca4dd1b3b86b521c8b6e71.base.image.jpg"
     },
     {
-      "id": "42263453-0",
+      "id": "oa-42263453-0",
       "title": "Chants et danses de Côte d'ivoire",
       "venue_name": "Restaurant À La Banane Ivoirienne",
       "address": "10 RUE DE LA FORGE ROYALE 75011 Paris",
@@ -1528,7 +2575,7 @@
       "image_url": "https://cdn.openagenda.com/main/cecb3d8dc666426a9a28cec63636f026.base.image.jpg"
     },
     {
-      "id": "45064761-0",
+      "id": "oa-45064761-0",
       "title": "Perreo En Seine",
       "venue_name": "Esplanade Quai Saint-Bernard (proche Jardin des Plantes)",
       "address": "48°50'47.8\"N 2°21'42.9\"E",
@@ -1556,7 +2603,7 @@
       "image_url": "https://cdn.openagenda.com/main/fcd80b68131e421fb7cdc982a2cd5c8d.base.image.jpg"
     },
     {
-      "id": "50299454-0",
+      "id": "oa-50299454-0",
       "title": "Amphis X Zero",
       "venue_name": "12 Bd Voltaire - Paris",
       "address": "12 Boulevard Voltaire Paris",
@@ -1583,7 +2630,7 @@
       "image_url": "https://cdn.openagenda.com/main/2112560f212246f2a8fb8c97072181cc.base.image.jpg"
     },
     {
-      "id": "56533608-0",
+      "id": "oa-56533608-0",
       "title": "Bailinho BOM",
       "venue_name": "LA PANZA",
       "address": "43 rue servan 75011 Paris",
@@ -1615,7 +2662,7 @@
       "image_url": "https://cdn.openagenda.com/main/a72d1a5f30a84641a68bc2506b91a482.base.image.jpg"
     },
     {
-      "id": "59533800-0",
+      "id": "oa-59533800-0",
       "title": "Made in House à Montmartre !",
       "venue_name": "L'Atelier Jules",
       "address": "99 bis, rue Ordener, 75018 Paris",
@@ -1639,7 +2686,7 @@
       "image_url": "https://cdn.openagenda.com/main/814bd853d0d646a6854cba855b9e5b15.base.image.jpg"
     },
     {
-      "id": "62915430-0",
+      "id": "oa-62915430-0",
       "title": "SanLouisRecords présente : WIFIGAWD x SOUDIERE x sleepypierre x Riski & Testos (Noir Fluo)",
       "venue_name": "Balades Sonores",
       "address": "8 rue Pierre Picard 75018 Paris",
@@ -1666,7 +2713,64 @@
       "image_url": "https://cdn.openagenda.com/main/dcc126664e614e8483ef5b5de338d58c.base.image.jpg"
     },
     {
-      "id": "79484608-0",
+      "id": "oa-67465503-2",
+      "title": "Sabiá fête la musique, le street art et le Brésil",
+      "venue_name": "26 Rue des jardins Saint-Paul - Paris",
+      "address": "26 Rue des Jardins Saint-Paul Paris",
+      "arrondissement": 4,
+      "commune": "Paris",
+      "lat": 48.853839,
+      "lng": 2.361031,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-21T18:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67465503",
+      "genres": [
+        "soul-funk",
+        "rap",
+        "world",
+        "autres"
+      ],
+      "subgenres": [
+        "Bresil"
+      ],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "DJ set Brésil sur la terrasse de Sabiá Arte & Cultura, nouveau lieu culturel brésilien de la place parisienne.",
+      "image_url": "https://cdn.openagenda.com/main/2ce38c08bfab4a7c82fdd727078839d7.base.image.jpg"
+    },
+    {
+      "id": "oa-75252586-0",
+      "title": "Clichy en musique",
+      "venue_name": "Parc Roger Salengro",
+      "address": "78 Boulevard du Général Leclerc, 92110 clichy",
+      "arrondissement": null,
+      "commune": "Clichy",
+      "lat": 48.904353,
+      "lng": 2.31208,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-21T22:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/75252586",
+      "genres": [
+        "classique",
+        "electro",
+        "jazz",
+        "pop",
+        "soul-funk"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Au programme :",
+      "image_url": "https://cdn.openagenda.com/main/5591f0a0cd6c434690c8b6fab5e852d9.base.image.jpg"
+    },
+    {
+      "id": "oa-79484608-0",
       "title": "Baile da Euro",
       "venue_name": "Église Saint-Germain-l'Auxerrois",
       "address": "2 Place du Louvre, 75001 Paris, France",
@@ -1693,7 +2797,7 @@
       "image_url": "https://cdn.openagenda.com/main/a1fdef5a000b46738cf602cfb5c2c38f.base.image.jpg"
     },
     {
-      "id": "93382924-0",
+      "id": "oa-93382924-0",
       "title": "Jersey New Friends",
       "venue_name": "1 Rue Paul Albert de Paris",
       "address": "1 Rue Paul Albert",
@@ -1717,7 +2821,55 @@
       "image_url": "https://cdn.openagenda.com/main/8fc70d24c46e4d21a45a460da26ac9fd.base.image.jpg"
     },
     {
-      "id": "18356502-0",
+      "id": "qfap-81593-0",
+      "title": "Fête de la Musique - Orchestre à vent",
+      "venue_name": "Henri Selmer Paris",
+      "address": "Place Charles Dullin 75018 Paris",
+      "arrondissement": 18,
+      "commune": "Paris",
+      "lat": 48.8832308701032,
+      "lng": 2.34197995052958,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-21T17:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-107942",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>Entrée payante sur réservation</p>",
+      "description": "Orchestre à vent Davy Basquin, direction En partenariat avec Henri Selmer Paris",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/03/18/huge-e307af6593dd09f3ede4592f3ca6648c.jpg"
+    },
+    {
+      "id": "qfap-85081-0",
+      "title": "Concert de Musique de Chambre",
+      "venue_name": "Église Saint-Merry",
+      "address": "78 rue Saint-Martin 75004 Paris",
+      "arrondissement": 4,
+      "commune": "Paris",
+      "lat": 48.8592879981079,
+      "lng": 2.35051397343656,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-21T18:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/concert-de-musique-de-chambre-111525",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>Entrée libre - Participation libre</p>",
+      "description": "Alain Vergnon Alain Vergnon a débuté le violon à l’âge de quatre ans et demi, au sein d’une famille de musiciens (violoniste, violoncelliste et pianiste). Ses études musicales ont débuté à l’Ecole Normale de Musique de Paris. Puis, rapidement il étudie en privé avec le grand violoniste concertiste et professeur au Conservatoire National de Musique de Paris, Gérard Poulet. Il a également été pendant plusieurs années violoniste dans l’ensemble instrumental de musique ancienne de Bury, ensemble sous la conduite de Jean-Jacques Dubayle. Pendant plus de 12 années, sous le professorat de Gérard Poulet, il a participé à plusieurs masterclass dirigées par Maurice Hasson et surtout Henryk Szeryng. Durant ses études de droit, il donne des cours de violon au conservatoire municipal d'Eaubonne. Il est depuis chef d'entreprise dans l'univers de la culture et se produit également en concerts comme soliste ou chambriste. Depuis 1975, Alain Vergnon joue sur un violon Tononi, instrument italien de 1720. Michaël Zugaro Fils du pianiste Ricardo Zugaro, qui donne pendant plus de 10 ans des récitals et des concerts de musique de chambre à l'Église Saint-Merry, Michaël Zugaro commence ses étudies de clarinette à 13 ans au Conservatoire de Paris VI. Trois ans plus tard, il est admis dans la classe de Maurice Gabay, super-soliste de l'Opéra de Paris, avec qui il obtient une Médaille d'Or de clarinette. Il assure alors des enseignements pendant deux ans à l'École Nationale de Musique de Montreuil tout en se perfectionnant en clarinette et en musique de chambre, notamment avec Christos Michalakakos, professeur de Musique de Chambre au Conservatoire National de Musique de Paris. Il suit des cours de perfectionnement avec Jean-Marc Morisot. Il se produit régulièrement en concert en formation de musique de chambre. Catherine Bismuth Après avoir débuté le piano à l'âge de 10 ans au sein d'une famille de musiciens, Catherine Bismuth suit ses études musicales au conservatoire national de musique de Saint-Maur des Fossés. Elle fut ensuite l’élève de Gabriel Tacchino puis de Ricardo Zugaro. Catherine Bismuth a également fait ses études d’harmonie et d’écriture auprès du compositeur Pedro Palacio. Elle travaille actuellement avec le pianiste concertiste Jonathan Benichou. Catherine Bismuth se produit régulièrement en concerts comme soliste ou en formation de musique de chambre. Elle a complété ce parcours avec l’art du théâtre musical en intégrant en 2022 « Casse-toi, Diva ! », spectacle mêlant opéra et humour porté par trois chanteuses lyriques et une pianiste. Cette complémentarité s’est aussi concrétisée dans la conception et l’interprétation de programmes musicaux « live » pour des pièces de théâtre contemporain.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/04/22/huge-f45d65b6e8ec54ab627f121f84077cc2.png"
+    },
+    {
+      "id": "oa-18356502-0",
       "title": "VOYAGE le concert interactif",
       "venue_name": "Saint-Paul",
       "address": "48.855320660562256, 2.3604741586899887",
@@ -1742,7 +2894,7 @@
       "image_url": "https://cdn.openagenda.com/main/53cc7e71aa9b467eb13d9aabf5c08963.base.image.jpg"
     },
     {
-      "id": "19612374-0",
+      "id": "oa-19612374-0",
       "title": "La RB Dance Company fête la musique de The Rise !",
       "venue_name": "Terre-plein central boulevard Richard Lenoir",
       "address": "4 Bd Richard-Lenoir, 75011 Paris",
@@ -1774,7 +2926,59 @@
       "image_url": "https://cdn.openagenda.com/main/a351339dd1f244de84e85667f5e06453.base.image.jpg"
     },
     {
-      "id": "39096120-0",
+      "id": "oa-29119835-2",
+      "title": "Les Sons de l’Été Brésilien",
+      "venue_name": "Farm Rio - Marais",
+      "address": "56 Rue Vieille du Temple, 75003 Paris",
+      "arrondissement": 3,
+      "commune": "Paris",
+      "lat": 48.858861,
+      "lng": 2.35916,
+      "start_time": "2026-06-21T16:30:00+02:00",
+      "end_time": "2026-06-21T19:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29119835",
+      "genres": [
+        "soul-funk",
+        "classique",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Venez célébrer l’esprit du Brésil avec une performance live d’une violoniste brésilienne, inspirée des rythmes et de l’énergie de l’été à Rio.",
+      "image_url": "https://cdn.openagenda.com/main/1ff694899e724bb39aed132814ae475e.base.image.jpg"
+    },
+    {
+      "id": "oa-30705489-0",
+      "title": "La mini chante l’Amour",
+      "venue_name": "Parvis de l’Eglise Notre Dame de l’Arche d’Alliance",
+      "address": "81 rue d’Alleray 75015 Paris",
+      "arrondissement": 15,
+      "commune": "Paris",
+      "lat": 48.83641,
+      "lng": 2.308476,
+      "start_time": "2026-06-21T16:30:00+02:00",
+      "end_time": "2026-06-21T18:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/30705489",
+      "genres": [
+        "variete",
+        "rock",
+        "chorale"
+      ],
+      "subgenres": [],
+      "is_outdoor": null,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Goupe vocal et instrumental mini-hosanna (Xylophone, Métaphone, carillon, triangle Clave, guitare, trompette, flûte à bec, batterie… entre parenthèses Métaphone, Clave, guitare, trompette, flûte à le…",
+      "image_url": "https://cdn.openagenda.com/main/79d361c06e97426b910f223e0dbd4b1c.base.image.jpg"
+    },
+    {
+      "id": "oa-39096120-0",
       "title": "Wote",
       "venue_name": "12 rue des Commines 75003 Paris",
       "address": "12 rue des Commines",
@@ -1806,7 +3010,7 @@
       "image_url": "https://cdn.openagenda.com/main/0f69f47e99584180b2bb1ef2726905a8.base.image.jpg"
     },
     {
-      "id": "54543897-0",
+      "id": "oa-54543897-0",
       "title": "EleKtroGen en concert",
       "venue_name": "Face au bar restaurant Le Cirque au 141 rue St Martin devant le musée Beaubourg",
       "address": "141 rue st martin paris",
@@ -1831,7 +3035,7 @@
       "image_url": "https://cdn.openagenda.com/main/aa424e5d55d144488057ca887f20af75.base.image.jpg"
     },
     {
-      "id": "63959528-0",
+      "id": "oa-63959528-0",
       "title": "Concert de harpe - École Cortot à la Cité de l’Economie",
       "venue_name": "Cité de l'Économie",
       "address": "1 place du Général Catroux 75017 Paris",
@@ -1855,7 +3059,7 @@
       "image_url": "https://cdn.openagenda.com/main/1cdffe4d89c44cecbc5dd6bae8e30466.base.image.jpg"
     },
     {
-      "id": "12503516-0",
+      "id": "oa-12503516-0",
       "title": "Festival Seine en scène",
       "venue_name": "Place Dauphine 75001",
       "address": "Place Dauphine",
@@ -1884,7 +3088,7 @@
       "image_url": "https://cdn.openagenda.com/main/1bbc484ee055476d8d9759d30c802738.base.image.jpg"
     },
     {
-      "id": "12677544-0",
+      "id": "oa-12677544-0",
       "title": "Restaurant Rosetta",
       "venue_name": "98 rue Montmartre",
       "address": "98 rue Montmartre 002",
@@ -1909,7 +3113,7 @@
       "image_url": "https://cdn.openagenda.com/main/51d6593838f4471fa8e5ff8668c258a0.base.image.jpg"
     },
     {
-      "id": "13901580-0",
+      "id": "oa-13901580-0",
       "title": "Hadi Wayne : Une Nuit de Vibes",
       "venue_name": "le Bar Basque - Montmartre",
       "address": "26 rue des trois frères 75018 Paris",
@@ -1935,7 +3139,35 @@
       "image_url": "https://cdn.openagenda.com/main/7c46aa917d0d4aa19865eb0fd05b52a6.base.image.jpg"
     },
     {
-      "id": "23162099-0",
+      "id": "oa-15616788-0",
+      "title": "Bloco Batafa, Orchestre de Carnaval Brésilien fait étape en Caravane",
+      "venue_name": "La Caravane Café",
+      "address": "1 rue Auguste Barbier",
+      "arrondissement": 11,
+      "commune": "Paris",
+      "lat": 48.868418,
+      "lng": 2.371374,
+      "start_time": "2026-06-21T17:00:00+02:00",
+      "end_time": "2026-06-21T18:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/15616788",
+      "genres": [
+        "world",
+        "trad",
+        "autres"
+      ],
+      "subgenres": [
+        "Bloco Brésilien"
+      ],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Chant et danses percussives brésiliennes de Carnaval. Le défilé du Bloco Batafa fait étape à La Caravane pour faire vibrer de leur son populaire et tropical.",
+      "image_url": "https://cdn.openagenda.com/main/f5cb8250b3b449e59a9b958baa385407.base.image.jpg"
+    },
+    {
+      "id": "oa-23162099-0",
       "title": "Et si l'on danse ?",
       "venue_name": "Église Saint-André de l'Europe",
       "address": "24 bis rue de Saint-Pétersbourg Paris 8",
@@ -1959,7 +3191,7 @@
       "image_url": "https://cdn.openagenda.com/main/3117f0242b17467d8dd6d81af1a1a058.base.image.jpg"
     },
     {
-      "id": "24844170-0",
+      "id": "oa-24844170-0",
       "title": "Kiosque en fête ! Scène ouverte aux artistes et aux talents locaux pour fêter l'arriver de l'été dans le19ème.",
       "venue_name": "Square Monseigneur Maillet,",
       "address": "Place des Fêtes, 75019 Paris",
@@ -1987,7 +3219,7 @@
       "image_url": "https://cdn.openagenda.com/main/fd7bd594a0254f0a8e0d97e4df8a2625.base.image.jpg"
     },
     {
-      "id": "26680904-0",
+      "id": "oa-26680904-0",
       "title": "Voix de femmes d'Italie à Paris",
       "venue_name": "Paris 13 - Théâtre de plein air du Parc de Choisy",
       "address": "128 Avenue de Choisy - 75013 Paris",
@@ -1998,21 +3230,21 @@
       "start_time": "2026-06-21T17:00:00+02:00",
       "end_time": "2026-06-21T18:00:00+02:00",
       "session_date": "2026-06-21",
-      "source": "openagenda",
+      "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/26680904",
       "genres": [
         "world",
         "trad"
       ],
       "subgenres": [],
-      "is_outdoor": null,
+      "is_outdoor": true,
       "price_type": "free",
-      "price_detail": null,
-      "description": "L'Italie se chante à Paris pour la Fête de la Musique! Laissez-vous emporter par la chaleur des voix féminines de la Chorale Sono Solo Canzonette, sous la direction de Paola Niggi. Une heure de qui …",
+      "price_detail": "<p></p>",
+      "description": "L'Italie se chante à Paris pour la Fête de la Musique! Laissez-vous emporter par la chaleur des voix féminines de la Chorale Sono Solo Canzonette, sous la direction de Paola Niggi. Une heure de chants populaires qui racontent l'Italie dans une ambiance conviviale et festive. Un rendez-vous pour chanter, sourire et célébrer la fête de la Musique… à l'italienne. Vi aspettiamo numerosi come sempre !",
       "image_url": "https://cdn.openagenda.com/main/fda452a051c24b028f65e1c8c5c2bf18.base.image.jpg"
     },
     {
-      "id": "33699720-0",
+      "id": "oa-33699720-0",
       "title": "Hommage aux Beatles – Matthieu Boré Quartet",
       "venue_name": "Sunset Sunside",
       "address": "60 rue des Lombards, 75001 Paris",
@@ -2036,7 +3268,33 @@
       "image_url": "https://cdn.openagenda.com/main/bf3f961d9c3645c8b0b471af6aa9c65a.base.image.jpg"
     },
     {
-      "id": "41240434-0",
+      "id": "oa-36965869-0",
+      "title": "Du (Très) Bon Rock en plein air !",
+      "venue_name": "Les insouciants, 116 boulevard saint germain 75006 Paris",
+      "address": "116 boulevard saint germain 75006 Paris",
+      "arrondissement": 6,
+      "commune": "Paris",
+      "lat": 48.853543,
+      "lng": 2.333783,
+      "start_time": "2026-06-21T17:00:00+02:00",
+      "end_time": "2026-06-21T23:55:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/36965869",
+      "genres": [
+        "blues",
+        "rock",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Du (Très) Bon Rock en plein air !",
+      "image_url": "https://cdn.openagenda.com/main/6d77f85dac5049d688a7524af354e645.base.image.jpg"
+    },
+    {
+      "id": "oa-41240434-0",
       "title": "L'Oreille Sound System",
       "venue_name": "Le Rossli",
       "address": "95 rue de charenton paris",
@@ -2067,7 +3325,7 @@
       "image_url": "https://cdn.openagenda.com/main/ac0d2ad68ca94ff299732ca7b437ff76.base.image.jpg"
     },
     {
-      "id": "49157697-0",
+      "id": "oa-49157697-0",
       "title": "À court d’air ! , concert des Kapsber’girls",
       "venue_name": "Pavillon de préfiguration du musée du Grand Siècle (Petit Château de Sceaux)",
       "address": "9 rue du docteur Berger, 92330, Sceaux",
@@ -2091,7 +3349,7 @@
       "image_url": "https://cdn.openagenda.com/main/46dff3376a074579b7cb89c4fef84226.base.image.jpg"
     },
     {
-      "id": "49324454-0",
+      "id": "oa-49324454-0",
       "title": "Soirée musicale et festive à Neuilly-sur-Seine",
       "venue_name": "Parvis Hôtel de Ville",
       "address": "96 Avenue Achille Peretti, 92200 Neuilly-sur-Seine",
@@ -2115,7 +3373,7 @@
       "image_url": "https://cdn.openagenda.com/main/3ff371a97a194f98af62aa20de5f3806.base.image.jpg"
     },
     {
-      "id": "64567058-0",
+      "id": "oa-64567058-0",
       "title": "Ciné-Concert : Le Cabinet du Dr. Caligari",
       "venue_name": "Jardin Nelson Mandela",
       "address": "Jardin Nelson Mandela Kiosque à Musique",
@@ -2142,7 +3400,7 @@
       "image_url": "https://cdn.openagenda.com/main/2c396a5746074de88633c676d678ba59.base.image.jpg"
     },
     {
-      "id": "66672084-0",
+      "id": "oa-66672084-0",
       "title": "Plateau POP ROCK à la butte-aux-cailles PARIS13",
       "venue_name": "Restaurant Apollonia",
       "address": "9 rue Jean-Marie Jego Paris",
@@ -2169,7 +3427,7 @@
       "image_url": "https://cdn.openagenda.com/main/9a100406a94a4d70b47f6067f4c7742f.base.image.jpg"
     },
     {
-      "id": "69218786-0",
+      "id": "oa-69218786-0",
       "title": "Faites de la musique avec Africa Korazon",
       "venue_name": "53 bis rue de fontenay",
       "address": "53 Bis rue de fontenay vincennes",
@@ -2193,7 +3451,7 @@
       "image_url": "https://cdn.openagenda.com/main/15f32455c24c4c5a8fce5fc827e83d2a.base.image.jpg"
     },
     {
-      "id": "69599933-0",
+      "id": "oa-69599933-0",
       "title": "Basement is even still here!",
       "venue_name": "69 boulevard de belleville",
       "address": "69 boulevard de belleville 75020 Paris",
@@ -2218,7 +3476,7 @@
       "image_url": "https://cdn.openagenda.com/main/1a94db84e32143c7b4160cc2c149c4b6.base.image.jpg"
     },
     {
-      "id": "72349323-0",
+      "id": "oa-72349323-0",
       "title": "Abysse Florale",
       "venue_name": "10 rue des hospitalières saint-gervais",
       "address": "10 rue des hospitalières saint-gervais",
@@ -2252,7 +3510,7 @@
       "image_url": "https://cdn.openagenda.com/main/e6d48c6f3412443798fdf0b63b8a69db.base.image.jpg"
     },
     {
-      "id": "72349623-0",
+      "id": "oa-72349623-0",
       "title": "L'Express de Paris Ménilmontant fête la musique « live » !",
       "venue_name": "L'express bar de Paris - Ménilmontant",
       "address": "Rue Étienne Dolet - 75020 paris",
@@ -2287,7 +3545,7 @@
       "image_url": "https://cdn.openagenda.com/main/a4cdea8daf3641ef866b1aeaca242a9d.base.image.jpg"
     },
     {
-      "id": "75858745-0",
+      "id": "oa-75858745-0",
       "title": "Concert La Voix du 17e et Don Rico",
       "venue_name": "Place Richard Baret",
       "address": "Place Richard Baret 75017 Paris",
@@ -2313,7 +3571,7 @@
       "image_url": "https://cdn.openagenda.com/main/03c5030d27134beaa7009b1864a11f07.base.image.jpg"
     },
     {
-      "id": "81984337-0",
+      "id": "oa-81984337-0",
       "title": "Midsommar",
       "venue_name": "Institut suédois",
       "address": "11 Rue Payenne, 75003 Paris, France",
@@ -2337,7 +3595,7 @@
       "image_url": "https://cdn.openagenda.com/main/74aae5f54b0e43d59ccd39eb6cc03502.base.image.jpg"
     },
     {
-      "id": "84661764-0",
+      "id": "oa-84661764-0",
       "title": "Choral Evensong",
       "venue_name": "The American Cathedral in Paris",
       "address": "23 avenue George V",
@@ -2366,7 +3624,7 @@
       "image_url": "https://cdn.openagenda.com/main/136942ff88f04b688ec73ce44e5ec5a4.base.image.jpg"
     },
     {
-      "id": "84702874-0",
+      "id": "oa-84702874-0",
       "title": "Musique des gardiens de la paix - Orchestre d'harmonie",
       "venue_name": "Préfecture de Police",
       "address": "Place Louis Lépine 75004 Paris",
@@ -2394,7 +3652,7 @@
       "image_url": "https://cdn.openagenda.com/main/81d3fb70a4a54061bc1702c42130d6cd.base.image.jpg"
     },
     {
-      "id": "95166037-0",
+      "id": "oa-95166037-0",
       "title": "AutorYno et Degré 41 en concert",
       "venue_name": "Mémorial de la Shoah",
       "address": "17 rue Geoffroy l'Asnier",
@@ -2405,7 +3663,7 @@
       "start_time": "2026-06-21T17:00:00+02:00",
       "end_time": "2026-06-21T23:59:00+02:00",
       "session_date": "2026-06-21",
-      "source": "openagenda",
+      "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/95166037",
       "genres": [
         "jazz",
@@ -2416,11 +3674,11 @@
       "is_outdoor": true,
       "price_type": "free",
       "price_detail": null,
-      "description": "Dans le cadre du Festival des cultures juives.",
+      "description": "17h - Concert : AutorYno Le groupe parisien AutorYno propose une fusion de klezmer, de rock et de jazz : un véritable melting-pot de sonorités électrisantes ! En actualisant ce qui peut relever du répertoire yiddish, le groupe poursuit et réinvente avec un vocabulaire contemporain la tradition musicale des klezmorim itinérants du monde ashkénaze. Leurs trois premiers albums paraissent au sein du label de John Zorn, Tzadik, et le trio collabore régulièrement avec des artistes de haute volée : David Krakauer, Denis Cuniot, Gary Lucas, guitariste de Jeff Buckley, ou encore Marc Urselli, collaborateur de Zorn et Lou Reed. Pour cette date inédite au Mémorial, AutorYno jouera les sommets de leur discographie ainsi que des compositions originales spécialement écrites pour l’occasion. Avec David Konopnicki (guitares), Guillaume Grosso (saxophone et machines), Bertrand Delorme (basse), et Cyril Grimaud (batterie). 18h30 - Concert : Degré 41 Placé sous l’égide de l’avant-garde russe exilée à Tbilissi en 1918 et fondatrice de l’Université du 41°, en référence à la latitude de la ville, le trio Degré 41 naît lui aussi d’un mouvement et d’une rencontre : celle entre Dimitri Artemenko, Vadim Sher, natifs d’Estonie, et Yuri Shraibman natif d’Ukraine. Fruit de la rigueur de l’enseignement classique reçu en ex-URSS et d’une passion pour les musiques traditionnelles d’Europe de l’Est, la sonorité particulière du trio s’étoffe de la complémentarité de ses membres : la modernité du violon de Dimitri répond au talent d’improvisateur mâtiné de jazz de Yuri, le tout structuré par l’écriture musicale de Vadim à laquelle se mêle son goût du spectacle, de la littérature et du cinéma. Avec Vadim Sher (piano et textes), Dimitri Artemenko (violon), et Yuri Shraibman (clarinette et saxophone). RÉSERVER",
       "image_url": "https://cdn.openagenda.com/main/0d3b1ad8ae784a9586477130b270e089.base.image.jpg"
     },
     {
-      "id": "96962649-0",
+      "id": "oa-96962649-0",
       "title": "InViFest",
       "venue_name": "Arènes Quai Saint-Bernard",
       "address": "Quai Saint-Bernard",
@@ -2449,7 +3707,7 @@
       "image_url": "https://cdn.openagenda.com/main/7d7bd56d08714b81a385a52efc5f7357.base.image.jpg"
     },
     {
-      "id": "97992721-0",
+      "id": "oa-97992721-0",
       "title": "FM26 : Luluberlu And Friends",
       "venue_name": "Quais des grands Augustins (Saint-Michel Notre Dame, Paris)",
       "address": "Saint michel notre dame",
@@ -2481,7 +3739,7 @@
       "image_url": "https://cdn.openagenda.com/main/bb5256fd40274b8985fc7ba7201656f7.base.image.jpg"
     },
     {
-      "id": "28422882-0",
+      "id": "oa-28422882-0",
       "title": "Voyage à l'orgue avec D.Buxtehude,J.S.Bach...",
       "venue_name": "Temple du Foyer de l'Âme",
       "address": "7 bis rue du pasteur Wagner 75011 Paris",
@@ -2505,7 +3763,7 @@
       "image_url": "https://cdn.openagenda.com/main/0df17799e63d41e7b148512b6c75f7a8.base.image.jpg"
     },
     {
-      "id": "5421601-0",
+      "id": "oa-5421601-0",
       "title": "All Night Long",
       "venue_name": "Place Baudoyer - Paris 75004",
       "address": "Place Baudoyer - Paris",
@@ -2534,7 +3792,7 @@
       "image_url": "https://cdn.openagenda.com/main/ac9a1f3a8c3149038c6b854b15b23e6d.base.image.jpg"
     },
     {
-      "id": "61830378-0",
+      "id": "oa-61830378-0",
       "title": "Gassim's Team - Percussions de Guinée",
       "venue_name": "La Source",
       "address": "15 rue du surmelin 75020 PARIS",
@@ -2562,7 +3820,7 @@
       "image_url": "https://cdn.openagenda.com/main/ab6e9d454895426b85a7a1e5515658fe.base.image.jpg"
     },
     {
-      "id": "65135273-0",
+      "id": "oa-65135273-0",
       "title": "VOYAGE le concert interactif",
       "venue_name": "Place de châtelet",
       "address": "Paris 01",
@@ -2587,7 +3845,31 @@
       "image_url": "https://cdn.openagenda.com/main/e2c8c38666954d1d961a59cd0c80fe2a.base.image.jpg"
     },
     {
-      "id": "17296398-0",
+      "id": "qfap-86282-0",
+      "title": "Le romantique",
+      "venue_name": "Paroisse luthérienne Saint Jean",
+      "address": "147 rue de Grenelle 75007 Paris",
+      "arrondissement": 7,
+      "commune": "Paris",
+      "lat": 48.8578899804772,
+      "lng": 2.30806399244258,
+      "start_time": "2026-06-21T17:30:00+02:00",
+      "end_time": "2026-06-21T18:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/le-romantique-112822",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "A l'occasion de la Fête de la musique, le conservatoire Erik Satie et la Paroisse luthérienne Saint Jean vous proposent un concert gratuit et en accès libre, dimanche 21 juin, à l'église Saint Jean : - 16h Concert de Gunhild Wolff, organiste, et de paroissiens musiciens - 17h30 Concert sur le thème du romantisme allemand des élèves du conservatoire Erik Satie Programme détaillé à venir.",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/31/huge-a93e6163af81a9c85f37a2b642303af2.jpg"
+    },
+    {
+      "id": "oa-17296398-0",
       "title": "Paris Samba Group + Diffusion des matchs",
       "venue_name": "Studio de l'Ermitage",
       "address": "8 rue de l'Ermitage 75020",
@@ -2614,7 +3896,7 @@
       "image_url": "https://cdn.openagenda.com/main/4c26ca88be3c418b91b85facf712f4aa.base.image.jpg"
     },
     {
-      "id": "18764609-0",
+      "id": "oa-18764609-0",
       "title": "Hommage à BB King – Big Dez",
       "venue_name": "Sunset Sunside",
       "address": "60 rue des Lombards, 75001 Paris",
@@ -2639,7 +3921,7 @@
       "image_url": "https://cdn.openagenda.com/main/b92e949b144b46dd9725934e2e12ed07.base.image.jpg"
     },
     {
-      "id": "19368201-0",
+      "id": "oa-19368201-0",
       "title": "Suite 302 & Cie",
       "venue_name": "24 Rue Piat",
       "address": "24 Rue Piat, 75020",
@@ -2667,7 +3949,37 @@
       "image_url": "https://cdn.openagenda.com/main/d261ceacaa804a0e929879494888d4b9.base.image.jpg"
     },
     {
-      "id": "29456162-0",
+      "id": "oa-29292219-0",
+      "title": "Paris chante avec l'Ukraine",
+      "venue_name": "Square Taras Chevthchenko",
+      "address": "186 Bd Saint-Germain, 75006 Paris",
+      "arrondissement": 6,
+      "commune": "Paris",
+      "lat": 48.85195,
+      "lng": 2.340936,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T22:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29292219",
+      "genres": [
+        "variete",
+        "folk",
+        "jazz",
+        "classique",
+        "rock",
+        "trad",
+        "world"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "À l’occasion de la Fête de la musique, l’association Svitanok propose une soirée exceptionnelle de rencontre musicale franco-ukrainienne, organisée à Paris, à proximité de la Cathédrale Saint le  met…",
+      "image_url": "https://cdn.openagenda.com/main/84e2923b0b8b4f3493114bf711e86019.base.image.jpg"
+    },
+    {
+      "id": "oa-29456162-0",
       "title": "Flux Invisibles : Performance art-science et musique électronique",
       "venue_name": "Le parking en face du 6 rue Amyot, 75005 Paris",
       "address": "6 rue Amyot, 75005 Paris",
@@ -2692,7 +4004,7 @@
       "image_url": "https://cdn.openagenda.com/main/469c96a3b5144678a3e0ccde68885ac7.base.image.jpg"
     },
     {
-      "id": "30290902-0",
+      "id": "oa-30290902-0",
       "title": "Entre classique et musiques actuelles",
       "venue_name": "Eglise Evangélique Libre Paris-Alésia",
       "address": "85 rue d'Alésia 75014 Paris",
@@ -2718,7 +4030,7 @@
       "image_url": "https://cdn.openagenda.com/main/09840e8eb2394c628222be1c1abdf821.base.image.jpg"
     },
     {
-      "id": "3197217-0",
+      "id": "oa-3197217-0",
       "title": "Musique du monde",
       "venue_name": "Placette Louis Loucheur (angle Louis Loucheur/boulevard Bessière)",
       "address": "28 Boulevard Bessière, Paris 75017",
@@ -2744,7 +4056,37 @@
       "image_url": "https://cdn.openagenda.com/main/79dcf04755a84d75b4d5304ba8d2dfeb.base.image.jpg"
     },
     {
-      "id": "46426553-0",
+      "id": "oa-32635709-0",
+      "title": "Grande soirée irlandaise avec Bouzouki Craic, Saltaire et Bronagh Gallagher",
+      "venue_name": "Centre Culturel Irlandais",
+      "address": "5 rue des Irlandais, 75005 Paris",
+      "arrondissement": 5,
+      "commune": "Paris",
+      "lat": 48.84428,
+      "lng": 2.346004,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T22:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/32635709",
+      "genres": [
+        "blues",
+        "variete",
+        "folk",
+        "soul-funk",
+        "world",
+        "trad",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": null,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Depuis plus de dix ans maintenant, la Fête de la Musique du Centre Culturel Irlandais rassemble dans la cour plusieurs milliers de personnes dans une atmosphère des plus chaleureuses et festives. ne …",
+      "image_url": "https://cdn.openagenda.com/main/7a6914f1a9d344308f6b5f22d7bfe33e.base.image.jpg"
+    },
+    {
+      "id": "oa-46426553-0",
       "title": "Concert participatif - Tout le public fait le show !",
       "venue_name": "Restaurant HuThoPi",
       "address": "3 Rue de Charenton 75012 Paris",
@@ -2787,7 +4129,7 @@
       "image_url": "https://cdn.openagenda.com/main/60e56ad3b5774942a7946189309dacdf.base.image.jpg"
     },
     {
-      "id": "53858235-0",
+      "id": "oa-53858235-0",
       "title": "Philifolies 2026",
       "venue_name": "Place Igor Stravinsky 75004 Paris",
       "address": "Place Igor Stravinsky 75004 Paris",
@@ -2818,7 +4160,7 @@
       "image_url": "https://cdn.openagenda.com/main/32660971ea2c4dc986f93616786551b7.base.image.jpg"
     },
     {
-      "id": "55118958-0",
+      "id": "oa-55118958-0",
       "title": "La place Edith Piaf en musique !",
       "venue_name": "Place Edith Piaf 75020 PARIS",
       "address": "3 rue du capitaine ferber 75020 PARIS",
@@ -2842,7 +4184,36 @@
       "image_url": "https://cdn.openagenda.com/main/c633f45b2f6e492e99f5fb555fd1fff8.base.image.jpg"
     },
     {
-      "id": "70896278-0",
+      "id": "oa-67465503-3",
+      "title": "Sabiá fête la musique, le street art et le Brésil",
+      "venue_name": "26 Rue des jardins Saint-Paul - Paris",
+      "address": "26 Rue des Jardins Saint-Paul Paris",
+      "arrondissement": 4,
+      "commune": "Paris",
+      "lat": 48.853839,
+      "lng": 2.361031,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67465503",
+      "genres": [
+        "soul-funk",
+        "rap",
+        "world",
+        "autres"
+      ],
+      "subgenres": [
+        "Bresil"
+      ],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "DJ set Brésil sur la terrasse de Sabiá Arte & Cultura, nouveau lieu culturel brésilien de la place parisienne.",
+      "image_url": "https://cdn.openagenda.com/main/2ce38c08bfab4a7c82fdd727078839d7.base.image.jpg"
+    },
+    {
+      "id": "oa-70896278-0",
       "title": "Multiphonix en live à Paris",
       "venue_name": "45 Av. de la Motte-Picquet, 75015 Paris",
       "address": "45 Avenue de la Motte-Picquet, 75015 Paris",
@@ -2867,7 +4238,86 @@
       "image_url": "https://cdn.openagenda.com/main/3dcfe9047dc5481c972f51c136142777.base.image.jpg"
     },
     {
-      "id": "75805366-0",
+      "id": "oa-72122402-0",
+      "title": "Cross Volume",
+      "venue_name": "*Duuu Radio - Folie N4 / Parc de la Villette",
+      "address": "Parc de la villette",
+      "arrondissement": 19,
+      "commune": "Paris",
+      "lat": 48.894568,
+      "lng": 2.388657,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/72122402",
+      "genres": [
+        "soul-funk",
+        "rap",
+        "jazz"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "À l’occasion de la fête de la musique 2026, \\*Duuu invite artistes musicien·nes et DJs à investir son espace à travers une série de concerts et dj-set dédiés à l’art du scratching et à l’écoute sur  …",
+      "image_url": "https://cdn.openagenda.com/main/1f3549195b4c44d7b650b524a80ca060.base.image.jpg"
+    },
+    {
+      "id": "oa-73367789-0",
+      "title": "Le Jazz des Papyfous",
+      "venue_name": "Face aux Trois Mailletz, 56 rue Galande, 75005 PARIS",
+      "address": "56 rue Galande 75005 PARIS",
+      "arrondissement": 5,
+      "commune": "Paris",
+      "lat": 48.85218,
+      "lng": 2.346612,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T20:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/73367789",
+      "genres": [
+        "jazz"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Toujours vaillants, comme chaque année ils sont là avec leurs maillots rayés et canotiers pour la joie de tous. Les Papyfous interprètent les standards du jazz traditionnel avec une pointe d'humour.…",
+      "image_url": "https://cdn.openagenda.com/main/c6a056c6f0f748149f7b7335aa73d685.base.image.jpg"
+    },
+    {
+      "id": "oa-74256903-0",
+      "title": "J'veux du Soleil illumine le Carrefour des Cloÿs pour sa 15e édition !",
+      "venue_name": "Carrefour des Cloÿs",
+      "address": "34 rue Montcalm",
+      "arrondissement": 18,
+      "commune": "Paris",
+      "lat": 48.893397,
+      "lng": 2.337126,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/74256903",
+      "genres": [
+        "variete",
+        "folk",
+        "jazz",
+        "rock",
+        "pop",
+        "soul-funk"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "📆 Tic, tac, tic, tac... c'est l'heure du COME-BACK !",
+      "image_url": "https://cdn.openagenda.com/main/33c5da12ed1641efb296613c1552aabc.base.image.jpg"
+    },
+    {
+      "id": "oa-75805366-0",
       "title": "Elena & The BBB",
       "venue_name": "Acerma",
       "address": "22 Quai de la Loire 75019 Paris",
@@ -2892,7 +4342,7 @@
       "image_url": "https://cdn.openagenda.com/main/59fef3ca4513405196ff8d0237fad4c2.base.image.jpg"
     },
     {
-      "id": "76475845-0",
+      "id": "oa-76475845-0",
       "title": "Hommage à Ray Charles – Big Dez",
       "venue_name": "Sunset Sunside",
       "address": "60 rue des Lombards, 75001 Paris",
@@ -2917,7 +4367,7 @@
       "image_url": "https://cdn.openagenda.com/main/bb47d120764e4d34ae80802658a966ce.base.image.jpg"
     },
     {
-      "id": "80179503-0",
+      "id": "oa-80179503-0",
       "title": "Soirée Bonne Beaubourg",
       "venue_name": "5 rue Pierre au Lard - Paris",
       "address": "5 rue Pierre au Lard 75004 Paris",
@@ -2941,7 +4391,7 @@
       "image_url": "https://cdn.openagenda.com/main/928ef033a08b4f509456832b41fb8c89.base.image.jpg"
     },
     {
-      "id": "809991-0",
+      "id": "oa-809991-0",
       "title": "Gris Futuro live",
       "venue_name": "Placette Turenne",
       "address": "109 rue de Turenne",
@@ -2972,7 +4422,7 @@
       "image_url": "https://cdn.openagenda.com/main/3f1425b1b29d42d8a46de457e915aaa0.base.image.jpg"
     },
     {
-      "id": "84385011-0",
+      "id": "oa-84385011-0",
       "title": "Okinawa à Paris",
       "venue_name": "Centre Culturel Italien",
       "address": "4 rue des Prêtres Saint Séverin  75005 PARIS",
@@ -2998,7 +4448,7 @@
       "image_url": "https://cdn.openagenda.com/main/b06fb58b6ff741edbe2f8696c71f3008.base.image.jpg"
     },
     {
-      "id": "85715282-0",
+      "id": "oa-85715282-0",
       "title": "Carmina Burana",
       "venue_name": "Cathédrale Sainte-Croix des Arméniens",
       "address": "13 rue du Perche, Paris 75003",
@@ -3022,7 +4472,7 @@
       "image_url": "https://cdn.openagenda.com/main/8d29e5e666794b5196898e94d4e015a5.base.image.jpg"
     },
     {
-      "id": "87519221-0",
+      "id": "oa-87519221-0",
       "title": "Shae BoogieDJ - The Howse That Boogie Built",
       "venue_name": "Jean Paul Gaultier headquarters",
       "address": "325 Rue Saint-Martin, 75003 Paris, France",
@@ -3051,7 +4501,7 @@
       "image_url": "https://cdn.openagenda.com/main/c78d9174db1a46449c18efa9b424a33e.base.image.jpg"
     },
     {
-      "id": "9432874-0",
+      "id": "oa-9432874-0",
       "title": "Soirée Bonne Montmartre",
       "venue_name": "20 rue Chappe, 75018",
       "address": "20 rue chappe, 75018 Paris",
@@ -3075,7 +4525,7 @@
       "image_url": "https://cdn.openagenda.com/main/aa900c681973425ca9b1947901837d0e.base.image.jpg"
     },
     {
-      "id": "95080732-0",
+      "id": "oa-95080732-0",
       "title": "Bubble Beats : Champagne Disco",
       "venue_name": "Bubble Bliss",
       "address": "3 rue de Bourbon le Chateau",
@@ -3104,7 +4554,55 @@
       "image_url": "https://cdn.openagenda.com/main/f439a483a4ff426caa0f6004775764e3.base.image.jpg"
     },
     {
-      "id": "15407382-0",
+      "id": "qfap-86040-3",
+      "title": "Twingo live show, concerts gratuits par Renault",
+      "venue_name": "Défilé renault®",
+      "address": "53, Champs-Élysées 75008 Paris",
+      "arrondissement": 8,
+      "commune": "Paris",
+      "lat": 48.8701350190072,
+      "lng": 2.30535999047819,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T22:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/twingo-live-show-concerts-gratuits-par-renault-112580",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Quatre nuits, une icône réinventée et les Champs-Élysées qui vibrent comme jamais. Renault transforme son flagship parisien en scène à ciel ouvert pour célébrer le retour de la Twingo E-Tech électrique : bienvenue au Twingo Live Show, un événement musical et spectaculaire, gratuit et ouvert à tous. Un line-up XXL pour faire groover les Champs. Pop, hip-hop, électro : la crème de la scène française se donne rendez-vous. Disiz et MC Solaar en légendes, Superbus et Miki pour l'énergie pop, Sam Sauvage pour la sensation, Santa pour le flow. Aux platines, des pointures de l'électro tricolore : Kungs, Irène Drésel, Busy P, The Avener, Bon Entendeur, Breakbot… Chaque soirée promet d'être mythique. Un vrai spectacle, pensé comme du music-hall. La direction artistique est signée Manon Savary et Marc Zaffuto, à l'origine des résidences de Kylie Minogue et Christina Aguilera à Las Vegas et du spectacle Fantasma aux Folies Bergère. Leur promesse : un manifeste anti-morosité, construit par tableaux, apparitions et séquences chorégraphiques. Dans la foule défileront les Twingo Showgirls aux costumes inspirés de la carrosserie iconique, les Mascottes Emotion expressives et colorées, la communauté Twingo Feel Good en color block pastel, les Robots Pop tout en chrome et, clou du spectacle, une tribu de grenouilles grandeur nature, acrobates et bondissantes. À vivre et à tester. Entre les shows, trois Twingo Pop Corners plongent les visiteurs dans l'univers de la grenouille préférée des Français, à travers trois générations de la voiture. Des sessions d'essai de la Twingo E-Tech électrique sont également disponibles sur inscription pour les curieux qui veulent prendre le volant de l'icône réinventée. Renseignements Défilé renault®, 53 Champs-Élysées, 75008 Paris Billetterie : https://shotgun.live/fr/venues/renault Ouverture billetterie grand public : 11 mai, 18 mai et 9 juin Dates et horaires : Du jeudi 18 juin au dimanche 21 juin 2026 Tarifs : Gratuit, sur inscription dans la limite des places disponibles",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/28/huge-e803357ae17c0d4c78b4f6d58fd5bdbc.png"
+    },
+    {
+      "id": "qfap-86424-0",
+      "title": "Fête de la musique 2026 | Les Processions",
+      "venue_name": "L'Institut du Monde Arabe",
+      "address": "1 rue des Fossés-Saint-Bernard 75005 Paris France",
+      "arrondissement": 5,
+      "commune": "Paris France",
+      "lat": 48.856578,
+      "lng": 2.351828,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T21:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-2026-les-processions-112970",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>Accès libre dans la limite des places disponibles</p>",
+      "description": "Joyau de la poésie arabe classique Le Livre des Processions de Gibran Khalil Gibran, publié d’abord en arabe en 1919 à New York, explore la dualité de l’être, le tiraillement entre les racines et l’élan vers un avenir nouveau. Les poèmes sont mis en musique par Walid Ben Selim dans une inspiration des ensembles liturgiques traditionnels qui ont peuplé la Méditerranée, tout en y intégrant la modernité et la pertinence de la poésie de Gibran et de la musique actuelle. Sous sa direction artistique, cette création rassemblera une constellation d’artistes professionnel·le·s et amateur·ice·s, réuni·e·s pour faire entendre un souffle commun. Agathe Di Piro , pianiste et arrangeuse reconnue, apporte à cette création la finesse des contrechants, la profondeur harmonique des grands ensembles vocaux et des orchestres symphoniques. Le chœur et l’orchestre des Musicales du Liban sous la direction de Fadi Khalil , viennent donner à cette œuvre son ampleur humaine et sonore. Leur présence inscrit Les Processions dans une filiation vivante entre Orient et Méditerranée. Par la richesse des timbres, la puissance du collectif et l’ancrage d’une tradition musicale profondément liée aux langues, aux rites et aux mémoires du Levant, ils galvanisent cette création portée par l’Institut du monde arabe et lui donnent la dimension d’un grand rassemblement poétique. Pensée comme un oratorio méditerranéen, cette œuvre fait dialoguer les voix, les gestes, les langues et les cultures autour d’une même ambition : célébrer la puissance du chant collectif, la beauté d’une poésie incarnée. Ce projet s’inscrit dans le cadre de la Saison Méditerranée 2026, Institut Français Production : Compagnie Les Enchanteurs Coproduction : Institut du monde arabe ; L’Archipel, scène nationale de Perpignan ; Théâtre Molière → Sète, scène nationale archipel de Thau Avec le soutien de : DGCA - SACEM ; DRAC Occitanie ; Région Occitanie ; Fondation Orange ; Fondation Abilitis Dates horaires Dimanche 21 juin 2026 à partir de 18h Billets Accès libre dans la limite des places disponibles Lieu Parvis de l'Institut du monde arabe Evénement en extérieur Rejoignez-nous sur les réseaux sociaux: Twitter Facebook LinkedIn Youtube Instagram Tiktok Soundcloud",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/06/02/huge-f5d720200ac92de30070fea65324add3.jpg"
+    },
+    {
+      "id": "oa-15407382-0",
       "title": "Animation",
       "venue_name": "Devant le restaurant McDonald's Gare d'Austerlitz",
       "address": "2 boulevard de l'hôpital, 75005",
@@ -3131,7 +4629,7 @@
       "image_url": "https://cdn.openagenda.com/main/db559c096fca42cfabc5d4ebda2599ba.base.image.jpg"
     },
     {
-      "id": "21249678-0",
+      "id": "oa-21249678-0",
       "title": "Dj set human",
       "venue_name": "Parc de la Villette",
       "address": "221 avenue Jean Jaurès, 75019 Paris",
@@ -3156,7 +4654,7 @@
       "image_url": "https://cdn.openagenda.com/main/057e95208c9540ffa9f6b13f7c89e843.base.image.jpg"
     },
     {
-      "id": "29456162-1",
+      "id": "oa-29456162-1",
       "title": "Flux Invisibles : Performance art-science et musique électronique",
       "venue_name": "Le parking en face du 6 rue Amyot, 75005 Paris",
       "address": "6 rue Amyot, 75005 Paris",
@@ -3181,7 +4679,7 @@
       "image_url": "https://cdn.openagenda.com/main/469c96a3b5144678a3e0ccde68885ac7.base.image.jpg"
     },
     {
-      "id": "4187479-0",
+      "id": "oa-4187479-0",
       "title": "Monsieur Choufleuri Restera Chez Lui Le… - Opéra bouffe d’Offenbach",
       "venue_name": "Place des Petits-Pères - 75002",
       "address": "place des Petits-Pères",
@@ -3208,7 +4706,7 @@
       "image_url": "https://cdn.openagenda.com/main/8a38c95f544145c8a7e6ff800654cadd.base.image.jpg"
     },
     {
-      "id": "46510281-0",
+      "id": "oa-46510281-0",
       "title": "CONCERT CHORALE - MOZART 270 ans",
       "venue_name": "Eglise Luthérienne de l'ascension",
       "address": "47 rue Dulong 75017 PARIS",
@@ -3232,7 +4730,7 @@
       "image_url": "https://cdn.openagenda.com/main/1c15fc03f1f04fbdbc69e96fbf639dd6.base.image.jpg"
     },
     {
-      "id": "52119942-0",
+      "id": "oa-52119942-0",
       "title": "Apero Bollywood, avec DJ TukTuk, mix de musique indienne et du monde",
       "venue_name": "La Caravane Café",
       "address": "1 rue Auguste Barbier",
@@ -3259,7 +4757,7 @@
       "image_url": "https://cdn.openagenda.com/main/6ba03d1644ad4482af0706b02a0ab39a.base.image.jpg"
     },
     {
-      "id": "64702092-0",
+      "id": "oa-64702092-0",
       "title": "VOYAGE le concert interactif",
       "venue_name": "Devant la Bourse de Commerce Pinault - sortie forum des Halles (Chatelet)",
       "address": "2 rue de Viarmes 75001 Paris",
@@ -3284,7 +4782,7 @@
       "image_url": "https://cdn.openagenda.com/main/f2eec674b5f5470fa2097dced1b53924.base.image.jpg"
     },
     {
-      "id": "76636267-0",
+      "id": "oa-76636267-0",
       "title": "Phosphène et les Sirènes",
       "venue_name": "Galerie MORTIER",
       "address": "77 rue Amelot 7501, paris",
@@ -3311,7 +4809,7 @@
       "image_url": "https://cdn.openagenda.com/main/ff96015079c548faad8470b749916d9d.base.image.jpg"
     },
     {
-      "id": "85871162-0",
+      "id": "oa-85871162-0",
       "title": "Concert gospel - FondaSion musique",
       "venue_name": "Sous le métro aérien La Motte-Picquet Grenelle 75015, à côté du kiosque à journaux",
       "address": "130 Boulevard de Grenelle, 75015 Paris (France)",
@@ -3341,7 +4839,7 @@
       "image_url": "https://cdn.openagenda.com/main/5b299c0c4a094e86b76d787351de5888.base.image.jpg"
     },
     {
-      "id": "86472223-0",
+      "id": "oa-86472223-0",
       "title": "Les souvenirs de Delacroix en musique",
       "venue_name": "Musée Eugène Delacroix",
       "address": "6 Rue de Furstemberg, 75006 Paris, France",
@@ -3365,7 +4863,31 @@
       "image_url": "https://cdn.openagenda.com/main/ee486dda9a49446c844d8cfbde5c2427.base.image.jpg"
     },
     {
-      "id": "1008721-0",
+      "id": "qfap-86033-0",
+      "title": "Fête de la musique ! Offenbach",
+      "venue_name": "Parvis de Notre Dame des Victoires",
+      "address": "Place des Petits Pères 75002 Paris",
+      "arrondissement": 2,
+      "commune": "Paris",
+      "lat": 48.8664647182957,
+      "lng": 2.34081349020298,
+      "start_time": "2026-06-21T18:30:00+02:00",
+      "end_time": "2026-06-21T19:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-offenbach-112573",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Monsieur Choufleuri restera chez lui ce soir, pour recevoir le tout Paris. Il a pensé à tout : le menu, le champagne, la musique… Sa fille Ernestine, tout juste sortie de pension, a déjà pris un amant que son père refuse d’inviter. Une lettre reçue une heure avant l’arrivée des premiers invités va les obliger à improviser. Spectacle d’une heure environ, devant l’église Notre Dame des Victoires. Les Bavards est une troupe lyrique de chambre, composée de quatorze musiciens amateurs (cinq chanteurs et neuf instrumentistes) et d’un metteur en scène, qui se sont donné pour objectif de faire vivre la musique lyrique auprès d’un public non-initié, pour leur faire découvrir, ou redécouvrir, un répertoire peu joué. Fondée en 2023, par Thierry Mallet, Béatrice Beaupère et Thibaud Mercier, la troupe produit ainsi chaque année une opérette en un acte du XIXe siècle. En plus de quatre dates grand public, la troupe se représente dans des lieux où l’accès à la culture est plus difficile, tels que l'hôpital Necker des enfants malades et dans l’Ehpad Oasis du 18e. Après vous avoir monté Le Financier et le Savetier, et L’Île de Tulipatan, Les Bavards vous présentent Monsieur Choufleuri Restera Chez Lui Le…",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/03/27/huge-9db732fa0fa64007ea788ec00dd6707b.jpg"
+    },
+    {
+      "id": "oa-1008721-0",
       "title": "Zic&Sing sur l'Ile Saint-Louis le 21 Juin",
       "venue_name": "4 rue Jean du Bellay Paris 4ème",
       "address": "4 rue Jean du Bellay 75004 Paris",
@@ -3392,7 +4914,7 @@
       "image_url": "https://cdn.openagenda.com/main/d10a173ad9e34ee2874dcee70cfe9648.base.image.jpg"
     },
     {
-      "id": "11778619-0",
+      "id": "oa-11778619-0",
       "title": "F&F – Live Acoustic Rock & Pop",
       "venue_name": "Place Dalida - Paris",
       "address": "Rue de l'Abreuvoir & Rue Girardon",
@@ -3419,14 +4941,14 @@
       "image_url": "https://cdn.openagenda.com/main/c5defd46d6ea4e3b83a84d62f2738ce1.base.image.jpg"
     },
     {
-      "id": "18365410-0",
+      "id": "oa-18365410-0",
       "title": "METROPOLIS VIBRATION en live session",
-      "venue_name": "parc andré citroen",
-      "address": "35 rue leblanc 75015",
+      "venue_name": "Parc André Citroën",
+      "address": "2, rue Cauchy, Paris 15E",
       "arrondissement": 15,
       "commune": "Paris",
-      "lat": 48.837414,
-      "lng": 2.276242,
+      "lat": 48.841835,
+      "lng": 2.279225,
       "start_time": "2026-06-21T19:00:00+02:00",
       "end_time": "2026-06-21T21:00:00+02:00",
       "session_date": "2026-06-21",
@@ -3441,10 +4963,10 @@
       "price_type": "free",
       "price_detail": null,
       "description": "Tu habites le 14e arrondissement ou le 15e...",
-      "image_url": "https://cdn.openagenda.com/main/c1915134a61a4e609fb47ceab144feb7.base.image.jpg"
+      "image_url": "https://cdn.openagenda.com/main/cbd1f105b7ff487fbd1b06981457da11.base.image.jpg"
     },
     {
-      "id": "3212292-0",
+      "id": "oa-3212292-0",
       "title": "Concert reprises rock - The Lonely Stone",
       "venue_name": "46 rue des Boulangers Paris 5",
       "address": "46 rue des Boulangers 75005 Paris",
@@ -3469,7 +4991,7 @@
       "image_url": "https://cdn.openagenda.com/main/b327f20da7bc4ff8b823bedad67a4f3f.base.image.jpg"
     },
     {
-      "id": "35942253-1",
+      "id": "oa-35942253-1",
       "title": "GDM en concert live au Carré Versigny",
       "venue_name": "Place Michel Petrucciani",
       "address": "place michel petrucciani 75018 Paris",
@@ -3495,7 +5017,7 @@
       "image_url": "https://cdn.openagenda.com/main/91df92e0b2fa47ac881ee28527f6b98c.base.image.jpg"
     },
     {
-      "id": "43098247-0",
+      "id": "oa-43098247-0",
       "title": "Chant et danse de Côte d'Ivoire",
       "venue_name": "Restaurant À La Banane Ivoirienne",
       "address": "10 RUE DE LA FORGE ROYALE 75011 Paris",
@@ -3519,7 +5041,7 @@
       "image_url": "https://cdn.openagenda.com/main/c1e94625c3314cb6bf8b8c2ac9a23e28.base.image.jpg"
     },
     {
-      "id": "49523978-0",
+      "id": "oa-49523978-0",
       "title": "Hommage à Otis Redding & Sam Cooke – Matthieu Boré Quartet",
       "venue_name": "Sunset Sunside",
       "address": "60 rue des Lombards, 75001 Paris",
@@ -3543,7 +5065,7 @@
       "image_url": "https://cdn.openagenda.com/main/68b09594f6334d45b7f9e880a8f925d1.base.image.jpg"
     },
     {
-      "id": "64280648-0",
+      "id": "oa-64280648-0",
       "title": "Rock n'Babwe",
       "venue_name": "En face du 25 rue de l'Ambroisie",
       "address": "25 rue de l'Ambroisie, 012 Paris",
@@ -3568,7 +5090,7 @@
       "image_url": "https://cdn.openagenda.com/main/0a046cdb0eff4b7c9c71d6afda420209.base.image.jpg"
     },
     {
-      "id": "67434055-0",
+      "id": "oa-67434055-0",
       "title": "Les Casquettes Rose",
       "venue_name": "Théâtre du Châtelet",
       "address": "1 Place du Châtelet, 75001 Paris, France",
@@ -3598,7 +5120,7 @@
       "image_url": "https://cdn.openagenda.com/main/3f51ff4c24e7406db4e76c82270244b2.base.image.jpg"
     },
     {
-      "id": "69152946-0",
+      "id": "oa-69152946-0",
       "title": "DJ Camper",
       "venue_name": "Flammarion Centre Pompidou",
       "address": "102P Rue Rambuteau, 75004 Paris, France",
@@ -3622,7 +5144,7 @@
       "image_url": "https://cdn.openagenda.com/main/17bff4c519a44228ad95223732f0144d.base.image.jpg"
     },
     {
-      "id": "7379236-0",
+      "id": "oa-7379236-0",
       "title": "Le SPB descend dans la rue",
       "venue_name": "1 rue Dieu - Paris",
       "address": "1 rue dieu 75010 - Paris",
@@ -3646,7 +5168,7 @@
       "image_url": "https://cdn.openagenda.com/main/a09b14fd3e3f4925a213b50e7a8c86a5.base.image.jpg"
     },
     {
-      "id": "74104418-0",
+      "id": "oa-74104418-0",
       "title": "Jazz Vespers",
       "venue_name": "The American Cathedral in Paris",
       "address": "23 avenue George V",
@@ -3670,7 +5192,7 @@
       "image_url": "https://cdn.openagenda.com/main/e0458796df7b4c25a35382b256c71ab7.base.image.jpg"
     },
     {
-      "id": "74629381-0",
+      "id": "oa-74629381-0",
       "title": "Les Casquettes Rose - Techno & Electro & Commerciale",
       "venue_name": "Quai de Seine - Voie George Pompidou",
       "address": "75004 Paris",
@@ -3699,7 +5221,33 @@
       "image_url": "https://cdn.openagenda.com/main/3bad71c689784b65bc0fe5e1a0157097.base.image.jpg"
     },
     {
-      "id": "79953751-0",
+      "id": "oa-79129672-0",
+      "title": "Les 15-20 en musique",
+      "venue_name": "Hôpital national des 15-20",
+      "address": "28 rue de Charenton, 75012 Paris",
+      "arrondissement": 12,
+      "commune": "Paris",
+      "lat": 48.850335,
+      "lng": 2.372021,
+      "start_time": "2026-06-21T19:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/79129672",
+      "genres": [
+        "variete",
+        "soul-funk",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Le dimanche 21 juin, à deux pas de la place de la Bastille, l’Hôpital national des 15-20 ouvre ses portes et invite le public à découvrir un lieu aussi inattendu que remarquable, transformé le temps …",
+      "image_url": "https://cdn.openagenda.com/main/4036b38277884265924456a9a0eef7ce.base.image.jpg"
+    },
+    {
+      "id": "oa-79953751-0",
       "title": "Jam In Case We Disappear",
       "venue_name": "Kiosque du Jardin de Marianne",
       "address": "Place de la Nation, Paris 12e",
@@ -3723,7 +5271,34 @@
       "image_url": "https://cdn.openagenda.com/main/4a5d79b8b68a4f2885f4df865d30976a.base.image.jpg"
     },
     {
-      "id": "94989551-0",
+      "id": "oa-91710249-0",
+      "title": "Hope Gospel Singers",
+      "venue_name": "Parvis de la mairie du 14e",
+      "address": "2 place Ferdinand Brunot",
+      "arrondissement": 14,
+      "commune": "Paris",
+      "lat": 48.833086,
+      "lng": 2.326876,
+      "start_time": "2026-06-21T19:00:00+02:00",
+      "end_time": "2026-06-21T20:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/91710249",
+      "genres": [
+        "chorale",
+        "autres"
+      ],
+      "subgenres": [
+        "Gospel"
+      ],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Hope Gospel Singers fête la musique et l'arrivée de l'été à l'occasion de son concert annuel. Venez nombreux !",
+      "image_url": "https://cdn.openagenda.com/main/f98027df479a4335be63c4b07dd04df6.base.image.jpg"
+    },
+    {
+      "id": "oa-94989551-0",
       "title": "Les Compagnons de la Butte Montmartre",
       "venue_name": "Square Roland Dorgelès, Paris",
       "address": "rue des saules paris",
@@ -3747,7 +5322,7 @@
       "image_url": "https://cdn.openagenda.com/main/b55de9325d3040d3b914ab7b949ec6ea.base.image.jpg"
     },
     {
-      "id": "95945622-0",
+      "id": "oa-95945622-0",
       "title": "Naples à Paris",
       "venue_name": "Centre Culturel Italien",
       "address": "4 rue des Prêtres Saint Séverin  75005 PARIS",
@@ -3775,7 +5350,7 @@
       "image_url": "https://cdn.openagenda.com/main/c56ac0052fe7439dbf9d43e9f37d4783.base.image.jpg"
     },
     {
-      "id": "97291538-0",
+      "id": "oa-97291538-0",
       "title": "Concert à la Maison Saint-charles",
       "venue_name": "Maison Saint-Charles",
       "address": "310 rue de Vaugirard, 75015 Paris",
@@ -3801,7 +5376,55 @@
       "image_url": "https://cdn.openagenda.com/main/7eb428fa18914dc781e3c694a770336a.base.image.jpg"
     },
     {
-      "id": "21249678-1",
+      "id": "qfap-82974-0",
+      "title": "Sunday Tribute - Best Of Fête de la musique",
+      "venue_name": "SUPERSONIC",
+      "address": "9 Rue Biscornet 75012 Paris",
+      "arrondissement": 12,
+      "commune": "Paris",
+      "lat": 48.8502469839762,
+      "lng": 2.36970702296574,
+      "start_time": "2026-06-21T19:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/sunday-tribute-best-of-fete-de-la-musique-109358",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Tous les dimanches depuis 2016, le Supersonic rend hommage aux grands noms du rock et de la pop. Plusieurs groupes locaux monteront sur scène pour vous rejouer en live les plus gros tubes de l'histoire Célébrez la Fête de la Musique avec une soirée Sunday Tribute spéciale Best Of On vous propose un concentré de hits incontournables : de Blondie à Avril Lavigne en passant par Paramore, Green Day, Black Eyed Peas, ABBA, Téléphone… repris par des groupes locaux pour vous assurer une soirée 100% festive et intergénérationnelle Du rock, de la pop, du punk, de la dance : quoi de mieux pour une fête de la musique ? ——————————— Dimanche 21 Juin 2026 Entrée gratuite • Ouverture des portes à 19h ---------------------------- SUPERSONIC Concerts gratuits, Nuits rock et Disquaire à Paris http://supersonic-paris.fr/ 9 rue Biscornet, 75012 Paris Métro Bastille (sortie rue de lyon)",
+      "image_url": "https://cdn.paris.fr/qfapv4/2023/12/27/huge-49fa1cd93b163c620d134d8ed415d4f0.jpeg"
+    },
+    {
+      "id": "qfap-85674-0",
+      "title": "Fête de la musique Jazz Soul & Pop ! Entrée libre",
+      "venue_name": "JASS CLUB PARIS",
+      "address": "141 Rue de Tolbiac 75013 Paris",
+      "arrondissement": 13,
+      "commune": "Paris",
+      "lat": 48.8259553,
+      "lng": 2.3592185,
+      "start_time": "2026-06-21T19:00:00+02:00",
+      "end_time": "2026-06-21T22:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-jazz-soul-pop-entree-libre-112176",
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Pour ce rendez-vous très attendu du public parisien, Kicca s’entoure d’un tout nouveau quartet réunissant le trompettiste Hillel Salem, Oscar Marchioni à l’orgue, et le batteur Mourad Benhammou. Le groupe propose un répertoire riche et vibrant mêlant grands classiques de la tradition jazz, soul et pop, ainsi que des compositions originales de Kicca & Oscar. Entre énergie, raffinement et liberté musicale, une soirée qui promet une expérience chaleureuse et pleine de surprises ! Kicca / voix Hillel Salem / trompette Oscar Marchioni / orgue Mourad Benhammou / batterie / Ouverture des portes à 19h / Bar & restauration sur place / Entrée Libre",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/22/huge-ab891b2d636e0b3259140f018f70e598.jpeg"
+    },
+    {
+      "id": "oa-21249678-1",
       "title": "Dj set human",
       "venue_name": "Parc de la Villette",
       "address": "221 avenue Jean Jaurès, 75019 Paris",
@@ -3826,7 +5449,7 @@
       "image_url": "https://cdn.openagenda.com/main/057e95208c9540ffa9f6b13f7c89e843.base.image.jpg"
     },
     {
-      "id": "33993682-0",
+      "id": "oa-33993682-0",
       "title": "Best off des Pirates de Penzance",
       "venue_name": "Place Colette, devant la Comédie Française",
       "address": "Place Colette",
@@ -3850,33 +5473,7 @@
       "image_url": "https://cdn.openagenda.com/main/ce4088bcaf384841b769e49ff5133fef.base.image.jpg"
     },
     {
-      "id": "36965869-0",
-      "title": "Du (Très) Bon Rock en plein air !",
-      "venue_name": "Les insouciants, 116 boulevard saint germain 75006 Paris",
-      "address": "116 boulevard saint germain 75006 Paris",
-      "arrondissement": 6,
-      "commune": "Paris",
-      "lat": 48.853543,
-      "lng": 2.333783,
-      "start_time": "2026-06-21T19:30:00+02:00",
-      "end_time": "2026-06-21T23:55:00+02:00",
-      "session_date": "2026-06-21",
-      "source": "openagenda",
-      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/36965869",
-      "genres": [
-        "blues",
-        "rock",
-        "pop"
-      ],
-      "subgenres": [],
-      "is_outdoor": true,
-      "price_type": "free",
-      "price_detail": null,
-      "description": "Du (Très) Bon Rock en plein air !",
-      "image_url": "https://cdn.openagenda.com/main/6d77f85dac5049d688a7524af354e645.base.image.jpg"
-    },
-    {
-      "id": "57857032-0",
+      "id": "oa-57857032-0",
       "title": "Concert Fishers",
       "venue_name": "Le Gymnase Montparnasse",
       "address": "208 boulevard Raspail, 75014 Paris",
@@ -3902,7 +5499,7 @@
       "image_url": "https://cdn.openagenda.com/main/ad962a60ece94645ac2a0277a0ef438f.base.image.jpg"
     },
     {
-      "id": "64872513-0",
+      "id": "oa-64872513-0",
       "title": "Guess My Name (Rock)",
       "venue_name": "Seguin sound",
       "address": "Ile seguin 92100 Boulogne-Billancourt",
@@ -3927,7 +5524,7 @@
       "image_url": "https://cdn.openagenda.com/main/821daf63f9d04d9fbbd5efaa63df4d80.base.image.jpg"
     },
     {
-      "id": "65826509-0",
+      "id": "oa-65826509-0",
       "title": "Voyage musical des îles du Japon : Okinawa & Amami",
       "venue_name": "Shinjuku Pigalle",
       "address": "52, rue Condorcet 75009",
@@ -3951,7 +5548,7 @@
       "image_url": "https://cdn.openagenda.com/main/52fdb7b8db974b698fbd502a791e3453.base.image.jpg"
     },
     {
-      "id": "71975150-0",
+      "id": "oa-71975150-0",
       "title": "Concert : Fågelle",
       "venue_name": "Institut suédois",
       "address": "11 Rue Payenne, 75003 Paris, France",
@@ -3976,7 +5573,7 @@
       "image_url": "https://cdn.openagenda.com/main/6f4b70dfdda24f7e98f2ff4cb4395fbe.base.image.jpg"
     },
     {
-      "id": "80915885-0",
+      "id": "oa-80915885-0",
       "title": "Keltona band",
       "venue_name": "130 Boulevard saint germain 75006 Paris",
       "address": "130 Boulevard saint germain 75006 Paris",
@@ -4002,7 +5599,7 @@
       "image_url": "https://cdn.openagenda.com/main/96c65ebffc0a4921831636cd5c3bb134.base.image.jpg"
     },
     {
-      "id": "15705330-0",
+      "id": "oa-15705330-0",
       "title": "La compagnie Cocobamboo, le son des Caraïbes !!!",
       "venue_name": "La Rhumerie",
       "address": "166 Boulevard Saint Germain 75006 Paris",
@@ -4033,7 +5630,7 @@
       "image_url": "https://cdn.openagenda.com/main/8411f17fefed46b08074a9493c4f81c1.base.image.jpg"
     },
     {
-      "id": "17507167-0",
+      "id": "oa-17507167-0",
       "title": "Raspy Junker, rock à Saint-Michel",
       "venue_name": "Espace Saint Michel",
       "address": "7 Pl. Saint-Michel, 75005 Paris, France",
@@ -4057,7 +5654,7 @@
       "image_url": "https://cdn.openagenda.com/main/4cdfb59e31f546c6ae450e96b9e5bfb0.base.image.jpg"
     },
     {
-      "id": "31590288-0",
+      "id": "oa-31590288-0",
       "title": "Cover Beatles et rock’n’roll",
       "venue_name": "Chez Georges",
       "address": "11 rue des Canettes",
@@ -4084,7 +5681,7 @@
       "image_url": "https://cdn.openagenda.com/main/910c9148de0b4b768480952af7877488.base.image.jpg"
     },
     {
-      "id": "32176793-0",
+      "id": "oa-32176793-0",
       "title": "Hommage à Eric Clapton – Big Dez",
       "venue_name": "Sunset Sunside",
       "address": "60 rue des Lombards, 75001 Paris",
@@ -4109,7 +5706,7 @@
       "image_url": "https://cdn.openagenda.com/main/ba0655d22a99451b834921e74163de68.base.image.jpg"
     },
     {
-      "id": "36640401-0",
+      "id": "oa-36640401-0",
       "title": "The Early Birds - Rock blues folk acoustique",
       "venue_name": "En extérieur, 108 rue mouffetard 75005 paris",
       "address": "108 rue mouffetard 75005 paris",
@@ -4135,7 +5732,7 @@
       "image_url": "https://cdn.openagenda.com/main/641d27078fb147bb85b7001326378d19.base.image.jpg"
     },
     {
-      "id": "4879154-0",
+      "id": "oa-4879154-0",
       "title": "Batucada Sambatuc Samba Carioca",
       "venue_name": "Place Baudoyer - Paris 75004",
       "address": "Place Baudoyer - Paris",
@@ -4159,7 +5756,7 @@
       "image_url": "https://cdn.openagenda.com/main/8e76c3482527494a88c40669d6c301e6.base.image.jpg"
     },
     {
-      "id": "49292645-0",
+      "id": "oa-49292645-0",
       "title": "« En attendant Vincent » sur la place de la Convention",
       "venue_name": "Angle rue Convention et rue de Vaugirard - Paris",
       "address": "Place Geneviève de Gaulle-Anthonioz, 75015 Paris",
@@ -4186,7 +5783,7 @@
       "image_url": "https://cdn.openagenda.com/main/47a6a174fa5b49e88ec7f075f558a029.base.image.jpg"
     },
     {
-      "id": "53864181-0",
+      "id": "oa-53864181-0",
       "title": "TISS+",
       "venue_name": "Le Baiser Salé",
       "address": "58 rue des Lombards",
@@ -4197,7 +5794,7 @@
       "start_time": "2026-06-21T20:00:00+02:00",
       "end_time": "2026-06-21T23:30:00+02:00",
       "session_date": "2026-06-21",
-      "source": "openagenda",
+      "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/53864181",
       "genres": [
         "jazz",
@@ -4207,11 +5804,38 @@
       "is_outdoor": true,
       "price_type": "free",
       "price_detail": null,
-      "description": "Créées au Baiser Salé, mais aussi passées par des scènes comme la Boule Noire ou La Petite Halle, les soirées TISS+ sont devenues un rendez-vous incontournable. Chaque performance est pensée comme un…",
+      "description": "Chaque performance est pensée comme un laboratoire : mélange de jazz, d’électro, d’afro et d’improvisation libre, avec une intensité qui ne faiblit jamais. Sur scène, la surprise est reine : invités inattendus, moments de transe, énergie brute.",
       "image_url": "https://cdn.openagenda.com/main/fe34406a21d54453a9e7507171f9e2bc.base.image.jpg"
     },
     {
-      "id": "59256617-0",
+      "id": "oa-54951558-0",
+      "title": "Roller Skate Block Party - Rendez Vous in Paris",
+      "venue_name": "Square de la Paix",
+      "address": "17 Rue du Commandant l'Herminier 75020 Paris",
+      "arrondissement": 20,
+      "commune": "Paris",
+      "lat": 48.848121,
+      "lng": 2.416187,
+      "start_time": "2026-06-21T20:00:00+02:00",
+      "end_time": "2026-06-21T23:59:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/54951558",
+      "genres": [
+        "rap",
+        "soul-funk",
+        "electro",
+        "reggae"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Roller Skate Block Party pour la fête de la musique",
+      "image_url": "https://cdn.openagenda.com/main/714f4f44761f4870ac2cd4b868f2436d.base.image.jpg"
+    },
+    {
+      "id": "oa-59256617-0",
       "title": "La Guinguette Volante, Bal sauvage et poétique à La Caravane",
       "venue_name": "La Caravane Café",
       "address": "1 rue Auguste Barbier",
@@ -4239,7 +5863,7 @@
       "image_url": "https://cdn.openagenda.com/main/144861e51b3a4fe8ada08f5ce6797809.base.image.jpg"
     },
     {
-      "id": "66503254-0",
+      "id": "oa-66503254-0",
       "title": "FRENZY à 2 pas du Paradis",
       "venue_name": "78 rue de la verrerie - 75004 Paris",
       "address": "78 rue de la verrerie - 75004 Paris",
@@ -4263,7 +5887,32 @@
       "image_url": "https://cdn.openagenda.com/main/b460b6eb9ce244c39565c09b686ab11e.base.image.jpg"
     },
     {
-      "id": "74448482-0",
+      "id": "oa-71896938-0",
+      "title": "Channy on the Rock, duo Pop/Rock !!!",
+      "venue_name": "Parvis Pyramide du Louvre",
+      "address": "Place du Carroussel",
+      "arrondissement": 1,
+      "commune": "Paris",
+      "lat": 48.861633,
+      "lng": 2.334045,
+      "start_time": "2026-06-21T20:00:00+02:00",
+      "end_time": "2026-06-21T21:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/71896938",
+      "genres": [
+        "pop",
+        "rock"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Venez découvrir Channy on the Rock !",
+      "image_url": "https://cdn.openagenda.com/main/0c19b0a185f1426db1da39a16f6b105c.base.image.jpg"
+    },
+    {
+      "id": "oa-74448482-0",
       "title": "Concert Magic Michel Orchestra + 1ère partie : MMO Kids - MJC de Sceaux",
       "venue_name": "Jardin de la ménagerie à Sceaux",
       "address": "Jardin de la ménagerie sceaux",
@@ -4289,7 +5938,7 @@
       "image_url": "https://cdn.openagenda.com/main/c8dc2acb7d9c457a9398436f9a95ebb7.base.image.jpg"
     },
     {
-      "id": "82484445-0",
+      "id": "oa-82484445-0",
       "title": "Electro Schmocks",
       "venue_name": "MAHJ - Musée d'art et d'histoire du Judaïsme",
       "address": "71 Rue du Temple, 75003 Paris, France",
@@ -4300,7 +5949,7 @@
       "start_time": "2026-06-21T20:00:00+02:00",
       "end_time": "2026-06-21T22:30:00+02:00",
       "session_date": "2026-06-21",
-      "source": "openagenda",
+      "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/82484445",
       "genres": [
         "rock",
@@ -4309,14 +5958,14 @@
         "soul-funk"
       ],
       "subgenres": [],
-      "is_outdoor": null,
+      "is_outdoor": true,
       "price_type": "free",
-      "price_detail": null,
-      "description": "David Konopnicki, guitares",
+      "price_detail": "<p>Gratuit, entrée libre à partir de 19h</p>",
+      "description": "David Konopnicki , guitares Gurvan Zytynski , DJ Florent Méry , clarinette Loïc Audureau , accordéon Guests : Neshima Héritiers du concept de « sono mondiale » du mythique DJ Rémy Kolpa Kopoul, disparu il y a dix ans, un guitariste électrique flanqué de sa mandole d’Alger (David Konopnicki), un DJ électro ashkénaze (Gurvan Zytynski), un clarinettiste klezmer virtuose (Florent Méry) et un accordéoniste titi parisien aux accents des Balkans (Loïc Audureau) se réunissent pour vous faire danser, rire, pleurer et aimer – et recommencer. Quatre Mousklezmer, artistes et artisans du son, mêlant électro orientale et hard shmock, dancefloors de Brooklyn et nuits folles de Frishman, cornichons polonais et merguez oranaises… Dans le cadre du Festival des cultures juives",
       "image_url": "https://cdn.openagenda.com/main/dc4d036d0c4a4cd4b0cc1b19d5abe081.base.image.jpg"
     },
     {
-      "id": "86519279-0",
+      "id": "oa-86519279-0",
       "title": "Chorale Les enchantés de Montmartre",
       "venue_name": "Chez Plumeau",
       "address": "4 Place du Clavaire 75018 Paris",
@@ -4343,7 +5992,7 @@
       "image_url": "https://cdn.openagenda.com/main/bf6b1563e3b54745b9360e7df19feb0f.base.image.jpg"
     },
     {
-      "id": "21249678-2",
+      "id": "oa-21249678-2",
       "title": "Dj set human",
       "venue_name": "Parc de la Villette",
       "address": "221 avenue Jean Jaurès, 75019 Paris",
@@ -4368,7 +6017,7 @@
       "image_url": "https://cdn.openagenda.com/main/057e95208c9540ffa9f6b13f7c89e843.base.image.jpg"
     },
     {
-      "id": "28028076-0",
+      "id": "oa-28028076-0",
       "title": "EleKtroGen en concert",
       "venue_name": "Face au bar restaurant Le Cirque au 141 rue St Martin devant le musée Beaubourg",
       "address": "141 rue st martin paris",
@@ -4393,7 +6042,7 @@
       "image_url": "https://cdn.openagenda.com/main/d4b819cd96f94c0d867568585f1e7a88.base.image.jpg"
     },
     {
-      "id": "28871154-0",
+      "id": "oa-28871154-0",
       "title": "Gulset skolemusikk Norvège",
       "venue_name": "Parc de la Villette",
       "address": "221 avenue Jean Jaurès, 75019 Paris",
@@ -4418,7 +6067,33 @@
       "image_url": "https://cdn.openagenda.com/main/0b138324088c49e3b03477d8e2ebc1c3.base.image.jpg"
     },
     {
-      "id": "89987641-0",
+      "id": "oa-29119835-3",
+      "title": "Les Sons de l’Été Brésilien",
+      "venue_name": "Farm Rio - Marais",
+      "address": "56 Rue Vieille du Temple, 75003 Paris",
+      "arrondissement": 3,
+      "commune": "Paris",
+      "lat": 48.858861,
+      "lng": 2.35916,
+      "start_time": "2026-06-21T20:30:00+02:00",
+      "end_time": "2026-06-21T22:30:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29119835",
+      "genres": [
+        "soul-funk",
+        "classique",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Venez célébrer l’esprit du Brésil avec une performance live d’une violoniste brésilienne, inspirée des rythmes et de l’énergie de l’été à Rio.",
+      "image_url": "https://cdn.openagenda.com/main/1ff694899e724bb39aed132814ae475e.base.image.jpg"
+    },
+    {
+      "id": "oa-89987641-0",
       "title": "Les Notes de Chœur",
       "venue_name": "Cour Orange Village Saint-Paul",
       "address": "21, rue Saint Paul 75004 Paris",
@@ -4444,7 +6119,7 @@
       "image_url": "https://cdn.openagenda.com/main/16d7847278434e889ee82f93072f9c27.base.image.jpg"
     },
     {
-      "id": "13688248-0",
+      "id": "oa-13688248-0",
       "title": "Concert : Sara Parkman",
       "venue_name": "Institut suédois",
       "address": "11 Rue Payenne, 75003 Paris, France",
@@ -4468,7 +6143,7 @@
       "image_url": "https://cdn.openagenda.com/main/9176a5c272d643bc891cbbe784de6af3.base.image.jpg"
     },
     {
-      "id": "21249678-3",
+      "id": "oa-21249678-3",
       "title": "Dj set human",
       "venue_name": "Parc de la Villette",
       "address": "221 avenue Jean Jaurès, 75019 Paris",
@@ -4493,7 +6168,7 @@
       "image_url": "https://cdn.openagenda.com/main/057e95208c9540ffa9f6b13f7c89e843.base.image.jpg"
     },
     {
-      "id": "45886037-0",
+      "id": "oa-45886037-0",
       "title": "Hommage à Elvis Presley – Matthieu Boré Quartet",
       "venue_name": "Sunset Sunside",
       "address": "60 rue des Lombards, 75001 Paris",
@@ -4517,7 +6192,37 @@
       "image_url": "https://cdn.openagenda.com/main/6ff6b5d008624950859edbe81144ba61.base.image.jpg"
     },
     {
-      "id": "32659266-0",
+      "id": "oa-5090464-0",
+      "title": "Kutu, Joanne Radao & DJ DouceSœur",
+      "venue_name": "Palais de la Porte Dorée",
+      "address": "293 avenue Daumesnil",
+      "arrondissement": 12,
+      "commune": "Paris",
+      "lat": 48.835142,
+      "lng": 2.409361,
+      "start_time": "2026-06-21T21:00:00+02:00",
+      "end_time": "2026-06-21T23:55:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/5090464",
+      "genres": [
+        "soul-funk",
+        "rap",
+        "classique",
+        "world",
+        "electro",
+        "trad",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "_**De l’Éthiopie à Madagascar en passant par les musiques afro-caribéennes, Kutu, Joanne Radao et DouceSœur nous invitent à danser sur tous les rythmes pour une Fête de la Musique explosive, festive …",
+      "image_url": "https://cdn.openagenda.com/main/b6d3a527ad124b488b836d0bf2e98e57.base.image.jpg"
+    },
+    {
+      "id": "oa-32659266-0",
       "title": "Musique des gardiens de la paix - Ensemble baroque",
       "venue_name": "Église Saint-Roch",
       "address": "296 Rue Saint-Honoré, 75001 Paris, France",
@@ -4541,7 +6246,32 @@
       "image_url": "https://cdn.openagenda.com/main/3143e59884ce424d9ad8ed754b31e03a.base.image.jpg"
     },
     {
-      "id": "21249678-4",
+      "id": "oa-7133989-0",
+      "title": "Channy on the Rock, duo Pop/Rock !!!",
+      "venue_name": "1 Parvis Notre-Dame de Paris",
+      "address": "1 Parvis Notre-Dame - Pl. Jean-Paul II",
+      "arrondissement": 4,
+      "commune": "Paris",
+      "lat": 48.853943,
+      "lng": 2.348359,
+      "start_time": "2026-06-21T21:30:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/7133989",
+      "genres": [
+        "rock",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Venez découvrir Channy on the Rock !",
+      "image_url": "https://cdn.openagenda.com/main/ece7ac87ddd94dedb7ee5b5bec7228d7.base.image.jpg"
+    },
+    {
+      "id": "oa-21249678-4",
       "title": "Dj set human",
       "venue_name": "Parc de la Villette",
       "address": "221 avenue Jean Jaurès, 75019 Paris",
@@ -4566,7 +6296,7 @@
       "image_url": "https://cdn.openagenda.com/main/057e95208c9540ffa9f6b13f7c89e843.base.image.jpg"
     },
     {
-      "id": "47028282-0",
+      "id": "oa-47028282-0",
       "title": "Bim Bam Orchestra à La Caravane",
       "venue_name": "La Caravane Café",
       "address": "1 rue Auguste Barbier",
@@ -4596,7 +6326,7 @@
       "image_url": "https://cdn.openagenda.com/main/63defbde35cc4cefba009ca43880a106.base.image.jpg"
     },
     {
-      "id": "21249678-5",
+      "id": "oa-21249678-5",
       "title": "Dj set human",
       "venue_name": "Parc de la Villette",
       "address": "221 avenue Jean Jaurès, 75019 Paris",
@@ -4621,7 +6351,7 @@
       "image_url": "https://cdn.openagenda.com/main/057e95208c9540ffa9f6b13f7c89e843.base.image.jpg"
     },
     {
-      "id": "43756418-1",
+      "id": "oa-43756418-1",
       "title": "Montmartre on Wax",
       "venue_name": "Rue Gabrielle - Paris",
       "address": "2 rue Gabrielle 75018",
@@ -4647,7 +6377,7 @@
       "image_url": "https://cdn.openagenda.com/main/4b7c8a07608448908eb0d1eb0d8fa560.base.image.jpg"
     },
     {
-      "id": "38522210-1",
+      "id": "oa-38522210-1",
       "title": "CB Festival by VL. & Guettapen : Fête de la Musique (officiel)",
       "venue_name": "Parvis de la Mairie du XVe",
       "address": "31 rue Péclet 75015 Paris",
@@ -4672,7 +6402,7 @@
       "image_url": "https://cdn.openagenda.com/main/6cdce71449954f3b9e4d59de0cba3f6b.base.image.jpg"
     },
     {
-      "id": "5071653-1",
+      "id": "oa-5071653-1",
       "title": "PAAFclash2.0",
       "venue_name": "5 rue Jean Poulmarch, 75010 Paris",
       "address": "5 rue Jean Poulmarch, 75010 Paris",
@@ -4696,7 +6426,7 @@
       "image_url": "https://cdn.openagenda.com/main/e868566acf004c4f8996a06fb0e64e3b.base.image.jpg"
     },
     {
-      "id": "53858235-1",
+      "id": "oa-53858235-1",
       "title": "Philifolies 2026",
       "venue_name": "Place Igor Stravinsky 75004 Paris",
       "address": "Place Igor Stravinsky 75004 Paris",
@@ -4727,7 +6457,7 @@
       "image_url": "https://cdn.openagenda.com/main/32660971ea2c4dc986f93616786551b7.base.image.jpg"
     },
     {
-      "id": "83963688-1",
+      "id": "oa-83963688-1",
       "title": "Dovblef4ce",
       "venue_name": "Le144 quai de Jemmapes",
       "address": "144 Quai de Jemmapes",
@@ -4757,7 +6487,7 @@
       "image_url": "https://cdn.openagenda.com/main/c4a3ba97d90542e1ad88b5268129fe02.base.image.jpg"
     },
     {
-      "id": "46426553-1",
+      "id": "oa-46426553-1",
       "title": "Concert participatif - Tout le public fait le show !",
       "venue_name": "Restaurant HuThoPi",
       "address": "3 Rue de Charenton 75012 Paris",
