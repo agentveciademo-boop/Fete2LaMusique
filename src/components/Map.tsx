@@ -5,20 +5,19 @@ import MapGL, { Source, Layer, NavigationControl, Popup, type MapRef } from 'rea
 import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
 import type { CircleLayerSpecification, LineLayerSpecification, FillLayerSpecification, SymbolLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import { Settings, Check } from 'lucide-react'
 import { eventsToGeoJSON } from '@/lib/geojson'
 import { GENRE_CONFIG } from '@/data/genres'
 import type { Event, Genre } from '@/types/event'
 
-const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/liberty'
-const FALLBACK_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_FALLBACK || 'https://tiles.openfreemap.org/styles/liberty'
+const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/positron'
+const FALLBACK_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_FALLBACK || 'https://tiles.openfreemap.org/styles/positron'
 
-// TEMPORAIRE — sélecteur de fond de carte pour arbitrage (desktop + mobile réel).
-// À retirer une fois le fond définitif choisi (et fixer PRIMARY_STYLE en conséquence).
+// Fonds proposés à l'utilisateur (bouton ⚙️). Choix mémorisé en localStorage.
+const STYLE_STORAGE_KEY = 'fdm-map-style'
 const STYLE_OPTIONS = [
-  { label: 'Clair',   url: 'https://tiles.openfreemap.org/styles/positron' },
-  { label: 'Foncé',   url: 'https://tiles.openfreemap.org/styles/dark' },
-  { label: 'Bleu',    url: 'https://tiles.openfreemap.org/styles/fiord' },
-  { label: 'Couleur', url: 'https://tiles.openfreemap.org/styles/liberty' },
+  { label: 'Clair', url: 'https://tiles.openfreemap.org/styles/positron' },
+  { label: 'Bleu',  url: 'https://tiles.openfreemap.org/styles/fiord' },
 ]
 
 // Couleur du halo "pulse" (concerts imminents). Les pins eux-mêmes sont des
@@ -188,7 +187,8 @@ interface Props {
 export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, selectedArr }: Props) {
   const [mapStyle, setMapStyle] = useState(PRIMARY_STYLE)
   const [cursor,   setCursor]   = useState('default')
-  const [showTransit,  setShowTransit]  = useState(false)
+  const [showTransit,   setShowTransit]   = useState(false)
+  const [showStyleMenu, setShowStyleMenu] = useState(false)
   const [transitData,  setTransitData]  = useState<GeoJSON.FeatureCollection | null>(null)
   const [stationsData, setStationsData] = useState<GeoJSON.FeatureCollection | null>(null)
   const [arrData,      setArrData]      = useState<GeoJSON.FeatureCollection | null>(null)
@@ -339,6 +339,20 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
   const handleMouseEnter = useCallback(() => setCursor('pointer'), [])
   const handleMouseLeave = useCallback(() => setCursor('default'), [])
 
+  // Restaure le fond de carte choisi précédemment (localStorage).
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STYLE_STORAGE_KEY)
+      if (saved && STYLE_OPTIONS.some(o => o.url === saved)) setMapStyle(saved)
+    } catch {/* localStorage indispo */}
+  }, [])
+
+  const chooseStyle = useCallback((url: string) => {
+    setMapStyle(url)
+    setShowStyleMenu(false)
+    try { localStorage.setItem(STYLE_STORAGE_KEY, url) } catch {/* ignore */}
+  }, [])
+
   // Génère les icônes camembert à la demande : MapLibre réclame chaque image manquante
   // (id = pie_key, ex. "jazz+rock") via `styleimagemissing`, on la dessine et la fournit.
   // Le handler survit aux changements de fond de carte (les images sont alors re-réclamées).
@@ -456,21 +470,35 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       <NavigationControl position="bottom-right" />
     </MapGL>
 
-    {/* TEMPORAIRE — sélecteur de fond de carte (arbitrage). À retirer après choix. */}
-    <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 flex max-w-[92vw] flex-wrap justify-center gap-1 rounded-full border border-border bg-background/95 px-2 py-1 shadow-lg backdrop-blur">
-      <span className="self-center px-1 text-[11px] font-semibold text-muted-foreground">Fond</span>
-      {STYLE_OPTIONS.map(o => (
-        <button
-          key={o.url}
-          type="button"
-          onClick={() => setMapStyle(o.url)}
-          className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition ${
-            mapStyle === o.url ? 'bg-foreground text-background' : 'text-foreground hover:bg-muted'
-          }`}
-        >
-          {o.label}
-        </button>
-      ))}
+    {/* Bouton ⚙️ paramètres d'affichage : choix du fond de carte (mémorisé). */}
+    <div className="absolute top-3 right-3 z-20">
+      <button
+        type="button"
+        onClick={() => setShowStyleMenu(v => !v)}
+        aria-label="Affichage de la carte"
+        aria-expanded={showStyleMenu}
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/95 text-foreground shadow-lg backdrop-blur transition hover:bg-background"
+      >
+        <Settings className="h-4 w-4" />
+      </button>
+      {showStyleMenu && (
+        <div className="absolute right-0 mt-2 min-w-[150px] rounded-xl border border-border bg-background/95 p-1.5 shadow-xl backdrop-blur">
+          <p className="px-2 pb-1 pt-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Fond de carte</p>
+          {STYLE_OPTIONS.map(o => (
+            <button
+              key={o.url}
+              type="button"
+              onClick={() => chooseStyle(o.url)}
+              className={`flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-sm transition ${
+                mapStyle === o.url ? 'bg-muted font-medium' : 'hover:bg-muted'
+              }`}
+            >
+              {o.label}
+              {mapStyle === o.url && <Check className="h-3.5 w-3.5" />}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
 
     {/* Toggle calque métro/RER */}
@@ -478,7 +506,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       type="button"
       onClick={() => setShowTransit(v => !v)}
       aria-pressed={showTransit}
-      className={`absolute top-3 right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
+      className={`absolute top-14 right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
         showTransit
           ? 'border-[#FF6B6B] bg-[#FF6B6B] text-white'
           : 'border-border bg-background/95 text-foreground hover:bg-background'
