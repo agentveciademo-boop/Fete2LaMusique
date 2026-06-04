@@ -3,33 +3,85 @@
 import { useRef, useEffect, useCallback, useState } from 'react'
 import MapGL, { Source, Layer, NavigationControl, Popup, type MapRef } from 'react-map-gl/maplibre'
 import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
-import type { CircleLayerSpecification, LineLayerSpecification, FillLayerSpecification } from 'maplibre-gl'
+import type { CircleLayerSpecification, LineLayerSpecification, FillLayerSpecification, SymbolLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
-import type { Event } from '@/types/event'
+import { GENRE_CONFIG } from '@/data/genres'
+import type { Event, Genre } from '@/types/event'
 
 const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/liberty'
 const FALLBACK_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_FALLBACK || 'https://tiles.openfreemap.org/styles/liberty'
 
-// Couleur unique des concerts. La couleur n'encode pas le genre (souvent multiple) :
-// le filtrage par genre se fait via les pastilles. Évite une couleur trompeuse.
+// Couleur du halo "pulse" (concerts imminents). Les pins eux-mêmes sont des
+// camemberts colorés par genre (cf. pinsLayer + drawPie) : un concert multi-genres
+// montre honnêtement ses parts plutôt qu'une couleur unique trompeuse.
 const CONCERT_COLOR = '#FF6B6B'
+
+// --- Icônes camembert ---------------------------------------------------------
+// Un pin = un mini-camembert : une part par genre (couleurs de GENRE_CONFIG).
+// Les images sont générées à la demande via l'événement MapLibre `styleimagemissing`
+// (l'id de l'image = `pie_key`, ex. "jazz+rock"). Rendu canvas, mis en cache par la map.
+const ICON_PX = 44 // taille intrinsèque (à pixelRatio) ; icon-size ajuste l'affichage
+
+function drawPieIcon(genres: Genre[]): { data: ImageData; pixelRatio: number } | null {
+  const dpr = Math.max(2, Math.round(window.devicePixelRatio || 1))
+  const canvas = document.createElement('canvas')
+  canvas.width = ICON_PX * dpr
+  canvas.height = ICON_PX * dpr
+  const ctx = canvas.getContext('2d')
+  if (!ctx) return null
+  ctx.scale(dpr, dpr)
+  const cx = ICON_PX / 2, cy = ICON_PX / 2, r = ICON_PX / 2 - 3
+  const list = genres.length ? genres : (['autres'] as Genre[])
+  const step = (Math.PI * 2) / list.length
+  let a = -Math.PI / 2 // départ en haut
+  for (const g of list) {
+    ctx.beginPath()
+    ctx.moveTo(cx, cy)
+    ctx.arc(cx, cy, r, a, a + step)
+    ctx.closePath()
+    ctx.fillStyle = GENRE_CONFIG[g]?.color ?? '#6B7280'
+    ctx.fill()
+    a += step
+  }
+  // Séparateurs blancs entre parts (lisibilité du multi-genres).
+  if (list.length > 1) {
+    a = -Math.PI / 2
+    ctx.strokeStyle = '#fff'
+    ctx.lineWidth = 1.2
+    for (let i = 0; i < list.length; i++) {
+      ctx.beginPath()
+      ctx.moveTo(cx, cy)
+      ctx.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a))
+      ctx.stroke()
+      a += step
+    }
+  }
+  // Anneau blanc extérieur (détache le pin du fond de carte).
+  ctx.beginPath()
+  ctx.arc(cx, cy, r, 0, Math.PI * 2)
+  ctx.lineWidth = 2
+  ctx.strokeStyle = '#fff'
+  ctx.stroke()
+  return { data: ctx.getImageData(0, 0, canvas.width, canvas.height), pixelRatio: dpr }
+}
 
 // Layers du fond de carte (OpenFreeMap Liberty) qu'on masque pour une carte épurée :
 // - poi_* : icônes/labels des commerces, lieux, et arrêts de transport (bruit visuel)
 // - building-3d : extrusion 3D des bâtiments au zoom — on garde la carte en 2D à plat
 const HIDDEN_BASEMAP_LAYERS = ['poi_r1', 'poi_r7', 'poi_r20', 'poi_transit', 'building-3d']
 
-const unclusteredLayer: CircleLayerSpecification = {
+// Pins = camemberts (symbol). On garde l'id 'events-unclustered' : clic, filtre genre/horaire
+// et interactivité restent câblés dessus sans changement ailleurs.
+const pinsLayer: SymbolLayerSpecification = {
   id: 'events-unclustered',
-  type: 'circle',
+  type: 'symbol',
   source: 'events',
-  paint: {
-    'circle-radius': 9,
-    'circle-color': CONCERT_COLOR,
-    'circle-stroke-width': 2,
-    'circle-stroke-color': '#fff',
-    'circle-opacity': 0.95,
+  layout: {
+    'icon-image': ['get', 'pie_key'],
+    'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0.42, 14, 0.5, 17, 0.6],
+    'icon-allow-overlap': true,
+    'icon-ignore-placement': true,
   },
 }
 
@@ -88,17 +140,17 @@ const arrOutlineLayer: LineLayerSpecification = {
   paint: { 'line-color': '#FF6B6B', 'line-width': 2.5, 'line-opacity': 0.9 },
 }
 
+// Halo pulsant sous les pins camembert (concerts imminents). Plus large que le pin
+// pour rester visible derrière l'icône ; corail translucide, sans contour.
 const pulseLayer: CircleLayerSpecification = {
   id: 'events-pulse',
   type: 'circle',
   source: 'events',
   filter: ['==', 'id', ''],
   paint: {
-    'circle-radius': 9,
+    'circle-radius': 16,
     'circle-color': CONCERT_COLOR,
-    'circle-stroke-width': 2,
-    'circle-stroke-color': '#fff',
-    'circle-opacity': 0.95,
+    'circle-opacity': 0.45,
   },
 }
 
@@ -206,8 +258,8 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       let t = 0
       const animate = () => {
         t += 0.04
-        const radius  = 9 + 5 * Math.abs(Math.sin(t))
-        const opacity = 0.6 + 0.35 * Math.abs(Math.cos(t))
+        const radius  = 16 + 7 * Math.abs(Math.sin(t))
+        const opacity = 0.3 + 0.25 * Math.abs(Math.cos(t))
         try {
           map.setPaintProperty('events-pulse', 'circle-radius', radius)
           map.setPaintProperty('events-pulse', 'circle-opacity', opacity)
@@ -257,6 +309,20 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
   const handleMouseEnter = useCallback(() => setCursor('pointer'), [])
   const handleMouseLeave = useCallback(() => setCursor('default'), [])
 
+  // Génère les icônes camembert à la demande : MapLibre réclame chaque image manquante
+  // (id = pie_key, ex. "jazz+rock") via `styleimagemissing`, on la dessine et la fournit.
+  // Le handler survit aux changements de fond de carte (les images sont alors re-réclamées).
+  const handleLoad = useCallback((e: { target: any }) => {
+    const map = e.target
+    const onMissing = (ev: { id: string }) => {
+      if (!ev.id || map.hasImage(ev.id)) return
+      const genres = ev.id.split('+').filter((g: string): g is Genre => g in GENRE_CONFIG)
+      const icon = drawPieIcon(genres)
+      if (icon && !map.hasImage(ev.id)) map.addImage(ev.id, icon.data, { pixelRatio: icon.pixelRatio })
+    }
+    map.on('styleimagemissing', onMissing)
+  }, [])
+
   return (
     <>
     <MapGL
@@ -266,6 +332,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       maxZoom={18}
       mapStyle={mapStyle}
       cursor={cursor}
+      onLoad={handleLoad}
       interactiveLayerIds={stationsData
         ? ['events-unclustered', 'transit-stations']
         : ['events-unclustered']}
@@ -348,8 +415,9 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         type="geojson"
         data={geojson}
       >
-        <Layer {...unclusteredLayer} filter={mapFilter as any} />
+        {/* Halo pulse SOUS les pins (rendu en premier), puis les camemberts au-dessus */}
         <Layer {...pulseLayer} />
+        <Layer {...pinsLayer} filter={mapFilter as any} />
       </Source>
 
       {/* User location source (injected by UserLocation component via mapRef) */}

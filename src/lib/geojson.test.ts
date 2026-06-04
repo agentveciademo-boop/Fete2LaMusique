@@ -42,6 +42,12 @@ describe('eventsToGeoJSON', () => {
     const geo = eventsToGeoJSON([sample])
     expect((geo.features[0].properties as any).genre_primary).toBe('jazz')
   })
+  it('pie_key joins genres with "+" (capped at 4 slices for legibility)', () => {
+    const geo = eventsToGeoJSON([sample])
+    expect((geo.features[0].properties as any).pie_key).toBe('jazz+rock')
+    const many = eventsToGeoJSON([{ ...sample, genres: ['jazz', 'rock', 'pop', 'folk', 'blues'] }])
+    expect((many.features[0].properties as any).pie_key).toBe('jazz+rock+pop+folk')
+  })
   it('subgenres array is passed through to feature properties', () => {
     const withSubs: Event = { ...sample, subgenres: ['salsa', 'bachata'] }
     const geo = eventsToGeoJSON([withSubs])
