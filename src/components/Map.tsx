@@ -66,6 +66,19 @@ function drawPieIcon(genres: Genre[]): { data: ImageData; pixelRatio: number } |
   return { data: ctx.getImageData(0, 0, canvas.width, canvas.height), pixelRatio: dpr }
 }
 
+// Pré-génère et enregistre toutes les icônes camembert nécessaires (une par combinaison
+// de genres présente dans les events). Idempotent (hasImage). Plus fiable que de compter
+// sur `styleimagemissing`, qui peut se déclencher avant que le handler soit branché.
+function ensurePieImages(map: any, events: Event[]): void {
+  for (const ev of events) {
+    const g = ev.genres.slice(0, 4)
+    const key = g.join('+')
+    if (!key || map.hasImage(key)) continue
+    const icon = drawPieIcon(g as Genre[])
+    if (icon) map.addImage(key, icon.data, { pixelRatio: icon.pixelRatio })
+  }
+}
+
 // Layers du fond de carte (OpenFreeMap Liberty) qu'on masque pour une carte épurée :
 // - poi_* : icônes/labels des commerces, lieux, et arrêts de transport (bruit visuel)
 // - building-3d : extrusion 3D des bâtiments au zoom — on garde la carte en 2D à plat
@@ -230,6 +243,14 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
     } catch {/* style not ready yet */}
   }, [mapFilter, mapRef])
 
+  // Pré-génère les icônes camembert dès que les events (mocks → JSON réel) sont prêts.
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map) return
+    if (map.isStyleLoaded()) ensurePieImages(map, events)
+    else map.once('styledata', () => ensurePieImages(map, events))
+  }, [events, mapRef])
+
   // Pulse animation: highlight up to 5 events starting within the next hour
   useEffect(() => {
     const map = mapRef.current?.getMap()
@@ -342,6 +363,8 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       onStyleData={() => {
         const map = mapRef.current?.getMap()
         if (!map) return
+        // (Re)génère les icônes camembert après tout (re)chargement de style (ex. swap de fond).
+        ensurePieImages(map, events)
         // Carte épurée : masquer les POI (commerces, lieux, arrêts) et les bâtiments 3D du fond de carte.
         for (const id of HIDDEN_BASEMAP_LAYERS) {
           if (map.getLayer(id)) {
