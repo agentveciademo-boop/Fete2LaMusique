@@ -277,23 +277,23 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         .slice(0, 5)
         .map(e => e.id)
 
-      if (imminentIds.length > 0) {
-        try {
-          map.setFilter('events-pulse', ['in', 'id', ['literal', imminentIds]] as any)
-        } catch {/* ignore */}
-      } else {
-        try { map.setFilter('events-pulse', ['==', 'id', ''] as any) } catch {/* ignore */}
+      // Garde `getLayer` : pendant un changement de fond, le layer disparaît brièvement.
+      // maplibre *émet* (ne *jette* pas) une erreur "non-existing layer" → try/catch inutile.
+      if (map.getLayer('events-pulse')) {
+        map.setFilter('events-pulse', imminentIds.length > 0
+          ? (['in', 'id', ['literal', imminentIds]] as any)
+          : (['==', 'id', ''] as any))
       }
 
       let t = 0
       const animate = () => {
         t += 0.04
-        const radius  = 16 + 7 * Math.abs(Math.sin(t))
-        const opacity = 0.3 + 0.25 * Math.abs(Math.cos(t))
-        try {
+        if (map.getLayer('events-pulse')) {
+          const radius  = 16 + 7 * Math.abs(Math.sin(t))
+          const opacity = 0.3 + 0.25 * Math.abs(Math.cos(t))
           map.setPaintProperty('events-pulse', 'circle-radius', radius)
           map.setPaintProperty('events-pulse', 'circle-opacity', opacity)
-        } catch {/* style changed */}
+        }
         rafRef.current = requestAnimationFrame(animate)
       }
       cancelAnimationFrame(rafRef.current)
