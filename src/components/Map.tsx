@@ -44,11 +44,11 @@ function drawPieIcon(genres: Genre[]): { data: ImageData; pixelRatio: number } |
     ctx.fill()
     a += step
   }
-  // Séparateurs blancs entre parts (lisibilité du multi-genres).
+  // Séparateurs noirs entre parts (lisibilité du multi-genres).
   if (list.length > 1) {
     a = -Math.PI / 2
-    ctx.strokeStyle = '#fff'
-    ctx.lineWidth = 1.2
+    ctx.strokeStyle = '#000'
+    ctx.lineWidth = 1.4
     for (let i = 0; i < list.length; i++) {
       ctx.beginPath()
       ctx.moveTo(cx, cy)
@@ -57,11 +57,11 @@ function drawPieIcon(genres: Genre[]): { data: ImageData; pixelRatio: number } |
       a += step
     }
   }
-  // Anneau blanc extérieur (détache le pin du fond de carte).
+  // Anneau noir extérieur (détache le pin du fond de carte clair).
   ctx.beginPath()
   ctx.arc(cx, cy, r, 0, Math.PI * 2)
-  ctx.lineWidth = 2
-  ctx.strokeStyle = '#fff'
+  ctx.lineWidth = 2.5
+  ctx.strokeStyle = '#000'
   ctx.stroke()
   return { data: ctx.getImageData(0, 0, canvas.width, canvas.height), pixelRatio: dpr }
 }
@@ -92,7 +92,7 @@ const pinsLayer: SymbolLayerSpecification = {
   source: 'events',
   layout: {
     'icon-image': ['get', 'pie_key'],
-    'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0.42, 14, 0.5, 17, 0.6],
+    'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0.5, 14, 0.62, 17, 0.74],
     'icon-allow-overlap': true,
     'icon-ignore-placement': true,
   },
