@@ -47,6 +47,9 @@ type RawEvent = {
   timings?: Array<{ begin?: string; end?: string }>
   firstTiming?: { begin?: string; end?: string }
   conditions?: Localized<string>
+  // 2026 : 30 = "Sans réservation", 31 = "Réservation obligatoire" (renommé vs 2025 `conditions-participation` 32/33).
+  'conditions-de-participation'?: number | null
+  registration?: Array<{ type?: string; value?: string }> | null
   styles?: number[]
   'styles-musicaux'?: number[]
   'autre-styles'?: string | null
@@ -180,6 +183,13 @@ export async function fetchOpenAgenda(): Promise<OutEvent[]> {
     const title = (pickFr(e.title) ?? '').trim()
     const description = (pickFr(e.description) ?? stripHtml(pickFr(e.longDescription) ?? '')).trim()
     const imageUrl = e.image?.base && e.image.filename ? `${e.image.base}${e.image.filename}` : null
+    // Réservation : champ structuré 2026 (31 = obligatoire). Le lien de résa vient du
+    // tableau `registration` (Billetweb, HelloAsso, site du lieu…). On ne surface le lien
+    // que si la réservation est obligatoire, pour rester fidèle à la donnée.
+    const requiresBooking = e['conditions-de-participation'] === 31
+    const bookingUrl = requiresBooking
+      ? (e.registration?.find((r) => r.type === 'link' && r.value)?.value ?? null)
+      : null
 
     timings.forEach((t, idx) => {
       if (!t.begin) return
@@ -197,6 +207,8 @@ export async function fetchOpenAgenda(): Promise<OutEvent[]> {
         session_date: sessionDate(t.begin),
         source: 'openagenda',
         source_url: `https://openagenda.com/fr/${AGENDA_SLUG}/events/${e.uid}`,
+        requires_booking: requiresBooking,
+        booking_url: bookingUrl,
         genres,
         subgenres,
         is_outdoor: isOutdoor,

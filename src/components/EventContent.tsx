@@ -1,4 +1,4 @@
-import { Clock, MapPin, ExternalLink } from 'lucide-react'
+import { Clock, MapPin, ExternalLink, Ticket } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -111,6 +111,7 @@ export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
         </span>
         {event.is_outdoor === true  && <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-800 font-medium">🌳 Plein air</span>}
         {event.is_outdoor === false && <span className="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">🏠 En salle</span>}
+        {event.requires_booking && <span className="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-800 font-medium">🎟️ Sur réservation</span>}
       </div>
 
       {/* Source attribution — affichée pour tous les concerts. ODbL = obligation légale pour les données Paris.fr. */}
@@ -142,6 +143,17 @@ export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
 
       {/* CTAs */}
       <div className="flex flex-col gap-2 pt-2">
+        {event.requires_booking && event.booking_url && (
+          <a href={event.booking_url} target="_blank" rel="noopener noreferrer"
+            className={cn(buttonVariants(), 'w-full gap-2 justify-center bg-amber-500 hover:bg-amber-600 text-white')}>
+            <Ticket className="w-4 h-4" /> Réserver
+          </a>
+        )}
+        {event.requires_booking && !event.booking_url && (
+          <p className="text-xs text-amber-700 bg-amber-50 rounded-md px-3 py-2 flex items-center gap-1.5">
+            <Ticket className="w-3.5 h-3.5 shrink-0" /> Réservation conseillée — voir la source ci-dessus.
+          </p>
+        )}
         <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
           className={cn(buttonVariants(), 'w-full gap-2 justify-center')}>
           <ExternalLink className="w-4 h-4" /> Ouvrir dans Google Maps

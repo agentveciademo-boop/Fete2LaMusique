@@ -32,6 +32,8 @@ export type OutEvent = {
   session_date: string
   source: Source
   source_url: string | null
+  requires_booking: boolean
+  booking_url: string | null
   genres: Genre[]
   subgenres: string[]
   is_outdoor: boolean | null

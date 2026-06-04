@@ -23,6 +23,11 @@ export type Event = {
   // Data provenance. Absent in legacy mocks; always set by the ETL.
   source?: 'openagenda' | 'qfap' | 'both'
   source_url?: string | null
+  // Réservation. Absent in legacy mocks; always set by the ETL.
+  // requires_booking = OpenAgenda `conditions-de-participation` 31 ("Réservation obligatoire").
+  // booking_url = lien de résa fourni par la source (Billetweb, HelloAsso, site du lieu…), sinon null.
+  requires_booking?: boolean
+  booking_url?: string | null
   genres: Genre[]
   subgenres: string[]
   is_outdoor: boolean | null

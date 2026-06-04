@@ -165,6 +165,9 @@ export async function fetchQfap(): Promise<OutEvent[]> {
         session_date: sd,
         source: 'qfap',
         source_url: rec.url ?? null,
+        // QFAP ne porte pas de champ réservation structuré → false (pas d'invention).
+        requires_booking: false,
+        booking_url: null,
         genres,
         subgenres: [],
         is_outdoor: isOutdoor,

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-03T10:16:57.211Z",
+  "generated_at": "2026-06-04T16:51:44.775Z",
   "sources": {
-    "openagenda": 215,
-    "qfap": 41
+    "openagenda": 214,
+    "qfap": 44
   },
   "event_count": 250,
   "events": [
@@ -20,6 +20,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/le-pavillon-en-fete-3e-edition-110242",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -44,6 +46,8 @@
       "session_date": "2026-06-20",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65803402",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk"
       ],
@@ -68,6 +72,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/festival-soleil-commun-2026-mille-histoires-sous-un-meme-ciel-112054",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -92,6 +98,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concerts-des-eleves-de-l-academie-inter-musicale-de-paris-111267",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -116,6 +124,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concerts-des-eleves-de-l-academie-inter-musicale-de-paris-111267",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -140,6 +150,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/scene-ouverte-musicale-111028",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -151,7 +163,7 @@
       "image_url": "https://cdn.paris.fr/qfapv4/2026/05/02/huge-f833853dccce0f9610958e86279ae91d.jpg"
     },
     {
-      "id": "qfap-71302-11",
+      "id": "qfap-71302-10",
       "title": "Auditions 25-26",
       "venue_name": "Conservatoire à rayonnement régional de Paris - Ida Rubinstein",
       "address": "14, rue de Madrid 75008 Paris",
@@ -164,6 +176,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/auditions-25-26-92345",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -171,8 +185,34 @@
       "is_outdoor": false,
       "price_type": "free",
       "price_detail": "<p></p>",
-      "description": "Classe de musique de chambre de Philippe Ferro Mercredi 3 juin, 18h Salle Gabriel Fauré Programme Récital des classes de lied et mélodie et des classes d’accompagnement vocal d’Anne-Marie Podevin Jeudi 4 juin, 19h30 Atelier de recherche et de création pour l’art lyrique (ARCAL) 87 rue des Pyrénées, 75020 Paris Programme Classe de musique de chambre de Paloma Kouider Vendredi 5 juin, 18h30 Salle Gabriel Fauré Programme Audition de la Maîtrise de Paris Atelier de comédie musicale de Morgane Kypriotti Samedi 6 juin, 16h Salle Gabriel Fauré Classe de musique de chambre de Pascal Proust Lundi 8 juin, 17h Salle Gabriel Fauré Programme Classe de musique de chambre de Sébastien Surel Lundi 8 juin, 18h30 Salle Mstislav Rostropovich (107) Classe de musique de chambre de Sébastien Sure l - ANNULÉ Mercredi 10 juin, 19h Salle Gabriel Fauré Classe de violoncelle de Juliette Salmona Mercredi 10 juin, 18h Salle Georges Prêtre (201) Répétition Générale Examens Alto, classe de Vinciane Béranger Jeudi 11 juin, 18h30 Auditorium Marcel Landowski Audition des classes et ateliers de composition musicale de Maël Bailly et Karl Naegelen Samedi 13 juin, 15h30 Salle Olivier Alain Classe de piano de Laurence Oldak Samedi 13 juin, 15h30 Salle Gabriel Fauré Classe de musique de chambre de David Violi Lundi 15 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de violoncelle de Marie-Paule Milone Lundi 15 juin, 17h30 Salle Georges Prêtre (201) Classe de saxophone, Quatuor Isaar Jeudi 18 juin, 12h Salle Mstislav Rostropovitch - 107 Classe de musique de chambre d’Aurélie Bouchard (Bastien Dollinger et Paloma Kouider, remplaçants) Jeudi 18 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de violon de Stéphanie Moraly Jeudi 18 juin, 18h30 Salle Georges Prêtre (201) Classe de trompette de Clément Saunier Jeudi 18 juin, 19h Salle Gabriel Fauré Basses en concert Audition des instruments de basse du département de musiques anciennes et pratiques historiques Vendredi 19 juin, 19h Salle Robert et Gaby Casadesus (301) Atelier Fabriq’ création de Maël Bailly et Karl Naegelen Vendredi 19 juin, 19h Salle Mstislav Rostropovitch - 107 Classe de musique de chambre de Philippe Castaigns Vendredi 19 juin, 19h Salle Gabriel Fauré Samedi 20 juin, 15h Salle Olivier Alain Audition de la Maîtrise de Paris Carte blanche aux élèves de piano maîtrisien Lundi 22 et mardi 23 juin, 17h30 Salle Robert et Gaby Casadesus - 301 Classe de contrebasse de Yann Dubost Mardi 23 juin, 18h Salle Georges Prêtre (201) Classe de violoncelle de Thomas Duran Jeudi 25 juin, 19h Salle Olivier Alain Audition de la Maîtrise de Paris Atelier un par voix d’Olivier Lacoste Jeudi 25 juin, 17h Salle Olivier Alain Examens DSJC Jeudi 25 et vendredi 26 juin, 10h-19h Auditorium Marcel Landowski Classe de piano de Romain Descharmes Vendredi 26 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de harpe de Delphine Benhamou Lundi 29 juin, 17h30 Salle Georges Prêtre (201) Classe de piano de Jérôme Granjon Mardi 30 juin, 19h Salle Gabriel Fauré",
+      "description": "Récital des classes de lied et mélodie et des classes d’accompagnement vocal d’Anne-Marie Podevin Jeudi 4 juin, 19h30 Atelier de recherche et de création pour l’art lyrique (ARCAL) 87 rue des Pyrénées, 75020 Paris Programme Classe de musique de chambre de Paloma Kouider Vendredi 5 juin, 18h30 Salle Gabriel Fauré Programme Audition de la Maîtrise de Paris Atelier de comédie musicale de Morgane Kypriotti Samedi 6 juin, 16h Salle Gabriel Fauré Classe de musique de chambre de Pascal Proust Lundi 8 juin, 17h Salle Gabriel Fauré Programme Classe de musique de chambre de Sébastien Surel Lundi 8 juin, 18h30 Salle Mstislav Rostropovich (107) Classe de musique de chambre de Sébastien Sure l - ANNULÉ Mercredi 10 juin, 19h Salle Gabriel Fauré Classe de violoncelle de Juliette Salmona Mercredi 10 juin, 18h Salle Georges Prêtre (201) Répétition Générale Examens Alto, classe de Vinciane Béranger Jeudi 11 juin, 18h30 Auditorium Marcel Landowski Audition des classes et ateliers de composition musicale de Maël Bailly et Karl Naegelen Samedi 13 juin, 15h30 Salle Olivier Alain Classe de piano de Laurence Oldak Samedi 13 juin, 15h30 Salle Gabriel Fauré Classe de musique de chambre de David Violi Lundi 15 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de violoncelle de Marie-Paule Milone Lundi 15 juin, 17h30 Salle Georges Prêtre (201) Classe de saxophone, Quatuor Isaar Jeudi 18 juin, 12h Salle Mstislav Rostropovitch - 107 Classe de musique de chambre d’Aurélie Bouchard (Bastien Dollinger et Paloma Kouider, remplaçants) Jeudi 18 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de violon de Stéphanie Moraly Jeudi 18 juin, 18h30 Salle Georges Prêtre (201) Classe de trompette de Clément Saunier Jeudi 18 juin, 19h Salle Gabriel Fauré Basses en concert Audition des instruments de basse du département de musiques anciennes et pratiques historiques Vendredi 19 juin, 19h Salle Robert et Gaby Casadesus (301) Atelier Fabriq’ création de Maël Bailly et Karl Naegelen Vendredi 19 juin, 19h Salle Mstislav Rostropovitch - 107 Classe de musique de chambre de Philippe Castaigns Vendredi 19 juin, 19h Salle Gabriel Fauré Samedi 20 juin, 15h Salle Olivier Alain Audition de la Maîtrise de Paris Carte blanche aux élèves de piano maîtrisien Lundi 22 et mardi 23 juin, 17h30 Salle Robert et Gaby Casadesus - 301 Classe de contrebasse de Yann Dubost Mardi 23 juin, 18h Salle Georges Prêtre (201) Classe de violoncelle de Thomas Duran Jeudi 25 juin, 19h Salle Olivier Alain Audition de la Maîtrise de Paris Atelier un par voix d’Olivier Lacoste Jeudi 25 juin, 17h Salle Olivier Alain Examens DSJC Jeudi 25 et vendredi 26 juin, 10h-19h Auditorium Marcel Landowski Classe de piano de Romain Descharmes Vendredi 26 juin, 18h Salle Mstislav Rostropovitch - 107 Classe de violoncelle d'Hélène Dautry Samedi 27 juin, 16h Salle Olivier Alain Classe de harpe de Delphine Benhamou Lundi 29 juin, 17h30 Salle Georges Prêtre (201) Classe de piano de Jérôme Granjon Mardi 30 juin, 19h Salle Gabriel Fauré",
       "image_url": "https://cdn.paris.fr/qfapv4/2025/09/10/huge-ca46794bcd60f69a830999c685ddad41.jpg"
+    },
+    {
+      "id": "qfap-86551-0",
+      "title": "Un express vers la félicité",
+      "venue_name": "Conservatoire municipal Hector Berlioz",
+      "address": "6 Rue Pierre Bullet 75010 Paris",
+      "arrondissement": 10,
+      "commune": "Paris",
+      "lat": 48.8717049913815,
+      "lng": 2.35826798824513,
+      "start_time": "2026-06-20T15:00:00+02:00",
+      "end_time": "2026-06-20T16:30:00+02:00",
+      "session_date": "2026-06-20",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/un-express-vers-la-felicite-113102",
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>Entrée libre dans la limite des places disponibles.</p>",
+      "description": "Pierre-Michel Sivadier , professeur au conservatoire Hector Berlioz de polyphonie vocale, piano et ateliers de musiques actuelles, vous invite pour son concert de fin d'année avec des musiques allant des Beatles à Charles Aznavour en passant par David Bowie et Alain Bashung . Programme : - Non je ne regrette rien ( E. Piaf ) - Wild World ( C. Stevens ) - Mélodie 101 ( P.M. Sivadier ) - Pardon ( A. Souchon ) - Laver Riz thé ( E. Runcin i) - Spain ( C. Corea ) - A To Cullana ( L'Alba ) - Space Oddity ( D. Bowie ) - Caravan ( D. Ellington ) - Comme ils disent ( C.Aznavour ) - Aucun express ( A. Bashung ) - La nuit je mens ( A. Bashung ) - Dansez sur moi ( C. Nougaro ) - Eleanor Rigby ( Beatles ) Distribution : Chloé DELFORGE , chant Quentin DELFORGE , chant Pierrick GERVASI , piano, chant Amélie GIRODOVÁ , chant Noéline GUILLAUME , chant Carolina PESSOA , chant Anne RAMAHANDRIARIVELO , chant Tony ROY EDWARD , chant Edoardo RUNCINI , chant Helena TELLIO , piano, chant Matteo VILLENA PENALOZA , chant Jules AMIEL , guitare Natale DESANTI , basse, chant Ulysse DARMON , piano Léonce LANGLOIS , piano Igor LEROY , batterie",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/06/04/huge-4a1ff580ab04187a07ca93d9a96fd895.jpg"
     },
     {
       "id": "qfap-69084-1",
@@ -188,6 +228,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/samedi-si-ca-vous-dit-89695",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -212,6 +254,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/musique-de-l-inde-et-improvisation-107941",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -236,6 +280,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concert-du-quintette-de-cuivres-q5-107121",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -260,6 +306,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concert-la-repe-te-theque-scene-ouverte-animee-par-sylvio-brito-110504",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -271,28 +319,30 @@
       "image_url": "https://cdn.paris.fr/qfapv4/2026/04/24/huge-78e82b6502a31f6a7dabe517a99dc8b4.jpg"
     },
     {
-      "id": "qfap-85402-1",
-      "title": "Concerts dans les cours d'écoles",
-      "venue_name": "Ecole élémentaire Quatre-Fils",
-      "address": "10, bis rue des Quatre fils 75003 Paris",
-      "arrondissement": 3,
+      "id": "qfap-84181-0",
+      "title": "Concert dansant par le groupe \"Karibe Roots\"",
+      "venue_name": "Bibliothèque Andrée Chedid",
+      "address": "36, rue Emeriau 75015 Paris",
+      "arrondissement": 15,
       "commune": "Paris",
-      "lat": 48.86034,
-      "lng": 2.359989,
+      "lat": 48.8500160206342,
+      "lng": 2.28643097089903,
       "start_time": "2026-06-20T16:00:00+02:00",
       "end_time": "2026-06-20T17:00:00+02:00",
       "session_date": "2026-06-20",
       "source": "qfap",
-      "source_url": "https://www.paris.fr/evenements/concerts-dans-les-cours-d-ecoles-111871",
+      "source_url": "https://www.paris.fr/evenements/concert-dansant-par-le-groupe-karibe-roots-110602",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
       "subgenres": [],
       "is_outdoor": true,
       "price_type": "free",
-      "price_detail": "<p></p>",
-      "description": "Les samedis 13 et 20 juin 2026, des trios issus de l’Orchestre de chambre de Paris vous donnent rendez-vous dans des cours d'écoles du 3 e , 14 e et 20 e arrondissements, à l'occasion de concerts de musique de chambre. Au programme, des après-midis de partage autour de pièces diverses du répertoire et d'échanges avec les instrumentistes. Samedi 30 mai - 16h - Cour de l’école élémentaire 38, rue de Tourtille, Paris 20 e avec Franck Della Valle (violon), Claire Parruitte (alto) et Sarah Veilhan (violoncelle) REPORTÉ AU 13 JUIN POUR CAUSE : CANICULE (même lieu, même horaire) Samedi 13 juin - 16h - Cour de l’é cole élémentaire 46 , rue Boulard, Paris 14 e avec Jeroen Dupont (violon), Stephie Souppaya (alto) et Livia Stanese (violoncelle). Samedi 20 juin - 16h - Cour de l’école élémentaire 10 bis, rue des Quatre Fils, Paris 3 e avec Tania Passendji (violon), Jossalyn Jensen (alto) et Livia Stanese (violoncelle). Avec le soutien de la Ville de Paris.",
-      "image_url": "https://cdn.paris.fr/qfapv4/2026/05/19/huge-147fdcd7989406767d1002546b8b3e7a.jpg"
+      "price_detail": null,
+      "description": "Dans les Caraïbes colombiennes, la musique n’est pas seulement une forme d’expression artistique : c’est une mémoire, une identité et un patrimoine vivant. Dans cette région, l’une des plus riches culturellement d’Amérique latine, les musiques issues de la tradition orale occupent une place centrale. Découvrez toute la richesse de cette musique avec le groupe Karibe Roots : https://www.instagram.com/karibe.roots/ Entrée libre",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/04/23/huge-52fe545cccf1751c189371d5e8be0a5e.jpg"
     },
     {
       "id": "qfap-85213-0",
@@ -308,6 +358,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concert-geek-singers-111676",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -332,6 +384,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concert-de-racine-diabate-108419",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -356,6 +410,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/twingo-live-show-concerts-gratuits-par-renault-112580",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -380,6 +436,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/les-petites-gueules-fanfare-et-rap-110763",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -404,6 +462,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/tenir-fete-112052",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -428,6 +488,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/lezard-lova-and-the-eight-million-dollars-kairos-bloom-112597",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -452,6 +514,8 @@
       "session_date": "2026-06-20",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65803402",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk"
       ],
@@ -476,6 +540,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/cafe-concert-wambo-112531",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -500,6 +566,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/le-marais-chante-la-nature-flanerie-bucolique-a-travers-chant-111192",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -524,6 +592,8 @@
       "session_date": "2026-06-20",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/l-open-mic-jam-vocale-de-raphael-valentin-109401",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -548,6 +618,8 @@
       "session_date": "2026-06-20",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65803402",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk"
       ],
@@ -572,6 +644,8 @@
       "session_date": "2026-06-20",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65803402",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk"
       ],
@@ -596,6 +670,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-2026-toute-la-programmation-112921",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -620,6 +696,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/83963688",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "classique",
@@ -650,6 +728,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29119835",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "classique",
@@ -676,6 +756,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/47618319",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rap",
         "soul-funk",
@@ -702,6 +784,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/58743067",
+      "requires_booking": true,
+      "booking_url": "https://www.billetweb.fr/la-fete-de-la-musique-sinvite-au-week-end-portes-ouvertes",
       "genres": [
         "chorale",
         "fanfare",
@@ -728,6 +812,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65803402",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk"
       ],
@@ -752,6 +838,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/foliephonies-fete-la-musique-square-gardette-paris-11-112078",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -776,6 +864,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/4617095",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres",
         "classique"
@@ -801,6 +891,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/32266265",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "electro"
@@ -826,6 +918,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/43530795",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "variete",
@@ -858,6 +952,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67465503",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rap",
@@ -887,6 +983,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/23756996",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -911,6 +1009,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29119835",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "classique",
@@ -937,6 +1037,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/5071653",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -961,6 +1063,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/cookie-records-fete-la-musique-dans-le-parc-des-buttes-chaumont-110557",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -985,6 +1089,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67465503",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rap",
@@ -1014,6 +1120,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21929520",
+      "requires_booking": true,
+      "booking_url": "https://musee-henner.fr/agenda/evenement/fete-de-la-musique-2026",
       "genres": [
         "classique"
       ],
@@ -1038,6 +1146,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65803402",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk"
       ],
@@ -1062,6 +1172,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/69642003",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres",
         "rock"
@@ -1089,6 +1201,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21929520",
+      "requires_booking": true,
+      "booking_url": "https://musee-henner.fr/agenda/evenement/fete-de-la-musique-2026",
       "genres": [
         "classique"
       ],
@@ -1113,6 +1227,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21935340",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres",
         "pop",
@@ -1144,6 +1260,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/22778160",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -1166,8 +1284,10 @@
       "start_time": "2026-06-21T14:00:00+02:00",
       "end_time": "2026-06-21T18:00:00+02:00",
       "session_date": "2026-06-21",
-      "source": "openagenda",
+      "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/37010351",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -1175,7 +1295,7 @@
       "is_outdoor": true,
       "price_type": "free",
       "price_detail": null,
-      "description": "Grandes pièces du répertoire d'orgue interprétées à Saint-Louis en l'Ile par les élèves des conservatoires de Saint-Maur des Fossés, du 5ème arrondissement et de la Schola Cantorum de Paris",
+      "description": "A l'occasion de la Fête de la Musique, dans le cœur historique de Paris, venez admirer l'orgue de l'église Saint Louis-en-l'Isle et assister à cette 13eme édition du \"Bachathlon\" en l'honneur de Jean-Sébastien Bach (1685-1750) surnommé le \"Cantor de Leipzig\". Tout public . Entrée libre et Gratuite.",
       "image_url": "https://cdn.openagenda.com/main/c96250416b134a1c9c90c9b832783fc4.base.image.jpg"
     },
     {
@@ -1192,6 +1312,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/43756418",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "classique",
@@ -1218,6 +1340,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/46062726",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "pop",
@@ -1244,6 +1368,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/59514529",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "jazz",
@@ -1274,6 +1400,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/66965146",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "pop"
@@ -1299,6 +1427,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/6896265",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "folk"
       ],
@@ -1323,6 +1453,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/72244399",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "variete",
@@ -1351,6 +1483,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/72272523",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rap",
@@ -1378,6 +1512,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/75406372",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "classique"
@@ -1403,6 +1539,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/82885886",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz",
         "variete",
@@ -1432,6 +1570,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/90494850",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -1456,6 +1596,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-big-band-de-jazz-110684",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -1480,6 +1622,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concerts-des-eleves-de-l-academie-inter-musicale-de-paris-111267",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -1504,6 +1648,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concerts-des-eleves-de-l-academie-inter-musicale-de-paris-111267",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -1528,6 +1674,8 @@
       "session_date": "2026-06-21",
       "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21408367",
+      "requires_booking": true,
+      "booking_url": "https://museedesplansreliefs.fr/destination-dumas-0",
       "genres": [
         "classique"
       ],
@@ -1552,6 +1700,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/27593642",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -1576,6 +1726,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/36957336",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "reggae",
         "world"
@@ -1601,6 +1753,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/43530795",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "variete",
@@ -1633,6 +1787,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concert-fete-de-la-musique-112248",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -1657,6 +1813,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21747590",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "pop",
@@ -1683,6 +1841,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21929520",
+      "requires_booking": true,
+      "booking_url": "https://musee-henner.fr/agenda/evenement/fete-de-la-musique-2026",
       "genres": [
         "classique"
       ],
@@ -1707,6 +1867,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/26693576",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -1731,6 +1893,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/26899697",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "electro"
@@ -1756,6 +1920,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/30438227",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "fanfare",
         "pop",
@@ -1784,6 +1950,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/31849828",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete"
       ],
@@ -1808,6 +1976,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/38995849",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "fanfare",
         "variete",
@@ -1838,6 +2008,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/41093292",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "autres"
@@ -1865,6 +2037,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/44680713",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "soul-funk",
@@ -1895,6 +2069,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/49993950",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rap",
@@ -1926,6 +2102,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/53045379",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete"
       ],
@@ -1950,6 +2128,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/54231892",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "electro"
@@ -1975,6 +2155,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65819195",
+      "requires_booking": true,
+      "booking_url": "https://www.helloasso.com/associations/la-finca-montreuil-la-finca/evenements/festa-de-sao-joao",
       "genres": [
         "world"
       ],
@@ -1999,6 +2181,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/69898034",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "reggae",
         "rap",
@@ -2026,6 +2210,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/72331155",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -2050,6 +2236,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/7757698",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "variete",
@@ -2076,6 +2264,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/18896234",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "rock",
@@ -2102,6 +2292,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/26693576",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -2126,6 +2318,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/33736219",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "electro"
@@ -2151,6 +2345,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/38522210",
+      "requires_booking": true,
+      "booking_url": "https://www.fetedelamusique-paris.fr/inscriptions",
       "genres": [
         "electro",
         "variete"
@@ -2176,6 +2372,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/42153391",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "folk",
@@ -2202,6 +2400,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/52380395",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -2226,6 +2426,8 @@
       "session_date": "2026-06-21",
       "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/1073528",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "rock",
@@ -2259,6 +2461,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/10966207",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "folk",
@@ -2287,6 +2491,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/11537794",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "chorale",
         "autres"
@@ -2314,6 +2520,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/13803266",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "chorale",
         "variete",
@@ -2340,6 +2548,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/18596667",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "world",
@@ -2366,6 +2576,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21408367",
+      "requires_booking": true,
+      "booking_url": "https://museedesplansreliefs.fr/destination-dumas-0",
       "genres": [
         "classique"
       ],
@@ -2390,6 +2602,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21929520",
+      "requires_booking": true,
+      "booking_url": "https://musee-henner.fr/agenda/evenement/fete-de-la-musique-2026",
       "genres": [
         "classique"
       ],
@@ -2414,6 +2628,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/22160268",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "folk",
         "trad"
@@ -2439,6 +2655,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/23244059",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "autres"
@@ -2466,6 +2684,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/26512588",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "trad"
       ],
@@ -2490,6 +2710,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/35942253",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "soul-funk",
@@ -2516,6 +2738,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/38788932",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -2540,6 +2764,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/41853881",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock"
       ],
@@ -2564,6 +2790,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/42263453",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world"
       ],
@@ -2588,6 +2816,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/45064761",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "trad",
@@ -2616,6 +2846,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/50299454",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "autres"
@@ -2643,6 +2875,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/56533608",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "world",
@@ -2675,6 +2909,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/59533800",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -2699,6 +2935,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/62915430",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rap",
         "electro",
@@ -2726,6 +2964,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67465503",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rap",
@@ -2755,6 +2995,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/75252586",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique",
         "electro",
@@ -2783,6 +3025,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/79484608",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "autres"
@@ -2810,6 +3054,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/93382924",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -2834,6 +3080,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-107942",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -2858,6 +3106,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/concert-de-musique-de-chambre-111525",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -2882,6 +3132,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/18356502",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "electro"
@@ -2907,6 +3159,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/19612374",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "rock",
@@ -2939,6 +3193,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29119835",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "classique",
@@ -2965,6 +3221,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/30705489",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "rock",
@@ -2991,6 +3249,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/39096120",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rap",
         "soul-funk",
@@ -3023,6 +3283,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/54543897",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop"
@@ -3048,6 +3310,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/63959528",
+      "requires_booking": true,
+      "booking_url": "https://www.citeco.fr/agenda/concert-de-lecole-normale-de-musique-de-paris-alfred-cortot",
       "genres": [
         "classique"
       ],
@@ -3072,6 +3336,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/12503516",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "trad",
@@ -3101,6 +3367,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/12677544",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "pop"
@@ -3126,6 +3394,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/13901580",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "rap",
@@ -3152,6 +3422,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/15616788",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "trad",
@@ -3180,6 +3452,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/23162099",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -3204,6 +3478,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/24844170",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres",
         "world",
@@ -3232,6 +3508,8 @@
       "session_date": "2026-06-21",
       "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/26680904",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "trad"
@@ -3257,6 +3535,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/33699720",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz"
       ],
@@ -3281,6 +3561,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/36965869",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "rock",
@@ -3307,6 +3589,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/41240434",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "reggae",
         "autres"
@@ -3338,6 +3622,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/49157697",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -3362,6 +3648,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/49324454",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop"
       ],
@@ -3386,6 +3674,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/64567058",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique",
         "autres"
@@ -3413,6 +3703,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/66672084",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop",
@@ -3440,6 +3732,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/69218786",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -3464,6 +3758,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/69599933",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop"
@@ -3489,6 +3785,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/72349323",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "reggae",
         "soul-funk",
@@ -3523,6 +3821,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/72349623",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "fanfare",
@@ -3558,6 +3858,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/75858745",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "rock",
@@ -3582,16 +3884,18 @@
       "start_time": "2026-06-21T17:00:00+02:00",
       "end_time": "2026-06-21T19:30:00+02:00",
       "session_date": "2026-06-21",
-      "source": "openagenda",
+      "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/81984337",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "trad"
       ],
       "subgenres": [],
       "is_outdoor": true,
       "price_type": "free",
-      "price_detail": null,
-      "description": "En Suède, Midsommar est une tradition ancestrale que l’on célèbre dans les prés, les parcs et les jardins, avec famille, ami.es et voisin.es. On se pare de fleurs, on danse et chante autour d’un mât …",
+      "price_detail": "<ul><li>Entrée libre dans la limite des places disponibles</li></ul>",
+      "description": "Programme 17:00 / Ouverture des grilles 17:30 / Danses et chants traditionnels menés par Eskelina : 1 re session à 17h30, 2 e session à 18h30 19:30 / Concert de Fågelle 20:45 / Concert de Sara Parkman En Suède, Midsommar est une tradition ancestrale que l’on célèbre dans les prés, les parcs et les jardins, avec famille, ami.es et voisin.es. On se pare de fleurs, on danse et chante autour d’un grand mât et on déguste harengs marinés, salades de pommes de terre, snaps et autres douceurs typiques. À l’Institut suédois on fait de même, accompagné·es par la chanteuse Eskelina, qui nous fait l’honneur de guider nos pas et nos voix. Suivront les concerts de musiques actuelles : Fågelle suivie de Sara Parkman . Dès l’ouverture des grilles et tout au long de la soirée, le café FIKA vendra boissons et spécialités suédoises de mise. Informations pratiques Rendez-vous côté jardin, au 10 rue Elzévir, à partir de 17h Entrée libre dans la limite des places disponibles Les espaces intérieurs de l’Institut suédois sont fermés toute la journée",
       "image_url": "https://cdn.openagenda.com/main/74aae5f54b0e43d59ccd39eb6cc03502.base.image.jpg"
     },
     {
@@ -3608,6 +3912,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/84661764",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres",
         "trad",
@@ -3637,6 +3943,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/84702874",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "fanfare",
         "soul-funk",
@@ -3665,6 +3973,8 @@
       "session_date": "2026-06-21",
       "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/95166037",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz",
         "rock",
@@ -3691,6 +4001,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/96962649",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "rap",
@@ -3720,6 +4032,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/97992721",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rap",
         "electro",
@@ -3752,6 +4066,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/28422882",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -3776,6 +4092,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/5421601",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rap",
         "soul-funk",
@@ -3805,6 +4123,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/61830378",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "trad",
@@ -3833,6 +4153,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65135273",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "electro"
@@ -3858,6 +4180,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/le-romantique-112822",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -3882,6 +4206,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/17296398",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "autres"
@@ -3909,6 +4235,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/18764609",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "jazz"
@@ -3934,6 +4262,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/19368201",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "soul-funk",
@@ -3962,6 +4292,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29292219",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "folk",
@@ -3992,6 +4324,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29456162",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique",
         "electro"
@@ -4017,6 +4351,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/30290902",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz",
         "classique",
@@ -4043,6 +4379,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/3197217",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "trad",
@@ -4069,6 +4407,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/32635709",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "variete",
@@ -4099,6 +4439,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/46426553",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "variete",
@@ -4142,6 +4484,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/53858235",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "rock",
@@ -4173,6 +4517,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/55118958",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete"
       ],
@@ -4197,6 +4543,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67465503",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rap",
@@ -4226,6 +4574,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/70896278",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "folk",
         "pop"
@@ -4251,6 +4601,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/72122402",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rap",
@@ -4277,6 +4629,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/73367789",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz"
       ],
@@ -4301,6 +4655,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/74256903",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "folk",
@@ -4330,6 +4686,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/75805366",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "rock"
@@ -4355,6 +4713,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/76475845",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz",
         "blues"
@@ -4380,6 +4740,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/80179503",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -4404,6 +4766,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/809991",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique",
         "electro",
@@ -4435,6 +4799,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/84385011",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "folk",
         "world",
@@ -4461,6 +4827,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/85715282",
+      "requires_booking": true,
+      "booking_url": "https://reserver.lovable.app",
       "genres": [
         "classique"
       ],
@@ -4485,6 +4853,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/87519221",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "autres"
@@ -4514,6 +4884,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/9432874",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -4538,6 +4910,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/95080732",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "rock",
@@ -4567,6 +4941,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/twingo-live-show-concerts-gratuits-par-renault-112580",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -4591,6 +4967,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-2026-les-processions-112970",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -4615,6 +4993,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/15407382",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "rock",
@@ -4642,6 +5022,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21249678",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "electro"
@@ -4667,6 +5049,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29456162",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique",
         "electro"
@@ -4692,6 +5076,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/4187479",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique",
         "autres"
@@ -4719,6 +5105,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/46510281",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "chorale"
       ],
@@ -4743,6 +5131,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/52119942",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "autres"
@@ -4770,6 +5160,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/64702092",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "electro"
@@ -4795,6 +5187,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/76636267",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "electro",
@@ -4822,6 +5216,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/85871162",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "chorale",
         "soul-funk",
@@ -4852,6 +5248,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/86472223",
+      "requires_booking": true,
+      "booking_url": "https://www.musee-delacroix.fr/",
       "genres": [
         "classique"
       ],
@@ -4876,6 +5274,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-offenbach-112573",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -4900,6 +5300,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/1008721",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "rock",
@@ -4927,6 +5329,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/11778619",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "rock",
@@ -4954,6 +5358,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/18365410",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "rock"
@@ -4979,6 +5385,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/3212292",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop"
@@ -5004,6 +5412,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/35942253",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "soul-funk",
@@ -5030,6 +5440,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/43098247",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world"
       ],
@@ -5054,6 +5466,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/49523978",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz"
       ],
@@ -5078,6 +5492,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/64280648",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rock"
@@ -5103,6 +5519,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/67434055",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres",
         "rap",
@@ -5133,6 +5551,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/69152946",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -5157,6 +5577,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/7379236",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "fanfare"
       ],
@@ -5181,6 +5603,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/74104418",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz"
       ],
@@ -5205,6 +5629,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/74629381",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "rap",
@@ -5234,6 +5660,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/79129672",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "soul-funk",
@@ -5260,6 +5688,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/79953751",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock"
       ],
@@ -5284,6 +5714,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/91710249",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "chorale",
         "autres"
@@ -5295,7 +5727,7 @@
       "price_type": "free",
       "price_detail": null,
       "description": "Hope Gospel Singers fête la musique et l'arrivée de l'été à l'occasion de son concert annuel. Venez nombreux !",
-      "image_url": "https://cdn.openagenda.com/main/f98027df479a4335be63c4b07dd04df6.base.image.jpg"
+      "image_url": "https://cdn.openagenda.com/main/f71b532ef301414b87773e8883dca404.base.image.jpg"
     },
     {
       "id": "oa-94989551-0",
@@ -5311,6 +5743,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/94989551",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "chorale"
       ],
@@ -5335,6 +5769,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/95945622",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "folk",
         "chorale",
@@ -5363,6 +5799,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/97291538",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -5389,6 +5827,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/sunday-tribute-best-of-fete-de-la-musique-109358",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -5413,6 +5853,8 @@
       "session_date": "2026-06-21",
       "source": "qfap",
       "source_url": "https://www.paris.fr/evenements/fete-de-la-musique-jazz-soul-pop-entree-libre-112176",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -5437,6 +5879,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21249678",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "electro"
@@ -5462,6 +5906,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/33993682",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -5486,6 +5932,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/57857032",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "pop",
         "variete",
@@ -5512,6 +5960,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/64872513",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop"
@@ -5537,6 +5987,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/65826509",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world"
       ],
@@ -5561,6 +6013,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/71975150",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "folk",
         "electro"
@@ -5586,6 +6040,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/80915885",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "pop",
@@ -5612,6 +6068,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/15705330",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "autres"
       ],
@@ -5643,6 +6101,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/17507167",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock"
       ],
@@ -5667,6 +6127,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/31590288",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "autres"
@@ -5694,6 +6156,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/32176793",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz",
         "blues"
@@ -5719,6 +6183,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/36640401",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "folk",
@@ -5745,6 +6211,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/4879154",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world"
       ],
@@ -5769,6 +6237,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/49292645",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "variete",
         "soul-funk",
@@ -5796,6 +6266,8 @@
       "session_date": "2026-06-21",
       "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/53864181",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz",
         "electro"
@@ -5821,6 +6293,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/54951558",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rap",
         "soul-funk",
@@ -5848,6 +6322,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/59256617",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "folk",
         "jazz",
@@ -5876,6 +6352,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/66503254",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock"
       ],
@@ -5885,31 +6363,6 @@
       "price_detail": null,
       "description": "FRENZY à 2 pas du Paradis -",
       "image_url": "https://cdn.openagenda.com/main/b460b6eb9ce244c39565c09b686ab11e.base.image.jpg"
-    },
-    {
-      "id": "oa-71896938-0",
-      "title": "Channy on the Rock, duo Pop/Rock !!!",
-      "venue_name": "Parvis Pyramide du Louvre",
-      "address": "Place du Carroussel",
-      "arrondissement": 1,
-      "commune": "Paris",
-      "lat": 48.861633,
-      "lng": 2.334045,
-      "start_time": "2026-06-21T20:00:00+02:00",
-      "end_time": "2026-06-21T21:00:00+02:00",
-      "session_date": "2026-06-21",
-      "source": "openagenda",
-      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/71896938",
-      "genres": [
-        "pop",
-        "rock"
-      ],
-      "subgenres": [],
-      "is_outdoor": true,
-      "price_type": "free",
-      "price_detail": null,
-      "description": "Venez découvrir Channy on the Rock !",
-      "image_url": "https://cdn.openagenda.com/main/0c19b0a185f1426db1da39a16f6b105c.base.image.jpg"
     },
     {
       "id": "oa-74448482-0",
@@ -5925,6 +6378,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/74448482",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop",
@@ -5951,6 +6406,8 @@
       "session_date": "2026-06-21",
       "source": "both",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/82484445",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "electro",
@@ -5978,6 +6435,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/86519279",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "chorale",
         "classique",
@@ -6005,6 +6464,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21249678",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "electro"
@@ -6030,6 +6491,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/28028076",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop"
@@ -6055,6 +6518,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/28871154",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "trad",
         "world"
@@ -6080,6 +6545,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/29119835",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "classique",
@@ -6106,6 +6573,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/89987641",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop",
@@ -6132,6 +6601,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/13688248",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "folk"
       ],
@@ -6156,6 +6627,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21249678",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "electro"
@@ -6181,6 +6654,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/45886037",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "jazz"
       ],
@@ -6205,6 +6680,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/5090464",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "rap",
@@ -6235,6 +6712,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/32659266",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "classique"
       ],
@@ -6259,6 +6738,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/7133989",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "rock",
         "pop"
@@ -6284,6 +6765,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21249678",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "electro"
@@ -6309,6 +6792,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/47028282",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "fanfare",
         "soul-funk",
@@ -6339,6 +6824,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/21249678",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "electro"
@@ -6364,6 +6851,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/43756418",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "soul-funk",
         "classique",
@@ -6390,6 +6879,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/38522210",
+      "requires_booking": true,
+      "booking_url": "https://www.fetedelamusique-paris.fr/inscriptions",
       "genres": [
         "electro",
         "variete"
@@ -6415,6 +6906,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/5071653",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro"
       ],
@@ -6439,6 +6932,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/53858235",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "world",
         "rock",
@@ -6470,6 +6965,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/83963688",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "electro",
         "classique",
@@ -6500,6 +6997,8 @@
       "session_date": "2026-06-21",
       "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/46426553",
+      "requires_booking": false,
+      "booking_url": null,
       "genres": [
         "blues",
         "variete",

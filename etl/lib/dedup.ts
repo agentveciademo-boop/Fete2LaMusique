@@ -89,6 +89,9 @@ function merge(base: OutEvent, other: OutEvent): OutEvent {
     description: richerDescription,
     is_outdoor: base.is_outdoor ?? other.is_outdoor,
     price_detail: base.price_detail ?? other.price_detail,
+    // Réservation : si l'une des deux sources la signale, on la garde (OA la porte en pratique).
+    requires_booking: base.requires_booking || other.requires_booking,
+    booking_url: base.booking_url ?? other.booking_url,
   }
 }
 
