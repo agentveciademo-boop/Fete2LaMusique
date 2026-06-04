@@ -12,6 +12,15 @@ import type { Event, Genre } from '@/types/event'
 const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/liberty'
 const FALLBACK_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_FALLBACK || 'https://tiles.openfreemap.org/styles/liberty'
 
+// TEMPORAIRE — sélecteur de fond de carte pour arbitrage (desktop + mobile réel).
+// À retirer une fois le fond définitif choisi (et fixer PRIMARY_STYLE en conséquence).
+const STYLE_OPTIONS = [
+  { label: 'Clair',   url: 'https://tiles.openfreemap.org/styles/positron' },
+  { label: 'Foncé',   url: 'https://tiles.openfreemap.org/styles/dark' },
+  { label: 'Bleu',    url: 'https://tiles.openfreemap.org/styles/fiord' },
+  { label: 'Couleur', url: 'https://tiles.openfreemap.org/styles/liberty' },
+]
+
 // Couleur du halo "pulse" (concerts imminents). Les pins eux-mêmes sont des
 // camemberts colorés par genre (cf. pinsLayer + drawPie) : un concert multi-genres
 // montre honnêtement ses parts plutôt qu'une couleur unique trompeuse.
@@ -446,6 +455,23 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       {/* User location source (injected by UserLocation component via mapRef) */}
       <NavigationControl position="bottom-right" />
     </MapGL>
+
+    {/* TEMPORAIRE — sélecteur de fond de carte (arbitrage). À retirer après choix. */}
+    <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 flex max-w-[92vw] flex-wrap justify-center gap-1 rounded-full border border-border bg-background/95 px-2 py-1 shadow-lg backdrop-blur">
+      <span className="self-center px-1 text-[11px] font-semibold text-muted-foreground">Fond</span>
+      {STYLE_OPTIONS.map(o => (
+        <button
+          key={o.url}
+          type="button"
+          onClick={() => setMapStyle(o.url)}
+          className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition ${
+            mapStyle === o.url ? 'bg-foreground text-background' : 'text-foreground hover:bg-muted'
+          }`}
+        >
+          {o.label}
+        </button>
+      ))}
+    </div>
 
     {/* Toggle calque métro/RER */}
     <button
