@@ -12,6 +12,7 @@ import { EventSheet }      from '@/components/EventSheet'
 import { UserLocation }    from '@/components/UserLocation'
 import { useFilters }      from '@/hooks/useFilters'
 import { useUserLocation } from '@/hooks/useUserLocation'
+import { useIsMobile }     from '@/hooks/useIsMobile'
 import MOCK_EVENTS from '@/data/mock-events'
 import type { Event } from '@/types/event'
 
@@ -35,6 +36,7 @@ export default function Page() {
   } = useFilters(events)
 
   const userLocation = useUserLocation()
+  const isMobile = useIsMobile()
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
   return (
@@ -101,9 +103,11 @@ export default function Page() {
         onChange={setTimeRange}
       />
 
-      {/* Event detail — mobile bottom sheet */}
+      {/* Event detail — mobile bottom sheet (uniquement sur mobile : sur desktop, le
+          drawer vaul "ouvert" verrouillait le <body> en pointer-events:none et bloquait
+          les clics du panneau latéral). Desktop = EventPanel ci-dessus. */}
       <EventSheet
-        event={selectedEvent}
+        event={isMobile ? selectedEvent : null}
         sliderTime={referenceTime}
         onClose={() => setSelectedEvent(null)}
       />
