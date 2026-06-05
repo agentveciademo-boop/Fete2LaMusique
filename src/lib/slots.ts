@@ -20,7 +20,7 @@ export interface SlotDef {
  */
 export const SLOTS: readonly SlotDef[] = [
   { id: 'matin',       label: 'Matin',       emoji: '🌅', refHour: 10 },
-  { id: 'debut-aprem', label: 'Début aprem', emoji: '🌤️', refHour: 14 },
+  { id: 'debut-aprem', label: 'Début aprem', emoji: '🌞', refHour: 14 },
   { id: 'fin-aprem',   label: 'Fin aprem',   emoji: '🌇', refHour: 16 },
   { id: 'soiree',      label: 'Soirée',      emoji: '🌆', refHour: 19 },
   { id: 'nuit',        label: 'Nuit',        emoji: '🌙', refHour: 22 },
