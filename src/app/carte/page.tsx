@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import type { MapRef } from 'react-map-gl/maplibre'
 import { Toaster } from '@/components/ui/sonner'
-import { GenreBar }        from '@/components/filters/GenreBar'
-import { ResultCount }     from '@/components/filters/ResultCount'
-import { SlotFilter }      from '@/components/filters/SlotFilter'
+import { GenreBar }            from '@/components/filters/GenreBar'
+import { ArrondissementFilter } from '@/components/filters/ArrondissementFilter'
+import { ResultCount }         from '@/components/filters/ResultCount'
+import { SlotFilter }          from '@/components/filters/SlotFilter'
 import { EventPanel }      from '@/components/EventPanel'
 import { EventSheet }      from '@/components/EventSheet'
 import { UserLocation }    from '@/components/UserLocation'
@@ -53,12 +54,16 @@ export default function Page() {
             selectedArr={filters.arrondissements}
           />
 
-          {/* Filtres (styles + arrondissements) directement sur la carte */}
+          {/* Filtre styles (haut-gauche) */}
           <GenreBar
             selected={filters.genres}
             onChange={setGenres}
-            arrondissements={filters.arrondissements}
-            onChangeArr={setArrondissements}
+          />
+
+          {/* Filtre arrondissement — bouton séparé (haut-droite, près du calque Métro/RER) */}
+          <ArrondissementFilter
+            selected={filters.arrondissements}
+            onChange={setArrondissements}
           />
 
           {/* Empty state when filters return nothing */}

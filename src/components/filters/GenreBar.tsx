@@ -7,12 +7,7 @@ import type { Genre } from '@/types/event'
 interface Props {
   selected: Genre[]
   onChange: (genres: Genre[]) => void
-  arrondissements: number[]
-  onChangeArr: (arr: number[]) => void
 }
-
-// Arrondissements de Paris (1–20). 0 = hors Paris ("Autre").
-const ALL_ARRONDISSEMENTS = Array.from({ length: 20 }, (_, i) => i + 1)
 
 const CHIP_BASE =
   'shrink-0 h-8 px-3 inline-flex items-center gap-1 text-xs font-medium rounded-full border shadow-sm ' +
@@ -21,26 +16,23 @@ const CHIP_BASE =
 const CHIP_NEUTRAL = (on: boolean) =>
   CHIP_BASE + (on ? ' bg-foreground text-background border-foreground' : ' bg-background/95 text-foreground border-border')
 
-export function GenreBar({ selected, onChange, arrondissements, onChangeArr }: Props) {
+export function GenreBar({ selected, onChange }: Props) {
   const [open, setOpen] = useState(false)
 
   const toggleGenre = (g: Genre) =>
     selected.includes(g) ? onChange(selected.filter(x => x !== g)) : onChange([...selected, g])
 
-  const toggleArr = (a: number) =>
-    arrondissements.includes(a) ? onChangeArr(arrondissements.filter(x => x !== a)) : onChangeArr([...arrondissements, a])
-
-  const count = selected.length + arrondissements.length
+  const count = selected.length
 
   return (
     <div className="pointer-events-none absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-background/80 to-transparent pt-2 pb-4">
       <div className="px-3">
-        {/* Bouton "Filtre" — déplie/replie les filtres */}
+        {/* Bouton "Filtre" — déplie/replie les styles de musique */}
         <button
           type="button"
           onClick={() => setOpen(o => !o)}
           aria-expanded={open}
-          aria-label="Filtrer les concerts"
+          aria-label="Filtrer par style de musique"
           className={'pointer-events-auto ' + CHIP_NEUTRAL(count > 0)}
         >
           {/* icône sliders */}
@@ -66,76 +58,38 @@ export function GenreBar({ selected, onChange, arrondissements, onChangeArr }: P
         </button>
       </div>
 
-      {/* Filtres dépliés */}
+      {/* Styles dépliés — chaque pastille porte sa couleur de genre */}
       {open && (
-        <div className="pointer-events-auto mt-2 flex flex-col gap-2">
-          {/* ── Ligne 1 : styles de musique ── */}
-          <div>
-            <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-wide text-foreground/60">Style</p>
-            <div className="flex gap-1.5 overflow-x-auto px-3 scrollbar-none">
-              <button
-                type="button"
-                onClick={() => onChange([])}
-                aria-pressed={selected.length === 0}
-                className={CHIP_NEUTRAL(selected.length === 0)}
-              >
-                Tous
-              </button>
-              {ALL_GENRES.map(genre => {
-                const { label, color, icon } = GENRE_CONFIG[genre]
-                const on = selected.includes(genre)
-                return (
-                  <button
-                    key={genre}
-                    type="button"
-                    onClick={() => toggleGenre(genre)}
-                    aria-pressed={on}
-                    aria-label={label}
-                    className={CHIP_BASE + (on ? ' border-transparent text-white' : ' bg-background/95 text-foreground border-border')}
-                    style={on ? { backgroundColor: color, borderColor: color } : {}}
-                  >
-                    <span aria-hidden>{icon}</span> {label}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-
-          {/* ── Ligne 2 : arrondissements ── */}
-          <div>
-            <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-wide text-foreground/60">Arrondissement</p>
-            <div className="flex gap-1.5 overflow-x-auto px-3 scrollbar-none">
-              <button
-                type="button"
-                onClick={() => onChangeArr([])}
-                aria-pressed={arrondissements.length === 0}
-                className={CHIP_NEUTRAL(arrondissements.length === 0)}
-              >
-                Tous
-              </button>
-              {ALL_ARRONDISSEMENTS.map(a => (
+        <div className="pointer-events-auto mt-2">
+          <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-wide text-foreground/60">Style</p>
+          <div className="flex gap-1.5 overflow-x-auto px-3 scrollbar-none">
+            <button
+              type="button"
+              onClick={() => onChange([])}
+              aria-pressed={selected.length === 0}
+              className={CHIP_NEUTRAL(selected.length === 0)}
+            >
+              Tous
+            </button>
+            {ALL_GENRES.map(genre => {
+              const { label, color, icon } = GENRE_CONFIG[genre]
+              const on = selected.includes(genre)
+              return (
                 <button
-                  key={a}
+                  key={genre}
                   type="button"
-                  onClick={() => toggleArr(a)}
-                  aria-pressed={arrondissements.includes(a)}
-                  aria-label={`${a}e arrondissement`}
-                  className={CHIP_NEUTRAL(arrondissements.includes(a))}
+                  onClick={() => toggleGenre(genre)}
+                  aria-pressed={on}
+                  aria-label={label}
+                  // Fond = couleur du genre en permanence ; sélection = anneau + coche.
+                  className={CHIP_BASE + ' text-white' + (on ? ' ring-2 ring-foreground ring-offset-1 font-semibold' : '')}
+                  style={{ backgroundColor: color, borderColor: color }}
                 >
-                  {a}
+                  {on && <span aria-hidden>✓</span>}
+                  <span aria-hidden>{icon}</span> {label}
                 </button>
-              ))}
-              {/* Hors Paris */}
-              <button
-                type="button"
-                onClick={() => toggleArr(0)}
-                aria-pressed={arrondissements.includes(0)}
-                aria-label="Hors Paris"
-                className={CHIP_NEUTRAL(arrondissements.includes(0))}
-              >
-                Autre
-              </button>
-            </div>
+              )
+            })}
           </div>
         </div>
       )}
