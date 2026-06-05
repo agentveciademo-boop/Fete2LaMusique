@@ -26,6 +26,8 @@ function eventToFeature(event: Event): Feature<Point> {
       // Filtres carte (cf. useFilters.mapFilter) : jour de session + tranche horaire.
       session_day:   eventSessionDate(event),
       slot:          eventSlot(event),
+      // Halo jaune « Sur réservation » (numérique pour l'expression de filtre MapLibre).
+      requires_booking: event.requires_booking ? 1 : 0,
       is_outdoor:    event.is_outdoor === null ? -1 : event.is_outdoor ? 1 : 0,
       price_type:    event.price_type,
     },

@@ -161,6 +161,23 @@ const arrOutlineLayer: LineLayerSpecification = {
   paint: { 'line-color': '#FF6B6B', 'line-width': 2.5, 'line-opacity': 0.9 },
 }
 
+// Halo jaune statique sous les pins « Sur réservation » (requires_booking). Disque
+// flouté légèrement plus large que le pin → un glow jaune dépasse autour du camembert,
+// pour repérer d'un coup d'œil les concerts à réserver (cf. badge 🎟️ sur la fiche).
+const BOOKING_COLOR = '#FFC400'
+const bookingHaloLayer: CircleLayerSpecification = {
+  id: 'events-booking',
+  type: 'circle',
+  source: 'events',
+  filter: ['==', ['get', 'requires_booking'], 1],
+  paint: {
+    'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 13, 14, 17, 17, 21],
+    'circle-color': BOOKING_COLOR,
+    'circle-opacity': 0.8,
+    'circle-blur': 0.35,
+  },
+}
+
 // Halo pulsant sous les pins camembert (concerts imminents). Plus large que le pin
 // pour rester visible derrière l'icône ; corail translucide, sans contour.
 const pulseLayer: CircleLayerSpecification = {
@@ -461,8 +478,10 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         type="geojson"
         data={geojson}
       >
-        {/* Halo pulse SOUS les pins (rendu en premier), puis les camemberts au-dessus */}
+        {/* Halos SOUS les pins (rendus en premier) : pulse imminent + jaune réservation,
+            puis les camemberts au-dessus */}
         <Layer {...pulseLayer} />
+        <Layer {...bookingHaloLayer} />
         <Layer {...pinsLayer} filter={mapFilter as any} />
       </Source>
 

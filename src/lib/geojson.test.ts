@@ -38,6 +38,12 @@ describe('eventsToGeoJSON', () => {
     expect(p.session_day).toBe('2026-06-21')
     expect(p.slot).toBe('soiree')
   })
+  it('requires_booking → 1 si réservation, 0 sinon (halo jaune MapLibre)', () => {
+    const free = eventsToGeoJSON([sample])
+    const booking = eventsToGeoJSON([{ ...sample, requires_booking: true }])
+    expect((free.features[0].properties as any).requires_booking).toBe(0)
+    expect((booking.features[0].properties as any).requires_booking).toBe(1)
+  })
   it('genre_primary is the first genre', () => {
     const geo = eventsToGeoJSON([sample])
     expect((geo.features[0].properties as any).genre_primary).toBe('jazz')
