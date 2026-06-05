@@ -51,6 +51,16 @@ export function getSessionDate(iso: string): string {
   return date
 }
 
+/** Heure locale Europe/Paris (0–23) d'un timestamp ISO. */
+export function parisHour(iso: string): number {
+  return toParisLocal(iso).hour
+}
+
+/** Date calendaire locale Europe/Paris (YYYY-MM-DD) d'un timestamp ISO. */
+export function parisDate(iso: string): string {
+  return toParisLocal(iso).date
+}
+
 /**
  * Projette un timestamp sur l'axe horaire continu du week-end : nombre d'heures
  * écoulées depuis FESTIVAL_START_DATE 00h00 (Europe/Paris).

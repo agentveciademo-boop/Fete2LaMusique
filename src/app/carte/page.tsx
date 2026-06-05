@@ -6,7 +6,7 @@ import type { MapRef } from 'react-map-gl/maplibre'
 import { Toaster } from '@/components/ui/sonner'
 import { GenreBar }        from '@/components/filters/GenreBar'
 import { ResultCount }     from '@/components/filters/ResultCount'
-import { TimeRangeSlider } from '@/components/filters/TimeRangeSlider'
+import { SlotFilter }      from '@/components/filters/SlotFilter'
 import { EventPanel }      from '@/components/EventPanel'
 import { EventSheet }      from '@/components/EventSheet'
 import { UserLocation }    from '@/components/UserLocation'
@@ -31,8 +31,8 @@ export default function Page() {
   }, [])
 
   const {
-    filters, setTimeRange, setGenres, setArrondissements,
-    mapFilter, filteredEvents, filteredCount, referenceTime,
+    filters, setSlot, setGenres, setArrondissements,
+    mapFilter, filteredEvents, filteredCount, slotCounts, referenceTime,
   } = useFilters(events)
 
   const userLocation = useUserLocation()
@@ -62,11 +62,11 @@ export default function Page() {
           />
 
           {/* Empty state when filters return nothing */}
-          {filteredCount === 0 && (filters.genres.length > 0 || filters.arrondissements.length > 0) && (
+          {filteredCount === 0 && (filters.slot !== null || filters.genres.length > 0 || filters.arrondissements.length > 0) && (
             <div className="absolute top-16 left-1/2 -translate-x-1/2 z-10 max-w-[90vw] px-4 py-2 rounded-full bg-background/95 border shadow-lg text-sm text-center">
               Aucun concert ne correspond.{' '}
               <button
-                onClick={() => { setGenres([]); setArrondissements([]) }}
+                onClick={() => { setSlot(null); setGenres([]); setArrondissements([]) }}
                 className="font-medium underline underline-offset-2 hover:no-underline"
               >
                 Effacer
@@ -97,10 +97,11 @@ export default function Page() {
         </div>
       </div>
 
-      {/* ── Time range slider sticky bottom (~72px) ── */}
-      <TimeRangeSlider
-        value={filters.timeRange as [number, number]}
-        onChange={setTimeRange}
+      {/* ── Filtre par tranche horaire, sticky bottom (~72px) ── */}
+      <SlotFilter
+        selected={filters.slot}
+        counts={slotCounts}
+        onChange={setSlot}
       />
 
       {/* Event detail — mobile bottom sheet (uniquement sur mobile : sur desktop, le
