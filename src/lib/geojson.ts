@@ -20,7 +20,8 @@ function eventToFeature(event: Event): Feature<Point> {
       genres:        event.genres,
       // Clé d'icône camembert : genres plafonnés à 4 parts (lisibilité d'un pin ~22px),
       // joints par '+'. Map.tsx dessine une image par combinaison via `styleimagemissing`.
-      pie_key:       event.genres.slice(0, 4).join('+'),
+      // Suffixe '|book' → variante à anneau jaune pour les concerts à réserver.
+      pie_key:       event.genres.slice(0, 4).join('+') + (event.requires_booking ? '|book' : ''),
       subgenres:     event.subgenres,
       arrondissement: event.arrondissement ?? 0, // 0 = hors Paris ("Autre")
       // Filtres carte (cf. useFilters.mapFilter) : jour de session + tranche horaire.

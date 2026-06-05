@@ -25,13 +25,16 @@ const STYLE_OPTIONS = [
 // montre honnêtement ses parts plutôt qu'une couleur unique trompeuse.
 const CONCERT_COLOR = '#FF6B6B'
 
+// Jaune « Sur réservation » : anneau des pins concernés (renfort du halo jaune, cf. bookingHaloLayer).
+const BOOKING_RING = '#FFB300'
+
 // --- Icônes camembert ---------------------------------------------------------
 // Un pin = un mini-camembert : une part par genre (couleurs de GENRE_CONFIG).
 // Les images sont générées à la demande via l'événement MapLibre `styleimagemissing`
 // (l'id de l'image = `pie_key`, ex. "jazz+rock"). Rendu canvas, mis en cache par la map.
 const ICON_PX = 44 // taille intrinsèque (à pixelRatio) ; icon-size ajuste l'affichage
 
-function drawPieIcon(genres: Genre[]): { data: ImageData; pixelRatio: number } | null {
+function drawPieIcon(genres: Genre[], ringColor: string = '#000', ringWidth: number = 2.5): { data: ImageData; pixelRatio: number } | null {
   const dpr = Math.max(2, Math.round(window.devicePixelRatio || 1))
   const canvas = document.createElement('canvas')
   canvas.width = ICON_PX * dpr
@@ -65,11 +68,12 @@ function drawPieIcon(genres: Genre[]): { data: ImageData; pixelRatio: number } |
       a += step
     }
   }
-  // Anneau noir extérieur (détache le pin du fond de carte clair).
+  // Anneau extérieur (détache le pin du fond clair). Noir par défaut ; jaune et plus
+  // épais pour les concerts à réserver, en renfort du halo jaune.
   ctx.beginPath()
   ctx.arc(cx, cy, r, 0, Math.PI * 2)
-  ctx.lineWidth = 2.5
-  ctx.strokeStyle = '#000'
+  ctx.lineWidth = ringWidth
+  ctx.strokeStyle = ringColor
   ctx.stroke()
   return { data: ctx.getImageData(0, 0, canvas.width, canvas.height), pixelRatio: dpr }
 }
@@ -80,9 +84,14 @@ function drawPieIcon(genres: Genre[]): { data: ImageData; pixelRatio: number } |
 function ensurePieImages(map: any, events: Event[]): void {
   for (const ev of events) {
     const g = ev.genres.slice(0, 4)
-    const key = g.join('+')
-    if (!key || map.hasImage(key)) continue
-    const icon = drawPieIcon(g as Genre[])
+    const base = g.join('+')
+    if (!base) continue
+    // Concert à réserver = image distincte (suffixe |book) avec anneau jaune épais.
+    const key = ev.requires_booking ? `${base}|book` : base
+    if (map.hasImage(key)) continue
+    const icon = ev.requires_booking
+      ? drawPieIcon(g as Genre[], BOOKING_RING, 3.5)
+      : drawPieIcon(g as Genre[])
     if (icon) map.addImage(key, icon.data, { pixelRatio: icon.pixelRatio })
   }
 }
@@ -377,8 +386,10 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
     const map = e.target
     const onMissing = (ev: { id: string }) => {
       if (!ev.id || map.hasImage(ev.id)) return
-      const genres = ev.id.split('+').filter((g: string): g is Genre => g in GENRE_CONFIG)
-      const icon = drawPieIcon(genres)
+      // id = "genre+genre" éventuellement suffixé "|book" (à réserver → anneau jaune épais).
+      const [genrePart, flag] = ev.id.split('|')
+      const genres = genrePart.split('+').filter((g: string): g is Genre => g in GENRE_CONFIG)
+      const icon = flag === 'book' ? drawPieIcon(genres, BOOKING_RING, 3.5) : drawPieIcon(genres)
       if (icon && !map.hasImage(ev.id)) map.addImage(ev.id, icon.data, { pixelRatio: icon.pixelRatio })
     }
     map.on('styleimagemissing', onMissing)

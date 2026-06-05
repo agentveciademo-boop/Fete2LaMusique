@@ -44,6 +44,12 @@ describe('eventsToGeoJSON', () => {
     expect((free.features[0].properties as any).requires_booking).toBe(0)
     expect((booking.features[0].properties as any).requires_booking).toBe(1)
   })
+  it('pie_key reçoit le suffixe |book pour un concert à réserver (icône anneau jaune)', () => {
+    const free = eventsToGeoJSON([sample])
+    const booking = eventsToGeoJSON([{ ...sample, requires_booking: true }])
+    expect((free.features[0].properties as any).pie_key).toBe('jazz+rock')
+    expect((booking.features[0].properties as any).pie_key).toBe('jazz+rock|book')
+  })
   it('genre_primary is the first genre', () => {
     const geo = eventsToGeoJSON([sample])
     expect((geo.features[0].properties as any).genre_primary).toBe('jazz')
