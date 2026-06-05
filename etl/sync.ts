@@ -19,7 +19,7 @@
 import './lib/env'
 import fs from 'node:fs'
 import path from 'node:path'
-import { type OutEvent } from './lib/normalize'
+import { type OutEvent, pruneAutres } from './lib/normalize'
 import { dedup } from './lib/dedup'
 import { fetchOpenAgenda } from './sources/openagenda'
 import { fetchQfap } from './sources/qfap'
@@ -53,6 +53,9 @@ async function main(): Promise<void> {
 
   // Fusion / dédup cross-source.
   const { events: deduped, merged } = dedup(collected)
+
+  // Nettoyage genres (post-fusion) : retire 'autres' quand un vrai genre existe.
+  for (const e of deduped) e.genres = pruneAutres(e.genres)
 
   // Tri stable par start_time (minimise les diffs git).
   deduped.sort((a, b) => a.start_time.localeCompare(b.start_time) || a.id.localeCompare(b.id))

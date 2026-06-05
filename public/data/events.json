@@ -702,8 +702,7 @@
         "electro",
         "classique",
         "rap",
-        "soul-funk",
-        "autres"
+        "soul-funk"
       ],
       "subgenres": [
         "Techno"
@@ -867,7 +866,6 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres",
         "classique"
       ],
       "subgenres": [],
@@ -926,8 +924,7 @@
         "reggae",
         "fanfare",
         "soul-funk",
-        "jazz",
-        "autres"
+        "jazz"
       ],
       "subgenres": [
         "spoken word"
@@ -957,8 +954,7 @@
       "genres": [
         "soul-funk",
         "rap",
-        "world",
-        "autres"
+        "world"
       ],
       "subgenres": [
         "Bresil"
@@ -1094,8 +1090,7 @@
       "genres": [
         "soul-funk",
         "rap",
-        "world",
-        "autres"
+        "world"
       ],
       "subgenres": [
         "Bresil"
@@ -1175,7 +1170,6 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres",
         "rock"
       ],
       "subgenres": [
@@ -1230,7 +1224,6 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres",
         "pop",
         "electro",
         "world"
@@ -1544,8 +1537,7 @@
       "genres": [
         "jazz",
         "variete",
-        "folk",
-        "autres"
+        "folk"
       ],
       "subgenres": [
         "Accoustique"
@@ -1761,8 +1753,7 @@
         "reggae",
         "fanfare",
         "soul-funk",
-        "jazz",
-        "autres"
+        "jazz"
       ],
       "subgenres": [
         "spoken word"
@@ -2011,8 +2002,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "world",
-        "autres"
+        "world"
       ],
       "subgenres": [
         "Tambours japonais"
@@ -2435,8 +2425,7 @@
         "chorale",
         "fanfare",
         "classique",
-        "pop",
-        "autres"
+        "pop"
       ],
       "subgenres": [
         "Bedroom Music-Hall Punk"
@@ -2494,8 +2483,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "chorale",
-        "autres"
+        "chorale"
       ],
       "subgenres": [
         "Gospel"
@@ -2658,8 +2646,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "electro",
-        "autres"
+        "electro"
       ],
       "subgenres": [
         "Electro Oriental"
@@ -2849,8 +2836,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "electro",
-        "autres"
+        "electro"
       ],
       "subgenres": [
         "Hard techno"
@@ -2882,8 +2868,7 @@
         "world",
         "jazz",
         "variete",
-        "classique",
-        "autres"
+        "classique"
       ],
       "subgenres": [
         "Brésil Bossa-Nova",
@@ -2969,8 +2954,7 @@
       "genres": [
         "soul-funk",
         "rap",
-        "world",
-        "autres"
+        "world"
       ],
       "subgenres": [
         "Bresil"
@@ -3028,8 +3012,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "electro",
-        "autres"
+        "electro"
       ],
       "subgenres": [
         "Funk brésilien"
@@ -3167,7 +3150,6 @@
         "blues",
         "folk",
         "variete",
-        "autres",
         "soul-funk"
       ],
       "subgenres": [
@@ -3253,8 +3235,7 @@
       "booking_url": null,
       "genres": [
         "rap",
-        "soul-funk",
-        "autres"
+        "soul-funk"
       ],
       "subgenres": [
         "Amapiano",
@@ -3426,8 +3407,7 @@
       "booking_url": null,
       "genres": [
         "world",
-        "trad",
-        "autres"
+        "trad"
       ],
       "subgenres": [
         "Bloco Brésilien"
@@ -3481,7 +3461,6 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres",
         "world",
         "rap"
       ],
@@ -3592,8 +3571,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "reggae",
-        "autres"
+        "reggae"
       ],
       "subgenres": [
         "Techno",
@@ -3677,8 +3655,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "classique",
-        "autres"
+        "classique"
       ],
       "subgenres": [
         "Ciné-concert"
@@ -3792,7 +3769,6 @@
         "soul-funk",
         "electro",
         "rock",
-        "autres",
         "rap"
       ],
       "subgenres": [
@@ -3828,8 +3804,7 @@
         "fanfare",
         "rock",
         "pop",
-        "folk",
-        "autres"
+        "folk"
       ],
       "subgenres": [
         "Pop Folk",
@@ -3915,7 +3890,6 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres",
         "trad",
         "classique",
         "chorale"
@@ -4036,8 +4010,7 @@
       "booking_url": null,
       "genres": [
         "rap",
-        "electro",
-        "autres"
+        "electro"
       ],
       "subgenres": [
         "House",
@@ -4096,8 +4069,7 @@
       "booking_url": null,
       "genres": [
         "rap",
-        "soul-funk",
-        "autres"
+        "soul-funk"
       ],
       "subgenres": [
         "baile",
@@ -4127,8 +4099,7 @@
       "booking_url": null,
       "genres": [
         "world",
-        "trad",
-        "autres"
+        "trad"
       ],
       "subgenres": [
         "Percussions"
@@ -4209,8 +4180,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "world",
-        "autres"
+        "world"
       ],
       "subgenres": [
         "Samba"
@@ -4455,8 +4425,7 @@
         "electro",
         "rock",
         "trad",
-        "pop",
-        "autres"
+        "pop"
       ],
       "subgenres": [
         "Reprises",
@@ -4491,8 +4460,7 @@
         "rock",
         "trad",
         "pop",
-        "soul-funk",
-        "autres"
+        "soul-funk"
       ],
       "subgenres": [
         "Musique philippine"
@@ -4548,8 +4516,7 @@
       "genres": [
         "soul-funk",
         "rap",
-        "world",
-        "autres"
+        "world"
       ],
       "subgenres": [
         "Bresil"
@@ -4771,8 +4738,7 @@
       "genres": [
         "classique",
         "electro",
-        "fanfare",
-        "autres"
+        "fanfare"
       ],
       "subgenres": [
         "Synth",
@@ -4856,8 +4822,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "electro",
-        "autres"
+        "electro"
       ],
       "subgenres": [
         "House",
@@ -4915,8 +4880,7 @@
       "genres": [
         "electro",
         "rock",
-        "soul-funk",
-        "autres"
+        "soul-funk"
       ],
       "subgenres": [
         "Disco"
@@ -5079,8 +5043,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "classique",
-        "autres"
+        "classique"
       ],
       "subgenres": [
         "Opérette"
@@ -5134,8 +5097,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "world",
-        "autres"
+        "world"
       ],
       "subgenres": [
         "Musique Bollywood"
@@ -5222,8 +5184,7 @@
         "chorale",
         "soul-funk",
         "variete",
-        "jazz",
-        "autres"
+        "jazz"
       ],
       "subgenres": [
         "Gospel"
@@ -5522,7 +5483,6 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres",
         "rap",
         "electro"
       ],
@@ -5633,8 +5593,7 @@
       "booking_url": null,
       "genres": [
         "electro",
-        "rap",
-        "autres"
+        "rap"
       ],
       "subgenres": [
         "Techno",
@@ -5717,8 +5676,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "chorale",
-        "autres"
+        "chorale"
       ],
       "subgenres": [
         "Gospel"
@@ -6130,8 +6088,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "rock",
-        "autres"
+        "rock"
       ],
       "subgenres": [
         "Rock’n’roll"
@@ -6798,8 +6755,7 @@
         "fanfare",
         "soul-funk",
         "rap",
-        "world",
-        "autres"
+        "world"
       ],
       "subgenres": [
         "AfroBeat"
@@ -6939,8 +6895,7 @@
         "rock",
         "trad",
         "pop",
-        "soul-funk",
-        "autres"
+        "soul-funk"
       ],
       "subgenres": [
         "Musique philippine"
@@ -6971,8 +6926,7 @@
         "electro",
         "classique",
         "rap",
-        "soul-funk",
-        "autres"
+        "soul-funk"
       ],
       "subgenres": [
         "Techno"
@@ -7013,8 +6967,7 @@
         "electro",
         "rock",
         "trad",
-        "pop",
-        "autres"
+        "pop"
       ],
       "subgenres": [
         "Reprises",

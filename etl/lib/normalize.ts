@@ -152,6 +152,18 @@ export function normalizeLabel(s: string): string {
   return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim()
 }
 
+/**
+ * Nettoyage final des genres (appliqué après fusion cross-source) :
+ * - dédoublonne (une fusion OA+QFAP peut réunir des doublons) ;
+ * - retire 'autres' dès qu'au moins un vrai genre est présent — le style source
+ *   « Autre » n'apporte rien à côté d'un genre identifié. 'autres' n'est conservé
+ *   que lorsqu'il est le SEUL genre (aucune info de style → légitime).
+ */
+export function pruneAutres(genres: Genre[]): Genre[] {
+  const uniq = [...new Set(genres)]
+  return uniq.length > 1 ? uniq.filter((g) => g !== 'autres') : uniq
+}
+
 export function parseSubgenres(raw: string | null | undefined): string[] {
   if (!raw) return []
   const seen = new Set<string>()
