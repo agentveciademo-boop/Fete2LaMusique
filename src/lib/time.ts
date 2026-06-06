@@ -62,3 +62,18 @@ export function formatSliderLabel(date: Date): string {
 export function formatEventTime(isoString: string): string {
   return formatParisHHmm(new Date(isoString))
 }
+
+// Variante « horloge » à deux-points (16:00, 21:47) — utilisée par les écrans de la
+// refonte (mono Space Mono). Distincte de formatEventTime qui rend « 16h00 ».
+const PARIS_CLOCK = new Intl.DateTimeFormat('fr-FR', {
+  hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Paris',
+})
+
+export function formatClock(date: Date | string): string {
+  const d = typeof date === 'string' ? new Date(date) : date
+  if (Number.isNaN(d.getTime())) return '--:--'
+  const parts = PARIS_CLOCK.formatToParts(d)
+  const h = parts.find(p => p.type === 'hour')?.value   ?? '00'
+  const m = parts.find(p => p.type === 'minute')?.value ?? '00'
+  return `${h}:${m}`
+}

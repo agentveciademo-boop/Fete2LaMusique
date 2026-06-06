@@ -8,8 +8,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+  --font-heading: var(--font-display);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -81,6 +82,20 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* ── Système « encre indigo + accents solstice » (refonte UX 2026-06) ──────
+     Tokens bruts, disponibles partout via var(--…). Les écrans de l'app (route
+     group (app)) sont sombres par défaut et visent ces valeurs. Les pages hors
+     groupe (/, /strategie, /planning) ne sont pas affectées. */
+  --ink-900: #0B0913; /* fond principal (encre) */
+  --ink-800: #141020; /* fond de carte / panneau */
+  --ink-700: #1B1530; /* surface élevée, chips */
+  --ink-600: #251C42; /* surface la plus haute */
+  --paper:   #F4EFE9; /* texte principal (blanc chaud) */
+  --muted:   #9D97B0; /* texte secondaire (lavande-gris) */
+  --glow:    #FF5C8A; /* accent principal / CTA (corail solstice) */
+  --sun:     #FFB627; /* accent chaud (« bientôt », solstice) */
+  --azur:    #48C9E8; /* accent froid (marche, géoloc, infos) */
 }
 
 .dark {
@@ -128,3 +143,30 @@
     @apply font-sans;
   }
 }
+
+/* ── Animations d'ambiance (refonte UX) ──────────────────────────────────────
+   Réservées aux écrans de l'app. Toutes désactivées si prefers-reduced-motion. */
+@keyframes fm-pulse {
+  0%   { transform: scale(1);   opacity: .55; }
+  100% { transform: scale(3.4); opacity: 0;   }
+}
+@keyframes fm-blink {
+  0%, 100% { opacity: 1;  }
+  50%      { opacity: .25; }
+}
+@keyframes fm-sweep {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+.fm-pulse { animation: fm-pulse 1.8s ease-out infinite; }
+.fm-blink { animation: fm-blink 1.3s ease-in-out infinite; }
+.fm-sweep { animation: fm-sweep 4s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-pulse, .fm-blink, .fm-sweep { animation: none; }
+}
+
+/* Masque le scroll horizontal des rails de chips/cartes sans casser le tactile. */
+.fm-no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.fm-no-scrollbar::-webkit-scrollbar { display: none; }

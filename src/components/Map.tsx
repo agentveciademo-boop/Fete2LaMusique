@@ -10,14 +10,17 @@ import { eventsToGeoJSON } from '@/lib/geojson'
 import { GENRE_CONFIG } from '@/data/genres'
 import type { Event, Genre } from '@/types/event'
 
-const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/positron'
+// Refonte UX : fond SOMBRE par défaut (carte nuit), cohérent avec les pins glow à anneau
+// blanc. Fallback positron (clair) gardé en filet de sécurité jour J.
+const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/dark'
 const FALLBACK_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_FALLBACK || 'https://tiles.openfreemap.org/styles/positron'
 
 // Fonds proposés à l'utilisateur (bouton ⚙️). Choix mémorisé en localStorage.
 const STYLE_STORAGE_KEY = 'fdm-map-style'
 const STYLE_OPTIONS = [
-  { label: 'Clair', url: 'https://tiles.openfreemap.org/styles/positron' },
-  { label: 'Bleu',  url: 'https://tiles.openfreemap.org/styles/fiord' },
+  { label: 'Sombre', url: 'https://tiles.openfreemap.org/styles/dark' },
+  { label: 'Bleu',   url: 'https://tiles.openfreemap.org/styles/fiord' },
+  { label: 'Clair',  url: 'https://tiles.openfreemap.org/styles/positron' },
 ]
 
 // Couleur du halo "pulse" (concerts imminents). Les pins eux-mêmes sont des
@@ -28,13 +31,17 @@ const CONCERT_COLOR = '#FF6B6B'
 // Jaune « Sur réservation » : anneau des pins concernés (renfort du halo jaune, cf. bookingHaloLayer).
 const BOOKING_RING = '#FFB300'
 
-// --- Icônes camembert ---------------------------------------------------------
-// Un pin = un mini-camembert : une part par genre (couleurs de GENRE_CONFIG).
-// Les images sont générées à la demande via l'événement MapLibre `styleimagemissing`
-// (l'id de l'image = `pie_key`, ex. "jazz+rock"). Rendu canvas, mis en cache par la map.
+// --- Pins multi-genres --------------------------------------------------------
+// Règle validée (refonte UX, remplace le camembert systématique) :
+//   1 genre   → point plein de la couleur du genre + anneau blanc
+//   2 genres  → pin scindé 50/50 (diviseur incliné ~15°), le cas le plus fréquent
+//   3 genres+ → dominante (1er genre) pleine + pastille « +N » en bas à droite
+// Les images sont générées à la demande via `styleimagemissing` (id = `pie_key`,
+// ex. "jazz+rock"). Rendu canvas, mis en cache par la map. Anneau jaune épais pour
+// les concerts « Sur réservation » (requires_booking).
 const ICON_PX = 44 // taille intrinsèque (à pixelRatio) ; icon-size ajuste l'affichage
 
-function drawPieIcon(genres: Genre[], ringColor: string = '#000', ringWidth: number = 2.5): { data: ImageData; pixelRatio: number } | null {
+function drawGenrePin(genres: Genre[], ringColor: string = '#fff', ringWidth: number = 2.5): { data: ImageData; pixelRatio: number } | null {
   const dpr = Math.max(2, Math.round(window.devicePixelRatio || 1))
   const canvas = document.createElement('canvas')
   canvas.width = ICON_PX * dpr
@@ -42,39 +49,47 @@ function drawPieIcon(genres: Genre[], ringColor: string = '#000', ringWidth: num
   const ctx = canvas.getContext('2d')
   if (!ctx) return null
   ctx.scale(dpr, dpr)
+
   const cx = ICON_PX / 2, cy = ICON_PX / 2, r = ICON_PX / 2 - 3
   const list = genres.length ? genres : (['autres'] as Genre[])
-  const step = (Math.PI * 2) / list.length
-  let a = -Math.PI / 2 // départ en haut
-  for (const g of list) {
-    ctx.beginPath()
-    ctx.moveTo(cx, cy)
-    ctx.arc(cx, cy, r, a, a + step)
-    ctx.closePath()
-    ctx.fillStyle = GENRE_CONFIG[g]?.color ?? '#6B7280'
-    ctx.fill()
-    a += step
+  const col = (g: Genre) => GENRE_CONFIG[g]?.color ?? '#9D97B0'
+
+  // Disque de base (clip circulaire).
+  ctx.save()
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.closePath(); ctx.clip()
+
+  if (list.length === 1) {
+    ctx.fillStyle = col(list[0]); ctx.fillRect(0, 0, ICON_PX, ICON_PX)
+  } else if (list.length === 2) {
+    // Pin scindé : deux moitiés, diviseur incliné (~15°) pour matcher la maquette.
+    ctx.translate(cx, cy); ctx.rotate((15 * Math.PI) / 180); ctx.translate(-cx, -cy)
+    ctx.fillStyle = col(list[0]); ctx.fillRect(-cx, -cy, cx + ICON_PX, ICON_PX * 2) // moitié gauche
+    ctx.fillStyle = col(list[1]); ctx.fillRect(cx, -cy, ICON_PX, ICON_PX * 2)       // moitié droite
+  } else {
+    // 3+ : dominante pleine ; la pastille « +N » est dessinée après le clip.
+    ctx.fillStyle = col(list[0]); ctx.fillRect(0, 0, ICON_PX, ICON_PX)
   }
-  // Séparateurs noirs entre parts (lisibilité du multi-genres).
-  if (list.length > 1) {
-    a = -Math.PI / 2
-    ctx.strokeStyle = '#000'
-    ctx.lineWidth = 1.4
-    for (let i = 0; i < list.length; i++) {
-      ctx.beginPath()
-      ctx.moveTo(cx, cy)
-      ctx.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a))
-      ctx.stroke()
-      a += step
-    }
-  }
-  // Anneau extérieur (détache le pin du fond clair). Noir par défaut ; jaune et plus
-  // épais pour les concerts à réserver, en renfort du halo jaune.
+  ctx.restore()
+
+  // Anneau extérieur (détache le pin du fond). Blanc par défaut ; jaune épais à réserver.
   ctx.beginPath()
   ctx.arc(cx, cy, r, 0, Math.PI * 2)
   ctx.lineWidth = ringWidth
   ctx.strokeStyle = ringColor
   ctx.stroke()
+
+  // Pastille « +N » pour 3 genres et plus (couleur du 2e genre, liseré encre).
+  if (list.length >= 3) {
+    const bx = cx + r * 0.62, by = cy + r * 0.62, br = 7
+    ctx.beginPath(); ctx.arc(bx, by, br, 0, Math.PI * 2)
+    ctx.fillStyle = col(list[1]); ctx.fill()
+    ctx.lineWidth = 2; ctx.strokeStyle = '#0B0913'; ctx.stroke()
+    ctx.fillStyle = '#0B0913'
+    ctx.font = '700 9px monospace'
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
+    ctx.fillText(`+${list.length - 1}`, bx, by + 0.5)
+  }
+
   return { data: ctx.getImageData(0, 0, canvas.width, canvas.height), pixelRatio: dpr }
 }
 
@@ -90,8 +105,8 @@ function ensurePieImages(map: any, events: Event[]): void {
     const key = ev.requires_booking ? `${base}|book` : base
     if (map.hasImage(key)) continue
     const icon = ev.requires_booking
-      ? drawPieIcon(g as Genre[], BOOKING_RING, 3.5)
-      : drawPieIcon(g as Genre[])
+      ? drawGenrePin(g as Genre[], BOOKING_RING, 3.5)
+      : drawGenrePin(g as Genre[])
     if (icon) map.addImage(key, icon.data, { pixelRatio: icon.pixelRatio })
   }
 }
@@ -389,7 +404,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       // id = "genre+genre" éventuellement suffixé "|book" (à réserver → anneau jaune épais).
       const [genrePart, flag] = ev.id.split('|')
       const genres = genrePart.split('+').filter((g: string): g is Genre => g in GENRE_CONFIG)
-      const icon = flag === 'book' ? drawPieIcon(genres, BOOKING_RING, 3.5) : drawPieIcon(genres)
+      const icon = flag === 'book' ? drawGenrePin(genres, BOOKING_RING, 3.5) : drawGenrePin(genres)
       if (icon && !map.hasImage(ev.id)) map.addImage(ev.id, icon.data, { pixelRatio: icon.pixelRatio })
     }
     map.on('styleimagemissing', onMissing)
