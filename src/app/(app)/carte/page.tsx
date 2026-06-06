@@ -4,9 +4,9 @@
 // Évolution directe de l'ancienne /carte : même moteur (MapView + useFilters), nouvelle peau
 // « encre + solstice ». Réf. design : VarMap (variations-a.jsx).
 
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
-import { Search, SlidersHorizontal, ChevronUp } from 'lucide-react'
+import { Search, SlidersHorizontal, ChevronUp, X } from 'lucide-react'
 import type { MapRef } from 'react-map-gl/maplibre'
 import { Toaster } from '@/components/ui/sonner'
 import { EventPanel } from '@/components/EventPanel'
@@ -19,7 +19,7 @@ import { useUserLocation } from '@/hooks/useUserLocation'
 import { useIsMobile } from '@/hooks/useIsMobile'
 import { ALL_GENRES, GENRE_CONFIG } from '@/data/genres'
 import { SLOTS } from '@/lib/slots'
-import { primaryGenre, genreColor, walkFrom } from '@/lib/view'
+import { primaryGenre, genreColor, genreLabel, walkFrom } from '@/lib/view'
 import { formatClock } from '@/lib/time'
 import type { Event, Genre } from '@/types/event'
 
@@ -40,6 +40,20 @@ export default function CartePage() {
   const userLocation = useUserLocation()
   const isMobile = useIsMobile()
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
+  const [query, setQuery] = useState('')
+  const [peekOpen, setPeekOpen] = useState(true)
+
+  // Recherche texte (titre / lieu / genre) appliquée par-dessus les filtres genre+horaire.
+  // Alimente à la fois les points de la carte et le peek sheet.
+  const shownEvents = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    if (!q) return filteredEvents
+    return filteredEvents.filter(e =>
+      e.title.toLowerCase().includes(q) ||
+      e.venue_name.toLowerCase().includes(q) ||
+      e.genres.some(g => genreLabel(g).toLowerCase().includes(q)),
+    )
+  }, [filteredEvents, query])
 
   const toggleGenre = (g: Genre) =>
     filters.genres.includes(g)
@@ -57,7 +71,7 @@ export default function CartePage() {
   return (
     <div className="absolute inset-0">
       <MapView
-        events={filteredEvents}
+        events={shownEvents}
         mapFilter={mapFilter}
         sliderTime={referenceTime}
         onEventClick={setSelectedEvent}
@@ -72,7 +86,19 @@ export default function CartePage() {
           <div className="flex h-11 flex-1 items-center gap-2.5 rounded-[14px] border border-white/10 px-3.5 backdrop-blur-xl"
             style={{ background: 'rgba(20,16,32,.78)' }}>
             <Search size={17} style={{ color: 'var(--muted)' }} />
-            <span className="text-sm" style={{ color: 'var(--muted)' }}>Artiste, lieu, style…</span>
+            <input
+              type="text"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              placeholder="Artiste, lieu, style…"
+              className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-[color:var(--muted)]"
+              style={{ color: 'var(--paper)' }}
+            />
+            {query && (
+              <button type="button" aria-label="Effacer la recherche" onClick={() => setQuery('')} style={{ color: 'var(--muted)' }}>
+                <X size={16} />
+              </button>
+            )}
           </div>
           <button
             type="button"
@@ -118,11 +144,11 @@ export default function CartePage() {
       />
 
       {/* Empty state */}
-      {filteredCount === 0 && (filters.slot !== null || filters.genres.length > 0) && (
+      {shownEvents.length === 0 && (filters.slot !== null || filters.genres.length > 0 || query.trim() !== '') && (
         <div className="pointer-events-auto absolute left-1/2 top-[150px] z-10 max-w-[88vw] -translate-x-1/2 rounded-full border border-white/10 px-4 py-2 text-center text-sm backdrop-blur-xl"
           style={{ background: 'rgba(20,16,32,.9)', color: 'var(--paper)' }}>
           Aucun concert ne correspond.{' '}
-          <button onClick={() => { setSlot(null); setGenres([]) }} className="font-semibold underline underline-offset-2" style={{ color: 'var(--glow)' }}>
+          <button onClick={() => { setSlot(null); setGenres([]); setQuery('') }} className="font-semibold underline underline-offset-2" style={{ color: 'var(--glow)' }}>
             Effacer
           </button>
         </div>
@@ -157,13 +183,22 @@ export default function CartePage() {
         <div className="pointer-events-auto flex items-center justify-between px-5">
           <div className="font-display text-[17px] font-extrabold tracking-tight">
             {userLocation.location ? 'Autour de toi' : 'À l\'affiche'}
+            <span className="ml-2 font-mono text-[11px] font-normal" style={{ color: 'var(--muted)' }}>{shownEvents.length}</span>
           </div>
-          <span className="flex items-center gap-1 text-xs font-semibold" style={{ color: 'var(--muted)' }}>
-            Liste <ChevronUp size={14} />
-          </span>
+          <button
+            type="button"
+            onClick={() => setPeekOpen(o => !o)}
+            aria-expanded={peekOpen}
+            className="flex items-center gap-1 text-xs font-semibold"
+            style={{ color: 'var(--muted)' }}
+          >
+            {peekOpen ? 'Réduire' : 'Liste'}
+            <ChevronUp size={14} className="transition-transform" style={{ transform: peekOpen ? 'none' : 'rotate(180deg)' }} />
+          </button>
         </div>
+        {peekOpen && (
         <div className="fm-no-scrollbar pointer-events-auto mt-3 flex gap-2.5 overflow-x-auto px-4 pb-1">
-          {filteredEvents.slice(0, 12).map(ev => {
+          {shownEvents.slice(0, 12).map(ev => {
             const g = primaryGenre(ev)
             const walk = walkFrom(userLocation.location, ev)
             return (
@@ -174,8 +209,11 @@ export default function CartePage() {
                 style={{ background: 'var(--ink-700)' }}
               >
                 <div className="relative h-[70px]" style={{ background: `linear-gradient(135deg, ${genreColor(g)}55, var(--ink-600) 75%)` }}>
+                  {ev.image_url && (
+                    <img src={ev.image_url} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                  )}
                   {ev.requires_booking && (
-                    <span className="absolute left-2 top-2 rounded-[10px] px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-[#0B0913]" style={{ background: 'var(--sun)' }}>
+                    <span className="absolute left-2 top-2 z-[1] rounded-[10px] px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-[#0B0913]" style={{ background: 'var(--sun)' }}>
                       RÉSA
                     </span>
                   )}
@@ -194,6 +232,7 @@ export default function CartePage() {
             )
           })}
         </div>
+        )}
       </div>
 
       {/* Détail (réutilise les composants existants) */}

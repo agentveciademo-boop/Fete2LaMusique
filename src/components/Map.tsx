@@ -130,6 +130,27 @@ const pinsLayer: SymbolLayerSpecification = {
   },
 }
 
+// Couleur du genre dominant (genre_primary) → expression `match` MapLibre. Sert au halo glow.
+const GENRE_COLOR_MATCH: any = [
+  'match', ['get', 'genre_primary'],
+  ...Object.entries(GENRE_CONFIG).flatMap(([g, cfg]) => [g, cfg.color]),
+  '#9D97B0',
+]
+
+// Halo « lumière de la ville » : disque flou coloré par le genre dominant, SOUS chaque pin.
+// Reproduit l'effet glow des points (impossible en box-shadow sur une icône canvas).
+const glowLayer: CircleLayerSpecification = {
+  id: 'events-glow',
+  type: 'circle',
+  source: 'events',
+  paint: {
+    'circle-color': GENRE_COLOR_MATCH,
+    'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 9, 14, 13, 17, 17],
+    'circle-blur': 1,
+    'circle-opacity': 0.55,
+  },
+}
+
 // Transit (métro/RER) — casing blanc + ligne couleur officielle. Sous les concerts.
 const transitCasingLayer: LineLayerSpecification = {
   id: 'transit-casing',
@@ -290,6 +311,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
     if (!map || !map.isStyleLoaded()) return
     try {
       map.setFilter('events-unclustered', mapFilter as any)
+      if (map.getLayer('events-glow')) map.setFilter('events-glow', mapFilter as any)
     } catch {/* style not ready yet */}
   }, [mapFilter, mapRef])
 
@@ -440,6 +462,9 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         if (map.getLayer('events-unclustered')) {
           map.setFilter('events-unclustered', mapFilter as any)
         }
+        if (map.getLayer('events-glow')) {
+          map.setFilter('events-glow', mapFilter as any)
+        }
       }}
       style={{ width: '100%', height: '100%' }}
       attributionControl={false}
@@ -504,8 +529,9 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         type="geojson"
         data={geojson}
       >
-        {/* Halos SOUS les pins (rendus en premier) : pulse imminent + jaune réservation,
-            puis les camemberts au-dessus */}
+        {/* Halos SOUS les pins (rendus en premier) : glow par genre + pulse imminent +
+            jaune réservation, puis les camemberts au-dessus */}
+        <Layer {...glowLayer} filter={mapFilter as any} />
         <Layer {...pulseLayer} />
         <Layer {...bookingHaloLayer} />
         <Layer {...pinsLayer} filter={mapFilter as any} />
@@ -515,8 +541,9 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       <NavigationControl position="bottom-right" />
     </MapGL>
 
-    {/* Bouton ⚙️ paramètres d'affichage : choix du fond de carte (mémorisé). */}
-    <div className="absolute top-3 right-3 z-20">
+    {/* Bouton ⚙️ paramètres d'affichage : choix du fond de carte (mémorisé). Placé sous
+        la barre de recherche + le rail de genres + la chip EN DIRECT (refonte UX). */}
+    <div className="absolute top-[150px] right-3 z-20">
       <button
         type="button"
         onClick={() => setShowStyleMenu(v => !v)}
@@ -551,7 +578,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       type="button"
       onClick={() => setShowTransit(v => !v)}
       aria-pressed={showTransit}
-      className={`absolute top-14 right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
+      className={`absolute top-[194px] right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
         showTransit
           ? 'border-[#FF6B6B] bg-[#FF6B6B] text-white'
           : 'border-border bg-background/95 text-foreground hover:bg-background'
