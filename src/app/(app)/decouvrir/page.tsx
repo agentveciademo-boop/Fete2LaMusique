@@ -1,17 +1,24 @@
 'use client'
 
 // Écran 02 · Le Deck — découverte par swipe, construit la shortlist (favoris).
-// Swipe droite = garder (♥) · gauche = passer · bouton nav = y aller.
+// Swipe droite = garder (♥) · gauche = passer · bouton infos = ouvre le détail.
+// Reset pour recommencer la pile ; ajout → toast « Ajouté à Ma soirée » + pop du compteur.
 // Réf. design : VarDeck (variations-a.jsx).
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
-import { X, Heart, Navigation, Clock, Footprints, Ticket, MapPin } from 'lucide-react'
+import { X, Heart, Info, RotateCcw, Clock, Footprints, Ticket, MapPin } from 'lucide-react'
+import { Toaster } from '@/components/ui/sonner'
+import { EventSheet } from '@/components/EventSheet'
+import { EventPanel } from '@/components/EventPanel'
 import { useDayEvents } from '@/hooks/useEvents'
 import { useFavorites } from '@/hooks/useFavorites'
 import { useUserLocation } from '@/hooks/useUserLocation'
 import { useReferenceNow } from '@/hooks/useReferenceNow'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { primaryGenre, genreColor, genreLabel, timeRange, walkFrom, priceLabel, minutesUntilStart } from '@/lib/view'
 import { GENRE_CONFIG } from '@/data/genres'
 import type { Event } from '@/types/event'
@@ -23,7 +30,10 @@ export default function DecouvrirPage() {
   const { has, add, count } = useFavorites()
   const userLocation = useUserLocation()
   const now = useReferenceNow()
+  const isMobile = useIsMobile()
+  const router = useRouter()
   const [index, setIndex] = useState(0)
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
   // Pile de cartes : on garde l'ordre du jour. La carte du dessus = dayEvents[index].
   const current = dayEvents[index]
@@ -31,7 +41,14 @@ export default function DecouvrirPage() {
   const remaining = Math.max(0, dayEvents.length - index)
 
   const advance = (like: boolean) => {
-    if (current && like) add(current.id)
+    if (current && like) {
+      add(current.id)
+      // Feedback : confirme l'ajout à Ma soirée, avec raccourci pour y aller.
+      toast.success('Ajouté à Ma soirée', {
+        description: current.title,
+        action: { label: 'Voir', onClick: () => router.push('/ma-soiree') },
+      })
+    }
     setIndex(i => i + 1)
   }
 
@@ -76,10 +93,28 @@ export default function DecouvrirPage() {
             SWIPE · {remaining} RESTANT{remaining > 1 ? 'S' : ''}
           </div>
         </div>
-        <div className="flex h-[34px] items-center gap-1.5 rounded-[20px] border px-3"
-          style={{ background: 'rgba(255,92,138,.14)', borderColor: 'rgba(255,92,138,.4)', color: 'var(--glow)' }}>
-          <Heart size={15} fill="currentColor" />
-          <span className="text-[13px] font-bold">{count}</span>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Recommencer la pile"
+            onClick={() => setIndex(0)}
+            className="grid h-[34px] w-[34px] place-items-center rounded-full border border-white/15"
+            style={{ background: 'var(--ink-700)', color: 'var(--muted)' }}
+          >
+            <RotateCcw size={16} />
+          </button>
+          {/* key={count} → remonte le chip à chaque ajout : petit « pop » de mise en lumière */}
+          <motion.div
+            key={count}
+            initial={{ scale: 1.35 }}
+            animate={{ scale: 1 }}
+            transition={{ type: 'spring', stiffness: 500, damping: 18 }}
+            className="flex h-[34px] items-center gap-1.5 rounded-[20px] border px-3"
+            style={{ background: 'rgba(255,92,138,.14)', borderColor: 'rgba(255,92,138,.4)', color: 'var(--glow)' }}
+          >
+            <Heart size={15} fill="currentColor" />
+            <span className="text-[13px] font-bold">{count}</span>
+          </motion.div>
         </div>
       </div>
 
@@ -103,10 +138,15 @@ export default function DecouvrirPage() {
           bg="var(--glow)" color="#0B0913" glow="0 0 30px rgba(255,92,138,.6)">
           <Heart size={30} strokeWidth={2.4} fill={has(current.id) ? '#0B0913' : 'none'} />
         </RoundBtn>
-        <RoundBtn aria-label="Y aller" onClick={() => openDirections(current)} size={56} color="var(--azur)">
-          <Navigation size={22} />
+        <RoundBtn aria-label="Infos" onClick={() => setSelectedEvent(current)} size={56} color="var(--azur)">
+          <Info size={22} />
         </RoundBtn>
       </div>
+
+      {/* Détail du concert (réutilise les composants existants) */}
+      <EventPanel event={selectedEvent} sliderTime={now} onClose={() => setSelectedEvent(null)} />
+      <EventSheet event={isMobile ? selectedEvent : null} sliderTime={now} onClose={() => setSelectedEvent(null)} />
+      <Toaster />
     </div>
   )
 }
@@ -215,9 +255,4 @@ function RoundBtn({ children, onClick, size, bg = 'var(--ink-700)', color, glow,
 
 function Centered({ children }: { children: React.ReactNode }) {
   return <div className="flex h-full flex-col items-center justify-center px-6 text-center">{children}</div>
-}
-
-function openDirections(e: Event) {
-  const url = `https://www.google.com/maps/dir/?api=1&destination=${e.lat},${e.lng}`
-  window.open(url, '_blank', 'noopener')
 }
