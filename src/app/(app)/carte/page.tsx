@@ -126,14 +126,6 @@ export default function CartePage() {
         </div>
       </div>
 
-      {/* ── Chip EN DIRECT ── */}
-      <div className="pointer-events-none absolute right-4 top-[108px] z-10 flex h-[30px] items-center gap-2 rounded-[20px] border px-3 backdrop-blur-xl"
-        style={{ background: 'rgba(11,9,19,.82)', borderColor: 'rgba(255,92,138,.4)' }}>
-        <span className="fm-blink h-[7px] w-[7px] rounded-full"
-          style={{ background: 'var(--glow)', boxShadow: '0 0 8px var(--glow)' }} />
-        <span className="font-mono text-[11px] font-bold tracking-wider" style={{ color: 'var(--glow)' }}>EN DIRECT</span>
-      </div>
-
       {/* Bouton géolocalisation (réutilisé tel quel) */}
       <UserLocation
         location={userLocation.location}
