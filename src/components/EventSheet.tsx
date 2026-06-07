@@ -9,18 +9,20 @@ interface Props {
   sliderTime: Date
   onClose: () => void
   onSubgenreClick?: (subgenre: string) => void
+  allSizes?: boolean
 }
 
-export function EventSheet({ event, sliderTime, onClose, onSubgenreClick }: Props) {
+export function EventSheet({ event, sliderTime, onClose, onSubgenreClick, allSizes }: Props) {
+  const sizeClass = allSizes ? '' : 'md:hidden'
   return (
     <Drawer.Root
       open={!!event}
       onOpenChange={open => { if (!open) onClose() }}
     >
       <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-black/60 z-30 md:hidden" />
+        <Drawer.Overlay className={`fixed inset-0 bg-black/60 z-30 ${sizeClass}`} />
         <Drawer.Content
-          className="fixed bottom-0 left-0 right-0 z-40 md:hidden rounded-t-2xl max-h-[95dvh] flex flex-col outline-none"
+          className={`fixed bottom-0 left-0 right-0 z-40 ${sizeClass} rounded-t-2xl max-h-[95dvh] flex flex-col outline-none`}
           style={{ background: 'var(--ink-800)', color: 'var(--paper)' }}
         >
           <div className="mx-auto mt-3 mb-2 w-12 h-1.5 rounded-full shrink-0" style={{ background: 'var(--ink-600)' }} />

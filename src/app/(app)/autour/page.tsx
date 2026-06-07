@@ -144,6 +144,7 @@ export default function AutourPage() {
         event={selectedEvent}
         sliderTime={now}
         onClose={() => setSelectedEvent(null)}
+        allSizes
       />
     </div>
   )
