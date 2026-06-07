@@ -155,11 +155,13 @@ export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
           </p>
         )}
         <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
-          className={cn(buttonVariants(), 'w-full gap-2 justify-center')}>
+          className="inline-flex items-center w-full gap-2 justify-center px-4 py-2 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
+          style={{ background: 'var(--glow)', color: 'var(--ink-900)' }}>
           <ExternalLink className="w-4 h-4" /> Ouvrir dans Google Maps
         </a>
         <a href={citymapperUrl} target="_blank" rel="noopener noreferrer"
-          className={cn(buttonVariants({ variant: 'outline' }), 'w-full gap-2 justify-center')}>
+          className="inline-flex items-center w-full gap-2 justify-center px-4 py-2 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
+          style={{ background: 'var(--azur)', color: 'var(--ink-900)' }}>
           <ExternalLink className="w-4 h-4" /> Ouvrir dans Citymapper
         </a>
       </div>
