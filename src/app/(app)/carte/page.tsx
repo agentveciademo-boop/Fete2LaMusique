@@ -4,7 +4,7 @@
 // Évolution directe de l'ancienne /carte : même moteur (MapView + useFilters), nouvelle peau
 // « encre + solstice ». Réf. design : VarMap (variations-a.jsx).
 
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Search, Globe, ChevronUp, X } from 'lucide-react'
 import type { MapRef } from 'react-map-gl/maplibre'
@@ -50,6 +50,11 @@ export default function CartePage() {
   const [query, setQuery] = useState('')
   const [peekOpen, setPeekOpen] = useState(true)
   const [langOpen, setLangOpen] = useState(false)
+
+  // Ouvrir le picker au premier chargement si aucune langue n'a encore été choisie.
+  useEffect(() => {
+    if (!localStorage.getItem('fm_lang')) setLangOpen(true)
+  }, [])
 
   const shownEvents = useMemo(() => {
     const q = query.trim().toLowerCase()
