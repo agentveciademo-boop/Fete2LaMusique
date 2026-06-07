@@ -11,7 +11,6 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
 import { X, Heart, Info, RotateCcw, Clock, Footprints, Ticket, MapPin } from 'lucide-react'
-import { Toaster } from '@/components/ui/sonner'
 import { EventSheet } from '@/components/EventSheet'
 import { EventPanel } from '@/components/EventPanel'
 import { useDayEvents } from '@/hooks/useEvents'
@@ -161,7 +160,6 @@ export default function DecouvrirPage() {
       {/* Détail du concert (réutilise les composants existants) */}
       <EventPanel event={selectedEvent} sliderTime={now} onClose={() => setSelectedEvent(null)} />
       <EventSheet event={isMobile ? selectedEvent : null} sliderTime={now} onClose={() => setSelectedEvent(null)} />
-      <Toaster />
     </div>
   )
 }

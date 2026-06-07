@@ -7,7 +7,10 @@ import { useMemo, useState } from 'react'
 import { Sun } from 'lucide-react'
 import { useDayEvents } from '@/hooks/useEvents'
 import { useReferenceNow } from '@/hooks/useReferenceNow'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { GenreDot } from '@/components/GenreDot'
+import { EventSheet } from '@/components/EventSheet'
+import { EventPanel } from '@/components/EventPanel'
 import { primaryGenre, genreColor, genreLabel } from '@/lib/view'
 import { parisHour } from '@/lib/session'
 import { ALL_GENRES, GENRE_CONFIG } from '@/data/genres'
@@ -19,7 +22,9 @@ export default function ProgrammePage() {
   const { dayEvents } = useDayEvents()
   const now = useReferenceNow()
   const nowHour = parisHour(now.toISOString())
+  const isMobile = useIsMobile()
   const [genreFilter, setGenreFilter] = useState<Genre[]>([])
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
   const toggleGenre = (g: Genre) =>
     setGenreFilter(prev => prev.includes(g) ? prev.filter(x => x !== g) : [...prev, g])
@@ -109,7 +114,14 @@ export default function ProgrammePage() {
               <div className="ml-[18px] min-w-0 flex-1">
                 {isNow && <div className="mb-1.5 font-mono text-[9px] tracking-widest" style={{ color: 'var(--glow)' }}>● MAINTENANT</div>}
                 <div className="flex gap-2">
-                  {r.items.map(e => <TimelineCard key={e.id} event={e} half={conflict} />)}
+                  {r.items.map(e => (
+                    <TimelineCard
+                      key={e.id}
+                      event={e}
+                      half={conflict}
+                      onClick={() => setSelectedEvent(e)}
+                    />
+                  ))}
                 </div>
                 {conflict && <div className="mt-1.5 font-mono text-[9.5px] tracking-wide" style={{ color: 'var(--muted)' }}>{r.items.length} concerts en même temps</div>}
               </div>
@@ -128,14 +140,21 @@ export default function ProgrammePage() {
           </div>
         </div>
       </div>
+
+      {/* Détail concert */}
+      <EventPanel event={selectedEvent} sliderTime={now} onClose={() => setSelectedEvent(null)} />
+      <EventSheet event={isMobile ? selectedEvent : null} sliderTime={now} onClose={() => setSelectedEvent(null)} />
     </div>
   )
 }
 
-function TimelineCard({ event, half }: { event: Event; half: boolean }) {
+function TimelineCard({ event, half, onClick }: { event: Event; half: boolean; onClick: () => void }) {
   const g = primaryGenre(event)
   return (
-    <div className={`min-w-0 rounded-[14px] border border-white/10 px-3 py-2.5 ${half ? 'flex-1' : 'flex-auto'}`}
+    <button
+      type="button"
+      onClick={onClick}
+      className={`min-w-0 rounded-[14px] border border-white/10 px-3 py-2.5 text-left transition-opacity hover:opacity-75 active:opacity-50 ${half ? 'flex-1' : 'flex-auto'}`}
       style={{ background: 'var(--ink-700)', borderLeft: `3px solid ${genreColor(g)}` }}>
       <div className="mb-1.5 flex items-center gap-1.5">
         <GenreDot g={g} size={7} />
@@ -144,6 +163,6 @@ function TimelineCard({ event, half }: { event: Event; half: boolean }) {
       </div>
       <div className={`mb-0.5 font-bold leading-tight ${half ? 'truncate text-[13px]' : 'text-[14.5px]'}`}>{event.title}</div>
       <div className="truncate text-[11px]" style={{ color: 'var(--muted)' }}>{event.venue_name}</div>
-    </div>
+    </button>
   )
 }

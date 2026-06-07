@@ -8,7 +8,6 @@ import { useMemo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Search, SlidersHorizontal, ChevronUp, X } from 'lucide-react'
 import type { MapRef } from 'react-map-gl/maplibre'
-import { Toaster } from '@/components/ui/sonner'
 import { EventPanel } from '@/components/EventPanel'
 import { EventSheet } from '@/components/EventSheet'
 import { UserLocation } from '@/components/UserLocation'
@@ -239,7 +238,6 @@ export default function CartePage() {
       {/* Détail (réutilise les composants existants) */}
       <EventPanel event={selectedEvent} sliderTime={referenceTime} onClose={() => setSelectedEvent(null)} />
       <EventSheet event={isMobile ? selectedEvent : null} sliderTime={referenceTime} onClose={() => setSelectedEvent(null)} />
-      <Toaster />
     </div>
   )
 }

@@ -6,7 +6,7 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { Share2, Navigation, Plus, MapPin } from 'lucide-react'
+import { Share2, Navigation, Plus, MapPin, Trash2 } from 'lucide-react'
 import { useDayEvents } from '@/hooks/useEvents'
 import { useFavorites } from '@/hooks/useFavorites'
 import { useIsMobile } from '@/hooks/useIsMobile'
@@ -101,7 +101,13 @@ export default function MaSoireePage() {
                     <span className="font-mono text-[13px] font-bold">{formatClock(e.start_time)}</span>
                     <span className="font-mono text-[10.5px]" style={{ color: 'var(--muted)' }}>→ {formatClock(e.end_time)}</span>
                     <GenreDot g={g} size={7} />
-                    <button onClick={ev => { ev.stopPropagation(); remove(e.id) }} className="ml-auto text-[11px]" style={{ color: 'var(--muted)' }}>Retirer</button>
+                    <button
+                      onClick={ev => { ev.stopPropagation(); remove(e.id) }}
+                      className="ml-auto flex items-center gap-1 rounded-md border px-2 py-0.5 text-[11px] font-semibold transition-opacity hover:opacity-80"
+                      style={{ color: 'var(--glow)', borderColor: 'rgba(255,92,138,.35)', background: 'rgba(255,92,138,.1)' }}
+                    >
+                      <Trash2 size={10} /> Retirer
+                    </button>
                   </div>
                   <div className="my-0.5 text-base font-bold leading-tight">{e.title}</div>
                   <div className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--muted)' }}>

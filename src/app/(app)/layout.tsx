@@ -1,4 +1,5 @@
 import { BottomNav } from '@/components/BottomNav'
+import { Toaster } from '@/components/ui/sonner'
 
 // Shell d'app à onglets : <main> plein écran + barre persistante en bas (réf. handoff §3).
 // Les écrans (carte, decouvrir, programme, autour, ma-soiree) vivent sous ce groupe et
@@ -11,6 +12,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     >
       <main className="relative flex-1 overflow-hidden">{children}</main>
       <BottomNav />
+      <Toaster />
     </div>
   )
 }

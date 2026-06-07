@@ -1,10 +1,15 @@
-import { Clock, MapPin, ExternalLink, Ticket } from 'lucide-react'
+'use client'
+
+import { Clock, MapPin, ExternalLink, Ticket, Heart } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { GENRE_CONFIG } from '@/data/genres'
 import { formatEventTime } from '@/lib/time'
 import { getEventStatus, getSoonLabel, STATUS_LABELS } from '@/lib/status'
+import { useFavorites } from '@/hooks/useFavorites'
+import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 import type { Event } from '@/types/event'
 
 const SOURCE_LABELS: Record<NonNullable<Event['source']>, string> = {
@@ -27,6 +32,22 @@ interface Props {
 }
 
 export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
+  const { has, toggle } = useFavorites()
+  const router = useRouter()
+  const isLiked = has(event.id)
+
+  const handleLike = () => {
+    toggle(event.id)
+    if (!isLiked) {
+      toast.success('Ajouté à Ma soirée', {
+        description: event.title,
+        action: { label: 'Voir', onClick: () => router.push('/ma-soiree') },
+      })
+    } else {
+      toast('Retiré de Ma soirée', { description: event.title })
+    }
+  }
+
   const status = getEventStatus(event, sliderTime)
   const priceEntry = PRICE_LABELS[event.price_type]
   const priceLabel = event.price_type === 'paid'
@@ -143,6 +164,20 @@ export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
 
       {/* CTAs */}
       <div className="flex flex-col gap-2 pt-2">
+        {/* Like — premier CTA, le plus important */}
+        <button
+          type="button"
+          onClick={handleLike}
+          className="flex h-[50px] w-full items-center justify-center gap-2.5 rounded-xl border text-[15px] font-bold transition-colors"
+          style={isLiked
+            ? { background: 'rgba(255,92,138,.15)', borderColor: 'rgba(255,92,138,.45)', color: 'var(--glow)' }
+            : { background: 'var(--ink-700)', borderColor: 'rgba(255,255,255,.15)', color: 'var(--paper)' }
+          }
+        >
+          <Heart size={18} fill={isLiked ? 'currentColor' : 'none'} strokeWidth={isLiked ? 0 : 2} />
+          {isLiked ? 'Dans ma soirée ✓' : 'Ajouter à ma soirée'}
+        </button>
+
         {event.requires_booking && event.booking_url && (
           <a href={event.booking_url} target="_blank" rel="noopener noreferrer"
             className={cn(buttonVariants(), 'w-full gap-2 justify-center bg-amber-500 hover:bg-amber-600 text-white')}>
