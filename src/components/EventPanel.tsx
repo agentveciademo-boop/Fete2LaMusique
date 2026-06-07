@@ -23,9 +23,10 @@ export function EventPanel({ event, sliderTime, onClose, onSubgenreClick }: Prop
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 400, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          className="hidden md:flex absolute top-0 right-0 h-full w-[400px] z-20 bg-background border-l shadow-2xl overflow-y-auto flex-col"
+          className="hidden md:flex absolute top-0 right-0 h-full w-[400px] z-20 shadow-2xl overflow-y-auto flex-col"
+          style={{ background: 'var(--ink-800)', color: 'var(--paper)', borderLeft: '1px solid var(--ink-600)' }}
         >
-          <div className="flex items-center justify-end p-3 border-b shrink-0">
+          <div className="flex items-center justify-end p-3 shrink-0" style={{ borderBottom: '1px solid var(--ink-600)' }}>
             <Button size="icon" variant="ghost" onClick={onClose}>
               <X className="w-4 h-4" />
             </Button>

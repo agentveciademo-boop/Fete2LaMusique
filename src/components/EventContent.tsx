@@ -14,10 +14,10 @@ const SOURCE_LABELS: Record<NonNullable<Event['source']>, string> = {
 }
 
 const PRICE_LABELS: Record<string, { label: string; className: string }> = {
-  free:       { label: 'Gratuit',       className: 'bg-green-100 text-green-800' },
-  prix_libre: { label: 'Prix libre',    className: 'bg-yellow-100 text-yellow-800' },
-  paid:       { label: '',              className: 'bg-gray-100 text-gray-700' },
-  unknown:    { label: 'Prix non précisé', className: 'bg-gray-100 text-gray-400' },
+  free:       { label: 'Gratuit',          className: 'bg-green-900/50 text-green-400' },
+  prix_libre: { label: 'Prix libre',       className: 'bg-yellow-900/50 text-yellow-400' },
+  paid:       { label: '',                 className: 'bg-white/10 text-white/60' },
+  unknown:    { label: 'Prix non précisé', className: 'bg-white/10 text-white/40' },
 }
 
 interface Props {
@@ -109,9 +109,9 @@ export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${priceEntry.className}`}>
           {priceLabel}
         </span>
-        {event.is_outdoor === true  && <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-800 font-medium">🌳 Plein air</span>}
-        {event.is_outdoor === false && <span className="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">🏠 En salle</span>}
-        {event.requires_booking && <span className="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-800 font-medium">🎟️ Sur réservation</span>}
+        {event.is_outdoor === true  && <span className="text-xs px-2 py-1 rounded-full bg-emerald-900/50 text-emerald-400 font-medium">🌳 Plein air</span>}
+        {event.is_outdoor === false && <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70 font-medium">🏠 En salle</span>}
+        {event.requires_booking && <span className="text-xs px-2 py-1 rounded-full bg-amber-900/50 text-amber-400 font-medium">🎟️ Sur réservation</span>}
       </div>
 
       {/* Source attribution — affichée pour tous les concerts. ODbL = obligation légale pour les données Paris.fr. */}
@@ -150,7 +150,7 @@ export function EventContent({ event, sliderTime, onSubgenreClick }: Props) {
           </a>
         )}
         {event.requires_booking && !event.booking_url && (
-          <p className="text-xs text-amber-700 bg-amber-50 rounded-md px-3 py-2 flex items-center gap-1.5">
+          <p className="text-xs text-amber-400 bg-amber-900/30 rounded-md px-3 py-2 flex items-center gap-1.5">
             <Ticket className="w-3.5 h-3.5 shrink-0" /> Réservation conseillée — voir la source ci-dessus.
           </p>
         )}
