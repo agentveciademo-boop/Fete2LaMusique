@@ -139,13 +139,18 @@ export default function AutourPage() {
               key={b.event.id}
               aria-label={b.event.title}
               onClick={() => setSelectedEvent(b.event)}
-              className="absolute flex items-center justify-center rounded-full border-0 bg-transparent p-3"
+              className="absolute flex flex-col items-center gap-0.5 border-0 bg-transparent p-3"
               style={{ transform: `translate(${x}px, ${y}px)` }}
             >
               <span
                 className="block h-[13px] w-[13px] rounded-full border-2 border-white/85"
                 style={{ background: c, boxShadow: `0 0 14px ${c}` }}
               />
+              {activeGenres.length > 0 && (
+                <span className="font-mono text-[8px] leading-none" style={{ color: 'var(--paper)' }}>
+                  {b.walk}&apos;
+                </span>
+              )}
             </button>
           )
         })}
