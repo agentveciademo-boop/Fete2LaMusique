@@ -8,8 +8,10 @@ import { MapPin, Footprints, Navigation } from 'lucide-react'
 import { useDayEvents } from '@/hooks/useEvents'
 import { useUserLocation } from '@/hooks/useUserLocation'
 import { useReferenceNow } from '@/hooks/useReferenceNow'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { GenreDot } from '@/components/GenreDot'
 import { EventSheet } from '@/components/EventSheet'
+import { EventPanel } from '@/components/EventPanel'
 import { primaryGenre, genreColor, minutesUntilStart } from '@/lib/view'
 import { haversineMeters, bearingDegrees, walkMinutes, type LatLng } from '@/lib/geo'
 import type { Event } from '@/types/event'
@@ -24,6 +26,7 @@ export default function AutourPage() {
   const userLocation = useUserLocation()
   const now = useReferenceNow()
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
+  const isMobile = useIsMobile()
 
   const origin = userLocation.location ?? FALLBACK
   const geoActive = !!userLocation.location
@@ -51,7 +54,7 @@ export default function AutourPage() {
     .slice(0, 4)
 
   return (
-    <div className="flex h-full flex-col" style={{ background: '#08060F' }}>
+    <div className="relative flex h-full flex-col" style={{ background: '#08060F' }}>
       {/* Header */}
       <div className="flex items-center justify-between px-5 pb-1.5 pt-3" style={{ paddingTop: 'max(12px, env(safe-area-inset-top))' }}>
         <div>
@@ -140,12 +143,8 @@ export default function AutourPage() {
         ))}
       </div>
 
-      <EventSheet
-        event={selectedEvent}
-        sliderTime={now}
-        onClose={() => setSelectedEvent(null)}
-        allSizes
-      />
+      <EventPanel event={selectedEvent} sliderTime={now} onClose={() => setSelectedEvent(null)} />
+      <EventSheet event={isMobile ? selectedEvent : null} sliderTime={now} onClose={() => setSelectedEvent(null)} />
     </div>
   )
 }
