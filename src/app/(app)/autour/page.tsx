@@ -146,11 +146,9 @@ export default function AutourPage() {
                 className="block h-[13px] w-[13px] rounded-full border-2 border-white/85"
                 style={{ background: c, boxShadow: `0 0 14px ${c}` }}
               />
-              {activeGenres.length > 0 && (
-                <span className="font-mono text-[8px] leading-none" style={{ color: 'var(--paper)' }}>
-                  {b.walk}&apos;
-                </span>
-              )}
+              <span className="font-mono text-[8px] leading-none" style={{ color: 'var(--paper)' }}>
+                {b.walk}&apos;
+              </span>
             </button>
           )
         })}
