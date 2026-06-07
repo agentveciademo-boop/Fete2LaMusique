@@ -12,7 +12,7 @@ import type { Event, Genre } from '@/types/event'
 
 // Refonte UX : fond SOMBRE par défaut (carte nuit), cohérent avec les pins glow à anneau
 // blanc. Fallback positron (clair) gardé en filet de sécurité jour J.
-const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/dark'
+const PRIMARY_STYLE  = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY  || 'https://tiles.openfreemap.org/styles/fiord'
 const FALLBACK_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_FALLBACK || 'https://tiles.openfreemap.org/styles/positron'
 
 // Fonds proposés à l'utilisateur (bouton ⚙️). Choix mémorisé en localStorage.
@@ -514,9 +514,9 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
           onClose={() => setStationPopup(null)}
         >
           <div className="px-1 py-0.5">
-            <div className="text-sm font-semibold text-gray-900">{stationPopup.name}</div>
+            <div className="text-sm font-semibold" style={{ color: 'rgba(255,255,255,.9)' }}>{stationPopup.name}</div>
             {stationPopup.lines && (
-              <div className="mt-0.5 text-[11px] uppercase tracking-wide text-gray-500">
+              <div className="mt-0.5 text-[11px] uppercase tracking-wide" style={{ color: 'var(--muted)' }}>
                 Lignes {stationPopup.lines}
               </div>
             )}
@@ -549,21 +549,25 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         onClick={() => setShowStyleMenu(v => !v)}
         aria-label="Affichage de la carte"
         aria-expanded={showStyleMenu}
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/95 text-foreground shadow-lg backdrop-blur transition hover:bg-background"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 shadow-lg backdrop-blur transition"
+        style={{ background: 'var(--ink-700)', color: 'rgba(255,255,255,.8)' }}
       >
         <Settings className="h-4 w-4" />
       </button>
       {showStyleMenu && (
-        <div className="absolute right-0 mt-2 min-w-[150px] rounded-xl border border-border bg-background/95 p-1.5 shadow-xl backdrop-blur">
-          <p className="px-2 pb-1 pt-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Fond de carte</p>
+        <div className="absolute right-0 mt-2 min-w-[150px] rounded-xl p-1.5 shadow-xl backdrop-blur"
+          style={{ background: 'var(--ink-700)', border: '1px solid rgba(255,255,255,.12)' }}>
+          <p className="px-2 pb-1 pt-1 text-[11px] font-semibold uppercase tracking-wide" style={{ color: 'var(--muted)' }}>Fond de carte</p>
           {STYLE_OPTIONS.map(o => (
             <button
               key={o.url}
               type="button"
               onClick={() => chooseStyle(o.url)}
-              className={`flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-sm transition ${
-                mapStyle === o.url ? 'bg-muted font-medium' : 'hover:bg-muted'
-              }`}
+              className="flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-sm transition"
+              style={mapStyle === o.url
+                ? { background: 'rgba(255,255,255,.12)', color: 'rgba(255,255,255,.95)', fontWeight: 600 }
+                : { color: 'rgba(255,255,255,.65)' }
+              }
             >
               {o.label}
               {mapStyle === o.url && <Check className="h-3.5 w-3.5" />}

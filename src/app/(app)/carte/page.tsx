@@ -159,14 +159,23 @@ export default function CartePage() {
           <div className="relative h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,.1)' }}>
             <div className="absolute inset-y-0 left-0 rounded-full"
               style={{ width: `${pct}%`, background: 'linear-gradient(90deg, var(--azur), var(--glow) 60%, var(--sun))' }} />
+            {/* Tick marks à chaque tranche horaire */}
+            {SLOTS.map((s, i) => {
+              const p = (i / (SLOTS.length - 1)) * 100
+              return (
+                <div key={s.id} className="absolute top-1/2 h-[6px] w-[6px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+                  style={{ left: `${p}%`, background: i < activeIdx ? 'rgba(255,255,255,.6)' : i === activeIdx ? 'var(--glow)' : 'rgba(255,255,255,.2)', zIndex: 1 }} />
+              )
+            })}
             <div className="absolute top-1/2 h-[18px] w-[18px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-              style={{ left: `${pct}%`, background: 'var(--paper)', border: '3px solid var(--glow)', boxShadow: '0 0 14px var(--glow)' }} />
+              style={{ left: `${pct}%`, background: 'var(--paper)', border: '3px solid var(--glow)', boxShadow: '0 0 14px var(--glow)', zIndex: 2 }} />
             {/* Range natif transparent pour piloter la tranche au drag/tap */}
             <input
               type="range" min={0} max={SLOTS.length - 1} step={1} value={activeIdx}
               onChange={e => setSlot(SLOTS[Number(e.target.value)].id)}
               aria-label="Tranche horaire"
               className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+              style={{ zIndex: 3 }}
             />
           </div>
         </div>

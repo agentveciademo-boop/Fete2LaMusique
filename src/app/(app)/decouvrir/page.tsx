@@ -5,7 +5,7 @@
 // Reset pour recommencer la pile ; ajout → toast « Ajouté à Ma soirée » + pop du compteur.
 // Réf. design : VarDeck (variations-a.jsx).
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
@@ -27,7 +27,7 @@ const SWIPE_THRESHOLD = 110
 
 export default function DecouvrirPage() {
   const { dayEvents } = useDayEvents()
-  const { has, add, count } = useFavorites()
+  const { has, add, count, ids } = useFavorites()
   const userLocation = useUserLocation()
   const now = useReferenceNow()
   const isMobile = useIsMobile()
@@ -35,10 +35,25 @@ export default function DecouvrirPage() {
   const [index, setIndex] = useState(0)
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
-  // Pile de cartes : on garde l'ordre du jour. La carte du dessus = dayEvents[index].
-  const current = dayEvents[index]
-  const next = dayEvents[index + 1]
-  const remaining = Math.max(0, dayEvents.length - index)
+  // Boost genres : concerts des genres les plus likés remontent en tête de pile.
+  const sortedEvents = useMemo(() => {
+    const likedEvents = ids.map(id => dayEvents.find(e => e.id === id)).filter(Boolean)
+    if (likedEvents.length === 0) return dayEvents
+    const scores = new Map<string, number>()
+    for (const e of likedEvents) {
+      for (const g of e!.genres) scores.set(g, (scores.get(g) ?? 0) + 1)
+    }
+    return [...dayEvents].sort((a, b) => {
+      const sa = a.genres.reduce((n, g) => n + (scores.get(g) ?? 0), 0)
+      const sb = b.genres.reduce((n, g) => n + (scores.get(g) ?? 0), 0)
+      return sb - sa
+    })
+  }, [dayEvents, ids])
+
+  // Pile de cartes triée par affinité genre. La carte du dessus = sortedEvents[index].
+  const current = sortedEvents[index]
+  const next = sortedEvents[index + 1]
+  const remaining = Math.max(0, sortedEvents.length - index)
 
   const advance = (like: boolean) => {
     if (current && like) {
@@ -52,7 +67,7 @@ export default function DecouvrirPage() {
     setIndex(i => i + 1)
   }
 
-  if (dayEvents.length === 0) {
+  if (sortedEvents.length === 0) {
     return <Centered>Chargement des concerts…</Centered>
   }
 
@@ -64,7 +79,7 @@ export default function DecouvrirPage() {
         <p className="mt-2 max-w-[260px] text-sm" style={{ color: 'var(--muted)' }}>
           {count > 0
             ? `${count} concert${count > 1 ? 's' : ''} dans ta shortlist.`
-            : 'Aucun favori pour l\'instant — relance pour en garder.'}
+            : "Aucun favori pour l'instant — relance pour en garder."}
         </p>
         <div className="mt-6 flex gap-3">
           <button onClick={() => setIndex(0)} className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold"

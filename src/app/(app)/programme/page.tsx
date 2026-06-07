@@ -3,14 +3,15 @@
 // Écran 03 · Timeline du solstice — frise verticale de 16h à l'aube, conflits côte à côte,
 // ligne « MAINTENANT ». Réf. design : VarTimeline (variations-b.jsx).
 
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { Sun } from 'lucide-react'
 import { useDayEvents } from '@/hooks/useEvents'
 import { useReferenceNow } from '@/hooks/useReferenceNow'
 import { GenreDot } from '@/components/GenreDot'
 import { primaryGenre, genreColor, genreLabel } from '@/lib/view'
 import { parisHour } from '@/lib/session'
-import type { Event } from '@/types/event'
+import { ALL_GENRES, GENRE_CONFIG } from '@/data/genres'
+import type { Event, Genre } from '@/types/event'
 
 interface Row { hour: number; label: string; items: Event[] }
 
@@ -18,12 +19,19 @@ export default function ProgrammePage() {
   const { dayEvents } = useDayEvents()
   const now = useReferenceNow()
   const nowHour = parisHour(now.toISOString())
+  const [genreFilter, setGenreFilter] = useState<Genre[]>([])
+
+  const toggleGenre = (g: Genre) =>
+    setGenreFilter(prev => prev.includes(g) ? prev.filter(x => x !== g) : [...prev, g])
 
   // Regroupe par heure de début (Europe/Paris), en conservant l'ordre chronologique réel
   // (un concert de 01h appartient à la session du 21 mais s'affiche après ceux de 23h).
   const rows = useMemo<Row[]>(() => {
+    const filtered = genreFilter.length > 0
+      ? dayEvents.filter(e => e.genres.some(g => genreFilter.includes(g)))
+      : dayEvents
     const map = new Map<number, Event[]>()
-    for (const e of dayEvents) {
+    for (const e of filtered) {
       const h = parisHour(e.start_time)
       if (!map.has(h)) map.set(h, [])
       map.get(h)!.push(e)
@@ -33,14 +41,46 @@ export default function ProgrammePage() {
       label: `${String(hour).padStart(2, '0')}:00`,
       items,
     }))
-  }, [dayEvents])
+  }, [dayEvents, genreFilter])
 
   return (
     <div className="flex h-full flex-col">
       {/* Header */}
-      <div className="px-5 pb-3.5 pt-3" style={{ paddingTop: 'max(12px, env(safe-area-inset-top))', background: 'linear-gradient(135deg, rgba(155,107,255,.16), transparent 70%)' }}>
-        <div className="font-mono text-[11px] tracking-widest" style={{ color: 'var(--sun)' }}>DIM. 21 JUIN · SOLSTICE</div>
-        <div className="mt-0.5 font-display text-[26px] font-extrabold leading-none tracking-tight">La plus longue nuit de musique</div>
+      <div className="pt-3 pb-2" style={{ paddingTop: 'max(12px, env(safe-area-inset-top))', background: 'linear-gradient(135deg, rgba(155,107,255,.16), transparent 70%)' }}>
+        <div className="px-5">
+          <div className="font-mono text-[11px] tracking-widest" style={{ color: 'var(--sun)' }}>DIM. 21 JUIN · SOLSTICE</div>
+          <div className="mt-0.5 font-display text-[26px] font-extrabold leading-none tracking-tight">La plus longue nuit de musique</div>
+        </div>
+        {/* Rail de filtres genre */}
+        <div className="fm-no-scrollbar mt-3 flex gap-2 overflow-x-auto px-5 pb-1">
+          <button
+            onClick={() => setGenreFilter([])}
+            className="flex h-7 shrink-0 items-center rounded-[20px] border px-3 text-[11.5px] font-semibold"
+            style={genreFilter.length === 0
+              ? { background: 'var(--glow)', color: '#0B0913', borderColor: 'var(--glow)' }
+              : { background: 'rgba(255,255,255,.06)', color: 'rgba(255,255,255,.7)', borderColor: 'rgba(255,255,255,.12)' }
+            }
+          >
+            Tous
+          </button>
+          {ALL_GENRES.map(g => {
+            const c = GENRE_CONFIG[g].color
+            const on = genreFilter.includes(g)
+            return (
+              <button
+                key={g}
+                onClick={() => toggleGenre(g)}
+                className="flex h-7 shrink-0 items-center gap-1.5 rounded-[20px] border px-3 text-[11.5px] font-semibold"
+                style={on
+                  ? { background: c, color: '#0B0913', borderColor: c }
+                  : { background: 'rgba(255,255,255,.06)', color: 'rgba(255,255,255,.7)', borderColor: 'rgba(255,255,255,.12)' }
+                }
+              >
+                {GENRE_CONFIG[g].icon} {GENRE_CONFIG[g].label}
+              </button>
+            )
+          })}
+        </div>
       </div>
 
       {/* Frise */}

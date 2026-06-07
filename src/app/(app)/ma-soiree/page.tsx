@@ -4,12 +4,16 @@
 // Récap (concerts · km · plage horaire) + stops numérotés reliés par segments de marche.
 // Réf. design : VarSoiree (variations-b.jsx).
 
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Share2, Navigation, Plus, MapPin } from 'lucide-react'
 import { useDayEvents } from '@/hooks/useEvents'
 import { useFavorites } from '@/hooks/useFavorites'
+import { useIsMobile } from '@/hooks/useIsMobile'
+import { useReferenceNow } from '@/hooks/useReferenceNow'
 import { GenreDot } from '@/components/GenreDot'
+import { EventSheet } from '@/components/EventSheet'
+import { EventPanel } from '@/components/EventPanel'
 import { primaryGenre, genreColor } from '@/lib/view'
 import { formatClock } from '@/lib/time'
 import { haversineMeters, walkMinutes, formatDistance } from '@/lib/geo'
@@ -18,6 +22,9 @@ import type { Event } from '@/types/event'
 export default function MaSoireePage() {
   const { dayEvents } = useDayEvents()
   const { ids, remove } = useFavorites()
+  const isMobile = useIsMobile()
+  const now = useReferenceNow()
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
   // Parcours = favoris du jour, dans l'ordre chronologique de début.
   const stops = useMemo<Event[]>(() => {
@@ -89,18 +96,18 @@ export default function MaSoireePage() {
                   <div className="grid h-[30px] w-[30px] place-items-center rounded-full font-display text-[13px] font-extrabold text-[#0B0913]"
                     style={{ background: genreColor(g), boxShadow: `0 0 14px ${genreColor(g)}88` }}>{i + 1}</div>
                 </div>
-                <div className="flex-1 pt-0.5">
+                <button className="flex-1 pt-0.5 text-left" onClick={() => setSelectedEvent(e)}>
                   <div className="flex items-baseline gap-2">
                     <span className="font-mono text-[13px] font-bold">{formatClock(e.start_time)}</span>
                     <span className="font-mono text-[10.5px]" style={{ color: 'var(--muted)' }}>→ {formatClock(e.end_time)}</span>
                     <GenreDot g={g} size={7} />
-                    <button onClick={() => remove(e.id)} className="ml-auto text-[11px]" style={{ color: 'var(--muted)' }}>Retirer</button>
+                    <button onClick={ev => { ev.stopPropagation(); remove(e.id) }} className="ml-auto text-[11px]" style={{ color: 'var(--muted)' }}>Retirer</button>
                   </div>
                   <div className="my-0.5 text-base font-bold leading-tight">{e.title}</div>
                   <div className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--muted)' }}>
                     <MapPin size={13} />{e.venue_name}
                   </div>
-                </div>
+                </button>
               </div>
               {/* segment de marche */}
               {i < stops.length - 1 && (
@@ -135,6 +142,10 @@ export default function MaSoireePage() {
           <Navigation size={18} /> Lancer l&apos;itinéraire
         </button>
       </div>
+
+      {/* Détail concert */}
+      <EventPanel event={selectedEvent} sliderTime={now} onClose={() => setSelectedEvent(null)} />
+      <EventSheet event={isMobile ? selectedEvent : null} sliderTime={now} onClose={() => setSelectedEvent(null)} />
     </div>
   )
 }

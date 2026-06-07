@@ -170,3 +170,14 @@
 /* Masque le scroll horizontal des rails de chips/cartes sans casser le tactile. */
 .fm-no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .fm-no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Popup MapLibre — thème sombre cohérent avec l'app. */
+.maplibregl-popup-content {
+  background: var(--ink-700) !important;
+  color: rgba(255,255,255,.9) !important;
+  padding: 6px 10px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.5) !important;
+}
+.maplibregl-popup-tip { border-top-color: var(--ink-700) !important; }
+.maplibregl-popup-close-button { color: rgba(255,255,255,.5) !important; }
