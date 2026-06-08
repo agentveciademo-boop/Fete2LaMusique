@@ -4,7 +4,7 @@
 // trié par urgence. Anneaux 5/15 min à pied, blips par direction/distance, balayage animé.
 
 import { useMemo, useState } from 'react'
-import { MapPin, Footprints, Navigation } from 'lucide-react'
+import { MapPin, Footprints, Navigation, CalendarDays } from 'lucide-react'
 import { useDayEvents } from '@/hooks/useEvents'
 import { useUserLocation } from '@/hooks/useUserLocation'
 import { useReferenceNow } from '@/hooks/useReferenceNow'
@@ -15,6 +15,7 @@ import { EventPanel } from '@/components/EventPanel'
 import { GENRE_CONFIG } from '@/data/genres'
 import { primaryGenre, genreColor, minutesUntilStart } from '@/lib/view'
 import { haversineMeters, bearingDegrees, walkMinutes, type LatLng } from '@/lib/geo'
+import { SLIDER_START, formatEventTime } from '@/lib/time'
 import type { Event, Genre } from '@/types/event'
 
 const R = 150
@@ -71,11 +72,18 @@ export default function AutourPage() {
     return around.filter(a => a.event.genres.some(g => activeGenres.includes(g)))
   }, [around, activeGenres])
 
+  const isBefore = now < SLIDER_START
+  const daysUntil = Math.ceil((SLIDER_START.getTime() - now.getTime()) / 86_400_000)
+
   const blips = filtered.slice(0, 12)
-  const near = filtered
-    .filter(a => a.inmin > -10 && a.inmin < SOON_MAX_MIN)
-    .sort((a, b) => a.inmin - b.inmin)
-    .slice(0, 5)
+  // Avant le festival : les 5 plus proches (peu importe quand ils commencent).
+  // Le jour J : ceux qui commencent dans les 90 prochaines minutes.
+  const near = isBefore
+    ? filtered.slice(0, 5)
+    : filtered
+        .filter(a => a.inmin > -10 && a.inmin < SOON_MAX_MIN)
+        .sort((a, b) => a.inmin - b.inmin)
+        .slice(0, 5)
 
   return (
     <div className="relative flex h-full flex-col" style={{ background: '#08060F' }}>
@@ -178,20 +186,27 @@ export default function AutourPage() {
         )}
       </div>
 
-      {/* Liste « ça commence bientôt » */}
+      {/* Liste concerts proches */}
       <div className="fm-no-scrollbar flex flex-1 flex-col gap-2.5 overflow-y-auto px-4 pb-4 pt-2">
-        <div className="px-1 font-mono text-[10px] tracking-widest" style={{ color: 'var(--muted)' }}>
-          ÇA COMMENCE BIENTÔT
+        <div className="flex items-center gap-2 px-1 font-mono text-[10px] tracking-widest" style={{ color: 'var(--muted)' }}>
+          {isBefore ? (
+            <><CalendarDays size={11} /> DANS LA RUE LE 21 JUIN</>
+          ) : 'ÇA COMMENCE BIENTÔT'}
           {activeGenres.length > 0 && (
             <button
               onClick={() => setActiveGenres([])}
-              className="ml-3 normal-case tracking-normal"
+              className="ml-auto normal-case tracking-normal"
               style={{ color: 'var(--glow)' }}
             >
               Effacer filtres
             </button>
           )}
         </div>
+        {isBefore && near.length > 0 && (
+          <div className="rounded-xl px-3 py-2 text-xs" style={{ background: 'rgba(255,92,122,.08)', color: 'var(--muted)' }}>
+            Le festival, c&apos;est dans <span style={{ color: 'var(--glow)', fontWeight: 700 }}>{daysUntil} jour{daysUntil > 1 ? 's' : ''}</span> — voici les concerts les plus proches de toi.
+          </div>
+        )}
         {near.length === 0 && (
           <div className="px-1 text-sm" style={{ color: 'var(--muted)' }}>
             {activeGenres.length > 0 ? 'Aucun concert de ce genre dans les 90 prochaines minutes.' : "Rien d'imminent juste autour."}
@@ -204,6 +219,7 @@ export default function AutourPage() {
             inmin={Math.max(0, a.inmin)}
             walk={a.walk}
             highlight={i === 0}
+            isBefore={isBefore}
             onTap={() => setSelectedEvent(a.event)}
           />
         ))}
@@ -215,11 +231,12 @@ export default function AutourPage() {
   )
 }
 
-function NearRow({ event, inmin, walk, highlight, onTap }: {
+function NearRow({ event, inmin, walk, highlight, isBefore = false, onTap }: {
   event: Event
   inmin: number
   walk: number
   highlight: boolean
+  isBefore?: boolean
   onTap: () => void
 }) {
   return (
@@ -232,8 +249,17 @@ function NearRow({ event, inmin, walk, highlight, onTap }: {
       }}
     >
       <div className="w-[46px] flex-none text-center">
-        <div className="font-display text-lg font-extrabold leading-none" style={{ color: highlight ? 'var(--glow)' : 'var(--paper)' }}>{inmin}&apos;</div>
-        <div className="font-mono text-[8px] tracking-wider" style={{ color: 'var(--muted)' }}>DÉBUT</div>
+        {isBefore ? (
+          <>
+            <div className="font-mono text-[11px] font-bold leading-none" style={{ color: 'var(--paper)' }}>{formatEventTime(event.start_time)}</div>
+            <div className="mt-0.5 font-mono text-[8px] tracking-wider" style={{ color: 'var(--muted)' }}>21 JUIN</div>
+          </>
+        ) : (
+          <>
+            <div className="font-display text-lg font-extrabold leading-none" style={{ color: highlight ? 'var(--glow)' : 'var(--paper)' }}>{inmin}&apos;</div>
+            <div className="font-mono text-[8px] tracking-wider" style={{ color: 'var(--muted)' }}>DÉBUT</div>
+          </>
+        )}
       </div>
       <div className="h-8 w-px" style={{ background: 'rgba(255,255,255,.1)' }} />
       <div className="min-w-0 flex-1">
