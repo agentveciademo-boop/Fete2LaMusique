@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Map, Layers, Clock, Radar, Heart, Navigation, ChevronRight } from 'lucide-react'
+import { useTranslation } from '@/contexts/LanguageContext'
 
 const STORAGE_KEY = 'fdm_onboarding_v1'
 
@@ -16,7 +17,16 @@ interface SlideConfig {
   Visual: () => React.ReactNode
 }
 
+// Partie statique des slides (visuals + couleurs) — les textes viennent de i18n
+const SLIDE_STATICS = [
+  { id: 'carte',     color: 'var(--azur)', tint: 'rgba(100,200,255,.06)',  Visual: VisualMap       },
+  { id: 'decouvrir', color: 'var(--glow)', tint: 'rgba(255,92,138,.07)',   Visual: VisualDeck      },
+  { id: 'programme', color: 'var(--sun)',  tint: 'rgba(255,205,58,.06)',   Visual: VisualTimeline  },
+  { id: 'ma-soiree', color: 'var(--glow)', tint: 'rgba(255,92,138,.08)',   Visual: VisualItinerary },
+] as const
+
 export function OnboardingSlides() {
+  const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
   const [step, setStep] = useState(0)
 
@@ -31,8 +41,10 @@ export function OnboardingSlides() {
 
   if (!visible) return null
 
-  const slide = SLIDES[step]
-  const last = step === SLIDES.length - 1
+  const o = t.onboarding
+  const slides: SlideConfig[] = SLIDE_STATICS.map((s, i) => ({ ...s, ...o.slides[i] }))
+  const slide = slides[step]
+  const last = step === slides.length - 1
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col" style={{ background: 'var(--ink-900)' }}>
@@ -42,7 +54,7 @@ export function OnboardingSlides() {
           className="absolute right-5 z-10 font-mono text-[11px] tracking-widest transition-opacity hover:opacity-70"
           style={{ color: 'var(--muted)', top: 'max(18px, env(safe-area-inset-top))' }}
         >
-          PASSER
+          {o.skip}
         </button>
       )}
 
@@ -69,7 +81,7 @@ export function OnboardingSlides() {
       >
         {/* dots */}
         <div className="mb-4 flex justify-center gap-2">
-          {SLIDES.map((_, i) => (
+          {slides.map((_, i) => (
             <button key={i} onClick={() => setStep(i)} aria-label={`Slide ${i + 1}`}>
               <motion.div
                 className="rounded-full"
@@ -113,7 +125,7 @@ export function OnboardingSlides() {
           className="flex h-[52px] w-full items-center justify-center gap-2 rounded-2xl text-[15px] font-bold text-[#0B0913]"
           style={{ background: slide.color, boxShadow: `0 8px 28px ${slide.color}55` }}
         >
-          {last ? "C'est parti ! 🎵" : <>Suivant <ChevronRight size={18} /></>}
+          {last ? o.start : <>{o.next} <ChevronRight size={18} /></>}
         </button>
       </div>
     </div>
@@ -331,43 +343,3 @@ function VisualItinerary() {
   )
 }
 
-// ─── Config slides (après les visuals pour les références) ──────────────────
-
-const SLIDES: SlideConfig[] = [
-  {
-    id: 'carte',
-    color: 'var(--azur)',
-    tint: 'rgba(100,200,255,.06)',
-    tab: '📍 CARTE',
-    title: 'Tous les concerts sur la carte',
-    desc: '182 concerts à Paris le 21 juin. Filtre par genre ou par heure, touche un point pour le détail.',
-    Visual: VisualMap,
-  },
-  {
-    id: 'decouvrir',
-    color: 'var(--glow)',
-    tint: 'rgba(255,92,138,.07)',
-    tab: '🃏 DÉCOUVRIR',
-    title: 'Swipe pour explorer',
-    desc: "Swipe à droite ❤️ pour garder un concert, à gauche pour passer. Plus tu likes, mieux l'app te cerne.",
-    Visual: VisualDeck,
-  },
-  {
-    id: 'programme',
-    color: 'var(--sun)',
-    tint: 'rgba(255,205,58,.06)',
-    tab: '⏱ PROGRAMME · 🎯 AUTOUR',
-    title: 'La frise horaire et les concerts proches',
-    desc: 'Programme = tous les concerts heure par heure. Autour = ce qui joue à moins de 15 min à pied.',
-    Visual: VisualTimeline,
-  },
-  {
-    id: 'ma-soiree',
-    color: 'var(--glow)',
-    tint: 'rgba(255,92,138,.08)',
-    tab: '❤️ MA SOIRÉE',
-    title: 'Tes likes = ton itinéraire',
-    desc: "Chaque concert gardé s'ajoute à Ma soirée. Ton parcours, trié par heure, avec les temps de marche entre chaque concert.",
-    Visual: VisualItinerary,
-  },
-]

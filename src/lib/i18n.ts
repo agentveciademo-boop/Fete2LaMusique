@@ -50,6 +50,13 @@ interface T {
   soonLabel: (diffMin: number) => string
   // sélecteur de langue
   langPickerTitle: string
+  // onboarding
+  onboarding: {
+    skip: string
+    next: string
+    start: string
+    slides: Array<{ tab: string; title: string; desc: string }>
+  }
 }
 
 export const translations: Record<Lang, T> = {
@@ -104,6 +111,17 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 Dans ${h}h${String(m).padStart(2, '0')}` : `🔜 Dans ${h}h`
     },
     langPickerTitle: 'Langue',
+    onboarding: {
+      skip: 'PASSER',
+      next: 'Suivant',
+      start: "C'est parti ! 🎵",
+      slides: [
+        { tab: '📍 CARTE',              title: 'Tous les concerts sur la carte',       desc: '182 concerts à Paris le 21 juin. Filtre par genre ou par heure, touche un point pour le détail.' },
+        { tab: '🃏 DÉCOUVRIR',           title: 'Swipe pour explorer',                  desc: "Swipe à droite ❤️ pour garder un concert, à gauche pour passer. Plus tu likes, mieux l'app te cerne." },
+        { tab: '⏱ PROGRAMME · 🎯 AUTOUR', title: 'La frise horaire et les concerts proches', desc: 'Programme = tous les concerts heure par heure. Autour = ce qui joue à moins de 15 min à pied.' },
+        { tab: '❤️ MA SOIRÉE',           title: 'Tes likes = ton itinéraire',            desc: "Chaque concert gardé s'ajoute à Ma soirée. Ton parcours, trié par heure, avec les temps de marche entre chaque concert." },
+      ],
+    },
   },
 
   en: {
@@ -157,6 +175,17 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 In ${h}h${m}` : `🔜 In ${h}h`
     },
     langPickerTitle: 'Language',
+    onboarding: {
+      skip: 'SKIP',
+      next: 'Next',
+      start: "Let's go! 🎵",
+      slides: [
+        { tab: '📍 MAP',                    title: 'All concerts on the map',          desc: '182 concerts in Paris on June 21st. Filter by genre or time, tap a dot for details.' },
+        { tab: '🃏 EXPLORE',                 title: 'Swipe to discover',                desc: "Swipe right ❤️ to keep a concert, left to skip. The more you like, the better the app knows you." },
+        { tab: '⏱ SCHEDULE · 🎯 NEARBY',    title: 'Timeline & nearby concerts',       desc: 'Schedule = all concerts hour by hour. Nearby = what\'s playing within 15 min walk.' },
+        { tab: '❤️ MY EVENING',              title: 'Your likes = your itinerary',      desc: "Every concert you keep goes into My Evening. Your route, sorted by time, with walking time between stops." },
+      ],
+    },
   },
 
   zh: {
@@ -210,5 +239,16 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 ${h}小时${m}分后` : `🔜 ${h}小时后`
     },
     langPickerTitle: '语言',
+    onboarding: {
+      skip: '跳过',
+      next: '下一步',
+      start: '出发！🎵',
+      slides: [
+        { tab: '📍 地图',          title: '地图上的所有演出',    desc: '6月21日巴黎共182场演出。按风格或时间筛选，点击标记查看详情。' },
+        { tab: '🃏 发现',          title: '滑动探索',            desc: '向右滑动❤️保留演出，向左跳过。越多点赞，推荐越精准。' },
+        { tab: '⏱ 节目 · 🎯 附近', title: '时间轴与附近演出',   desc: '节目单 = 按小时列出所有演出。附近 = 步行15分钟内的演出。' },
+        { tab: '❤️ 我的夜晚',      title: '你的喜欢 = 你的行程', desc: '每场保存的演出都会加入「我的夜晚」。按时间排序的路线，含各站步行时间。' },
+      ],
+    },
   },
 }
