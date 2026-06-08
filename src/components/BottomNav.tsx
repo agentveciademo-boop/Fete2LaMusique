@@ -3,20 +3,19 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Map, Layers, Clock, Radar, Heart, type LucideIcon } from 'lucide-react'
+import { useTranslation } from '@/contexts/LanguageContext'
 
-// Barre d'onglets basse — l'ossature qui relie les 5 écrans de la refonte.
-// 3 onglets pour planifier (avant le 21, chez soi) + 2 pour le live (le soir, dans la rue).
-// Réf. design : BottomNav dans shared.jsx + schéma NavIA.
-const TABS: { href: string; label: string; Icon: LucideIcon }[] = [
-  { href: '/carte',     label: 'Carte',     Icon: Map },
-  { href: '/decouvrir', label: 'Découvrir', Icon: Layers },
-  { href: '/programme', label: 'Programme', Icon: Clock },
-  { href: '/autour',    label: 'Autour',    Icon: Radar },
-  { href: '/ma-soiree', label: 'Ma soirée', Icon: Heart },
+const TAB_HREFS: { href: string; Icon: LucideIcon; key: 'navCarte' | 'navDecouvrir' | 'navProgramme' | 'navAutour' | 'navMaSoiree' }[] = [
+  { href: '/carte',     Icon: Map,    key: 'navCarte'     },
+  { href: '/decouvrir', Icon: Layers, key: 'navDecouvrir' },
+  { href: '/programme', Icon: Clock,  key: 'navProgramme' },
+  { href: '/autour',    Icon: Radar,  key: 'navAutour'    },
+  { href: '/ma-soiree', Icon: Heart,  key: 'navMaSoiree'  },
 ]
 
 export function BottomNav() {
   const path = usePathname()
+  const { t } = useTranslation()
   return (
     <nav
       className="flex shrink-0 items-start justify-around border-t border-white/10 px-1.5 pt-2.5 backdrop-blur-xl"
@@ -25,7 +24,7 @@ export function BottomNav() {
         paddingBottom: 'max(22px, env(safe-area-inset-bottom))',
       }}
     >
-      {TABS.map(({ href, label, Icon }) => {
+      {TAB_HREFS.map(({ href, Icon, key }) => {
         const on = path === href || path.startsWith(href + '/')
         return (
           <Link
@@ -41,7 +40,7 @@ export function BottomNav() {
               style={{ filter: on ? 'drop-shadow(0 0 7px var(--glow))' : 'none' }}
             />
             <span style={{ fontSize: 9.5, fontWeight: on ? 700 : 500, letterSpacing: '.1px', whiteSpace: 'nowrap' }}>
-              {label}
+              {t[key]}
             </span>
           </Link>
         )

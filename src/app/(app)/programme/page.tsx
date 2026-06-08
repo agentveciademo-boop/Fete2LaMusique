@@ -14,6 +14,7 @@ import { EventPanel } from '@/components/EventPanel'
 import { primaryGenre, genreColor, genreLabel } from '@/lib/view'
 import { parisHour } from '@/lib/session'
 import { ALL_GENRES, GENRE_CONFIG } from '@/data/genres'
+import { useTranslation } from '@/contexts/LanguageContext'
 import type { Event, Genre } from '@/types/event'
 
 interface Row { hour: number; label: string; items: Event[] }
@@ -23,6 +24,7 @@ export default function ProgrammePage() {
   const now = useReferenceNow()
   const nowHour = parisHour(now.toISOString())
   const isMobile = useIsMobile()
+  const { t } = useTranslation()
   const [genreFilter, setGenreFilter] = useState<Genre[]>([])
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
@@ -53,8 +55,8 @@ export default function ProgrammePage() {
       {/* Header */}
       <div className="pt-3 pb-2" style={{ paddingTop: 'max(12px, env(safe-area-inset-top))', background: 'linear-gradient(135deg, rgba(155,107,255,.16), transparent 70%)' }}>
         <div className="px-5">
-          <div className="font-mono text-[11px] tracking-widest" style={{ color: 'var(--sun)' }}>DIM. 21 JUIN · SOLSTICE</div>
-          <div className="mt-0.5 font-display text-[26px] font-extrabold leading-none tracking-tight">La plus longue nuit de musique</div>
+          <div className="font-mono text-[11px] tracking-widest" style={{ color: 'var(--sun)' }}>{t.progDateline}</div>
+          <div className="mt-0.5 font-display text-[26px] font-extrabold leading-none tracking-tight">{t.progTitle}</div>
         </div>
         {/* Rail de filtres genre */}
         <div className="fm-no-scrollbar mt-3 flex gap-2 overflow-x-auto px-5 pb-1">
@@ -66,7 +68,7 @@ export default function ProgrammePage() {
               : { background: 'rgba(255,255,255,.06)', color: 'rgba(255,255,255,.7)', borderColor: 'rgba(255,255,255,.12)' }
             }
           >
-            Tous
+            {t.genreAll}
           </button>
           {ALL_GENRES.map(g => {
             const c = GENRE_CONFIG[g].color
@@ -81,7 +83,7 @@ export default function ProgrammePage() {
                   : { background: 'rgba(255,255,255,.06)', color: 'rgba(255,255,255,.7)', borderColor: 'rgba(255,255,255,.12)' }
                 }
               >
-                {GENRE_CONFIG[g].icon} {GENRE_CONFIG[g].label}
+                {GENRE_CONFIG[g].icon} {t.genres[g] ?? GENRE_CONFIG[g].label}
               </button>
             )
           })}
@@ -94,7 +96,7 @@ export default function ProgrammePage() {
         <div className="absolute bottom-2 left-[48px] top-2 w-[3px] rounded-full"
           style={{ background: 'linear-gradient(to bottom, var(--sun), var(--glow) 40%, var(--azur) 75%, #6B4DFF)' }} />
 
-        {rows.length === 0 && <div className="pt-10 text-center text-sm" style={{ color: 'var(--muted)' }}>Chargement du programme…</div>}
+        {rows.length === 0 && <div className="pt-10 text-center text-sm" style={{ color: 'var(--muted)' }}>{t.progLoading}</div>}
 
         {rows.map(r => {
           const isNow = r.hour === nowHour
@@ -112,18 +114,19 @@ export default function ProgrammePage() {
               </div>
               {/* cartes */}
               <div className="ml-[18px] min-w-0 flex-1">
-                {isNow && <div className="mb-1.5 font-mono text-[9px] tracking-widest" style={{ color: 'var(--glow)' }}>● MAINTENANT</div>}
+                {isNow && <div className="mb-1.5 font-mono text-[9px] tracking-widest" style={{ color: 'var(--glow)' }}>{t.progNow}</div>}
                 <div className="flex gap-2">
                   {r.items.map(e => (
                     <TimelineCard
                       key={e.id}
                       event={e}
                       half={conflict}
+                      genreLabel={(g) => t.genres[g] ?? genreLabel(g)}
                       onClick={() => setSelectedEvent(e)}
                     />
                   ))}
                 </div>
-                {conflict && <div className="mt-1.5 font-mono text-[9.5px] tracking-wide" style={{ color: 'var(--muted)' }}>{r.items.length} concerts en même temps</div>}
+                {conflict && <div className="mt-1.5 font-mono text-[9.5px] tracking-wide" style={{ color: 'var(--muted)' }}>{t.progConflict(r.items.length)}</div>}
               </div>
             </div>
           )
@@ -135,8 +138,8 @@ export default function ProgrammePage() {
         <div className="flex items-center gap-3 rounded-2xl border border-white/10 px-4 py-3" style={{ background: 'var(--ink-700)' }}>
           <Sun size={22} style={{ color: 'var(--sun)' }} />
           <div className="flex-1">
-            <div className="text-[13px] font-bold">Le soleil se couche à 21h58</div>
-            <div className="text-[11px]" style={{ color: 'var(--muted)' }}>La fête bat son plein jusqu'à l'aube</div>
+            <div className="text-[13px] font-bold">{t.progSunsetTitle}</div>
+            <div className="text-[11px]" style={{ color: 'var(--muted)' }}>{t.progSunsetSub}</div>
           </div>
         </div>
       </div>
@@ -148,7 +151,7 @@ export default function ProgrammePage() {
   )
 }
 
-function TimelineCard({ event, half, onClick }: { event: Event; half: boolean; onClick: () => void }) {
+function TimelineCard({ event, half, genreLabel: gl, onClick }: { event: Event; half: boolean; genreLabel: (g: Genre) => string; onClick: () => void }) {
   const g = primaryGenre(event)
   return (
     <button
@@ -158,7 +161,7 @@ function TimelineCard({ event, half, onClick }: { event: Event; half: boolean; o
       style={{ background: 'var(--ink-700)', borderLeft: `3px solid ${genreColor(g)}` }}>
       <div className="mb-1.5 flex items-center gap-1.5">
         <GenreDot g={g} size={7} />
-        <span className="font-mono text-[9.5px] uppercase tracking-wide" style={{ color: 'var(--muted)' }}>{genreLabel(g)}</span>
+        <span className="font-mono text-[9.5px] uppercase tracking-wide" style={{ color: 'var(--muted)' }}>{gl(g)}</span>
         {event.is_outdoor && <span className="ml-auto text-[10px]">🌳</span>}
       </div>
       <div className={`mb-0.5 font-bold leading-tight ${half ? 'truncate text-[13px]' : 'text-[14.5px]'}`}>{event.title}</div>
