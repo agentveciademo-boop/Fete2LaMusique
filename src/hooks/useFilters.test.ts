@@ -1,12 +1,12 @@
 /**
- * Tests of the core filter logic from useFilters (session_date + timeRange).
- * Written as pure function tests to avoid needing @testing-library/react /jsdom.
- * The predicate logic mirrors useFilters.ts filteredEvents computation exactly.
+ * Tests de la logique de filtrage de useFilters (tranches horaires + jour visible).
+ * Écrits en tests de fonctions pures pour éviter @testing-library/react / jsdom.
+ * Les prédicats reflètent exactement filteredEvents / slotCounts de useFilters.ts.
  */
 import { describe, it, expect } from 'vitest'
-import type { Event } from '@/types/event'
-import { getSessionDate, toSessionAxis } from '@/lib/session'
-import type { Filters } from './useFilters'
+import type { Event, Genre } from '@/types/event'
+import { hourToSlot, eventSlot, eventSessionDate, type SlotId } from '@/lib/slots'
+import { VISIBLE_SESSION_DATE, type Filters } from './useFilters'
 
 // Minimal Event factory
 function makeEvent(overrides: Partial<Event> & Pick<Event, 'id' | 'start_time' | 'end_time'>): Event {
@@ -28,138 +28,128 @@ function makeEvent(overrides: Partial<Event> & Pick<Event, 'id' | 'start_time' |
   }
 }
 
-// Annotate an event with session_date + axis (mirrors useFilters annotated memo)
-function annotate(e: Event) {
-  const session_date = e.session_date ?? getSessionDate(e.start_time)
-  return {
-    event: e,
-    session_date,
-    start_axis: toSessionAxis(e.start_time, session_date),
-    end_axis:   toSessionAxis(e.end_time,   session_date),
-  }
-}
-
-// Core filter predicate — exact copy of filteredEvents logic in useFilters.ts
-function matches(e: Event, filters: Pick<Filters, 'sessionDate' | 'timeRange'>): boolean {
-  const { session_date, start_axis, end_axis } = annotate(e)
-  const [lo, hi] = filters.timeRange
-  if (filters.sessionDate !== null && session_date !== filters.sessionDate) return false
-  if (end_axis < lo || start_axis > hi) return false
+// Prédicat de filtrage — copie exacte de filteredEvents dans useFilters.ts
+function matches(e: Event, filters: Filters): boolean {
+  if (eventSessionDate(e) !== VISIBLE_SESSION_DATE) return false
+  if (filters.slot && eventSlot(e) !== filters.slot) return false
+  if (filters.genres.length > 0 && !filters.genres.some(g => e.genres.includes(g))) return false
+  if (filters.arrondissements.length > 0 && !filters.arrondissements.includes(e.arrondissement ?? 0)) return false
   return true
 }
 
-// ─── Fixtures ───────────────────────────────────────────────────────────────
+const NO_FILTER: Filters = { slot: null, genres: [], arrondissements: [] }
 
-// Saturday 2026-06-20, 23h30 Paris (CEST = UTC+2) → session_date = '2026-06-20'
-const EVT_SAT_2330 = makeEvent({
-  id: 'sat-2330',
-  start_time: '2026-06-20T23:30:00+02:00',
-  end_time:   '2026-06-21T01:00:00+02:00',
-})
+// ─── hourToSlot : partition complète des 24h ────────────────────────────────
 
-// Sunday 2026-06-21, 02h15 Paris → session_date = '2026-06-21'? No: 02h < 06h → session = '2026-06-20'
-// (This validates the "après minuit" case: belongs to the saturday session)
-const EVT_SUN_0215 = makeEvent({
-  id: 'sun-0215',
-  start_time: '2026-06-21T02:15:00+02:00',
-  end_time:   '2026-06-21T03:30:00+02:00',
-})
-
-// Sunday 2026-06-21, 14h Paris → session_date = '2026-06-21'
-const EVT_SUN_14 = makeEvent({
-  id: 'sun-14',
-  start_time: '2026-06-21T14:00:00+02:00',
-  end_time:   '2026-06-21T16:00:00+02:00',
-})
-
-// Sunday 2026-06-21, 15h Paris → session_date = '2026-06-21'
-const EVT_SUN_15 = makeEvent({
-  id: 'sun-15',
-  start_time: '2026-06-21T15:00:00+02:00',
-  end_time:   '2026-06-21T17:00:00+02:00',
-})
-
-// ─── session_date derivation ─────────────────────────────────────────────────
-
-describe('session_date derivation', () => {
-  it('23h30 sam → session 2026-06-20 (soirée du samedi)', () => {
-    expect(annotate(EVT_SAT_2330).session_date).toBe('2026-06-20')
+describe('hourToSlot — bornes des tranches', () => {
+  const cases: Array<[number, SlotId]> = [
+    [0, 'nuit'], [3, 'nuit'], [5, 'nuit'],
+    [6, 'matin'], [8, 'matin'], [12, 'matin'],
+    [13, 'debut-aprem'], [15, 'debut-aprem'],
+    [16, 'fin-aprem'], [17, 'fin-aprem'],
+    [18, 'soiree'], [20, 'soiree'],
+    [21, 'nuit'], [23, 'nuit'],
+  ]
+  it.each(cases)('%ih → %s', (hour, slot) => {
+    expect(hourToSlot(hour)).toBe(slot)
   })
 
-  it('02h15 dim → session 2026-06-20 (encore la soirée du samedi)', () => {
-    expect(annotate(EVT_SUN_0215).session_date).toBe('2026-06-20')
-  })
-
-  it('14h dim → session 2026-06-21', () => {
-    expect(annotate(EVT_SUN_14).session_date).toBe('2026-06-21')
+  it('couvre les 24 heures (aucune heure sans tranche)', () => {
+    for (let h = 0; h < 24; h++) {
+      expect(['matin', 'debut-aprem', 'fin-aprem', 'soiree', 'nuit']).toContain(hourToSlot(h))
+    }
   })
 })
 
-// ─── sessionDate filter ───────────────────────────────────────────────────────
+// ─── eventSlot : depuis l'heure de début (Europe/Paris) ─────────────────────
 
-describe('sessionDate filter', () => {
-  it('event 23h30 sam matched by sessionDate=2026-06-20 AND timeRange=[22, 25]', () => {
-    expect(matches(EVT_SAT_2330, { sessionDate: '2026-06-20', timeRange: [22, 25] })).toBe(true)
+describe("eventSlot — d'après start_time", () => {
+  it('concert à 18h → soirée', () => {
+    expect(eventSlot(makeEvent({ id: 'a', start_time: '2026-06-21T18:00:00+02:00', end_time: '2026-06-21T20:00:00+02:00' }))).toBe('soiree')
   })
-
-  it('event 23h30 sam NOT matched by sessionDate=2026-06-21 (wrong soirée)', () => {
-    expect(matches(EVT_SAT_2330, { sessionDate: '2026-06-21', timeRange: [14, 30] })).toBe(false)
+  it('after-party à 00h30 → nuit', () => {
+    expect(eventSlot(makeEvent({ id: 'b', start_time: '2026-06-21T00:30:00+02:00', end_time: '2026-06-21T03:00:00+02:00' }))).toBe('nuit')
   })
-
-  it('event 14h dim matched by sessionDate=2026-06-21 AND timeRange=[14, 18]', () => {
-    expect(matches(EVT_SUN_14, { sessionDate: '2026-06-21', timeRange: [14, 18] })).toBe(true)
-  })
-
-  it('sessionDate=null (Tout) matches both soirées', () => {
-    expect(matches(EVT_SAT_2330, { sessionDate: null, timeRange: [14, 30] })).toBe(true)
-    expect(matches(EVT_SUN_14,   { sessionDate: null, timeRange: [14, 30] })).toBe(true)
+  it('concert à 14h → début aprem', () => {
+    expect(eventSlot(makeEvent({ id: 'c', start_time: '2026-06-21T14:00:00+02:00', end_time: '2026-06-21T15:00:00+02:00' }))).toBe('debut-aprem')
   })
 })
 
-// ─── timeRange overlap ────────────────────────────────────────────────────────
+// ─── eventSessionDate : champ ETL prioritaire, fallback date Paris ───────────
 
-describe('timeRange axis overlap', () => {
-  it('event 23h30→01h00 (axis ~23.5→25) overlaps [22, 25]', () => {
-    expect(matches(EVT_SAT_2330, { sessionDate: '2026-06-20', timeRange: [22, 25] })).toBe(true)
+describe('eventSessionDate', () => {
+  it("utilise le champ session_date fourni par l'ETL", () => {
+    const e = makeEvent({ id: 'd', start_time: '2026-06-21T00:00:00+02:00', end_time: '2026-06-21T01:00:00+02:00', session_date: '2026-06-21' })
+    expect(eventSessionDate(e)).toBe('2026-06-21')
   })
-
-  it('event 23h30→01h00 does NOT overlap [14, 23] (start_axis 23.5 > hi 23)', () => {
-    expect(matches(EVT_SAT_2330, { sessionDate: '2026-06-20', timeRange: [14, 23] })).toBe(false)
-  })
-
-  it('event 14h→16h (axis 14→16) overlaps [14, 18]', () => {
-    expect(matches(EVT_SUN_14, { sessionDate: '2026-06-21', timeRange: [14, 18] })).toBe(true)
-  })
-
-  it('event 14h→16h does NOT overlap [18, 23] (end_axis 16 < lo 18)', () => {
-    expect(matches(EVT_SUN_14, { sessionDate: '2026-06-21', timeRange: [18, 23] })).toBe(false)
-  })
-
-  it('event 02h15 (axis ~26.25) overlaps [25, 28] on sam session', () => {
-    expect(matches(EVT_SUN_0215, { sessionDate: '2026-06-20', timeRange: [25, 28] })).toBe(true)
+  it('fallback sur la date calendaire Paris quand session_date absent', () => {
+    const e = makeEvent({ id: 'e', start_time: '2026-06-20T15:00:00+02:00', end_time: '2026-06-20T16:00:00+02:00' })
+    expect(eventSessionDate(e)).toBe('2026-06-20')
   })
 })
 
-// ─── axis values sanity ───────────────────────────────────────────────────────
+// ─── Jour visible : le samedi 20 est masqué ─────────────────────────────────
 
-describe('toSessionAxis values', () => {
-  it('23h30 on sam session → axis 23.5', () => {
-    const { start_axis } = annotate(EVT_SAT_2330)
-    expect(start_axis).toBeCloseTo(23.5, 1)
+describe('filtre du jour visible (dimanche 21)', () => {
+  const samedi = makeEvent({ id: 'sat', start_time: '2026-06-20T18:00:00+02:00', end_time: '2026-06-20T20:00:00+02:00', session_date: '2026-06-20' })
+  const dimanche = makeEvent({ id: 'sun', start_time: '2026-06-21T18:00:00+02:00', end_time: '2026-06-21T20:00:00+02:00', session_date: '2026-06-21' })
+
+  it('un concert du samedi est masqué même sans filtre', () => {
+    expect(matches(samedi, NO_FILTER)).toBe(false)
+  })
+  it('un concert du dimanche passe', () => {
+    expect(matches(dimanche, NO_FILTER)).toBe(true)
+  })
+})
+
+// ─── Combinaison tranche + genre + arrondissement ───────────────────────────
+
+describe('filtrage combiné', () => {
+  const jazz18e = makeEvent({
+    id: 'j', start_time: '2026-06-21T19:00:00+02:00', end_time: '2026-06-21T21:00:00+02:00',
+    session_date: '2026-06-21', genres: ['jazz'] as Genre[], arrondissement: 18,
   })
 
-  it('01h00 (next day) on sam session → axis 25', () => {
-    const { end_axis } = annotate(EVT_SAT_2330)
-    expect(end_axis).toBeCloseTo(25, 1)
+  it('soirée + jazz + 18e → match', () => {
+    expect(matches(jazz18e, { slot: 'soiree', genres: ['jazz'], arrondissements: [18] })).toBe(true)
   })
-
-  it('14h on dim session → axis 14', () => {
-    const { start_axis } = annotate(EVT_SUN_14)
-    expect(start_axis).toBeCloseTo(14, 1)
+  it('tranche matin exclut un concert de soirée', () => {
+    expect(matches(jazz18e, { slot: 'matin', genres: [], arrondissements: [] })).toBe(false)
   })
+  it('genre rock exclut un concert jazz', () => {
+    expect(matches(jazz18e, { slot: null, genres: ['rock'], arrondissements: [] })).toBe(false)
+  })
+  it('arrondissement 11 exclut un concert du 18e', () => {
+    expect(matches(jazz18e, { slot: null, genres: [], arrondissements: [11] })).toBe(false)
+  })
+})
 
-  it('15h on dim session → axis 15', () => {
-    const { start_axis } = annotate(EVT_SUN_15)
-    expect(start_axis).toBeCloseTo(15, 1)
+// ─── slotCounts : volume par tranche (ignore la tranche sélectionnée) ────────
+
+describe('slotCounts', () => {
+  const events = [
+    makeEvent({ id: '1', start_time: '2026-06-21T10:00:00+02:00', end_time: '2026-06-21T11:00:00+02:00', session_date: '2026-06-21' }), // matin
+    makeEvent({ id: '2', start_time: '2026-06-21T14:00:00+02:00', end_time: '2026-06-21T15:00:00+02:00', session_date: '2026-06-21' }), // debut-aprem
+    makeEvent({ id: '3', start_time: '2026-06-21T19:00:00+02:00', end_time: '2026-06-21T21:00:00+02:00', session_date: '2026-06-21' }), // soiree
+    makeEvent({ id: '4', start_time: '2026-06-21T19:30:00+02:00', end_time: '2026-06-21T21:00:00+02:00', session_date: '2026-06-21' }), // soiree
+    makeEvent({ id: 'sat', start_time: '2026-06-20T19:00:00+02:00', end_time: '2026-06-20T21:00:00+02:00', session_date: '2026-06-20' }), // masqué
+  ]
+
+  function countSlots(evs: Event[]): Record<SlotId, number> {
+    const counts = { matin: 0, 'debut-aprem': 0, 'fin-aprem': 0, soiree: 0, nuit: 0 } as Record<SlotId, number>
+    for (const e of evs) {
+      if (eventSessionDate(e) !== VISIBLE_SESSION_DATE) continue
+      counts[eventSlot(e)]++
+    }
+    return counts
+  }
+
+  it('compte par tranche en excluant le samedi', () => {
+    const c = countSlots(events)
+    expect(c.matin).toBe(1)
+    expect(c['debut-aprem']).toBe(1)
+    expect(c.soiree).toBe(2)
+    expect(c['fin-aprem']).toBe(0)
+    expect(c.nuit).toBe(0)
   })
 })

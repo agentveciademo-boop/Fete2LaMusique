@@ -31,16 +31,34 @@ describe('eventsToGeoJSON', () => {
     const geo = eventsToGeoJSON([sample])
     expect(geo.features[0].geometry.coordinates).toEqual([2.37, 48.86])
   })
-  it('start_axis and end_axis are session-axis values for MapLibre filter expressions', () => {
+  it('session_day and slot drive the MapLibre filter (day + time bucket)', () => {
     const geo = eventsToGeoJSON([sample])
     const p = geo.features[0].properties as any
-    // 20h on dim 21 session → axis 20; 22h → axis 22
-    expect(p.start_axis).toBe(20)
-    expect(p.end_axis).toBe(22)
+    // Dim 21 20h → jour de session 2026-06-21, tranche soirée (18h–20h)
+    expect(p.session_day).toBe('2026-06-21')
+    expect(p.slot).toBe('soiree')
+  })
+  it('requires_booking → 1 si réservation, 0 sinon (halo jaune MapLibre)', () => {
+    const free = eventsToGeoJSON([sample])
+    const booking = eventsToGeoJSON([{ ...sample, requires_booking: true }])
+    expect((free.features[0].properties as any).requires_booking).toBe(0)
+    expect((booking.features[0].properties as any).requires_booking).toBe(1)
+  })
+  it('pie_key reçoit le suffixe |book pour un concert à réserver (icône anneau jaune)', () => {
+    const free = eventsToGeoJSON([sample])
+    const booking = eventsToGeoJSON([{ ...sample, requires_booking: true }])
+    expect((free.features[0].properties as any).pie_key).toBe('jazz+rock')
+    expect((booking.features[0].properties as any).pie_key).toBe('jazz+rock|book')
   })
   it('genre_primary is the first genre', () => {
     const geo = eventsToGeoJSON([sample])
     expect((geo.features[0].properties as any).genre_primary).toBe('jazz')
+  })
+  it('pie_key joins genres with "+" (capped at 4 slices for legibility)', () => {
+    const geo = eventsToGeoJSON([sample])
+    expect((geo.features[0].properties as any).pie_key).toBe('jazz+rock')
+    const many = eventsToGeoJSON([{ ...sample, genres: ['jazz', 'rock', 'pop', 'folk', 'blues'] }])
+    expect((many.features[0].properties as any).pie_key).toBe('jazz+rock+pop+folk')
   })
   it('subgenres array is passed through to feature properties', () => {
     const withSubs: Event = { ...sample, subgenres: ['salsa', 'bachata'] }

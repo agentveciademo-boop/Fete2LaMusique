@@ -1,4 +1,4 @@
-import { TIME_AXIS_MIN, TIME_AXIS_MAX } from './festival'
+import { TIME_AXIS_MIN, TIME_AXIS_MAX, FESTIVAL_START_DATE } from './festival'
 
 const PARIS_PARTS = new Intl.DateTimeFormat('fr-FR', {
   year:   'numeric',
@@ -51,37 +51,56 @@ export function getSessionDate(iso: string): string {
   return date
 }
 
+/** Heure locale Europe/Paris (0–23) d'un timestamp ISO. */
+export function parisHour(iso: string): number {
+  return toParisLocal(iso).hour
+}
+
+/** Date calendaire locale Europe/Paris (YYYY-MM-DD) d'un timestamp ISO. */
+export function parisDate(iso: string): string {
+  return toParisLocal(iso).date
+}
+
 /**
- * Convert an event timestamp into a position on the session axis [14, 30],
- * relative to a given session date. An event of Saturday's evening starting
- * at 23h returns 23; ending at 02h next day returns 26.
- *
- * Returns a value clamped to [TIME_AXIS_MIN, TIME_AXIS_MAX] (16h window).
+ * Projette un timestamp sur l'axe horaire continu du week-end : nombre d'heures
+ * écoulées depuis FESTIVAL_START_DATE 00h00 (Europe/Paris).
+ *   - Samedi 14h  → 14
+ *   - Dimanche 00h → 24
+ *   - Dimanche 20h → 44
+ * Valeur bornée à [TIME_AXIS_MIN, TIME_AXIS_MAX] = [0, 48].
  */
-export function toSessionAxis(iso: string, sessionDate: string): number {
+export function toWeekendAxis(iso: string): number {
   const { date, hour, minute } = toParisLocal(iso)
-  const dayOffset = date === sessionDate ? 0 : 24
-  const raw = hour + minute / 60 + dayOffset
+  const dayOffset = Math.round(
+    (new Date(`${date}T12:00:00Z`).getTime() - new Date(`${FESTIVAL_START_DATE}T12:00:00Z`).getTime()) / 86_400_000,
+  )
+  const raw = dayOffset * 24 + hour + minute / 60
   return Math.max(TIME_AXIS_MIN, Math.min(TIME_AXIS_MAX, raw))
 }
 
 /**
- * Anchor a session axis value (14–30) back to a real Date in Europe/Paris.
- * Used to derive a `referenceTime` for the event-status display.
+ * Inverse de toWeekendAxis : une valeur d'axe (0–48) → Date réelle (Europe/Paris).
+ * Utilisé pour ancrer le `referenceTime` du statut d'un concert.
  */
-export function axisToDate(sessionDate: string, axis: number): Date {
-  const dayOffset = axis >= 24 ? 1 : 0
-  const hour    = Math.floor(axis - dayOffset * 24)
-  const minute  = Math.round((axis - dayOffset * 24 - hour) * 60)
-  const anchor  = shiftDay(sessionDate, dayOffset)
-  // +02:00 is correct for Paris in late June (CEST). Avoids pulling in tzdata.
+export function weekendAxisToDate(axis: number): Date {
+  const dayOffset = Math.floor(axis / 24)
+  const within    = axis - dayOffset * 24
+  const hour      = Math.floor(within)
+  const minute    = Math.round((within - hour) * 60)
+  const anchor    = shiftDay(FESTIVAL_START_DATE, dayOffset)
+  // +02:00 = Paris fin juin (CEST). Évite d'embarquer la tzdata.
   const hh = String(hour).padStart(2, '0')
   const mm = String(minute).padStart(2, '0')
   return new Date(`${anchor}T${hh}:${mm}:00+02:00`)
 }
 
-/** Format an axis value (14–30) as a label like "19h" / "02h". */
+const AXIS_DAY_LABELS = ['Sam', 'Dim']
+
+/** Format une valeur d'axe (0–48) en label "Sam 14h" / "Dim 02h". */
 export function formatAxisHour(axis: number): string {
-  const h = Math.floor(axis) % 24
-  return `${String(h).padStart(2, '0')}h`
+  if (axis >= TIME_AXIS_MAX) return 'Dim 24h'
+  const dayIdx = Math.floor(axis / 24)
+  const hour   = Math.floor(axis) % 24
+  const day    = AXIS_DAY_LABELS[dayIdx] ?? 'Dim'
+  return `${day} ${String(hour).padStart(2, '0')}h`
 }
