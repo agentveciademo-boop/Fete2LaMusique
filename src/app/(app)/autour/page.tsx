@@ -16,6 +16,7 @@ import { GENRE_CONFIG } from '@/data/genres'
 import { primaryGenre, genreColor, minutesUntilStart } from '@/lib/view'
 import { haversineMeters, bearingDegrees, walkMinutes, type LatLng } from '@/lib/geo'
 import { SLIDER_START, formatEventTime } from '@/lib/time'
+import { useTranslation } from '@/contexts/LanguageContext'
 import type { Event, Genre } from '@/types/event'
 
 const R = 150
@@ -32,6 +33,7 @@ export default function AutourPage() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
   const [activeGenres, setActiveGenres] = useState<Genre[]>([])
   const isMobile = useIsMobile()
+  const { t } = useTranslation()
 
   const origin = userLocation.location ?? FALLBACK
   const geoActive = !!userLocation.location
@@ -90,16 +92,16 @@ export default function AutourPage() {
       {/* Header */}
       <div className="flex items-center justify-between px-5 pb-1.5 pt-3" style={{ paddingTop: 'max(12px, env(safe-area-inset-top))' }}>
         <div>
-          <div className="font-display text-2xl font-extrabold leading-none tracking-tight">Près de toi</div>
+          <div className="font-display text-2xl font-extrabold leading-none tracking-tight">{t.autourTitle}</div>
           <div className="mt-1 flex items-center gap-1.5 font-mono text-[11px] tracking-wide" style={{ color: 'var(--muted)' }}>
             <MapPin size={13} />
-            {geoActive ? 'Position activée' : 'Position non activée'}
+            {geoActive ? t.autourGeoOn : t.autourGeoOff}
           </div>
         </div>
         <div className="flex h-8 items-center gap-1.5 rounded-[20px] border px-3 text-xs font-bold"
           style={{ background: 'rgba(255,92,122,.14)', borderColor: 'rgba(255,92,138,.4)', color: 'var(--glow)' }}>
           <span className="fm-blink h-[7px] w-[7px] rounded-full" style={{ background: 'var(--glow)' }} />
-          {near.length} bientôt
+          {t.autourBientotBadge(near.length)}
         </div>
       </div>
 
@@ -170,9 +172,9 @@ export default function AutourPage() {
             style={{ background: 'rgba(8,6,15,.88)', backdropFilter: 'blur(6px)' }}>
             <Navigation size={34} style={{ color: 'var(--azur)' }} />
             <div className="text-center px-8">
-              <div className="font-bold text-base mb-1">Active ta position</div>
+              <div className="font-bold text-base mb-1">{t.autourGeoTitle}</div>
               <div className="text-xs leading-relaxed" style={{ color: 'var(--muted)' }}>
-                Pour voir les concerts près de toi et calculer le temps de marche
+                {t.autourGeoDesc}
               </div>
             </div>
             <button
@@ -180,7 +182,7 @@ export default function AutourPage() {
               className="rounded-full px-6 py-2.5 text-sm font-semibold"
               style={{ background: 'var(--azur)', color: 'var(--ink-900)' }}
             >
-              Activer la géolocalisation
+              {t.autourGeoBtn}
             </button>
           </div>
         )}
@@ -190,26 +192,26 @@ export default function AutourPage() {
       <div className="fm-no-scrollbar flex flex-1 flex-col gap-2.5 overflow-y-auto px-4 pb-4 pt-2">
         <div className="flex items-center gap-2 px-1 font-mono text-[10px] tracking-widest" style={{ color: 'var(--muted)' }}>
           {isBefore ? (
-            <><CalendarDays size={11} /> DANS LA RUE LE 21 JUIN</>
-          ) : 'ÇA COMMENCE BIENTÔT'}
+            <><CalendarDays size={11} /> {t.autourSectionPreFestival}</>
+          ) : t.autourSectionBientot}
           {activeGenres.length > 0 && (
             <button
               onClick={() => setActiveGenres([])}
               className="ml-auto normal-case tracking-normal"
               style={{ color: 'var(--glow)' }}
             >
-              Effacer filtres
+              {t.autourClearFilters}
             </button>
           )}
         </div>
         {isBefore && near.length > 0 && (
           <div className="rounded-xl px-3 py-2 text-xs" style={{ background: 'rgba(255,92,122,.08)', color: 'var(--muted)' }}>
-            Le festival, c&apos;est dans <span style={{ color: 'var(--glow)', fontWeight: 700 }}>{daysUntil} jour{daysUntil > 1 ? 's' : ''}</span> — voici les concerts les plus proches de toi.
+            {t.autourPreFestivalBanner(daysUntil)}
           </div>
         )}
         {near.length === 0 && (
           <div className="px-1 text-sm" style={{ color: 'var(--muted)' }}>
-            {activeGenres.length > 0 ? 'Aucun concert de ce genre dans les 90 prochaines minutes.' : "Rien d'imminent juste autour."}
+            {activeGenres.length > 0 ? t.autourNoGenre : t.autourNone}
           </div>
         )}
         {near.map((a, i) => (
@@ -220,6 +222,8 @@ export default function AutourPage() {
             walk={a.walk}
             highlight={i === 0}
             isBefore={isBefore}
+            debutLabel={t.autourDebutLabel}
+            dateLabel={t.autourDateLabel}
             onTap={() => setSelectedEvent(a.event)}
           />
         ))}
@@ -231,12 +235,14 @@ export default function AutourPage() {
   )
 }
 
-function NearRow({ event, inmin, walk, highlight, isBefore = false, onTap }: {
+function NearRow({ event, inmin, walk, highlight, isBefore = false, debutLabel, dateLabel, onTap }: {
   event: Event
   inmin: number
   walk: number
   highlight: boolean
   isBefore?: boolean
+  debutLabel: string
+  dateLabel: string
   onTap: () => void
 }) {
   return (
@@ -252,12 +258,12 @@ function NearRow({ event, inmin, walk, highlight, isBefore = false, onTap }: {
         {isBefore ? (
           <>
             <div className="font-mono text-[11px] font-bold leading-none" style={{ color: 'var(--paper)' }}>{formatEventTime(event.start_time)}</div>
-            <div className="mt-0.5 font-mono text-[8px] tracking-wider" style={{ color: 'var(--muted)' }}>21 JUIN</div>
+            <div className="mt-0.5 font-mono text-[8px] tracking-wider" style={{ color: 'var(--muted)' }}>{dateLabel}</div>
           </>
         ) : (
           <>
             <div className="font-display text-lg font-extrabold leading-none" style={{ color: highlight ? 'var(--glow)' : 'var(--paper)' }}>{inmin}&apos;</div>
-            <div className="font-mono text-[8px] tracking-wider" style={{ color: 'var(--muted)' }}>DÉBUT</div>
+            <div className="font-mono text-[8px] tracking-wider" style={{ color: 'var(--muted)' }}>{debutLabel}</div>
           </>
         )}
       </div>

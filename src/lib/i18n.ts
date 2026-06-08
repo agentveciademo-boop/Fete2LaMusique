@@ -50,6 +50,63 @@ interface T {
   soonLabel: (diffMin: number) => string
   // sélecteur de langue
   langPickerTitle: string
+  // nav
+  navCarte: string
+  navDecouvrir: string
+  navProgramme: string
+  navAutour: string
+  navMaSoiree: string
+  // autour
+  autourTitle: string
+  autourGeoOn: string
+  autourGeoOff: string
+  autourBientotBadge: (n: number) => string
+  autourSectionPreFestival: string
+  autourSectionBientot: string
+  autourPreFestivalBanner: (days: number) => string
+  autourNoGenre: string
+  autourNone: string
+  autourGeoTitle: string
+  autourGeoDesc: string
+  autourGeoBtn: string
+  autourClearFilters: string
+  autourDebutLabel: string
+  autourDateLabel: string
+  // programme
+  progDateline: string
+  progTitle: string
+  progLoading: string
+  progNow: string
+  progConflict: (n: number) => string
+  progSunsetTitle: string
+  progSunsetSub: string
+  // decouvrir
+  decLoading: string
+  decAllSeen: string
+  decShortlist: (n: number) => string
+  decNoFavs: string
+  decRestart: string
+  decSeeEvening: string
+  decTitle: string
+  decRemaining: (n: number) => string
+  decToastAdded: string
+  decKept: string
+  decPassed: string
+  decSoonBadge: (n: number) => string
+  // ma-soirée
+  soireeEmpty: string
+  soireeEmptyDesc: string
+  soireeDiscoverBtn: string
+  soireeDateline: string
+  soireeTitle: string
+  soireeShareLabel: string
+  soireeConcerts: (n: number) => string
+  soireeDistance: string
+  soireeDuration: string
+  soireeRemove: string
+  soireeWalk: (n: number) => string
+  soireeAdd: string
+  soireeLaunch: string
   // onboarding
   onboarding: {
     skip: string
@@ -111,6 +168,29 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 Dans ${h}h${String(m).padStart(2, '0')}` : `🔜 Dans ${h}h`
     },
     langPickerTitle: 'Langue',
+    navCarte: 'Carte', navDecouvrir: 'Découvrir', navProgramme: 'Programme', navAutour: 'Autour', navMaSoiree: 'Ma soirée',
+    autourTitle: 'Près de toi', autourGeoOn: 'Position activée', autourGeoOff: 'Position non activée',
+    autourBientotBadge: (n) => `${n} bientôt`,
+    autourSectionPreFestival: 'DANS LA RUE LE 21 JUIN', autourSectionBientot: 'ÇA COMMENCE BIENTÔT',
+    autourPreFestivalBanner: (days) => `Le festival, c'est dans ${days} jour${days > 1 ? 's' : ''} — voici les concerts les plus proches de toi.`,
+    autourNoGenre: 'Aucun concert de ce genre dans les 90 prochaines minutes.', autourNone: "Rien d'imminent juste autour.",
+    autourGeoTitle: 'Active ta position', autourGeoDesc: 'Pour voir les concerts près de toi et calculer le temps de marche', autourGeoBtn: 'Activer la géolocalisation',
+    autourClearFilters: 'Effacer filtres', autourDebutLabel: 'DÉBUT', autourDateLabel: '21 JUIN',
+    progDateline: 'DIM. 21 JUIN · SOLSTICE', progTitle: 'La plus longue nuit de musique', progLoading: 'Chargement du programme…',
+    progNow: '● MAINTENANT', progConflict: (n) => `${n} concerts en même temps`,
+    progSunsetTitle: 'Le soleil se couche à 21h58', progSunsetSub: "La fête bat son plein jusqu'à l'aube",
+    decLoading: 'Chargement des concerts…', decAllSeen: 'Tu as tout vu !',
+    decShortlist: (n) => `${n} concert${n > 1 ? 's' : ''} dans ta shortlist.`,
+    decNoFavs: "Aucun favori pour l'instant — relance pour en garder.",
+    decRestart: 'Recommencer', decSeeEvening: 'Voir ma soirée', decTitle: 'À découvrir',
+    decRemaining: (n) => `SWIPE · ${n} RESTANT${n > 1 ? 'S' : ''}`,
+    decToastAdded: 'Ajouté à Ma soirée', decKept: 'GARDÉ', decPassed: 'PASSÉ',
+    decSoonBadge: (n) => `DANS ${n} MIN`,
+    soireeEmpty: 'Ta soirée est vide', soireeEmptyDesc: "Garde des concerts depuis l'onglet Découvrir pour composer ton parcours.",
+    soireeDiscoverBtn: 'Découvrir des concerts', soireeDateline: 'TON PARCOURS · 21 JUIN', soireeTitle: 'Ma soirée',
+    soireeShareLabel: 'Partager', soireeConcerts: (n) => n > 1 ? 'concerts' : 'concert',
+    soireeDistance: 'à pied', soireeDuration: 'durée', soireeRemove: 'Retirer',
+    soireeWalk: (n) => `${n} min de marche`, soireeAdd: 'Ajouter un concert…', soireeLaunch: "Lancer l'itinéraire",
     onboarding: {
       skip: 'PASSER',
       next: 'Suivant',
@@ -175,6 +255,29 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 In ${h}h${m}` : `🔜 In ${h}h`
     },
     langPickerTitle: 'Language',
+    navCarte: 'Map', navDecouvrir: 'Explore', navProgramme: 'Schedule', navAutour: 'Nearby', navMaSoiree: 'My Evening',
+    autourTitle: 'Near you', autourGeoOn: 'Location enabled', autourGeoOff: 'Location not enabled',
+    autourBientotBadge: (n) => `${n} soon`,
+    autourSectionPreFestival: 'IN THE STREET JUNE 21', autourSectionBientot: 'STARTING SOON',
+    autourPreFestivalBanner: (days) => `The festival is in ${days} day${days > 1 ? 's' : ''} — here are the nearest concerts.`,
+    autourNoGenre: 'No concerts of this genre in the next 90 minutes.', autourNone: 'Nothing imminent nearby.',
+    autourGeoTitle: 'Enable your location', autourGeoDesc: 'To see concerts near you and calculate walking time', autourGeoBtn: 'Enable location',
+    autourClearFilters: 'Clear filters', autourDebutLabel: 'START', autourDateLabel: 'JUNE 21',
+    progDateline: 'SUN. JUNE 21 · SOLSTICE', progTitle: 'The longest night of music', progLoading: 'Loading schedule…',
+    progNow: '● NOW', progConflict: (n) => `${n} concerts at the same time`,
+    progSunsetTitle: 'Sunset at 9:58 PM', progSunsetSub: 'The party goes on until dawn',
+    decLoading: 'Loading concerts…', decAllSeen: "You've seen it all!",
+    decShortlist: (n) => `${n} concert${n > 1 ? 's' : ''} in your shortlist.`,
+    decNoFavs: 'No favourites yet — restart to keep some.',
+    decRestart: 'Restart', decSeeEvening: 'See my evening', decTitle: 'Explore',
+    decRemaining: (n) => `SWIPE · ${n} LEFT`,
+    decToastAdded: 'Added to My Evening', decKept: 'KEPT', decPassed: 'PASSED',
+    decSoonBadge: (n) => `IN ${n} MIN`,
+    soireeEmpty: 'Your evening is empty', soireeEmptyDesc: 'Keep concerts from the Explore tab to plan your night.',
+    soireeDiscoverBtn: 'Explore concerts', soireeDateline: 'YOUR ROUTE · JUNE 21', soireeTitle: 'My Evening',
+    soireeShareLabel: 'Share', soireeConcerts: (n) => n > 1 ? 'shows' : 'show',
+    soireeDistance: 'on foot', soireeDuration: 'duration', soireeRemove: 'Remove',
+    soireeWalk: (n) => `${n} min walk`, soireeAdd: 'Add a concert…', soireeLaunch: 'Start navigation',
     onboarding: {
       skip: 'SKIP',
       next: 'Next',
@@ -239,6 +342,29 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 ${h}小时${m}分后` : `🔜 ${h}小时后`
     },
     langPickerTitle: '语言',
+    navCarte: '地图', navDecouvrir: '发现', navProgramme: '节目', navAutour: '附近', navMaSoiree: '我的夜晚',
+    autourTitle: '附近', autourGeoOn: '位置已开启', autourGeoOff: '位置未开启',
+    autourBientotBadge: (n) => `${n} 即将开始`,
+    autourSectionPreFestival: '6月21日上街', autourSectionBientot: '即将开始',
+    autourPreFestivalBanner: (days) => `音乐节还有 ${days} 天 — 以下是离你最近的演出。`,
+    autourNoGenre: '未来90分钟内没有该风格的演出。', autourNone: '附近暂无即将开始的演出。',
+    autourGeoTitle: '开启位置', autourGeoDesc: '查看附近演出并计算步行时间', autourGeoBtn: '开启位置',
+    autourClearFilters: '清除筛选', autourDebutLabel: '开始', autourDateLabel: '6月21日',
+    progDateline: '周日 6月21日 · 夏至', progTitle: '最长的音乐之夜', progLoading: '加载节目中…',
+    progNow: '● 现在', progConflict: (n) => `${n} 场演出同时进行`,
+    progSunsetTitle: '日落时间：21:58', progSunsetSub: '派对持续到黎明',
+    decLoading: '加载演出中…', decAllSeen: '你已看完所有演出！',
+    decShortlist: (n) => `你的候选列表中有 ${n} 场演出。`,
+    decNoFavs: '暂无收藏 — 重新开始保存喜欢的演出。',
+    decRestart: '重新开始', decSeeEvening: '查看我的夜晚', decTitle: '发现',
+    decRemaining: (n) => `滑动 · 剩余 ${n} 场`,
+    decToastAdded: '已加入我的夜晚', decKept: '已保留', decPassed: '已跳过',
+    decSoonBadge: (n) => `${n} 分钟后开始`,
+    soireeEmpty: '你的夜晚还是空的', soireeEmptyDesc: '在发现页面收藏演出，规划你的路线。',
+    soireeDiscoverBtn: '发现演出', soireeDateline: '你的路线 · 6月21日', soireeTitle: '我的夜晚',
+    soireeShareLabel: '分享', soireeConcerts: () => '场演出',
+    soireeDistance: '步行', soireeDuration: '时长', soireeRemove: '移除',
+    soireeWalk: (n) => `步行 ${n} 分钟`, soireeAdd: '添加演出…', soireeLaunch: '开始导航',
     onboarding: {
       skip: '跳过',
       next: '下一步',

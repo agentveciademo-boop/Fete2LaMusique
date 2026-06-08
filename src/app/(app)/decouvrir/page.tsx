@@ -20,7 +20,8 @@ import { useReferenceNow } from '@/hooks/useReferenceNow'
 import { useIsMobile } from '@/hooks/useIsMobile'
 import { primaryGenre, genreColor, genreLabel, timeRange, walkFrom, priceLabel, minutesUntilStart } from '@/lib/view'
 import { GENRE_CONFIG } from '@/data/genres'
-import type { Event } from '@/types/event'
+import { useTranslation } from '@/contexts/LanguageContext'
+import type { Event, Genre } from '@/types/event'
 
 const SWIPE_THRESHOLD = 110
 
@@ -31,6 +32,7 @@ export default function DecouvrirPage() {
   const now = useReferenceNow()
   const isMobile = useIsMobile()
   const router = useRouter()
+  const { t } = useTranslation()
   const [index, setIndex] = useState(0)
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
@@ -58,37 +60,35 @@ export default function DecouvrirPage() {
     if (current && like) {
       add(current.id)
       // Feedback : confirme l'ajout à Ma soirée, avec raccourci pour y aller.
-      toast.success('Ajouté à Ma soirée', {
+      toast.success(t.decToastAdded, {
         description: current.title,
-        action: { label: 'Voir', onClick: () => router.push('/ma-soiree') },
+        action: { label: t.likeSee, onClick: () => router.push('/ma-soiree') },
       })
     }
     setIndex(i => i + 1)
   }
 
   if (sortedEvents.length === 0) {
-    return <Centered>Chargement des concerts…</Centered>
+    return <Centered>{t.decLoading}</Centered>
   }
 
   if (!current) {
     return (
       <Centered>
         <div className="text-5xl">🎉</div>
-        <div className="mt-4 font-display text-2xl font-extrabold">Tu as tout vu !</div>
+        <div className="mt-4 font-display text-2xl font-extrabold">{t.decAllSeen}</div>
         <p className="mt-2 max-w-[260px] text-sm" style={{ color: 'var(--muted)' }}>
-          {count > 0
-            ? `${count} concert${count > 1 ? 's' : ''} dans ta shortlist.`
-            : "Aucun favori pour l'instant — relance pour en garder."}
+          {count > 0 ? t.decShortlist(count) : t.decNoFavs}
         </p>
         <div className="mt-6 flex gap-3">
           <button onClick={() => setIndex(0)} className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold"
             style={{ background: 'var(--ink-700)' }}>
-            Recommencer
+            {t.decRestart}
           </button>
           {count > 0 && (
             <Link href="/ma-soiree" className="rounded-2xl px-5 py-3 text-sm font-bold text-[#0B0913]"
               style={{ background: 'var(--glow)', boxShadow: '0 8px 30px rgba(255,92,138,.4)' }}>
-              Voir ma soirée
+              {t.decSeeEvening}
             </Link>
           )}
         </div>
@@ -102,9 +102,9 @@ export default function DecouvrirPage() {
       <div className="flex items-center justify-between px-5 pb-2.5 pt-3"
         style={{ paddingTop: 'max(12px, env(safe-area-inset-top))' }}>
         <div>
-          <div className="font-display text-[19px] font-extrabold tracking-tight">À découvrir</div>
+          <div className="font-display text-[19px] font-extrabold tracking-tight">{t.decTitle}</div>
           <div className="font-mono text-[11px] tracking-wide" style={{ color: 'var(--muted)' }}>
-            SWIPE · {remaining} RESTANT{remaining > 1 ? 'S' : ''}
+            {t.decRemaining(remaining)}
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -139,7 +139,7 @@ export default function DecouvrirPage() {
         {next && <div className="absolute inset-x-6 top-2.5 h-[88%] rounded-[26px] opacity-40" style={{ background: 'var(--ink-700)', transform: 'rotate(-3deg)' }} />}
 
         <AnimatePresence initial={false}>
-          <SwipeCard key={current.id} event={current} now={now} location={userLocation.location} onResolve={advance} />
+          <SwipeCard key={current.id} event={current} now={now} location={userLocation.location} kept={t.decKept} passed={t.decPassed} soonBadge={t.decSoonBadge} genreLabel={(g) => t.genres[g] ?? genreLabel(g)} onResolve={advance} />
         </AnimatePresence>
       </div>
 
@@ -164,10 +164,14 @@ export default function DecouvrirPage() {
   )
 }
 
-function SwipeCard({ event, now, location, onResolve }: {
+function SwipeCard({ event, now, location, kept, passed, soonBadge, genreLabel: gl, onResolve }: {
   event: Event
   now: Date
   location: { lat: number; lng: number } | null
+  kept: string
+  passed: string
+  soonBadge: (n: number) => string
+  genreLabel: (g: Genre) => string
   onResolve: (like: boolean) => void
 }) {
   const x = useMotionValue(0)
@@ -207,23 +211,23 @@ function SwipeCard({ event, now, location, onResolve }: {
         {/* badges swipe (révélés selon le sens du drag) */}
         <motion.div style={{ opacity: likeOpacity, color: 'var(--glow)', borderColor: 'var(--glow)' }}
           className="absolute left-5 top-5 rotate-[-12deg] rounded-xl border-2 px-3 py-1 font-display text-xl font-extrabold">
-          GARDÉ
+          {kept}
         </motion.div>
         <motion.div style={{ opacity: passOpacity, color: 'var(--muted)', borderColor: 'var(--muted)' }}
           className="absolute right-5 top-5 rotate-[12deg] rounded-xl border-2 px-3 py-1 font-display text-xl font-extrabold">
-          PASSÉ
+          {passed}
         </motion.div>
 
         {/* tags haut */}
         <div className="absolute inset-x-4 top-4 flex justify-between">
           <div className="flex h-8 items-center gap-1.5 rounded-[20px] px-3 text-xs font-bold text-[#0B0913]" style={{ background: accent }}>
-            <span>{GENRE_CONFIG[g].icon}</span> {genreLabel(g)}
+            <span>{GENRE_CONFIG[g].icon}</span> {gl(g)}
           </div>
           {soon && (
             <div className="flex h-8 items-center gap-1.5 rounded-[20px] border px-3 font-mono text-[11px] tracking-wide backdrop-blur-md"
               style={{ background: 'rgba(11,9,19,.7)', borderColor: 'var(--sun)', color: 'var(--sun)' }}>
               <span className="fm-blink h-1.5 w-1.5 rounded-full" style={{ background: 'var(--sun)' }} />
-              DANS {startsIn} MIN
+              {soonBadge(startsIn)}
             </div>
           )}
         </div>

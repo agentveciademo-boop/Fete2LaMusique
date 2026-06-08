@@ -16,12 +16,14 @@ import { EventSheet } from '@/components/EventSheet'
 import { EventPanel } from '@/components/EventPanel'
 import { primaryGenre, genreColor } from '@/lib/view'
 import { formatClock } from '@/lib/time'
+import { useTranslation } from '@/contexts/LanguageContext'
 import { haversineMeters, walkMinutes, formatDistance } from '@/lib/geo'
 import type { Event } from '@/types/event'
 
 export default function MaSoireePage() {
   const { dayEvents } = useDayEvents()
   const { ids, remove } = useFavorites()
+  const { t } = useTranslation()
   const isMobile = useIsMobile()
   const now = useReferenceNow()
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
@@ -53,13 +55,13 @@ export default function MaSoireePage() {
     return (
       <div className="flex h-full flex-col items-center justify-center px-8 text-center">
         <div className="text-5xl">🌃</div>
-        <div className="mt-4 font-display text-2xl font-extrabold">Ta soirée est vide</div>
+        <div className="mt-4 font-display text-2xl font-extrabold">{t.soireeEmpty}</div>
         <p className="mt-2 max-w-65 text-sm" style={{ color: 'var(--muted)' }}>
-          Garde des concerts depuis l&apos;onglet Découvrir pour composer ton parcours.
+          {t.soireeEmptyDesc}
         </p>
         <Link href="/decouvrir" className="mt-6 rounded-2xl px-5 py-3 text-sm font-bold text-[#0B0913]"
           style={{ background: 'var(--glow)', boxShadow: '0 8px 30px rgba(255,92,138,.4)' }}>
-          Découvrir des concerts
+          {t.soireeDiscoverBtn}
         </Link>
       </div>
     )
@@ -70,19 +72,19 @@ export default function MaSoireePage() {
       {/* Header */}
       <div className="flex items-start justify-between px-5 pb-3 pt-3" style={{ paddingTop: 'max(12px, env(safe-area-inset-top))' }}>
         <div>
-          <div className="font-mono text-[11px] tracking-widest" style={{ color: 'var(--sun)' }}>TON PARCOURS · 21 JUIN</div>
-          <div className="mt-0.5 font-display text-[26px] font-extrabold leading-none tracking-tight">Ma soirée</div>
+          <div className="font-mono text-[11px] tracking-widest" style={{ color: 'var(--sun)' }}>{t.soireeDateline}</div>
+          <div className="mt-0.5 font-display text-[26px] font-extrabold leading-none tracking-tight">{t.soireeTitle}</div>
         </div>
-        <button onClick={() => shareItinerary(stops)} aria-label="Partager" className="grid h-10 w-10 place-items-center rounded-[13px] border border-white/10" style={{ background: 'var(--ink-700)' }}>
+        <button onClick={() => shareItinerary(stops)} aria-label={t.soireeShareLabel} className="grid h-10 w-10 place-items-center rounded-[13px] border border-white/10" style={{ background: 'var(--ink-700)' }}>
           <Share2 size={17} />
         </button>
       </div>
 
       {/* Récap */}
       <div className="flex gap-2 px-4 pb-3">
-        <Stat value={String(stops.length)} label={stops.length > 1 ? 'concerts' : 'concert'} />
-        <Stat value={formatDistance(totalMeters)} label="à pied" />
-        <Stat value={span} label="durée" />
+        <Stat value={String(stops.length)} label={t.soireeConcerts(stops.length)} />
+        <Stat value={formatDistance(totalMeters)} label={t.soireeDistance} />
+        <Stat value={span} label={t.soireeDuration} />
       </div>
 
       {/* Itinéraire */}
@@ -106,7 +108,7 @@ export default function MaSoireePage() {
                       className="ml-auto flex items-center gap-1 rounded-md border px-2 py-0.5 text-[11px] font-semibold transition-opacity hover:opacity-80"
                       style={{ color: 'var(--glow)', borderColor: 'rgba(255,92,138,.35)', background: 'rgba(255,92,138,.1)' }}
                     >
-                      <Trash2 size={10} /> Retirer
+                      <Trash2 size={10} /> {t.soireeRemove}
                     </button>
                   </div>
                   <div className="my-0.5 text-base font-bold leading-tight">{e.title}</div>
@@ -122,7 +124,7 @@ export default function MaSoireePage() {
                     <div className="h-[42px] w-0.5" style={{ background: 'repeating-linear-gradient(to bottom, rgba(255,255,255,.3) 0 4px, transparent 4px 8px)' }} />
                   </div>
                   <div className="flex items-center gap-1.5 font-mono text-[11px]" style={{ color: 'var(--azur)' }}>
-                    <Navigation size={13} /> {legs[i].minutes} min de marche
+                    <Navigation size={13} /> {t.soireeWalk(legs[i].minutes)}
                   </div>
                 </div>
               )}
@@ -137,7 +139,7 @@ export default function MaSoireePage() {
               <Plus size={16} />
             </div>
           </div>
-          <div className="self-center text-[13px] font-semibold" style={{ color: 'var(--muted)' }}>Ajouter un concert…</div>
+          <div className="self-center text-[13px] font-semibold" style={{ color: 'var(--muted)' }}>{t.soireeAdd}</div>
         </Link>
       </div>
 
@@ -145,7 +147,7 @@ export default function MaSoireePage() {
       <div className="px-4 pb-4 pt-2">
         <button onClick={() => openRoute(stops)} className="flex h-[52px] w-full items-center justify-center gap-2.5 rounded-2xl text-[15px] font-bold text-[#0B0913]"
           style={{ background: 'var(--glow)', boxShadow: '0 8px 30px rgba(255,92,138,.4)' }}>
-          <Navigation size={18} /> Lancer l&apos;itinéraire
+          <Navigation size={18} /> {t.soireeLaunch}
         </button>
       </div>
 
