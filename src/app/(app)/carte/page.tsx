@@ -95,7 +95,7 @@ export default function CartePage() {
 
       {/* Backdrop pour fermer le sélecteur de langue */}
       {langOpen && (
-        <div className="fixed inset-0 z-40" onClick={() => setLangOpen(false)} />
+        <div className="fixed inset-0 z-[1]" onClick={() => setLangOpen(false)} />
       )}
 
       {/* ── Haut : recherche + bouton langue + rail de genres ── */}
