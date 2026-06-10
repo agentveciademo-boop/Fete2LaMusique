@@ -1,0 +1,7 @@
+{
+  "_comment": "Overrides manuels de réseaux sociaux. Clé = ID de base de l'event (sans le suffixe timing) : 'oa-{uid}' ou 'qfap-{id}'. Valeurs : handle sans @.",
+  "_example": {
+    "oa-12345678": { "instagram": "monartiste", "tiktok": "monartiste" },
+    "qfap-83842": { "instagram": "mongroupe" }
+  }
+}

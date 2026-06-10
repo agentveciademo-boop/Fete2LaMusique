@@ -16,6 +16,9 @@ import {
   type OutEvent,
   addHours,
   extractArrondissement,
+  extractInstagramHandle,
+  extractSocialFromText,
+  extractTikTokHandle,
   GENRE_MAP,
   haversineKm,
   inferOutdoorFromText,
@@ -55,6 +58,7 @@ type RawEvent = {
   'autre-styles'?: string | null
   'autres-styles-musicaux'?: string | null
   image?: { base?: string; filename?: string } | null
+  links?: Array<{ link?: string; data?: { url?: string; description?: string; provider_name?: string } }> | null
   location?: {
     name?: string | null
     address?: string | null
@@ -191,6 +195,23 @@ export async function fetchOpenAgenda(): Promise<OutEvent[]> {
       ? (e.registration?.find((r) => r.type === 'link' && r.value)?.value ?? null)
       : null
 
+    // Extraction réseaux sociaux depuis les links OpenAgenda
+    let instagram: string | null = null
+    let tiktok: string | null = null
+    for (const link of e.links ?? []) {
+      const url = link.link ?? ''
+      const dataUrl = link.data?.url ?? ''
+      const desc = link.data?.description ?? ''
+      if (!instagram) instagram = extractInstagramHandle(url) ?? extractInstagramHandle(dataUrl)
+      if (!tiktok) tiktok = extractTikTokHandle(url) ?? extractTikTokHandle(dataUrl)
+      if ((!instagram || !tiktok) && desc) {
+        const fromText = extractSocialFromText(desc)
+        if (!instagram && fromText.instagram) instagram = fromText.instagram
+        if (!tiktok && fromText.tiktok) tiktok = fromText.tiktok
+      }
+      if (instagram && tiktok) break
+    }
+
     timings.forEach((t, idx) => {
       if (!t.begin) return
       normalized.push({
@@ -216,6 +237,8 @@ export async function fetchOpenAgenda(): Promise<OutEvent[]> {
         price_detail: null,
         description,
         image_url: imageUrl,
+        instagram,
+        tiktok,
       })
     })
   }

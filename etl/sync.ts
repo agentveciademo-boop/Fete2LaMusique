@@ -57,6 +57,24 @@ async function main(): Promise<void> {
   // Nettoyage genres (post-fusion) : retire 'autres' quand un vrai genre existe.
   for (const e of deduped) e.genres = pruneAutres(e.genres)
 
+  // Enrichments manuels (instagram/tiktok non fournis par les sources).
+  // Clé = ID de base sans suffixe timing (ex: "oa-38289446" couvre oa-38289446-0, -1…).
+  const enrichmentsPath = path.resolve('etl/enrichments.json')
+  if (fs.existsSync(enrichmentsPath)) {
+    type Enrichment = { instagram?: string; tiktok?: string }
+    const raw = JSON.parse(fs.readFileSync(enrichmentsPath, 'utf-8')) as Record<string, Enrichment>
+    let enriched = 0
+    for (const e of deduped) {
+      const baseId = e.id.replace(/-\d+$/, '')
+      const enrich = raw[baseId]
+      if (!enrich) continue
+      if (enrich.instagram && !e.instagram) e.instagram = enrich.instagram
+      if (enrich.tiktok && !e.tiktok) e.tiktok = enrich.tiktok
+      enriched++
+    }
+    if (enriched > 0) console.error(`  enrichments manuels appliqués : ${enriched} events`)
+  }
+
   // Tri stable par start_time (minimise les diffs git).
   deduped.sort((a, b) => a.start_time.localeCompare(b.start_time) || a.id.localeCompare(b.id))
 

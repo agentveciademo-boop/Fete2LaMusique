@@ -41,6 +41,8 @@ export type OutEvent = {
   price_detail: string | null
   description: string
   image_url: string | null
+  instagram: string | null
+  tiktok: string | null
 }
 
 // ---------- Périmètre géographique ----------
@@ -172,4 +174,38 @@ export function parseSubgenres(raw: string | null | undefined): string[] {
     if (k.length > 1 && k.length <= 30) seen.add(k)
   }
   return [...seen].slice(0, 8)
+}
+
+// ---------- Réseaux sociaux ----------
+
+const IG_PATH_BLACKLIST = new Set(['p', 'reel', 'reels', 'stories', 'explore', 'accounts', 'tv', 'share'])
+
+export function extractInstagramHandle(url: string): string | null {
+  const m = url.match(/instagram\.com\/([^/?#\s]+)\/?/)
+  if (!m) return null
+  const handle = m[1].replace(/^@/, '').toLowerCase()
+  if (IG_PATH_BLACKLIST.has(handle) || handle.length < 2) return null
+  return handle
+}
+
+export function extractTikTokHandle(url: string): string | null {
+  const m = url.match(/tiktok\.com\/@?([^/?#\s]+)\/?/)
+  if (!m) return null
+  const handle = m[1].replace(/^@/, '').toLowerCase()
+  if (handle.length < 2) return null
+  return handle
+}
+
+export function extractSocialFromText(text: string): { instagram: string | null; tiktok: string | null } {
+  let instagram: string | null = null
+  let tiktok: string | null = null
+  for (const m of text.matchAll(/https?:\/\/(?:www\.)?instagram\.com\/([^/?#\s"']+)/g)) {
+    const h = extractInstagramHandle(`https://instagram.com/${m[1]}`)
+    if (h) { instagram = h; break }
+  }
+  for (const m of text.matchAll(/https?:\/\/(?:www\.)?tiktok\.com\/@?([^/?#\s"']+)/g)) {
+    const h = extractTikTokHandle(`https://tiktok.com/${m[1]}`)
+    if (h) { tiktok = h; break }
+  }
+  return { instagram, tiktok }
 }

@@ -35,4 +35,6 @@ export type Event = {
   price_detail: string | null
   description: string
   image_url: string | null
+  instagram?: string | null
+  tiktok?: string | null
 }
