@@ -194,8 +194,8 @@ const stationLayer: CircleLayerSpecification = {
 // ~1800 points noieraient la carte au niveau "Paris entier", or ils ne servent qu'une
 // fois zoomé sur son quartier. Ils ne se révèlent donc qu'à partir du zoom 13.
 const POI_MIN_ZOOM = 13
-const TOILET_COLOR   = '#4F9CF9' // bleu
-const FOUNTAIN_COLOR = '#22C7D6' // cyan
+const TOILET_COLOR   = '#22C55E' // vert
+const FOUNTAIN_COLOR = '#3B82F6' // bleu
 
 const toiletsLayer: CircleLayerSpecification = {
   id: 'toilettes',
@@ -722,7 +722,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       aria-pressed={showToilets}
       className={`absolute top-[238px] right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
         showToilets
-          ? 'border-[#4F9CF9] bg-[#4F9CF9] text-white'
+          ? 'border-[#22C55E] bg-[#22C55E] text-white'
           : 'border-border bg-background/95 text-foreground hover:bg-background'
       }`}
     >
@@ -736,7 +736,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       aria-pressed={showFountains}
       className={`absolute top-[282px] right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
         showFountains
-          ? 'border-[#22C7D6] bg-[#22C7D6] text-white'
+          ? 'border-[#3B82F6] bg-[#3B82F6] text-white'
           : 'border-border bg-background/95 text-foreground hover:bg-background'
       }`}
     >

@@ -1,9 +1,9 @@
 /**
- * Génère public/data/toilettes.json : toilettes publiques de Paris en service,
+ * Génère public/data/toilettes.json : toilettes publiques de Paris ouvertes 24h/24,
  * depuis l'open data Ville de Paris (sanisettesparis, Direction de la Voirie).
  *
- * On ne garde que les installations "En service" (588/617) : afficher une
- * sanisette hors service enverrait l'utilisateur marcher pour rien.
+ * On filtre "En service" ET horaire "24/24h" (~34 installations) : la Fête de la
+ * Musique se vit la nuit, seules les toilettes ouvertes en continu sont utiles.
  * Statique → figé dans le repo (JSON-first), chargé en lazy avec le calque.
  *
  * Usage : npx tsx etl/toilettes.ts
@@ -18,8 +18,8 @@ const BASE = `https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/${DATA
 type Position = [number, number]
 
 async function main(): Promise<void> {
-  // Filtre à la source : uniquement les toilettes en service.
-  const where = `statut = "En service"`
+  // Filtre à la source : toilettes en service ET ouvertes 24h/24.
+  const where = `statut = "En service" and horaire = "24/24h"`
   const params = new URLSearchParams({
     where,
     select: 'type,adresse,arrondissement,horaire,acces_pmr,relais_bebe,geo_point_2d',
