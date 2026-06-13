@@ -190,6 +190,41 @@ const stationLayer: CircleLayerSpecification = {
   },
 }
 
+// Services publics (toilettes / fontaines) — petits points cliquables. minzoom élevé :
+// ~1800 points noieraient la carte au niveau "Paris entier", or ils ne servent qu'une
+// fois zoomé sur son quartier. Ils ne se révèlent donc qu'à partir du zoom 13.
+const POI_MIN_ZOOM = 13
+const TOILET_COLOR   = '#4F9CF9' // bleu
+const FOUNTAIN_COLOR = '#22C7D6' // cyan
+
+const toiletsLayer: CircleLayerSpecification = {
+  id: 'toilettes',
+  type: 'circle',
+  source: 'toilettes',
+  minzoom: POI_MIN_ZOOM,
+  paint: {
+    'circle-radius': ['interpolate', ['linear'], ['zoom'], 13, 3.5, 17, 6],
+    'circle-color': TOILET_COLOR,
+    'circle-stroke-width': 1.5,
+    'circle-stroke-color': '#ffffff',
+    'circle-opacity': 0.9,
+  },
+}
+
+const fountainsLayer: CircleLayerSpecification = {
+  id: 'fontaines',
+  type: 'circle',
+  source: 'fontaines',
+  minzoom: POI_MIN_ZOOM,
+  paint: {
+    'circle-radius': ['interpolate', ['linear'], ['zoom'], 13, 3.5, 17, 6],
+    'circle-color': FOUNTAIN_COLOR,
+    'circle-stroke-width': 1.5,
+    'circle-stroke-color': '#ffffff',
+    'circle-opacity': 0.9,
+  },
+}
+
 // Contour des arrondissements sélectionnés — léger fill + bordure nette. Sous les concerts.
 const arrFillLayer: FillLayerSpecification = {
   id: 'arr-fill',
@@ -250,11 +285,17 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
   const [mapStyle, setMapStyle] = useState(PRIMARY_STYLE)
   const [cursor,   setCursor]   = useState('default')
   const [showTransit,   setShowTransit]   = useState(false)
+  const [showToilets,   setShowToilets]   = useState(false)
+  const [showFountains, setShowFountains] = useState(false)
   const [showStyleMenu, setShowStyleMenu] = useState(false)
   const [transitData,  setTransitData]  = useState<GeoJSON.FeatureCollection | null>(null)
   const [stationsData, setStationsData] = useState<GeoJSON.FeatureCollection | null>(null)
+  const [toiletsData,  setToiletsData]  = useState<GeoJSON.FeatureCollection | null>(null)
+  const [fountainsData, setFountainsData] = useState<GeoJSON.FeatureCollection | null>(null)
   const [arrData,      setArrData]      = useState<GeoJSON.FeatureCollection | null>(null)
   const [stationPopup, setStationPopup] = useState<{ longitude: number; latitude: number; name: string; lines: string } | null>(null)
+  // Popup générique pour les services publics (toilettes / fontaines).
+  const [poiPopup, setPoiPopup] = useState<{ longitude: number; latitude: number; title: string; lines: string[] } | null>(null)
   const geojson = eventsToGeoJSON(events)
 
   // Filtre des contours : uniquement les arrondissements parisiens sélectionnés (0 = "Autre", pas de polygone).
@@ -279,6 +320,27 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
 
   // Masquer le calque cache aussi le popup de station.
   useEffect(() => { if (!showTransit) setStationPopup(null) }, [showTransit])
+
+  // Chargement lazy des toilettes publiques : seulement au 1er affichage du calque.
+  useEffect(() => {
+    if (!showToilets || toiletsData) return
+    fetch('/data/toilettes.json', { cache: 'force-cache' })
+      .then(r => r.ok ? r.json() as Promise<GeoJSON.FeatureCollection> : null)
+      .then(d => { if (d) setToiletsData(d) })
+      .catch(() => {})
+  }, [showToilets, toiletsData])
+
+  // Chargement lazy des fontaines à boire : seulement au 1er affichage du calque.
+  useEffect(() => {
+    if (!showFountains || fountainsData) return
+    fetch('/data/fontaines.json', { cache: 'force-cache' })
+      .then(r => r.ok ? r.json() as Promise<GeoJSON.FeatureCollection> : null)
+      .then(d => { if (d) setFountainsData(d) })
+      .catch(() => {})
+  }, [showFountains, fountainsData])
+
+  // Couper un calque service ferme aussi son popup éventuel.
+  useEffect(() => { if (!showToilets && !showFountains) setPoiPopup(null) }, [showToilets, showFountains])
 
   // Chargement lazy des contours d'arrondissements : au 1er arrondissement sélectionné.
   useEffect(() => {
@@ -378,7 +440,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
     // N'interroger que les layers réellement présents : queryRenderedFeatures
     // renvoie [] si UN layer listé n'existe pas (ex. 'transit-stations' tant que
     // le calque métro n'a pas été activé) → sinon tout clic est avalé.
-    const queryLayers = ['events-unclustered', 'transit-stations']
+    const queryLayers = ['events-unclustered', 'transit-stations', 'toilettes', 'fontaines']
       .filter(id => map.getLayer(id))
     const features = map.queryRenderedFeatures(e.point, { layers: queryLayers })
     if (!features.length) return
@@ -392,6 +454,25 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
         name: (f.properties?.name as string) ?? 'Station',
         lines: (f.properties?.lines as string) ?? '',
       })
+      return
+    }
+    if (f.layer.id === 'toilettes') {
+      const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
+      const p = f.properties ?? {}
+      const lines = [
+        p.adresse as string,
+        p.horaire ? `Horaires : ${p.horaire}` : '',
+        p.pmr ? '♿ Accès PMR' : '',
+        p.relais_bebe ? '🍼 Relais bébé' : '',
+      ].filter(Boolean)
+      setPoiPopup({ longitude: coords[0], latitude: coords[1], title: `🚻 ${p.type || 'Toilettes'}`, lines })
+      return
+    }
+    if (f.layer.id === 'fontaines') {
+      const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
+      const p = f.properties ?? {}
+      const lines = [p.adresse as string, p.commune as string].filter(Boolean)
+      setPoiPopup({ longitude: coords[0], latitude: coords[1], title: `🚰 ${p.type || 'Fontaine'}`, lines })
       return
     }
     const eventId = f.properties?.id as string
@@ -442,9 +523,12 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       mapStyle={mapStyle}
       cursor={cursor}
       onLoad={handleLoad}
-      interactiveLayerIds={stationsData
-        ? ['events-unclustered', 'transit-stations']
-        : ['events-unclustered']}
+      interactiveLayerIds={[
+        'events-unclustered',
+        ...(stationsData ? ['transit-stations'] : []),
+        ...(toiletsData ? ['toilettes'] : []),
+        ...(fountainsData ? ['fontaines'] : []),
+      ]}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -502,6 +586,46 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
             layout={{ visibility: showTransit ? 'visible' : 'none' }}
           />
         </Source>
+      )}
+
+      {/* Toilettes publiques — points cliquables, sous les concerts, dès le zoom 13 */}
+      {toiletsData && (
+        <Source id="toilettes" type="geojson" data={toiletsData}>
+          <Layer
+            {...toiletsLayer}
+            beforeId="events-unclustered"
+            layout={{ visibility: showToilets ? 'visible' : 'none' }}
+          />
+        </Source>
+      )}
+
+      {/* Fontaines à boire — points cliquables, sous les concerts, dès le zoom 13 */}
+      {fountainsData && (
+        <Source id="fontaines" type="geojson" data={fountainsData}>
+          <Layer
+            {...fountainsLayer}
+            beforeId="events-unclustered"
+            layout={{ visibility: showFountains ? 'visible' : 'none' }}
+          />
+        </Source>
+      )}
+
+      {poiPopup && (
+        <Popup
+          longitude={poiPopup.longitude}
+          latitude={poiPopup.latitude}
+          anchor="bottom"
+          offset={10}
+          closeButton={false}
+          onClose={() => setPoiPopup(null)}
+        >
+          <div className="px-1 py-0.5">
+            <div className="text-sm font-semibold" style={{ color: 'rgba(255,255,255,.9)' }}>{poiPopup.title}</div>
+            {poiPopup.lines.map((l, i) => (
+              <div key={i} className="mt-0.5 text-[11px]" style={{ color: 'var(--muted)' }}>{l}</div>
+            ))}
+          </div>
+        </Popup>
       )}
 
       {stationPopup && (
@@ -589,6 +713,34 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       }`}
     >
       🚇 Métro / RER
+    </button>
+
+    {/* Toggle calque toilettes publiques */}
+    <button
+      type="button"
+      onClick={() => setShowToilets(v => !v)}
+      aria-pressed={showToilets}
+      className={`absolute top-[238px] right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
+        showToilets
+          ? 'border-[#4F9CF9] bg-[#4F9CF9] text-white'
+          : 'border-border bg-background/95 text-foreground hover:bg-background'
+      }`}
+    >
+      🚻 Toilettes
+    </button>
+
+    {/* Toggle calque fontaines à boire */}
+    <button
+      type="button"
+      onClick={() => setShowFountains(v => !v)}
+      aria-pressed={showFountains}
+      className={`absolute top-[282px] right-3 z-10 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur transition ${
+        showFountains
+          ? 'border-[#22C7D6] bg-[#22C7D6] text-white'
+          : 'border-border bg-background/95 text-foreground hover:bg-background'
+      }`}
+    >
+      🚰 Fontaines
     </button>
     </>
   )
