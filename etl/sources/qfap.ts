@@ -175,6 +175,8 @@ export async function fetchQfap(): Promise<OutEvent[]> {
         price_detail: rec.price_detail ?? null,
         description,
         image_url: rec.cover_url ?? null,
+        instagram: null,
+        tiktok: null,
       })
     })
     if (kept === 0) droppedOffWindow++
