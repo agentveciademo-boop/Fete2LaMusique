@@ -8,6 +8,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { Settings, Check } from 'lucide-react'
 import { eventsToGeoJSON } from '@/lib/geojson'
 import { GENRE_CONFIG } from '@/data/genres'
+import { useTranslation } from '@/contexts/LanguageContext'
 import type { Event, Genre } from '@/types/event'
 
 // Refonte UX : fond SOMBRE par défaut (carte nuit), cohérent avec les pins glow à anneau
@@ -282,6 +283,7 @@ interface Props {
 }
 
 export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, selectedArr }: Props) {
+  const { t } = useTranslation()
   const [mapStyle, setMapStyle] = useState(PRIMARY_STYLE)
   const [cursor,   setCursor]   = useState('default')
   const [showTransit,   setShowTransit]   = useState(false)
@@ -712,7 +714,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
           : 'border-border bg-background/95 text-foreground hover:bg-background'
       }`}
     >
-      🚇 Métro / RER
+      {t.layerMetro}
     </button>
 
     {/* Toggle calque toilettes publiques */}
@@ -726,7 +728,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
           : 'border-border bg-background/95 text-foreground hover:bg-background'
       }`}
     >
-      🚻 Toilettes
+      {t.layerToilets}
     </button>
 
     {/* Toggle calque fontaines à boire */}
@@ -740,7 +742,7 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
           : 'border-border bg-background/95 text-foreground hover:bg-background'
       }`}
     >
-      🚰 Fontaines
+      {t.layerFountains}
     </button>
     </>
   )

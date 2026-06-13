@@ -17,6 +17,10 @@ interface T {
   list: string
   // carte — badge RÉSA mini-cards
   bookingRequired: string
+  // carte — boutons calques (métro / toilettes / fontaines)
+  layerMetro: string
+  layerToilets: string
+  layerFountains: string
   // slots (keyed by SlotId)
   slots: Record<string, string>
   // genres (keyed by Genre)
@@ -129,6 +133,9 @@ export const translations: Record<Lang, T> = {
     collapse: 'Réduire',
     list: 'Liste',
     bookingRequired: 'RÉSA',
+    layerMetro: '🚇 Métro / RER',
+    layerToilets: '🚻 Toilettes',
+    layerFountains: '🚰 Fontaines',
     slots: {
       matin: 'Matin',
       'debut-aprem': 'Début aprem',
@@ -216,6 +223,9 @@ export const translations: Record<Lang, T> = {
     collapse: 'Collapse',
     list: 'List',
     bookingRequired: 'BOOK',
+    layerMetro: '🚇 Metro / RER',
+    layerToilets: '🚻 Toilets',
+    layerFountains: '🚰 Water',
     slots: {
       matin: 'Morning',
       'debut-aprem': 'Early afternoon',
@@ -303,6 +313,9 @@ export const translations: Record<Lang, T> = {
     collapse: '收起',
     list: '列表',
     bookingRequired: '预约',
+    layerMetro: '🚇 地铁 / RER',
+    layerToilets: '🚻 厕所',
+    layerFountains: '🚰 饮水处',
     slots: {
       matin: '上午',
       'debut-aprem': '早下午',
