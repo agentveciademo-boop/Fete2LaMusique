@@ -1,8 +1,8 @@
 'use client'
 
-// Écran 01 · Carte nuit — map-first, pins glow multi-genres, scrubber temporel, peek sheet.
-// Évolution directe de l'ancienne /carte : même moteur (MapView + useFilters), nouvelle peau
-// « encre + solstice ». Réf. design : VarMap (variations-a.jsx).
+// Écran 01 · Carte nuit (racine `/`) — map-first, pins glow multi-genres, scrubber temporel, peek sheet.
+// Anciennement /carte ; montée à la racine du groupe (app) pour que paname.ai = la carte direct.
+// Même moteur (MapView + useFilters), peau « encre + solstice ». Réf. design : VarMap (variations-a.jsx).
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
