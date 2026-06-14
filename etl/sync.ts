@@ -23,12 +23,14 @@ import { type OutEvent, pruneAutres } from './lib/normalize'
 import { dedup } from './lib/dedup'
 import { fetchOpenAgenda } from './sources/openagenda'
 import { fetchQfap } from './sources/qfap'
+import { fetchManuel } from './sources/manuel'
 
 type SourceDef = { name: string; fetch: () => Promise<OutEvent[]> }
 
 const ALL_SOURCES: SourceDef[] = [
   { name: 'openagenda', fetch: fetchOpenAgenda },
   { name: 'qfap', fetch: fetchQfap },
+  { name: 'manuel', fetch: fetchManuel },
 ]
 
 // Filtre optionnel : SOURCES=openagenda,qfap (défaut = toutes).

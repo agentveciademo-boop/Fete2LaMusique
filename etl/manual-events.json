@@ -1,0 +1,22 @@
+{
+  "_comment": "Concerts ajoutés à la main (captures réseaux sociaux, bouche à oreille). Mode d'emploi complet : etl/AJOUTER-UN-CONCERT.md. Obligatoires : title, venue_name, start_time, et (address OU lat+lng). Le reste est optionnel. start_time en heure de Paris, fuseau ajouté tout seul.",
+  "_exemple": {
+    "title": "Nom du concert / de l'artiste",
+    "venue_name": "Nom du lieu (bar, place, parc…)",
+    "address": "12 rue Oberkampf, 75011 Paris",
+    "start_time": "2026-06-20T20:30",
+    "end_time": "2026-06-20T23:30",
+    "genres": ["rock"],
+    "instagram": "handle_sans_arobase",
+    "tiktok": null,
+    "description": "Une phrase de contexte (facultatif).",
+    "image_url": null,
+    "source_url": "https://www.instagram.com/p/xxxxxxxx/",
+    "is_outdoor": null,
+    "lat": null,
+    "lng": null,
+    "zipcode": null
+  },
+
+  "events": []
+}
