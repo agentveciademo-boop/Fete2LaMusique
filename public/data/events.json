@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-06-13T17:34:11.620Z",
+  "generated_at": "2026-06-14T18:13:36.375Z",
   "sources": {
-    "openagenda": 233,
-    "qfap": 62
+    "openagenda": 234,
+    "qfap": 62,
+    "manuel": 4
   },
-  "event_count": 281,
+  "event_count": 287,
   "events": [
     {
       "id": "qfap-87123-0",
@@ -259,7 +260,7 @@
       "tiktok": null
     },
     {
-      "id": "qfap-71302-4",
+      "id": "qfap-71302-3",
       "title": "Auditions 25-26",
       "venue_name": "Conservatoire à rayonnement régional de Paris - Ida Rubinstein",
       "address": "14, rue de Madrid 75008 Paris",
@@ -455,7 +456,7 @@
       "tiktok": null
     },
     {
-      "id": "qfap-85402-1",
+      "id": "qfap-85402-0",
       "title": "Concerts dans les cours d'écoles",
       "venue_name": "Ecole élémentaire Quatre-Fils",
       "address": "10, bis rue des Quatre fils 75003 Paris",
@@ -1230,6 +1231,34 @@
       "price_detail": null,
       "description": "DJ set Brésil sur la terrasse de Sabiá Arte & Cultura, nouveau lieu culturel brésilien de la place parisienne.",
       "image_url": "https://cdn.openagenda.com/main/2ce38c08bfab4a7c82fdd727078839d7.base.image.jpg",
+      "instagram": null,
+      "tiktok": null
+    },
+    {
+      "id": "oa-86717037-0",
+      "title": "Psy Traxx",
+      "venue_name": "vincennes Plaine de la Faluère",
+      "address": "route dauphine 75012",
+      "arrondissement": 12,
+      "commune": "Paris",
+      "lat": 48.828736,
+      "lng": 2.439998,
+      "start_time": "2026-06-21T11:30:00+02:00",
+      "end_time": "2026-06-21T22:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "openagenda",
+      "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/86717037",
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "electro"
+      ],
+      "subgenres": [],
+      "is_outdoor": null,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "En plein air sono adapté pour Papa et maman Raver avc leurs enfants (500w) système Crital Clear Yamaha.",
+      "image_url": "https://cdn.openagenda.com/main/ebe7e9f7808c452f8fd21eb7206523f0.base.image.jpg",
       "instagram": null,
       "tiktok": null
     },
@@ -3037,6 +3066,62 @@
       "price_detail": null,
       "description": "Partagez avec nous un moment artistique dans ce musée où se mêleront patrimoine architectural et musique classique .",
       "image_url": "https://cdn.openagenda.com/main/650d5d626f634b05920097234930b925.base.image.jpg",
+      "instagram": null,
+      "tiktok": null
+    },
+    {
+      "id": "manuel-chez-les-colombiens-restaurant-dicha-res-2026-06-21",
+      "title": "Chez les Colombiens — Restaurant Dicha",
+      "venue_name": "Restaurant Dicha",
+      "address": "1 rue Letort, 75018 Paris",
+      "arrondissement": 18,
+      "commune": "Paris",
+      "lat": 48.893678,
+      "lng": 2.342915,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-22T02:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "manuel",
+      "source_url": null,
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "world"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "La Colombie à Paris au restaurant Dicha : groupes de salsa, cumbia et vallenato en live + DJs. Repéré via @el_man_de_los_chorizos.",
+      "image_url": null,
+      "instagram": "dichaparis",
+      "tiktok": null
+    },
+    {
+      "id": "manuel-leto-kulturr-fallon-makala-carla-genus-l-2026-06-21",
+      "title": "Leto, Kulturr, Fallon, Makala, Carla Genus…",
+      "venue_name": "Le 211",
+      "address": "27 Galerie de la Villette, 75019 Paris",
+      "arrondissement": 19,
+      "commune": "Paris",
+      "lat": 48.892225,
+      "lng": 2.388358,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-22T00:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "manuel",
+      "source_url": null,
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "rap"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Plateau rap au Le 211 : Leto, Kulturr, Fallon, Makala, Carla Genus + invités surprises. DJs Daddy Chulo, Jojo SK, Mel Woods, DJ Moma, Supermidz, DJ Emz, RBC, Shaybyschai, Oluwa. Hosted by Wiltz Wida Vibez, Le H & Gitoo, powered by Salomon.",
+      "image_url": null,
       "instagram": null,
       "tiktok": null
     },
@@ -5094,6 +5179,34 @@
       "tiktok": null
     },
     {
+      "id": "manuel-winter-el-grande-toto-vacra-genezio-cupr-2026-06-21",
+      "title": "Winter — El Grande Toto, Vacra, Genezio…",
+      "venue_name": "CUPRA City Garage",
+      "address": "1 Boulevard de la Madeleine, 75001 Paris",
+      "arrondissement": 1,
+      "commune": "Paris",
+      "lat": 48.869688,
+      "lng": 2.327681,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-22T00:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "manuel",
+      "source_url": null,
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "rap"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Plateau rap « Winter » présenté par CUPRA × Kultür : El Grande Toto, Vacra, Genezio, Miimii, KDS, High Klassified. Gratuit.",
+      "image_url": null,
+      "instagram": null,
+      "tiktok": null
+    },
+    {
       "id": "oa-17296398-0",
       "title": "Paris Samba Group + Diffusion des matchs",
       "venue_name": "Studio de l'Ermitage",
@@ -6241,6 +6354,34 @@
       "tiktok": null
     },
     {
+      "id": "manuel-heroines-music-rue-des-petits-carreaux-2026-06-21",
+      "title": "Héroïnes Music",
+      "venue_name": "Rue des Petits Carreaux",
+      "address": "11 rue des Petits Carreaux, 75002 Paris",
+      "arrondissement": 2,
+      "commune": "Paris",
+      "lat": 48.866807,
+      "lng": 2.347135,
+      "start_time": "2026-06-21T19:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "manuel",
+      "source_url": null,
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "rock"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Fête de la Musique en bas de la rue des Petits Carreaux, repérée sur le compte @heroines_music.",
+      "image_url": null,
+      "instagram": "heroines_music",
+      "tiktok": null
+    },
+    {
       "id": "oa-1008721-0",
       "title": "Zic&Sing sur l'Ile Saint-Louis le 21 Juin",
       "venue_name": "4 rue Jean du Bellay Paris 4ème",
@@ -7231,7 +7372,7 @@
       "start_time": "2026-06-21T20:00:00+02:00",
       "end_time": "2026-06-21T21:00:00+02:00",
       "session_date": "2026-06-21",
-      "source": "both",
+      "source": "openagenda",
       "source_url": "https://openagenda.com/fr/fetedelamusique2026/events/32176793",
       "requires_booking": false,
       "booking_url": null,
@@ -7242,8 +7383,8 @@
       "subgenres": [],
       "is_outdoor": true,
       "price_type": "free",
-      "price_detail": "<p>L’entrée est libre mais une consommation est obligatoire (première consommation majorée 5  euros).</p><p>Pas de majoration pour la deuxième consommation.&nbsp;Consommations à partir de 5 euros</p>",
-      "description": "Pour la fête de la musique, nous vous proposons un rendez-vous musical avec le Quartet de Matthieu Boré autour d’hommages pour célébrer la carrière de grands artistes. Le programme de la soirée : 17h : Hommage aux Beatles 19h : Hommage à Otis Redding Sam Cooke 21h : Hommage à Elvis Presley À savoir : L’entrée est libre mais une consommation est obligatoire (première consommation majorée 5 euros). Pas de majoration pour la deuxième consommation. Consommations à partir de 5 euros",
+      "price_detail": null,
+      "description": "ENTREE LIBRE – PAS DE RESERVATION",
       "image_url": "https://cdn.openagenda.com/main/ba0655d22a99451b834921e74163de68.base.image.jpg",
       "instagram": null,
       "tiktok": null
@@ -7898,8 +8039,8 @@
       "subgenres": [],
       "is_outdoor": true,
       "price_type": "free",
-      "price_detail": "<p>L’entrée est libre mais une consommation est obligatoire (première consommation majorée 5e).</p><p>Pas de majoration pour la deuxième consommation.&nbsp;Consommations à partir de 5 euros.</p>",
-      "description": "Pour la fête de la musique, nous vous proposons un rendez-vous musical avec Big Dez autour d’hommages pour célébrer la carrière de légendes du blues. Le programme de la soirée : 18h : Hommage à BB King 20h : Hommage à Eric Clapton 22h : Hommage à Ray Charles A savoir : L’entrée est libre mais une consommation est obligatoire (première consommation majorée 5e). Pas de majoration pour la deuxième consommation. Consommations à partir de 5 euros",
+      "price_detail": "<p>L’entrée est libre mais une consommation est obligatoire (première consommation majorée 5  euros).</p><p>Pas de majoration pour la deuxième consommation.&nbsp;Consommations à partir de 5 euros</p>",
+      "description": "Pour la fête de la musique, nous vous proposons un rendez-vous musical avec le Quartet de Matthieu Boré autour d’hommages pour célébrer la carrière de grands artistes. Le programme de la soirée : 17h : Hommage aux Beatles 19h : Hommage à Otis Redding Sam Cooke 21h : Hommage à Elvis Presley À savoir : L’entrée est libre mais une consommation est obligatoire (première consommation majorée 5 euros). Pas de majoration pour la deuxième consommation. Consommations à partir de 5 euros",
       "image_url": "https://cdn.openagenda.com/main/6ff6b5d008624950859edbe81144ba61.base.image.jpg",
       "instagram": null,
       "tiktok": null
@@ -8112,6 +8253,34 @@
       "price_detail": null,
       "description": "Orchestre d'Afrobeat nourri de hip hop, de funk, de jazz et de musique éthiopienne. Cuisine indienne de rue.",
       "image_url": "https://cdn.openagenda.com/main/63defbde35cc4cefba009ca43880a106.base.image.jpg",
+      "instagram": null,
+      "tiktok": null
+    },
+    {
+      "id": "qfap-87022-0",
+      "title": "Hommage à Ray Charles – Big Dez ⎥Fête de la musique",
+      "venue_name": "Sunset Sunside",
+      "address": "60 Rue des Lombards 75001 Paris",
+      "arrondissement": 1,
+      "commune": "Paris",
+      "lat": 48.8599345,
+      "lng": 2.3477604,
+      "start_time": "2026-06-21T22:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "qfap",
+      "source_url": "https://www.paris.fr/evenements/hommage-a-ray-charles-big-dez-fete-de-la-musique-113627",
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "autres"
+      ],
+      "subgenres": [],
+      "is_outdoor": false,
+      "price_type": "free",
+      "price_detail": "<p>L’entrée est libre mais une consommation est obligatoire (première consommation majorée 5e).</p><p>Pas de majoration pour la deuxième consommation.&nbsp;Consommations à partir de 5 euros.</p>",
+      "description": "Pour la fête de la musique, nous vous proposons un rendez-vous musical avec Big Dez autour d’hommages pour célébrer la carrière de légendes du blues. Le programme de la soirée : 18h : Hommage à BB King 20h : Hommage à Eric Clapton 22h : Hommage à Ray Charles A savoir : L’entrée est libre mais une consommation est obligatoire (première consommation majorée 5e). Pas de majoration pour la deuxième consommation. Consommations à partir de 5 euros",
+      "image_url": "https://cdn.paris.fr/qfapv4/2026/06/10/huge-95d3436213a276b27e371b58b65eafb3.jpeg",
       "instagram": null,
       "tiktok": null
     },
