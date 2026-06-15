@@ -37,4 +37,7 @@ export type Event = {
   image_url: string | null
   instagram?: string | null
   tiktok?: string | null
+  // Score de popularité 0–100 (notoriété de l'artiste, posé par l'ETL). Absent dans les
+  // mocks legacy → traité comme baseline côté carte.
+  popularity?: number
 }

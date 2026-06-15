@@ -56,10 +56,17 @@ interface T {
   langPickerTitle: string
   // nav
   navCarte: string
-  navDecouvrir: string
+  navAffluence: string
   navProgramme: string
   navAutour: string
   navMaSoiree: string
+  // affluence (heatmap estimée)
+  affTitle: string
+  affSubtitle: string
+  affExplainer: string
+  affLegendLow: string
+  affLegendHigh: string
+  affLoading: string
   // autour
   autourTitle: string
   autourGeoOn: string
@@ -175,7 +182,13 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 Dans ${h}h${String(m).padStart(2, '0')}` : `🔜 Dans ${h}h`
     },
     langPickerTitle: 'Langue',
-    navCarte: 'Carte', navDecouvrir: 'Découvrir', navProgramme: 'Programme', navAutour: 'Autour', navMaSoiree: 'Ma soirée',
+    navCarte: 'Carte', navAffluence: 'Affluence', navProgramme: 'Programme', navAutour: 'Autour', navMaSoiree: 'Ma soirée',
+    affTitle: 'Affluence estimée',
+    affSubtitle: 'Où ça va être chaud',
+    affExplainer: 'Estimation d’après la notoriété des artistes programmés — pas une mesure réelle de foule.',
+    affLegendLow: 'Calme',
+    affLegendHigh: 'Plein à craquer',
+    affLoading: 'Chargement de la carte…',
     autourTitle: 'Près de toi', autourGeoOn: 'Position activée', autourGeoOff: 'Position non activée',
     autourBientotBadge: (n) => `${n} bientôt`,
     autourSectionPreFestival: 'DANS LA RUE LE 21 JUIN', autourSectionBientot: 'ÇA COMMENCE BIENTÔT',
@@ -204,7 +217,7 @@ export const translations: Record<Lang, T> = {
       start: "C'est parti ! 🎵",
       slides: [
         { tab: '📍 CARTE',              title: 'Tous les concerts sur la carte',       desc: '182 concerts à Paris le 21 juin. Filtre par genre ou par heure, touche un point pour le détail.' },
-        { tab: '🃏 DÉCOUVRIR',           title: 'Swipe pour explorer',                  desc: "Swipe à droite ❤️ pour garder un concert, à gauche pour passer. Plus tu likes, mieux l'app te cerne." },
+        { tab: '🔥 AFFLUENCE',           title: 'Où ça va être chaud',                  desc: "Une carte façon météo de l'affluence estimée : rouge = têtes d'affiche bondées, bleu = tranquille. Suis le curseur horaire pour voir la foule bouger dans la nuit." },
         { tab: '⏱ PROGRAMME · 🎯 AUTOUR', title: 'La frise horaire et les concerts proches', desc: 'Programme = tous les concerts heure par heure. Autour = ce qui joue à moins de 15 min à pied.' },
         { tab: '❤️ MA SOIRÉE',           title: 'Tes likes = ton itinéraire',            desc: "Chaque concert gardé s'ajoute à Ma soirée. Ton parcours, trié par heure, avec les temps de marche entre chaque concert." },
       ],
@@ -265,7 +278,13 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 In ${h}h${m}` : `🔜 In ${h}h`
     },
     langPickerTitle: 'Language',
-    navCarte: 'Map', navDecouvrir: 'Explore', navProgramme: 'Schedule', navAutour: 'Nearby', navMaSoiree: 'My Evening',
+    navCarte: 'Map', navAffluence: 'Crowds', navProgramme: 'Schedule', navAutour: 'Nearby', navMaSoiree: 'My Evening',
+    affTitle: 'Estimated crowds',
+    affSubtitle: 'Where it’s going off',
+    affExplainer: 'Estimated from the fame of the line-up — not a real crowd measurement.',
+    affLegendLow: 'Quiet',
+    affLegendHigh: 'Packed',
+    affLoading: 'Loading map…',
     autourTitle: 'Near you', autourGeoOn: 'Location enabled', autourGeoOff: 'Location not enabled',
     autourBientotBadge: (n) => `${n} soon`,
     autourSectionPreFestival: 'IN THE STREET JUNE 21', autourSectionBientot: 'STARTING SOON',
@@ -294,7 +313,7 @@ export const translations: Record<Lang, T> = {
       start: "Let's go! 🎵",
       slides: [
         { tab: '📍 MAP',                    title: 'All concerts on the map',          desc: '182 concerts in Paris on June 21st. Filter by genre or time, tap a dot for details.' },
-        { tab: '🃏 EXPLORE',                 title: 'Swipe to discover',                desc: "Swipe right ❤️ to keep a concert, left to skip. The more you like, the better the app knows you." },
+        { tab: '🔥 CROWDS',                  title: 'Where it’s going off',             desc: "A weather-map of estimated crowds: red = packed headliners, blue = quiet. Slide the time scrubber to watch the crowd shift through the night." },
         { tab: '⏱ SCHEDULE · 🎯 NEARBY',    title: 'Timeline & nearby concerts',       desc: 'Schedule = all concerts hour by hour. Nearby = what\'s playing within 15 min walk.' },
         { tab: '❤️ MY EVENING',              title: 'Your likes = your itinerary',      desc: "Every concert you keep goes into My Evening. Your route, sorted by time, with walking time between stops." },
       ],
@@ -355,7 +374,13 @@ export const translations: Record<Lang, T> = {
       return m > 0 ? `🔜 ${h}小时${m}分后` : `🔜 ${h}小时后`
     },
     langPickerTitle: '语言',
-    navCarte: '地图', navDecouvrir: '发现', navProgramme: '节目', navAutour: '附近', navMaSoiree: '我的夜晚',
+    navCarte: '地图', navAffluence: '人流', navProgramme: '节目', navAutour: '附近', navMaSoiree: '我的夜晚',
+    affTitle: '预计人流',
+    affSubtitle: '哪里最火爆',
+    affExplainer: '根据演出阵容的知名度估算，并非真实人流统计。',
+    affLegendLow: '冷清',
+    affLegendHigh: '爆满',
+    affLoading: '地图加载中…',
     autourTitle: '附近', autourGeoOn: '位置已开启', autourGeoOff: '位置未开启',
     autourBientotBadge: (n) => `${n} 即将开始`,
     autourSectionPreFestival: '6月21日上街', autourSectionBientot: '即将开始',
@@ -384,7 +409,7 @@ export const translations: Record<Lang, T> = {
       start: '出发！🎵',
       slides: [
         { tab: '📍 地图',          title: '地图上的所有演出',    desc: '6月21日巴黎共182场演出。按风格或时间筛选，点击标记查看详情。' },
-        { tab: '🃏 发现',          title: '滑动探索',            desc: '向右滑动❤️保留演出，向左跳过。越多点赞，推荐越精准。' },
+        { tab: '🔥 人流',          title: '哪里最火爆',          desc: '气象图式的预计人流：红色＝大牌爆满，蓝色＝冷清。拖动时间滑块，观察人流在夜里的移动。' },
         { tab: '⏱ 节目 · 🎯 附近', title: '时间轴与附近演出',   desc: '节目单 = 按小时列出所有演出。附近 = 步行15分钟内的演出。' },
         { tab: '❤️ 我的夜晚',      title: '你的喜欢 = 你的行程', desc: '每场保存的演出都会加入「我的夜晚」。按时间排序的路线，含各站步行时间。' },
       ],

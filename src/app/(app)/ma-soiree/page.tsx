@@ -59,7 +59,7 @@ export default function MaSoireePage() {
         <p className="mt-2 max-w-65 text-sm" style={{ color: 'var(--muted)' }}>
           {t.soireeEmptyDesc}
         </p>
-        <Link href="/decouvrir" className="mt-6 rounded-2xl px-5 py-3 text-sm font-bold text-[#0B0913]"
+        <Link href="/" className="mt-6 rounded-2xl px-5 py-3 text-sm font-bold text-[#0B0913]"
           style={{ background: 'var(--glow)', boxShadow: '0 8px 30px rgba(255,92,138,.4)' }}>
           {t.soireeDiscoverBtn}
         </Link>
@@ -133,7 +133,7 @@ export default function MaSoireePage() {
         })}
 
         {/* ajouter */}
-        <Link href="/decouvrir" className="mt-1 flex gap-3.5">
+        <Link href="/" className="mt-1 flex gap-3.5">
           <div className="flex flex-[0_0_30px] justify-center">
             <div className="grid h-[30px] w-[30px] place-items-center rounded-full border-2 border-dashed border-white/25" style={{ color: 'var(--muted)' }}>
               <Plus size={16} />
