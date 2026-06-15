@@ -639,7 +639,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "chorale"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -668,7 +668,8 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "fanfare",
+        "rap"
       ],
       "subgenres": [],
       "is_outdoor": true,
@@ -4154,7 +4155,8 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "classique",
+        "chorale"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -6567,7 +6569,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "classique"
       ],
       "subgenres": [],
       "is_outdoor": true,
@@ -7300,7 +7302,9 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "jazz",
+        "soul-funk",
+        "pop"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -7570,7 +7574,8 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "world",
+        "reggae"
       ],
       "subgenres": [
         "biguine",
@@ -8563,7 +8568,9 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "blues",
+        "jazz",
+        "soul-funk"
       ],
       "subgenres": [],
       "is_outdoor": false,
