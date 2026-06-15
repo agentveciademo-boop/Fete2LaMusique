@@ -18,7 +18,6 @@ import { useCallback, useEffect, useState } from 'react'
 import MapGL, { Source, Layer, type MapRef } from 'react-map-gl/maplibre'
 import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
 import type { HeatmapLayerSpecification, FillLayerSpecification, LineLayerSpecification, CircleLayerSpecification } from 'maplibre-gl'
-import type { Feature, Polygon } from 'geojson'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
 import type { Event } from '@/types/event'
@@ -28,27 +27,10 @@ const HEAT_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY || 'https://tiles.o
 // Layers du fond de carte à masquer (POI + bâtiments 3D) — même liste que Map.tsx, carte épurée.
 const HIDDEN_BASEMAP_LAYERS = ['poi_r1', 'poi_r7', 'poi_r20', 'poi_transit', 'building-3d']
 
-// --- Tracé du périphérique (ellipse approximée sur la bbox réelle du périph) -----------
-// Le périph n'est pas un cercle : plus large E-O (~12 km) que N-S (~9 km). On génère une
-// ellipse centrée sur Paris qui en suit le contour → sert à la fois de zone à teinter
-// (fond bleu) et d'anneau dessiné.
-const PERIPH_CENTER: [number, number] = [2.3470, 48.8585]
-const PERIPH_RX = 0.1235 // demi-largeur en ° de longitude
-const PERIPH_RY = 0.0455 // demi-hauteur en ° de latitude
-
-function buildPeriphRing(): Feature<Polygon> {
-  const pts: [number, number][] = []
-  const N = 128
-  for (let i = 0; i <= N; i++) {
-    const a = (i / N) * 2 * Math.PI
-    pts.push([
-      PERIPH_CENTER[0] + PERIPH_RX * Math.cos(a),
-      PERIPH_CENTER[1] + PERIPH_RY * Math.sin(a),
-    ])
-  }
-  return { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [pts] } }
-}
-const PERIPH_RING = buildPeriphRing()
+// Seuil d'affichage des points : on ne montre que les concerts qui « émettent de la
+// lumière » sur la heatmap (≥ Viva l'Orchestra = 42). En dessous, c'est de l'amateur qui
+// n'éclaire quasi rien → on cache le point pour épurer (la heatmap, elle, garde tout).
+const POINT_MIN_POP = 42
 
 // Fond bleuté de toute la zone intra-périph : « presque rien » par défaut, jamais de noir.
 const periphFillLayer: FillLayerSpecification = {
@@ -126,9 +108,6 @@ const pointsLayer: CircleLayerSpecification = {
   },
 }
 
-// Layers (en plus de la heatmap) qui doivent suivre le filtre tranche/genre.
-const FILTERED_LAYERS = ['affluence-heat', 'affluence-points']
-
 interface Props {
   events: Event[]
   mapFilter: unknown[]
@@ -139,19 +118,31 @@ interface Props {
 export function AffluenceMap({ events, mapFilter, mapRef, onEventClick }: Props) {
   const [ready, setReady] = useState(false)
   const [cursor, setCursor] = useState('default')
+  const [periphData, setPeriphData] = useState<GeoJSON.FeatureCollection | null>(null)
   const geojson = eventsToGeoJSON(events)
 
-  // Applique le filtre (tranche horaire / genre) impérativement — même contrainte que
-  // Map.tsx : le filtre déclaratif ne se ré-applique pas toujours sans remount.
+  // Filtre des points = filtre carte (tranche/genre) + seuil de popularité (≥ 42).
+  const pointsFilter = ['all', mapFilter, ['>=', ['to-number', ['get', 'popularity']], POINT_MIN_POP]]
+
+  // Tracé du périph (open data OSM, généré par etl/periph.ts) — chargé une fois.
+  useEffect(() => {
+    if (periphData) return
+    fetch('/data/periph.json', { cache: 'force-cache' })
+      .then(r => (r.ok ? (r.json() as Promise<GeoJSON.FeatureCollection>) : null))
+      .then(d => { if (d) setPeriphData(d) })
+      .catch(() => {})
+  }, [periphData])
+
+  // Applique les filtres impérativement (heat = filtre carte, points = + seuil popularité)
+  // — même contrainte que Map.tsx : le filtre déclaratif ne se ré-applique pas sans remount.
   useEffect(() => {
     const map = mapRef.current?.getMap()
     if (!map || !map.isStyleLoaded()) return
-    for (const id of FILTERED_LAYERS) {
-      if (map.getLayer(id)) {
-        try { map.setFilter(id, mapFilter as never) } catch {/* style pas prêt */}
-      }
-    }
-  }, [mapFilter, mapRef, ready])
+    try {
+      if (map.getLayer('affluence-heat')) map.setFilter('affluence-heat', mapFilter as never)
+      if (map.getLayer('affluence-points')) map.setFilter('affluence-points', pointsFilter as never)
+    } catch {/* style pas prêt */}
+  }, [mapFilter, pointsFilter, mapRef, ready])
 
   const handleClick = useCallback((e: MapLayerMouseEvent) => {
     const map = mapRef.current?.getMap()
@@ -188,19 +179,19 @@ export function AffluenceMap({ events, mapFilter, mapRef, onEventClick }: Props)
         }
       }}
     >
-      {/* Fond bleuté intra-périph (sous la heatmap) */}
-      <Source id="periph" type="geojson" data={PERIPH_RING}>
-        <Layer {...periphFillLayer} />
-      </Source>
-
       {/* Heatmap d'affluence + points cliquables */}
       <Source id="events" type="geojson" data={geojson}>
         <Layer {...heatLayer} filter={mapFilter as never} />
-        <Layer {...pointsLayer} filter={mapFilter as never} />
+        <Layer {...pointsLayer} filter={pointsFilter as never} />
       </Source>
 
-      {/* Anneau du périph, au-dessus de tout */}
-      <Layer {...periphLineLayer} source="periph" />
+      {/* Périph (vrai tracé OSM) : fond bleuté SOUS la heatmap (beforeId) + anneau au-dessus */}
+      {periphData && (
+        <Source id="periph" type="geojson" data={periphData}>
+          <Layer {...periphFillLayer} beforeId="affluence-heat" />
+          <Layer {...periphLineLayer} />
+        </Source>
+      )}
     </MapGL>
   )
 }
