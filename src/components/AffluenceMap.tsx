@@ -14,9 +14,10 @@
 // ⚠️ Honnêteté : c'est une ESTIMATION dérivée de la notoriété, pas une mesure réelle de
 // foule (cf. label « affluence estimée » + explainer dans la page).
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import MapGL, { Source, Layer, type MapRef } from 'react-map-gl/maplibre'
-import type { HeatmapLayerSpecification, FillLayerSpecification, LineLayerSpecification } from 'maplibre-gl'
+import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
+import type { HeatmapLayerSpecification, FillLayerSpecification, LineLayerSpecification, CircleLayerSpecification } from 'maplibre-gl'
 import type { Feature, Polygon } from 'geojson'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
@@ -105,25 +106,62 @@ const heatLayer: HeatmapLayerSpecification = {
   },
 }
 
+// Points cliquables des concerts, au-dessus de la heatmap (comme les pins de la carte
+// principale, mais sans texte). Discrets pour laisser parler les couleurs ; un clic ouvre
+// la fiche. Léger grossissement avec la popularité.
+const pointsLayer: CircleLayerSpecification = {
+  id: 'affluence-points',
+  type: 'circle',
+  source: 'events',
+  paint: {
+    'circle-radius': [
+      'interpolate', ['linear'], ['zoom'],
+      10, ['interpolate', ['linear'], ['to-number', ['get', 'popularity']], 5, 2.5, 95, 6],
+      15, ['interpolate', ['linear'], ['to-number', ['get', 'popularity']], 5, 4.5, 95, 9],
+    ] as any,
+    'circle-color': '#ffffff',
+    'circle-opacity': 0.92,
+    'circle-stroke-width': 1.4,
+    'circle-stroke-color': 'rgba(11,9,19,.85)',
+  },
+}
+
+// Layers (en plus de la heatmap) qui doivent suivre le filtre tranche/genre.
+const FILTERED_LAYERS = ['affluence-heat', 'affluence-points']
+
 interface Props {
   events: Event[]
   mapFilter: unknown[]
   mapRef: React.RefObject<MapRef | null>
+  onEventClick: (event: Event) => void
 }
 
-export function AffluenceMap({ events, mapFilter, mapRef }: Props) {
+export function AffluenceMap({ events, mapFilter, mapRef, onEventClick }: Props) {
   const [ready, setReady] = useState(false)
+  const [cursor, setCursor] = useState('default')
   const geojson = eventsToGeoJSON(events)
 
-  // Applique le filtre (tranche horaire / genre) impérativement sur la heatmap — même
-  // contrainte que Map.tsx : le filtre déclaratif ne se ré-applique pas toujours sans remount.
+  // Applique le filtre (tranche horaire / genre) impérativement — même contrainte que
+  // Map.tsx : le filtre déclaratif ne se ré-applique pas toujours sans remount.
   useEffect(() => {
     const map = mapRef.current?.getMap()
     if (!map || !map.isStyleLoaded()) return
-    if (map.getLayer('affluence-heat')) {
-      try { map.setFilter('affluence-heat', mapFilter as never) } catch {/* style pas prêt */}
+    for (const id of FILTERED_LAYERS) {
+      if (map.getLayer(id)) {
+        try { map.setFilter(id, mapFilter as never) } catch {/* style pas prêt */}
+      }
     }
   }, [mapFilter, mapRef, ready])
+
+  const handleClick = useCallback((e: MapLayerMouseEvent) => {
+    const map = mapRef.current?.getMap()
+    if (!map || !map.getLayer('affluence-points')) return
+    const features = map.queryRenderedFeatures(e.point, { layers: ['affluence-points'] })
+    if (!features.length) return
+    const id = features[0].properties?.id as string
+    const event = events.find(ev => ev.id === id)
+    if (event) onEventClick(event)
+  }, [events, onEventClick, mapRef])
 
   return (
     <MapGL
@@ -134,6 +172,11 @@ export function AffluenceMap({ events, mapFilter, mapRef }: Props) {
       mapStyle={HEAT_STYLE}
       style={{ width: '100%', height: '100%' }}
       attributionControl={false}
+      cursor={cursor}
+      interactiveLayerIds={['affluence-points']}
+      onClick={handleClick}
+      onMouseEnter={() => setCursor('pointer')}
+      onMouseLeave={() => setCursor('default')}
       onLoad={() => setReady(true)}
       onStyleData={() => {
         const map = mapRef.current?.getMap()
@@ -150,9 +193,10 @@ export function AffluenceMap({ events, mapFilter, mapRef }: Props) {
         <Layer {...periphFillLayer} />
       </Source>
 
-      {/* Heatmap d'affluence */}
+      {/* Heatmap d'affluence + points cliquables */}
       <Source id="events" type="geojson" data={geojson}>
         <Layer {...heatLayer} filter={mapFilter as never} />
+        <Layer {...pointsLayer} filter={mapFilter as never} />
       </Source>
 
       {/* Anneau du périph, au-dessus de tout */}

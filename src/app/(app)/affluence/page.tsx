@@ -4,13 +4,17 @@
 // de l'affluence ESTIMÉE, dérivée de la notoriété des artistes (champ popularity).
 // Dynamique : suit le scrubber horaire (matin → nuit), réutilise useFilters comme la carte.
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import type { MapRef } from 'react-map-gl/maplibre'
+import { EventPanel } from '@/components/EventPanel'
+import { EventSheet } from '@/components/EventSheet'
 import { useEvents } from '@/hooks/useEvents'
 import { useFilters } from '@/hooks/useFilters'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { useTranslation } from '@/contexts/LanguageContext'
 import { SLOTS } from '@/lib/slots'
+import type { Event } from '@/types/event'
 
 const AffluenceMap = dynamic(() => import('@/components/AffluenceMap').then(m => m.AffluenceMap), {
   ssr: false,
@@ -25,7 +29,9 @@ export default function AffluencePage() {
   const { events } = useEvents()
   const mapRef = useRef<MapRef | null>(null)
   const { t } = useTranslation()
-  const { filters, setSlot, mapFilter, filteredCount, slotCounts } = useFilters(events)
+  const isMobile = useIsMobile()
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
+  const { filters, setSlot, mapFilter, filteredCount, slotCounts, referenceTime } = useFilters(events)
 
   const activeIdx = filters.slot ? SLOTS.findIndex(s => s.id === filters.slot) : DEFAULT_SLOT_INDEX
   const pct = (activeIdx / (SLOTS.length - 1)) * 100
@@ -44,7 +50,7 @@ export default function AffluencePage() {
           {t.affLoading}
         </div>
       ) : (
-        <AffluenceMap events={events} mapFilter={mapFilter} mapRef={mapRef} />
+        <AffluenceMap events={events} mapFilter={mapFilter} mapRef={mapRef} onEventClick={setSelectedEvent} />
       )}
 
       {/* ── Haut : titre + explainer honnêteté ── */}
@@ -99,6 +105,10 @@ export default function AffluencePage() {
           </div>
         </div>
       </div>
+
+      {/* Fiche concert (clic sur un point) — réutilise les composants de la carte */}
+      <EventPanel event={selectedEvent} sliderTime={referenceTime} onClose={() => setSelectedEvent(null)} />
+      <EventSheet event={isMobile ? selectedEvent : null} sliderTime={referenceTime} onClose={() => setSelectedEvent(null)} />
     </div>
   )
 }
