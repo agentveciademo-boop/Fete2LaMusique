@@ -21,7 +21,7 @@ export type Event = {
   // Soirée bucket (YYYY-MM-DD). Provided by the ETL; derived on the fly in the frontend until then.
   session_date?: string
   // Data provenance. Absent in legacy mocks; always set by the ETL.
-  source?: 'openagenda' | 'qfap' | 'both' | 'manuel'
+  source?: 'openagenda' | 'qfap' | 'both' | 'manuel' | 'presse'
   source_url?: string | null
   // Réservation. Absent in legacy mocks; always set by the ETL.
   // requires_booking = OpenAgenda `conditions-de-participation` 31 ("Réservation obligatoire").

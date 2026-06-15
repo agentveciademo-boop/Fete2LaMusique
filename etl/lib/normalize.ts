@@ -16,7 +16,7 @@ export type Genre =
 
 export type PriceType = 'free' | 'paid' | 'prix_libre' | 'unknown'
 
-export type Source = 'openagenda' | 'qfap' | 'both' | 'manuel'
+export type Source = 'openagenda' | 'qfap' | 'both' | 'manuel' | 'presse'
 
 export type OutEvent = {
   id: string

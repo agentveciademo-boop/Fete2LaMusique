@@ -18,6 +18,7 @@ const SOURCE_LABELS: Record<NonNullable<Event['source']>, string> = {
   qfap: 'Paris.fr',
   both: 'OpenAgenda + Paris.fr',
   manuel: 'Repéré sur les réseaux',
+  presse: 'Tête d’affiche (presse)',
 }
 
 interface Props {
