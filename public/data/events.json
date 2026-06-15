@@ -3,9 +3,10 @@
   "sources": {
     "openagenda": 234,
     "qfap": 62,
-    "manuel": 4
+    "manuel": 4,
+    "presse": 4
   },
-  "event_count": 287,
+  "event_count": 291,
   "events": [
     {
       "id": "qfap-87123-0",
@@ -581,11 +582,11 @@
       "is_outdoor": true,
       "price_type": "free",
       "price_detail": null,
-      "description": "Quatre nuits, une icône réinventée et les Champs-Élysées qui vibrent comme jamais. Renault transforme son flagship parisien en scène à ciel ouvert pour célébrer le retour de la Twingo E-Tech électrique : bienvenue au Twingo Live Show, un événement musical et spectaculaire, gratuit et ouvert à tous. Un line-up XXL pour faire groover les Champs. Pop, hip-hop, électro : la crème de la scène française se donne rendez-vous. Disiz et MC Solaar en légendes, Superbus et Miki pour l'énergie pop, Sam Sauvage pour la sensation, Santa pour le flow. Aux platines, des pointures de l'électro tricolore : Kungs, Irène Drésel, Busy P, The Avener, Bon Entendeur, Breakbot… Chaque soirée promet d'être mythique. Un vrai spectacle, pensé comme du music-hall. La direction artistique est signée Manon Savary et Marc Zaffuto, à l'origine des résidences de Kylie Minogue et Christina Aguilera à Las Vegas et du spectacle Fantasma aux Folies Bergère. Leur promesse : un manifeste anti-morosité, construit par tableaux, apparitions et séquences chorégraphiques. Dans la foule défileront les Twingo Showgirls aux costumes inspirés de la carrosserie iconique, les Mascottes Emotion expressives et colorées, la communauté Twingo Feel Good en color block pastel, les Robots Pop tout en chrome et, clou du spectacle, une tribu de grenouilles grandeur nature, acrobates et bondissantes. À vivre et à tester. Entre les shows, trois Twingo Pop Corners plongent les visiteurs dans l'univers de la grenouille préférée des Français, à travers trois générations de la voiture. Des sessions d'essai de la Twingo E-Tech électrique sont également disponibles sur inscription pour les curieux qui veulent prendre le volant de l'icône réinventée. Renseignements Défilé renault®, 53 Champs-Élysées, 75008 Paris Billetterie : https://shotgun.live/fr/venues/renault Ouverture billetterie grand public : 11 mai, 18 mai et 9 juin Dates et horaires : Du jeudi 18 juin au dimanche 21 juin 2026 Tarifs : Gratuit, sur inscription dans la limite des places disponibles",
+      "description": "Scène géante des Champs-Élysées par Renault (Twingo Live Show), 18-21 juin. Têtes d'affiche : MC Solaar, Disiz, Santa, Superbus, Miki, Sam Sauvage + DJ sets Kungs, Busy P, The Avener, Irène Drésel, Bon Entendeur. Gratuit sur réservation. Quatre nuits, une icône réinventée et les Champs-Élysées qui vibrent comme jamais. Renault transforme son flagship parisien en scène à ciel ouvert pour célébrer le retour de la Twingo E-Tech électrique : bienvenue au Twingo Live Show, un événement musical et spectaculaire, gratuit et ouvert à tous. Un line-up XXL pour faire groover les Champs. Pop, hip-hop, électro : la crème de la scène française se donne rendez-vous. Disiz et MC Solaar en légendes, Superbus et Miki pour l'énergie pop, Sam Sauvage pour la sensation, Santa pour le flow. Aux platines, des pointures de l'électro tricolore : Kungs, Irène Drésel, Busy P, The Avener, Bon Entendeur, Breakbot… Chaque soirée promet d'être mythique. Un vrai spectacle, pensé comme du music-hall. La direction artistique est signée Manon Savary et Marc Zaffuto, à l'origine des résidences de Kylie Minogue et Christina Aguilera à Las Vegas et du spectacle Fantasma aux Folies Bergère. Leur promesse : un manifeste anti-morosité, construit par tableaux, apparitions et séquences chorégraphiques. Dans la foule défileront les Twingo Showgirls aux costumes inspirés de la carrosserie iconique, les Mascottes Emotion expressives et colorées, la communauté Twingo Feel Good en color block pastel, les Robots Pop tout en chrome et, clou du spectacle, une tribu de grenouilles grandeur nature, acrobates et bondissantes. À vivre et à tester. Entre les shows, trois Twingo Pop Corners plongent les visiteurs dans l'univers de la grenouille préférée des Français, à travers trois générations de la voiture. Des sessions d'essai de la Twingo E-Tech électrique sont également disponibles sur inscription pour les curieux qui veulent prendre le volant de l'icône réinventée. Renseignements Défilé renault®, 53 Champs-Élysées, 75008 Paris Billetterie : https://shotgun.live/fr/venues/renault Ouverture billetterie grand public : 11 mai, 18 mai et 9 juin Dates et horaires : Du jeudi 18 juin au dimanche 21 juin 2026 Tarifs : Gratuit, sur inscription dans la limite des places disponibles",
       "image_url": "https://cdn.paris.fr/qfapv4/2026/05/28/huge-e803357ae17c0d4c78b4f6d58fd5bdbc.png",
       "instagram": null,
       "tiktok": null,
-      "popularity": 20
+      "popularity": 85
     },
     {
       "id": "qfap-87080-0",
@@ -1601,11 +1602,11 @@
       "is_outdoor": true,
       "price_type": "free",
       "price_detail": null,
-      "description": "Le ministère de la Culture vous donne rendez-vous dans les jardins du Palais-Royal à l’occasion de la Fête de la musique, pour une journée consacrée aux multiples courants du jazz, des années 1910 à …",
+      "description": "Grand rendez-vous jazz du ministère de la Culture aux jardins du Palais-Royal, 21 juin. Avec Thomas Dutronc et l'Orchestre National de Jazz (ONJ). Le ministère de la Culture vous donne rendez-vous dans les jardins du Palais-Royal à l’occasion de la Fête de la musique, pour une journée consacrée aux multiples courants du jazz, des années 1910 à …",
       "image_url": "https://cdn.openagenda.com/main/b33e8bea56394bf1b5a9ed2fa279ba28.base.image.jpg",
       "instagram": null,
       "tiktok": null,
-      "popularity": 25
+      "popularity": 70
     },
     {
       "id": "qfap-87228-1",
@@ -6165,11 +6166,11 @@
       "is_outdoor": true,
       "price_type": "free",
       "price_detail": null,
-      "description": "Quatre nuits, une icône réinventée et les Champs-Élysées qui vibrent comme jamais. Renault transforme son flagship parisien en scène à ciel ouvert pour célébrer le retour de la Twingo E-Tech électrique : bienvenue au Twingo Live Show, un événement musical et spectaculaire, gratuit et ouvert à tous. Un line-up XXL pour faire groover les Champs. Pop, hip-hop, électro : la crème de la scène française se donne rendez-vous. Disiz et MC Solaar en légendes, Superbus et Miki pour l'énergie pop, Sam Sauvage pour la sensation, Santa pour le flow. Aux platines, des pointures de l'électro tricolore : Kungs, Irène Drésel, Busy P, The Avener, Bon Entendeur, Breakbot… Chaque soirée promet d'être mythique. Un vrai spectacle, pensé comme du music-hall. La direction artistique est signée Manon Savary et Marc Zaffuto, à l'origine des résidences de Kylie Minogue et Christina Aguilera à Las Vegas et du spectacle Fantasma aux Folies Bergère. Leur promesse : un manifeste anti-morosité, construit par tableaux, apparitions et séquences chorégraphiques. Dans la foule défileront les Twingo Showgirls aux costumes inspirés de la carrosserie iconique, les Mascottes Emotion expressives et colorées, la communauté Twingo Feel Good en color block pastel, les Robots Pop tout en chrome et, clou du spectacle, une tribu de grenouilles grandeur nature, acrobates et bondissantes. À vivre et à tester. Entre les shows, trois Twingo Pop Corners plongent les visiteurs dans l'univers de la grenouille préférée des Français, à travers trois générations de la voiture. Des sessions d'essai de la Twingo E-Tech électrique sont également disponibles sur inscription pour les curieux qui veulent prendre le volant de l'icône réinventée. Renseignements Défilé renault®, 53 Champs-Élysées, 75008 Paris Billetterie : https://shotgun.live/fr/venues/renault Ouverture billetterie grand public : 11 mai, 18 mai et 9 juin Dates et horaires : Du jeudi 18 juin au dimanche 21 juin 2026 Tarifs : Gratuit, sur inscription dans la limite des places disponibles",
+      "description": "Scène géante des Champs-Élysées par Renault (Twingo Live Show), 18-21 juin. Têtes d'affiche : MC Solaar, Disiz, Santa, Superbus, Miki, Sam Sauvage + DJ sets Kungs, Busy P, The Avener, Irène Drésel, Bon Entendeur. Gratuit sur réservation. Quatre nuits, une icône réinventée et les Champs-Élysées qui vibrent comme jamais. Renault transforme son flagship parisien en scène à ciel ouvert pour célébrer le retour de la Twingo E-Tech électrique : bienvenue au Twingo Live Show, un événement musical et spectaculaire, gratuit et ouvert à tous. Un line-up XXL pour faire groover les Champs. Pop, hip-hop, électro : la crème de la scène française se donne rendez-vous. Disiz et MC Solaar en légendes, Superbus et Miki pour l'énergie pop, Sam Sauvage pour la sensation, Santa pour le flow. Aux platines, des pointures de l'électro tricolore : Kungs, Irène Drésel, Busy P, The Avener, Bon Entendeur, Breakbot… Chaque soirée promet d'être mythique. Un vrai spectacle, pensé comme du music-hall. La direction artistique est signée Manon Savary et Marc Zaffuto, à l'origine des résidences de Kylie Minogue et Christina Aguilera à Las Vegas et du spectacle Fantasma aux Folies Bergère. Leur promesse : un manifeste anti-morosité, construit par tableaux, apparitions et séquences chorégraphiques. Dans la foule défileront les Twingo Showgirls aux costumes inspirés de la carrosserie iconique, les Mascottes Emotion expressives et colorées, la communauté Twingo Feel Good en color block pastel, les Robots Pop tout en chrome et, clou du spectacle, une tribu de grenouilles grandeur nature, acrobates et bondissantes. À vivre et à tester. Entre les shows, trois Twingo Pop Corners plongent les visiteurs dans l'univers de la grenouille préférée des Français, à travers trois générations de la voiture. Des sessions d'essai de la Twingo E-Tech électrique sont également disponibles sur inscription pour les curieux qui veulent prendre le volant de l'icône réinventée. Renseignements Défilé renault®, 53 Champs-Élysées, 75008 Paris Billetterie : https://shotgun.live/fr/venues/renault Ouverture billetterie grand public : 11 mai, 18 mai et 9 juin Dates et horaires : Du jeudi 18 juin au dimanche 21 juin 2026 Tarifs : Gratuit, sur inscription dans la limite des places disponibles",
       "image_url": "https://cdn.paris.fr/qfapv4/2026/05/28/huge-e803357ae17c0d4c78b4f6d58fd5bdbc.png",
       "instagram": null,
       "tiktok": null,
-      "popularity": 20
+      "popularity": 85
     },
     {
       "id": "qfap-86424-0",
@@ -8829,6 +8830,128 @@
       "instagram": null,
       "tiktok": null,
       "popularity": 5
+    },
+    {
+      "id": "presse-bastille-spotify-2026-06-21",
+      "title": "Spotify Fan de la Musique — Tiakola, Ronisia, Miki, RnBoi",
+      "venue_name": "Place de la Bastille",
+      "address": "Place de la Bastille, 75011 Paris",
+      "arrondissement": 11,
+      "commune": "Paris",
+      "lat": 48.8532,
+      "lng": 2.3692,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-22T00:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "presse",
+      "source_url": null,
+      "requires_booking": true,
+      "booking_url": "https://shotgun.live/en/events/spotify-fan-de-la-musique",
+      "genres": [
+        "rap",
+        "electro",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Soirée géante gratuite organisée par Spotify place de la Bastille (capacité ~5000, sur réservation). DJ sets de Tiakola, Miki, Ronisia, Crystallmess, Jeune Morty + live de RnBoi. Repéré via presse (Sortiraparis/Generations).",
+      "image_url": null,
+      "instagram": null,
+      "tiktok": null,
+      "popularity": 88
+    },
+    {
+      "id": "presse-olympia-france-inter-2026-06-21",
+      "title": "France Inter à l'Olympia — Chilly Gonzales, Makala, Ino Casablanca",
+      "venue_name": "L'Olympia",
+      "address": "28 boulevard des Capucines, 75009 Paris",
+      "arrondissement": 9,
+      "commune": "Paris",
+      "lat": 48.8702,
+      "lng": 2.3286,
+      "start_time": "2026-06-21T21:00:00+02:00",
+      "end_time": "2026-06-22T00:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "presse",
+      "source_url": null,
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "pop",
+        "rap",
+        "classique"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "France Inter investit l'Olympia pour des concerts gratuits (sur réservation) : Chilly Gonzales, Makala et Ino Casablanca, diffusés en direct sur l'antenne. Repéré via presse (Sortiraparis).",
+      "image_url": null,
+      "instagram": null,
+      "tiktok": null,
+      "popularity": 75
+    },
+    {
+      "id": "presse-rue-du-nil-2026-06-21",
+      "title": "Musique sur le Nil — Breakbot & Irfane, Mon cher Guy",
+      "venue_name": "Rue du Nil",
+      "address": "Rue du Nil, 75002 Paris",
+      "arrondissement": 2,
+      "commune": "Paris",
+      "lat": 48.8665,
+      "lng": 2.3478,
+      "start_time": "2026-06-21T16:00:00+02:00",
+      "end_time": "2026-06-21T23:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "presse",
+      "source_url": null,
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "electro",
+        "soul-funk",
+        "pop"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "2e édition de Musique sur le Nil (rue du Nil, 2e) : DJ sets de Breakbot & Irfane (Ed Banger) et Mon cher Guy, scène culinaire et musicale. Horaire à confirmer. Repéré via presse (Sortiraparis).",
+      "image_url": null,
+      "instagram": null,
+      "tiktok": null,
+      "popularity": 65
+    },
+    {
+      "id": "presse-radio-france-viva-orchestra-2026-06-21",
+      "title": "Viva l'Orchestra — Maison de la Radio et de la Musique",
+      "venue_name": "Maison de la Radio et de la Musique",
+      "address": "116 avenue du Président Kennedy, 75016 Paris",
+      "arrondissement": 16,
+      "commune": "Paris",
+      "lat": 48.8519,
+      "lng": 2.2786,
+      "start_time": "2026-06-21T18:00:00+02:00",
+      "end_time": "2026-06-21T22:00:00+02:00",
+      "session_date": "2026-06-21",
+      "source": "presse",
+      "source_url": null,
+      "requires_booking": false,
+      "booking_url": null,
+      "genres": [
+        "classique"
+      ],
+      "subgenres": [],
+      "is_outdoor": true,
+      "price_type": "free",
+      "price_detail": null,
+      "description": "Viva l'Orchestra de Radio France : plus de 110 musiciens amateurs réunis. Horaire à confirmer. Repéré via presse (Sortiraparis).",
+      "image_url": null,
+      "instagram": null,
+      "tiktok": null,
+      "popularity": 42
     }
   ]
 }
