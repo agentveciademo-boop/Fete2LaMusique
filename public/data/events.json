@@ -373,7 +373,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "world"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -402,7 +402,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "classique"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -460,7 +460,8 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "reggae",
+        "world"
       ],
       "subgenres": [],
       "is_outdoor": true,
@@ -547,7 +548,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "world"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -576,7 +577,11 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "pop",
+        "rap",
+        "electro",
+        "variete",
+        "rock"
       ],
       "subgenres": [],
       "is_outdoor": true,
@@ -605,7 +610,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "jazz"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -2217,7 +2222,7 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "jazz"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -4000,7 +4005,8 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "world",
+        "trad"
       ],
       "subgenres": [
         "Samba carioca"
@@ -4089,7 +4095,8 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "classique",
+        "fanfare"
       ],
       "subgenres": [],
       "is_outdoor": false,
@@ -6160,7 +6167,11 @@
       "requires_booking": false,
       "booking_url": null,
       "genres": [
-        "autres"
+        "pop",
+        "rap",
+        "electro",
+        "variete",
+        "rock"
       ],
       "subgenres": [],
       "is_outdoor": true,
