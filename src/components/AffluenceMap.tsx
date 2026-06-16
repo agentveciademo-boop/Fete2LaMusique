@@ -20,6 +20,7 @@ import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
 import type { HeatmapLayerSpecification, FillLayerSpecification, LineLayerSpecification, CircleLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
+import { GENRE_CONFIG } from '@/data/genres'
 import type { Event } from '@/types/event'
 
 const HEAT_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY || 'https://tiles.openfreemap.org/styles/dark'
@@ -88,9 +89,17 @@ const heatLayer: HeatmapLayerSpecification = {
   },
 }
 
+// Couleur du genre dominant (genre_primary) → expression `match` MapLibre, identique à la
+// carte principale. Test : colorer les points d'affluence par style musical (au lieu du blanc).
+const GENRE_COLOR_MATCH: any = [
+  'match', ['get', 'genre_primary'],
+  ...Object.entries(GENRE_CONFIG).flatMap(([g, cfg]) => [g, cfg.color]),
+  '#9D97B0',
+]
+
 // Points cliquables des concerts, au-dessus de la heatmap (comme les pins de la carte
-// principale, mais sans texte). Discrets pour laisser parler les couleurs ; un clic ouvre
-// la fiche. Léger grossissement avec la popularité.
+// principale, mais sans texte). Colorés par genre dominant + liseré blanc pour ressortir
+// sur la heatmap. Léger grossissement avec la popularité.
 const pointsLayer: CircleLayerSpecification = {
   id: 'affluence-points',
   type: 'circle',
@@ -101,10 +110,10 @@ const pointsLayer: CircleLayerSpecification = {
       10, ['interpolate', ['linear'], ['to-number', ['get', 'popularity']], 5, 2.5, 95, 6],
       15, ['interpolate', ['linear'], ['to-number', ['get', 'popularity']], 5, 4.5, 95, 9],
     ] as any,
-    'circle-color': '#ffffff',
-    'circle-opacity': 0.92,
-    'circle-stroke-width': 1.4,
-    'circle-stroke-color': 'rgba(11,9,19,.85)',
+    'circle-color': GENRE_COLOR_MATCH,
+    'circle-opacity': 0.95,
+    'circle-stroke-width': 1.6,
+    'circle-stroke-color': 'rgba(255,255,255,.9)',
   },
 }
 
