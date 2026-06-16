@@ -1,5 +1,4 @@
 import { BottomNav } from '@/components/BottomNav'
-import { OnboardingSlides } from '@/components/OnboardingSlides'
 import { Toaster } from '@/components/ui/sonner'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
@@ -16,7 +15,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <main className="relative flex-1 overflow-hidden">{children}</main>
         <BottomNav />
         <Toaster />
-        <OnboardingSlides />
       </div>
     </LanguageProvider>
   )

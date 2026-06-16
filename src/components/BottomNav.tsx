@@ -6,8 +6,8 @@ import { Map, Flame, Clock, Radar, Heart, type LucideIcon } from 'lucide-react'
 import { useTranslation } from '@/contexts/LanguageContext'
 
 const TAB_HREFS: { href: string; Icon: LucideIcon; key: 'navCarte' | 'navAffluence' | 'navProgramme' | 'navAutour' | 'navMaSoiree' }[] = [
-  { href: '/',          Icon: Map,    key: 'navCarte'     },
-  { href: '/affluence', Icon: Flame,  key: 'navAffluence' },
+  { href: '/',          Icon: Flame,  key: 'navAffluence' },
+  { href: '/carte',     Icon: Map,    key: 'navCarte'     },
   { href: '/programme', Icon: Clock,  key: 'navProgramme' },
   { href: '/autour',    Icon: Radar,  key: 'navAutour'    },
   { href: '/ma-soiree', Icon: Heart,  key: 'navMaSoiree'  },

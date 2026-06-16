@@ -32,61 +32,86 @@ const CONCERT_COLOR = '#FF6B6B'
 // Jaune « Sur réservation » : anneau des pins concernés (renfort du halo jaune, cf. bookingHaloLayer).
 const BOOKING_RING = '#FFB300'
 
-// --- Pins multi-genres --------------------------------------------------------
-// Règle validée (refonte UX, remplace le camembert systématique) :
-//   1 genre   → point plein de la couleur du genre + anneau blanc
-//   2 genres  → pin scindé 50/50 (diviseur incliné ~15°), le cas le plus fréquent
-//   3 genres+ → dominante (1er genre) pleine + pastille « +N » en bas à droite
-// Les images sont générées à la demande via `styleimagemissing` (id = `pie_key`,
-// ex. "jazz+rock"). Rendu canvas, mis en cache par la map. Anneau jaune épais pour
-// les concerts « Sur réservation » (requires_booking).
-const ICON_PX = 44 // taille intrinsèque (à pixelRatio) ; icon-size ajuste l'affichage
+// --- Pins multi-genres : marqueur GOUTTE (teardrop) ---------------------------
+// Refonte visuelle : on abandonne le disque plein (« camembert ») au profit d'une
+// goutte dont la POINTE désigne le lieu exact (icon-anchor: 'bottom'). Sur les zones
+// denses, les pointes donnent une direction commune et l'œil sépare mieux les pins
+// empilés. Règle de remplissage de la tête (inchangée) :
+//   1 genre   → tête pleine couleur du genre + anneau blanc + cœur blanc
+//   2 genres  → tête scindée 50/50 (gauche/droite)
+//   3 genres+ → dominante pleine + pastille « +N » en haut à droite de la tête
+// Anneau jaune épais pour « Sur réservation » (requires_booking).
+// Images générées à la demande via `styleimagemissing` (id = `pie_key`, ex. "jazz+rock").
+const HEAD_R  = 13                              // rayon de la tête de la goutte
+const ICON_W  = 34                              // largeur intrinsèque (place anneau + pastille +N)
+const HEAD_CY = HEAD_R + 3                       // centre de la tête (3px de marge haute)
+const TIP_Y   = HEAD_CY + HEAD_R * Math.SQRT2     // pointe = coin net pivoté à 45°
+const ICON_H  = Math.ceil(TIP_Y + 3)             // hauteur intrinsèque (pointe ~ en bas)
+
+// Tracé d'un carré à coins arrondis SAUF un coin net (bottom-right ici), pivoté 45° pour
+// que ce coin net devienne la pointe vers le bas. arcTo → compatible tous navigateurs.
+function teardropPath(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number): void {
+  ctx.beginPath()
+  ctx.save()
+  ctx.translate(cx, cy)
+  ctx.rotate(Math.PI / 4) // 45° horaire → coin bas-droit pointe vers le bas
+  const x = -r, y = -r, s = 2 * r
+  // coins : [tl, tr, br=0 (net), bl]
+  ctx.moveTo(x + r, y)
+  ctx.lineTo(x + s - r, y)
+  ctx.arcTo(x + s, y, x + s, y + r, r)        // tr
+  ctx.lineTo(x + s, y + s)                     // br = net (pas d'arc)
+  ctx.lineTo(x + r, y + s)
+  ctx.arcTo(x, y + s, x, y + s - r, r)         // bl
+  ctx.lineTo(x, y + r)
+  ctx.arcTo(x, y, x + r, y, r)                 // tl
+  ctx.closePath()
+  ctx.restore()
+}
 
 function drawGenrePin(genres: Genre[], ringColor: string = '#fff', ringWidth: number = 2.5): { data: ImageData; pixelRatio: number } | null {
   const dpr = Math.max(2, Math.round(window.devicePixelRatio || 1))
   const canvas = document.createElement('canvas')
-  canvas.width = ICON_PX * dpr
-  canvas.height = ICON_PX * dpr
+  canvas.width = ICON_W * dpr
+  canvas.height = ICON_H * dpr
   const ctx = canvas.getContext('2d')
   if (!ctx) return null
   ctx.scale(dpr, dpr)
 
-  const cx = ICON_PX / 2, cy = ICON_PX / 2, r = ICON_PX / 2 - 3
+  const cx = ICON_W / 2
   const list = genres.length ? genres : (['autres'] as Genre[])
   const col = (g: Genre) => GENRE_CONFIG[g]?.color ?? '#9D97B0'
 
-  // Disque de base (clip circulaire).
+  // Remplissage de la tête (clip à la goutte ; on peint en repères écran).
   ctx.save()
-  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.closePath(); ctx.clip()
-
-  if (list.length === 1) {
-    ctx.fillStyle = col(list[0]); ctx.fillRect(0, 0, ICON_PX, ICON_PX)
-  } else if (list.length === 2) {
-    // Pin scindé : deux moitiés, diviseur incliné (~15°) pour matcher la maquette.
-    ctx.translate(cx, cy); ctx.rotate((15 * Math.PI) / 180); ctx.translate(-cx, -cy)
-    ctx.fillStyle = col(list[0]); ctx.fillRect(-cx, -cy, cx + ICON_PX, ICON_PX * 2) // moitié gauche
-    ctx.fillStyle = col(list[1]); ctx.fillRect(cx, -cy, ICON_PX, ICON_PX * 2)       // moitié droite
+  teardropPath(ctx, cx, HEAD_CY, HEAD_R)
+  ctx.clip()
+  if (list.length === 2) {
+    ctx.fillStyle = col(list[0]); ctx.fillRect(0, 0, cx, ICON_H)            // moitié gauche
+    ctx.fillStyle = col(list[1]); ctx.fillRect(cx, 0, ICON_W - cx, ICON_H)  // moitié droite
   } else {
-    // 3+ : dominante pleine ; la pastille « +N » est dessinée après le clip.
-    ctx.fillStyle = col(list[0]); ctx.fillRect(0, 0, ICON_PX, ICON_PX)
+    ctx.fillStyle = col(list[0]); ctx.fillRect(0, 0, ICON_W, ICON_H)
   }
   ctx.restore()
 
   // Anneau extérieur (détache le pin du fond). Blanc par défaut ; jaune épais à réserver.
-  ctx.beginPath()
-  ctx.arc(cx, cy, r, 0, Math.PI * 2)
+  teardropPath(ctx, cx, HEAD_CY, HEAD_R)
   ctx.lineWidth = ringWidth
   ctx.strokeStyle = ringColor
   ctx.stroke()
 
+  // Cœur blanc au centre de la tête (point de visée).
+  ctx.beginPath(); ctx.arc(cx, HEAD_CY, 4, 0, Math.PI * 2)
+  ctx.fillStyle = '#fff'; ctx.fill()
+
   // Pastille « +N » pour 3 genres et plus (couleur du 2e genre, liseré encre).
   if (list.length >= 3) {
-    const bx = cx + r * 0.62, by = cy + r * 0.62, br = 7
+    const bx = cx + HEAD_R * 0.72, by = HEAD_CY - HEAD_R * 0.72, br = 6.5
     ctx.beginPath(); ctx.arc(bx, by, br, 0, Math.PI * 2)
     ctx.fillStyle = col(list[1]); ctx.fill()
-    ctx.lineWidth = 2; ctx.strokeStyle = '#0B0913'; ctx.stroke()
+    ctx.lineWidth = 1.6; ctx.strokeStyle = '#0B0913'; ctx.stroke()
     ctx.fillStyle = '#0B0913'
-    ctx.font = '700 9px monospace'
+    ctx.font = '700 8px monospace'
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
     ctx.fillText(`+${list.length - 1}`, bx, by + 0.5)
   }
@@ -125,7 +150,9 @@ const pinsLayer: SymbolLayerSpecification = {
   source: 'events',
   layout: {
     'icon-image': ['get', 'pie_key'],
-    'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0.5, 14, 0.62, 17, 0.74],
+    'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0.6, 14, 0.78, 17, 0.95],
+    // La POINTE de la goutte est ancrée sur le lieu exact (bas de l'icône).
+    'icon-anchor': 'bottom',
     'icon-allow-overlap': true,
     'icon-ignore-placement': true,
   },
@@ -149,6 +176,8 @@ const glowLayer: CircleLayerSpecification = {
     'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 9, 14, 13, 17, 17],
     'circle-blur': 1,
     'circle-opacity': 0.55,
+    // Pin ancré par la pointe → on remonte le halo sous la TÊTE de la goutte.
+    'circle-translate': ['interpolate', ['linear'], ['zoom'], 10, ['literal', [0, -10]], 17, ['literal', [0, -16]]],
   },
 }
 
@@ -256,6 +285,7 @@ const bookingHaloLayer: CircleLayerSpecification = {
     'circle-color': BOOKING_COLOR,
     'circle-opacity': 0.8,
     'circle-blur': 0.35,
+    'circle-translate': ['interpolate', ['linear'], ['zoom'], 10, ['literal', [0, -10]], 17, ['literal', [0, -16]]],
   },
 }
 
@@ -270,6 +300,7 @@ const pulseLayer: CircleLayerSpecification = {
     'circle-radius': 16,
     'circle-color': CONCERT_COLOR,
     'circle-opacity': 0.45,
+    'circle-translate': [0, -13],
   },
 }
 
