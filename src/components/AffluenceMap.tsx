@@ -22,12 +22,10 @@ import type { HeatmapLayerSpecification, FillLayerSpecification, LineLayerSpecif
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
 import { ensurePieImages, registerPieImageHandler } from '@/lib/genrePin'
+import { declutterBasemap } from '@/lib/basemap'
 import type { Event } from '@/types/event'
 
 const HEAT_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY || 'https://tiles.openfreemap.org/styles/dark'
-
-// Layers du fond de carte à masquer (POI + bâtiments 3D) — même liste que Map.tsx, carte épurée.
-const HIDDEN_BASEMAP_LAYERS = ['poi_r1', 'poi_r7', 'poi_r20', 'poi_transit', 'building-3d']
 
 // Seuil d'affichage des points : on ne montre que les concerts qui « émettent de la
 // lumière » sur la heatmap (≥ Viva l'Orchestra = 42). En dessous, c'est de l'amateur qui
@@ -183,11 +181,7 @@ export function AffluenceMap({ events, mapFilter, mapRef, onEventClick }: Props)
         const map = mapRef.current?.getMap()
         if (!map) return
         ensurePieImages(map, events)
-        for (const id of HIDDEN_BASEMAP_LAYERS) {
-          if (map.getLayer(id)) {
-            try { map.setLayoutProperty(id, 'visibility', 'none') } catch {/* style pas prêt */}
-          }
-        }
+        declutterBasemap(map)
       }}
     >
       {/* Heatmap d'affluence + points cliquables */}

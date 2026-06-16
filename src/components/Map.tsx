@@ -8,6 +8,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { Settings, Check } from 'lucide-react'
 import { eventsToGeoJSON } from '@/lib/geojson'
 import { ensurePieImages, registerPieImageHandler } from '@/lib/genrePin'
+import { declutterBasemap } from '@/lib/basemap'
 import { GENRE_CONFIG } from '@/data/genres'
 import { useTranslation } from '@/contexts/LanguageContext'
 import type { Event } from '@/types/event'
@@ -33,11 +34,6 @@ const CONCERT_COLOR = '#FF6B6B'
 // Pins « goutte » colorés par genre : la génération canvas est déportée dans
 // lib/genrePin.ts (partagée avec l'écran Affluence). Clé d'icône = `pie_key`
 // (ex. "jazz+rock", suffixe "|book" pour « sur réservation »).
-
-// Layers du fond de carte (OpenFreeMap Liberty) qu'on masque pour une carte épurée :
-// - poi_* : icônes/labels des commerces, lieux, et arrêts de transport (bruit visuel)
-// - building-3d : extrusion 3D des bâtiments au zoom — on garde la carte en 2D à plat
-const HIDDEN_BASEMAP_LAYERS = ['poi_r1', 'poi_r7', 'poi_r20', 'poi_transit', 'building-3d']
 
 // Pins = camemberts (symbol). On garde l'id 'events-unclustered' : clic, filtre genre/horaire
 // et interactivité restent câblés dessus sans changement ailleurs.
@@ -456,14 +452,10 @@ export function MapView({ events, mapFilter, sliderTime, onEventClick, mapRef, s
       onStyleData={() => {
         const map = mapRef.current?.getMap()
         if (!map) return
-        // (Re)génère les icônes camembert après tout (re)chargement de style (ex. swap de fond).
+        // (Re)génère les icônes goutte après tout (re)chargement de style (ex. swap de fond).
         ensurePieImages(map, events)
-        // Carte épurée : masquer les POI (commerces, lieux, arrêts) et les bâtiments 3D du fond de carte.
-        for (const id of HIDDEN_BASEMAP_LAYERS) {
-          if (map.getLayer(id)) {
-            try { map.setLayoutProperty(id, 'visibility', 'none') } catch {/* style not ready */}
-          }
-        }
+        // Carte épurée : masque les POI/marqueurs du fond + bâtiments 3D (agnostique au style).
+        declutterBasemap(map)
         if (map.getLayer('events-unclustered')) {
           map.setFilter('events-unclustered', mapFilter as any)
         }
