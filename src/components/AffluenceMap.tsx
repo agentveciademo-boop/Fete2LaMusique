@@ -1,7 +1,8 @@
 'use client'
 
-// Carte « Affluence estimée » (onglet Affluence) — pas de pins, pas de texte : une HEATMAP
-// façon carte météo, pondérée par la notoriété de l'artiste (champ `popularity`).
+// Carte « Affluence estimée » (onglet Affluence) — une HEATMAP façon carte météo pondérée
+// par la notoriété de l'artiste (champ `popularity`), + pins « goutte » colorés par genre
+// pour les concerts notables (≥ POINT_MIN_POP).
 //
 // Idée : un concert très connu (El Grande Toto = 95) attire exponentiellement plus de
 // monde qu'une scène ouverte (10). Le poids par point = (popularity/100)^3 → un 95 pèse
@@ -17,10 +18,10 @@
 import { useCallback, useEffect, useState } from 'react'
 import MapGL, { Source, Layer, type MapRef } from 'react-map-gl/maplibre'
 import type { MapLayerMouseEvent } from 'react-map-gl/maplibre'
-import type { HeatmapLayerSpecification, FillLayerSpecification, LineLayerSpecification, CircleLayerSpecification } from 'maplibre-gl'
+import type { HeatmapLayerSpecification, FillLayerSpecification, LineLayerSpecification, SymbolLayerSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { eventsToGeoJSON } from '@/lib/geojson'
-import { GENRE_CONFIG } from '@/data/genres'
+import { ensurePieImages, registerPieImageHandler } from '@/lib/genrePin'
 import type { Event } from '@/types/event'
 
 const HEAT_STYLE = process.env.NEXT_PUBLIC_MAP_STYLE_PRIMARY || 'https://tiles.openfreemap.org/styles/dark'
@@ -89,31 +90,19 @@ const heatLayer: HeatmapLayerSpecification = {
   },
 }
 
-// Couleur du genre dominant (genre_primary) → expression `match` MapLibre, identique à la
-// carte principale. Test : colorer les points d'affluence par style musical (au lieu du blanc).
-const GENRE_COLOR_MATCH: any = [
-  'match', ['get', 'genre_primary'],
-  ...Object.entries(GENRE_CONFIG).flatMap(([g, cfg]) => [g, cfg.color]),
-  '#9D97B0',
-]
-
-// Points cliquables des concerts, au-dessus de la heatmap (comme les pins de la carte
-// principale, mais sans texte). Colorés par genre dominant + liseré blanc pour ressortir
-// sur la heatmap. Léger grossissement avec la popularité.
-const pointsLayer: CircleLayerSpecification = {
+// Points cliquables des concerts = pins « goutte » colorés par genre (mêmes icônes que la
+// carte principale, cf. lib/genrePin), au-dessus de la heatmap. La pointe désigne le lieu ;
+// l'icône grossit légèrement avec le zoom. Seuls les concerts ≥ POINT_MIN_POP sont affichés.
+const pointsLayer: SymbolLayerSpecification = {
   id: 'affluence-points',
-  type: 'circle',
+  type: 'symbol',
   source: 'events',
-  paint: {
-    'circle-radius': [
-      'interpolate', ['linear'], ['zoom'],
-      10, ['interpolate', ['linear'], ['to-number', ['get', 'popularity']], 5, 2.5, 95, 6],
-      15, ['interpolate', ['linear'], ['to-number', ['get', 'popularity']], 5, 4.5, 95, 9],
-    ] as any,
-    'circle-color': GENRE_COLOR_MATCH,
-    'circle-opacity': 0.95,
-    'circle-stroke-width': 1.6,
-    'circle-stroke-color': 'rgba(255,255,255,.9)',
+  layout: {
+    'icon-image': ['get', 'pie_key'],
+    'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0.5, 14, 0.68, 17, 0.85],
+    'icon-anchor': 'bottom',
+    'icon-allow-overlap': true,
+    'icon-ignore-placement': true,
   },
 }
 
@@ -132,6 +121,14 @@ export function AffluenceMap({ events, mapFilter, mapRef, onEventClick }: Props)
 
   // Filtre des points = filtre carte (tranche/genre) + seuil de popularité (≥ 42).
   const pointsFilter = ['all', mapFilter, ['>=', ['to-number', ['get', 'popularity']], POINT_MIN_POP]]
+
+  // (Re)génère les icônes goutte dès que les events sont prêts (idempotent, comme Map.tsx).
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map) return
+    if (map.isStyleLoaded()) ensurePieImages(map, events)
+    else map.once('styledata', () => ensurePieImages(map, events))
+  }, [events, mapRef])
 
   // Tracé du périph (open data OSM, généré par etl/periph.ts) — chargé une fois.
   useEffect(() => {
@@ -177,10 +174,15 @@ export function AffluenceMap({ events, mapFilter, mapRef, onEventClick }: Props)
       onClick={handleClick}
       onMouseEnter={() => setCursor('pointer')}
       onMouseLeave={() => setCursor('default')}
-      onLoad={() => setReady(true)}
+      onLoad={() => {
+        setReady(true)
+        const map = mapRef.current?.getMap()
+        if (map) { registerPieImageHandler(map); ensurePieImages(map, events) }
+      }}
       onStyleData={() => {
         const map = mapRef.current?.getMap()
         if (!map) return
+        ensurePieImages(map, events)
         for (const id of HIDDEN_BASEMAP_LAYERS) {
           if (map.getLayer(id)) {
             try { map.setLayoutProperty(id, 'visibility', 'none') } catch {/* style pas prêt */}
