@@ -115,6 +115,10 @@ export function dedup(all: OutEvent[]): DedupResult {
   for (const group of byDate.values()) {
     const primary = group.filter((e) => e.source === 'openagenda')
     const secondary = group.filter((e) => e.source === 'qfap')
+    // Sources hors fusion (ex. 'manuel') : conservées telles quelles. Elles
+    // existent justement parce qu'elles manquent aux agendas officiels — pas de
+    // dédup pour ne masquer aucun ajout fait main.
+    const passthrough = group.filter((e) => e.source !== 'openagenda' && e.source !== 'qfap')
     const usedPrimary = new Set<number>()
 
     // Pour chaque event secondaire (QFAP), on cherche le meilleur OA libre.
@@ -142,6 +146,8 @@ export function dedup(all: OutEvent[]): DedupResult {
     }
     // Tous les OA (fusionnés ou non) sont conservés.
     result.push(...primary)
+    // Puis les sources hors fusion (manuel…), intactes.
+    result.push(...passthrough)
   }
 
   return { events: result, merged }

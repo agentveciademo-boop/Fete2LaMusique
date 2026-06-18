@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Map, Layers, Clock, Radar, Heart, Navigation, ChevronRight } from 'lucide-react'
+import { Map, Clock, Radar, Navigation, ChevronRight } from 'lucide-react'
 import { useTranslation } from '@/contexts/LanguageContext'
 
 const STORAGE_KEY = 'fdm_onboarding_v1'
@@ -20,7 +20,7 @@ interface SlideConfig {
 // Partie statique des slides (visuals + couleurs) — les textes viennent de i18n
 const SLIDE_STATICS = [
   { id: 'carte',     color: 'var(--azur)', tint: 'rgba(100,200,255,.06)',  Visual: VisualMap       },
-  { id: 'decouvrir', color: 'var(--glow)', tint: 'rgba(255,92,138,.07)',   Visual: VisualDeck      },
+  { id: 'affluence', color: '#ff2d55',    tint: 'rgba(255,45,85,.07)',    Visual: VisualHeat      },
   { id: 'programme', color: 'var(--sun)',  tint: 'rgba(255,205,58,.06)',   Visual: VisualTimeline  },
   { id: 'ma-soiree', color: 'var(--glow)', tint: 'rgba(255,92,138,.08)',   Visual: VisualItinerary },
 ] as const
@@ -175,56 +175,53 @@ function VisualMap() {
   )
 }
 
-function VisualDeck() {
-  const [liked, setLiked] = useState(false)
-  useEffect(() => {
-    const id = setInterval(() => setLiked(p => !p), 1900)
-    return () => clearInterval(id)
-  }, [])
+// Aperçu « carte météo » de l'affluence : taches colorées floutées qui pulsent doucement,
+// du bleu (calme) au rouge (plein à craquer). Reproduit le rendu de la heatmap.
+function VisualHeat() {
+  // Foyers : position, taille, couleur (du chaud au froid).
+  const blobs = [
+    { x: 60, y: 42, r: 150, c: '#ff2d55' }, // gros foyer rouge (tête d'affiche)
+    { x: 58, y: 40, r: 90,  c: '#fb923c' },
+    { x: 56, y: 38, r: 52,  c: '#fde047' },
+    { x: 30, y: 62, r: 90,  c: '#4ade80' }, // foyer moyen vert
+    { x: 76, y: 70, r: 80,  c: '#00e5cc' }, // foyer cyan
+    { x: 24, y: 28, r: 70,  c: '#1e90ff' }, // zone calme bleue
+    { x: 80, y: 24, r: 60,  c: '#1d2f8f' },
+  ]
   return (
-    <div className="relative flex h-full items-center justify-center">
-      {/* carte fond */}
+    <div className="relative h-full overflow-hidden">
+      {/* grille discrète façon plan de ville */}
       <div
-        className="absolute inset-x-14 inset-y-10 -rotate-3 rounded-[22px] opacity-45"
-        style={{ background: 'var(--ink-600)' }}
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px)',
+          backgroundSize: '44px 44px',
+        }}
       />
-      {/* carte principale */}
-      <motion.div
-        className="absolute inset-x-8 inset-y-6 overflow-hidden rounded-[22px] border border-white/10"
-        style={{ background: 'linear-gradient(145deg, rgba(255,92,138,.22) 0%, var(--ink-700) 60%)' }}
-        animate={{ x: liked ? 80 : 0, rotate: liked ? 13 : 0 }}
-        transition={{ type: 'spring', stiffness: 150, damping: 22 }}
-      >
+      {blobs.map((b, i) => (
         <motion.div
-          className="absolute left-5 top-5 -rotate-12 rounded-xl border-2 px-3 py-1 font-display text-xl font-extrabold"
-          style={{ borderColor: 'var(--glow)', color: 'var(--glow)' }}
-          animate={{ opacity: liked ? 1 : 0 }}
-          transition={{ duration: 0.15 }}
-        >
-          GARDÉ ❤️
-        </motion.div>
-        <div className="absolute inset-x-5 bottom-20">
-          <div className="mb-1 text-sm font-bold" style={{ color: 'var(--glow)' }}>🎸 Rock</div>
-          <div className="font-display text-2xl font-extrabold leading-tight">Les Wampas</div>
-          <div className="mt-1 text-sm" style={{ color: 'var(--muted)' }}>Place de la République · 21:00</div>
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            left: `${b.x}%`, top: `${b.y}%`,
+            width: b.r, height: b.r,
+            transform: 'translate(-50%,-50%)',
+            background: b.c,
+            filter: 'blur(26px)',
+            opacity: 0.65,
+          }}
+          animate={{ scale: [1, 1.12, 1], opacity: [0.55, 0.75, 0.55] }}
+          transition={{ duration: 3.2, repeat: Infinity, delay: i * 0.18, ease: 'easeInOut' }}
+        />
+      ))}
+      {/* label du foyer principal */}
+      <div className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 text-center">
+        <div className="font-display text-base font-extrabold leading-tight" style={{ color: '#fff', textShadow: '0 1px 6px #0B0913' }}>
+          🔥 El Grande Toto
         </div>
-      </motion.div>
-      {/* boutons swipe */}
-      <div className="absolute bottom-6 flex items-center gap-6">
-        <div
-          className="grid h-[52px] w-[52px] place-items-center rounded-full border border-white/15 font-bold"
-          style={{ background: 'var(--ink-700)', color: 'var(--muted)', fontSize: 20 }}
-        >
-          ✕
+        <div className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,.85)', textShadow: '0 1px 6px #0B0913' }}>
+          plein à craquer
         </div>
-        <motion.div
-          className="grid h-[66px] w-[66px] place-items-center rounded-full"
-          style={{ background: 'var(--glow)', color: '#0B0913', boxShadow: '0 0 26px rgba(255,92,138,.55)' }}
-          animate={{ scale: liked ? 1.18 : 1 }}
-          transition={{ type: 'spring', stiffness: 500, damping: 18 }}
-        >
-          <Heart size={30} fill="#0B0913" />
-        </motion.div>
       </div>
     </div>
   )

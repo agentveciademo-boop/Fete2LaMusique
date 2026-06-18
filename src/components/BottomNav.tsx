@@ -2,12 +2,12 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Map, Layers, Clock, Radar, Heart, type LucideIcon } from 'lucide-react'
+import { Map, Flame, Clock, Radar, Heart, type LucideIcon } from 'lucide-react'
 import { useTranslation } from '@/contexts/LanguageContext'
 
-const TAB_HREFS: { href: string; Icon: LucideIcon; key: 'navCarte' | 'navDecouvrir' | 'navProgramme' | 'navAutour' | 'navMaSoiree' }[] = [
-  { href: '/',          Icon: Map,    key: 'navCarte'     },
-  { href: '/decouvrir', Icon: Layers, key: 'navDecouvrir' },
+const TAB_HREFS: { href: string; Icon: LucideIcon; key: 'navCarte' | 'navAffluence' | 'navProgramme' | 'navAutour' | 'navMaSoiree' }[] = [
+  { href: '/',          Icon: Flame,  key: 'navAffluence' },
+  { href: '/carte',     Icon: Map,    key: 'navCarte'     },
   { href: '/programme', Icon: Clock,  key: 'navProgramme' },
   { href: '/autour',    Icon: Radar,  key: 'navAutour'    },
   { href: '/ma-soiree', Icon: Heart,  key: 'navMaSoiree'  },

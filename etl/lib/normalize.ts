@@ -16,7 +16,7 @@ export type Genre =
 
 export type PriceType = 'free' | 'paid' | 'prix_libre' | 'unknown'
 
-export type Source = 'openagenda' | 'qfap' | 'both'
+export type Source = 'openagenda' | 'qfap' | 'both' | 'manuel' | 'presse'
 
 export type OutEvent = {
   id: string
@@ -43,6 +43,10 @@ export type OutEvent = {
   image_url: string | null
   instagram: string | null
   tiktok: string | null
+  // Score de popularité 0–100 (notoriété de l'artiste) → pondère la heatmap « affluence
+  // estimée ». Curé à la main dans public/data/events.json (cf. têtes d'affiche presse) ;
+  // optionnel ici, une source peut le fournir (sinon la carte retombe sur une baseline).
+  popularity?: number
 }
 
 // ---------- Périmètre géographique ----------

@@ -21,7 +21,7 @@ export type Event = {
   // Soirée bucket (YYYY-MM-DD). Provided by the ETL; derived on the fly in the frontend until then.
   session_date?: string
   // Data provenance. Absent in legacy mocks; always set by the ETL.
-  source?: 'openagenda' | 'qfap' | 'both'
+  source?: 'openagenda' | 'qfap' | 'both' | 'manuel' | 'presse'
   source_url?: string | null
   // Réservation. Absent in legacy mocks; always set by the ETL.
   // requires_booking = OpenAgenda `conditions-de-participation` 31 ("Réservation obligatoire").
@@ -37,4 +37,7 @@ export type Event = {
   image_url: string | null
   instagram?: string | null
   tiktok?: string | null
+  // Score de popularité 0–100 (notoriété de l'artiste, posé par l'ETL). Absent dans les
+  // mocks legacy → traité comme baseline côté carte.
+  popularity?: number
 }

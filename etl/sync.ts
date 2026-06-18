@@ -23,12 +23,16 @@ import { type OutEvent, pruneAutres } from './lib/normalize'
 import { dedup } from './lib/dedup'
 import { fetchOpenAgenda } from './sources/openagenda'
 import { fetchQfap } from './sources/qfap'
+import { fetchManuel } from './sources/manuel'
+import { fetchPresse } from './sources/presse'
 
 type SourceDef = { name: string; fetch: () => Promise<OutEvent[]> }
 
 const ALL_SOURCES: SourceDef[] = [
   { name: 'openagenda', fetch: fetchOpenAgenda },
   { name: 'qfap', fetch: fetchQfap },
+  { name: 'manuel', fetch: fetchManuel },
+  { name: 'presse', fetch: fetchPresse },
 ]
 
 // Filtre optionnel : SOURCES=openagenda,qfap (défaut = toutes).
@@ -73,6 +77,25 @@ async function main(): Promise<void> {
       enriched++
     }
     if (enriched > 0) console.error(`  enrichments manuels appliqués : ${enriched} events`)
+  }
+
+  // Popularité (0–100, notoriété de l'artiste) : curée à la main, appliquée par
+  // baseId comme les enrichments. Vit dans etl/popularity.json pour SURVIVRE au
+  // resync (sinon les scores — et la heatmap Affluence — seraient réinitialisés).
+  // Les events 'presse' portent déjà leur score (source autonome) → non écrasés.
+  const popularityPath = path.resolve('etl/popularity.json')
+  if (fs.existsSync(popularityPath)) {
+    const scores = JSON.parse(fs.readFileSync(popularityPath, 'utf-8')) as Record<string, number>
+    let applied = 0
+    for (const e of deduped) {
+      if (e.popularity != null) continue // déjà fourni par la source (ex. presse)
+      const baseId = e.id.replace(/-\d+$/, '')
+      if (scores[baseId] != null) {
+        e.popularity = scores[baseId]
+        applied++
+      }
+    }
+    if (applied > 0) console.error(`  popularité appliquée : ${applied} events`)
   }
 
   // Tri stable par start_time (minimise les diffs git).

@@ -31,6 +31,8 @@ function eventToFeature(event: Event): Feature<Point> {
       requires_booking: event.requires_booking ? 1 : 0,
       is_outdoor:    event.is_outdoor === null ? -1 : event.is_outdoor ? 1 : 0,
       price_type:    event.price_type,
+      // Popularité 0–100 (notoriété artiste) → pondère la heatmap « affluence estimée ».
+      popularity:    event.popularity ?? 10,
     },
   }
 }

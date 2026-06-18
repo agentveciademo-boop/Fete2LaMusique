@@ -105,6 +105,34 @@ function inferOutdoor(rec: QfapRecord): boolean | null {
   return inferOutdoorFromText(rec.address_name, rec.address_street)
 }
 
+// Géocodage Base Adresse Nationale (gratuit, sans clé) — utilisé pour corriger
+// les coordonnées « génériques » que paris.fr réutilise à l'identique pour
+// plusieurs lieux distincts (cf. bug Les Lionnes / Les Processions épinglés sur
+// le même centroïde 48.8566,2.3518). On re-géocode alors depuis l'adresse réelle.
+async function geocode(address: string): Promise<{ lat: number; lng: number } | null> {
+  const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}&limit=1`
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const res = await fetch(url, { headers: { accept: 'application/json' } })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = (await res.json()) as {
+        features?: Array<{ geometry?: { coordinates?: [number, number] } }>
+      }
+      const coords = data.features?.[0]?.geometry?.coordinates
+      if (!coords) return null
+      return { lng: coords[0], lat: coords[1] }
+    } catch (e) {
+      const wait = 400 * 2 ** attempt
+      console.error(`[qfap]   géocodage tenté ${attempt}/3 échoué (${(e as Error).message}); retry ${wait}ms`)
+      await new Promise((r) => setTimeout(r, wait))
+    }
+  }
+  return null
+}
+
+// Clé de coordonnée stable (5 décimales ≈ 1 m) pour repérer les doublons.
+const coordKey = (lat: number, lng: number) => `${lat.toFixed(5)},${lng.toFixed(5)}`
+
 export async function fetchQfap(): Promise<OutEvent[]> {
   console.error(`[qfap] fetch « Que faire à Paris » (tag Concert, ${WINDOW_START}→${WINDOW_END})…`)
 
@@ -121,14 +149,38 @@ export async function fetchQfap(): Promise<OutEvent[]> {
   }
   console.error(`[qfap] ${records.length} concerts récupérés (chevauchant la fenêtre)`)
 
+  // Pré-passe — repère les coordonnées « génériques » : un même point lat/lon que
+  // paris.fr réutilise pour ≥2 adresses différentes = centroïde par défaut (le lieu
+  // n'a pas été géocodé côté source). On les re-géocodera depuis l'adresse réelle.
+  // (Un vrai lieu partagé par plusieurs concerts a la même adresse → non flaggé.)
+  const addrsByCoord = new Map<string, Set<string>>()
+  for (const rec of records) {
+    const lat = rec.lat_lon?.lat
+    const lng = rec.lat_lon?.lon
+    if (lat == null || lng == null) continue
+    const street = (rec.address_street ?? '').trim().toLowerCase()
+    if (!street) continue
+    const key = coordKey(lat, lng)
+    if (!addrsByCoord.has(key)) addrsByCoord.set(key, new Set())
+    addrsByCoord.get(key)!.add(street)
+  }
+  const genericCoords = new Set(
+    [...addrsByCoord].filter(([, addrs]) => addrs.size > 1).map(([key]) => key),
+  )
+  if (genericCoords.size > 0) {
+    console.error(`[qfap] ${genericCoords.size} coordonnée(s) générique(s) détectée(s) → re-géocodage par adresse`)
+  }
+
   const normalized: OutEvent[] = []
   let droppedPaid = 0
   let droppedNoCoords = 0
   let droppedOffWindow = 0
+  let droppedNoAddress = 0
+  let regeocoded = 0
 
   for (const rec of records) {
-    const lat = rec.lat_lon?.lat
-    const lng = rec.lat_lon?.lon
+    let lat = rec.lat_lon?.lat
+    let lng = rec.lat_lon?.lon
     if (lat == null || lng == null || !inParis(lat, lng)) {
       droppedNoCoords++
       continue
@@ -141,6 +193,21 @@ export async function fetchQfap(): Promise<OutEvent[]> {
     const title = (rec.title ?? '').trim()
     const venueName = (rec.address_name ?? '').trim()
     const address = [rec.address_street, rec.address_zipcode, rec.address_city].filter(Boolean).join(' ').trim()
+
+    // Coordonnée générique : sans adresse réelle c'est une page agrégée paris.fr
+    // (ex. « toute la programmation »), pas un concert → écarté. Sinon, re-géocodage.
+    if (genericCoords.has(coordKey(lat, lng))) {
+      if (!address) {
+        droppedNoAddress++
+        continue
+      }
+      const hit = await geocode(address)
+      if (hit && inParis(hit.lat, hit.lng)) {
+        lat = hit.lat
+        lng = hit.lng
+        regeocoded++
+      }
+    }
     const description = stripHtml(rec.description || rec.lead_text || '').trim()
     const isOutdoor = inferOutdoor(rec)
     // QFAP ne porte pas de champ « genre musical » → 'autres' (pas d'invention).
@@ -182,7 +249,7 @@ export async function fetchQfap(): Promise<OutEvent[]> {
     if (kept === 0) droppedOffWindow++
   }
 
-  console.error(`[qfap] normalisés (gratuit, soirée FdM): ${normalized.length}`)
-  console.error(`[qfap]   écartés: payants=${droppedPaid}, hors Paris/sans coords=${droppedNoCoords}, hors fenêtre 20-21=${droppedOffWindow}`)
+  console.error(`[qfap] normalisés (gratuit, soirée FdM): ${normalized.length} (re-géocodés=${regeocoded})`)
+  console.error(`[qfap]   écartés: payants=${droppedPaid}, hors Paris/sans coords=${droppedNoCoords}, sans adresse (page agrégée)=${droppedNoAddress}, hors fenêtre 20-21=${droppedOffWindow}`)
   return normalized
 }
