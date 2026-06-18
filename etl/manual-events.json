@@ -20,15 +20,16 @@
 
   "events": [
     {
-      "title": "Héroïnes Music",
+      "title": "Héroïnes",
       "venue_name": "Rue des Petits Carreaux",
       "address": "11 rue des Petits Carreaux, 75002 Paris",
-      "start_time": "2026-06-21T19:00",
-      "end_time": "2026-06-21T23:00",
+      "start_time": "2026-06-21T22:00",
+      "end_time": "2026-06-21T22:45",
       "genres": ["rock"],
+      "subgenres": ["rock psychédélique", "reprises françaises"],
       "instagram": "heroines_music",
       "tiktok": null,
-      "description": "Fête de la Musique en bas de la rue des Petits Carreaux, repérée sur le compte @heroines_music.",
+      "description": "Quintet indé qui revisite des reprises en français sur des mélodies rock psychédéliques (inspirations Alain Bashung, Pink Floyd, Air, Radiohead, avec une pointe de chanson française). Set de 22h00 à 22h45, devant le 11 rue des Petits Carreaux.",
       "image_url": null,
       "source_url": null,
       "is_outdoor": true,
